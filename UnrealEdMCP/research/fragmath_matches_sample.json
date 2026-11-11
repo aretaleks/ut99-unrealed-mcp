@@ -1,0 +1,939 @@
+[
+{
+"map": "CTF-Acrony",
+"red": 3,
+"blue": 2,
+"dur": 19.916666666666668,
+"tag": "OT",
+"kills": 992,
+"prefs": {
+"CTF-Acrony": 3.0,
+"CTF-Nuance99": 2.0,
+"CTF-Talya": 0.5,
+"CTF-Grudge": 0.5,
+"CTF-Entropic": -0.5,
+"CTF-PryXon": -1.0,
+"CTF-Sprinta": -1.5,
+"CTF-BrokenLimits": -3.5
+}
+},
+{
+"map": "CTF-Command",
+"red": 2,
+"blue": 1,
+"dur": 15.033333333333333,
+"tag": "ADV",
+"kills": 768,
+"prefs": {
+"CTF-Command": 7.5,
+"CTF-PryXon": 3.0,
+"CTF-Nuance99": 1.0,
+"CTF-Talya": 0.0,
+"CTF-Entropic": -0.5,
+"CTF-Grudge": -2.0,
+"CTF-Sprinta": -4.5,
+"CTF-BrokenLimits": -6.0,
+"CTF-Achromatic": -7.0
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 2,
+"blue": 4,
+"dur": 15.116666666666667,
+"tag": "ADV",
+"kills": 812,
+"prefs": {
+"CTF-Iztac": 5.0,
+"CTF-Nuance99": 2.0,
+"CTF-Talya": -0.5,
+"CTF-Grudge": -0.5,
+"CTF-Sprinta": 0.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Achromatic": -5.0
+}
+},
+{
+"map": "CTF-Nuance99",
+"red": 6,
+"blue": 4,
+"dur": 15.116666666666667,
+"tag": "ADV",
+"kills": 738,
+"prefs": {
+"CTF-Nuance99": 5.5,
+"CTF-Anfractuous": 4.0,
+"CTF-Grudge": 1.0,
+"CTF-Talya": 0.5,
+"CTF-Sprinta": 0.0,
+"CTF-Entropic": -2.5,
+"CTF-PryXon": -4.0
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 2,
+"blue": 6,
+"dur": 15.283333333333333,
+"tag": "ADV",
+"kills": 702,
+"prefs": {
+"CTF-Anfractuous": 4.5,
+"CTF-Duku": 1.5,
+"CTF-Talya": -1.5,
+"CTF-Sprinta": -1.0,
+"CTF-PryXon": -3.0,
+"CTF-BrokenLimits": -3.5,
+"CTF-Grudge": -5.0,
+"CTF-Entropic": -5.5,
+"CTF-Achromatic": -6.5
+}
+},
+{
+"map": "CTF-Duku",
+"red": 1,
+"blue": 6,
+"dur": 15.166666666666666,
+"tag": "ADV",
+"kills": 781,
+"prefs": {
+"CTF-Duku": 10.0,
+"CTF-PryXon": 2.5,
+"CTF-Grudge": 2.0,
+"CTF-Talya": -0.5,
+"CTF-Entropic": -1.5,
+"CTF-BrokenLimits": -1.5,
+"CTF-Sprinta": -3.0,
+"CTF-Achromatic": -5.0,
+"CTF-Rankin": -3.5
+}
+},
+{
+"map": "CTF-Klondike",
+"red": 4,
+"blue": 0,
+"dur": 15.016666666666667,
+"tag": "ADV",
+"kills": 810,
+"prefs": {
+"CTF-Klondike": 5.5,
+"CTF-Sprinta": 0.5,
+"CTF-Rankin": 0.5,
+"CTF-Talya": -1.0,
+"CTF-PryXon": -3.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Grudge": -4.0,
+"CTF-Achromatic": -6.5,
+"CTF-Entropic": -6.5
+}
+},
+{
+"map": "CTF-Rune",
+"red": 3,
+"blue": 4,
+"dur": 17.05,
+"tag": "OT",
+"kills": 843,
+"prefs": {
+"CTF-Rune": 4.0,
+"CTF-Talya": 0.0,
+"CTF-Entropic": -0.5,
+"CTF-BrokenLimits": -0.5,
+"CTF-Sprinta": -2.0,
+"CTF-Rankin": -2.0,
+"CTF-Grudge": -3.5,
+"CTF-PryXon": -3.5
+}
+},
+{
+"map": "CTF-PryXon",
+"red": 3,
+"blue": 9,
+"dur": 13.2,
+"tag": null,
+"kills": 671,
+"prefs": {
+"CTF-PryXon": 1.0,
+"CTF-Acrony": 1.5,
+"CTF-Sprinta": 1.0,
+"CTF-Talya": -2.0,
+"CTF-Grudge": -2.0,
+"CTF-Rankin": -2.5,
+"CTF-BrokenLimits": -4.0,
+"CTF-Entropic": -4.5
+}
+},
+{
+"map": "CTF-Acrony",
+"red": 2,
+"blue": 3,
+"dur": 15.933333333333334,
+"tag": "OT",
+"kills": 732,
+"prefs": {
+"CTF-Acrony": 3.5,
+"CTF-Grudge": 1.5,
+"CTF-Talya": 1.0,
+"CTF-Rankin": -1.0,
+"CTF-Overflow": -1.0,
+"CTF-BrokenLimits": -2.5,
+"CTF-Entropic": -4.5,
+"CTF-Sprinta": -5.0
+}
+},
+{
+"map": "CTF-Command",
+"red": 4,
+"blue": 5,
+"dur": 15.0,
+"tag": null,
+"kills": 779,
+"prefs": {
+"CTF-Command": 7.5,
+"CTF-Overflow": 4.0,
+"CTF-Grudge": 1.5,
+"CTF-Entropic": 0.0,
+"CTF-Talya": -1.0,
+"CTF-Rankin": -1.5,
+"CTF-Sprinta": -2.0,
+"CTF-BrokenLimits": -4.5,
+"CTF-Achromatic": -6.0
+}
+},
+{
+"map": "CTF-Overflow",
+"red": 2,
+"blue": 8,
+"dur": 11.166666666666666,
+"tag": null,
+"kills": 540,
+"prefs": {
+"CTF-Overflow": 3.5,
+"CTF-Iztac": 2.0,
+"CTF-Talya": -0.5,
+"CTF-Entropic": -2.0,
+"CTF-BrokenLimits": -2.0,
+"CTF-Sprinta": -3.5,
+"CTF-Grudge": -4.0
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 5,
+"blue": 2,
+"dur": 15.016666666666667,
+"tag": null,
+"kills": 737,
+"prefs": {
+"CTF-Nuance99": 6.5,
+"CTF-Iztac": 5.0,
+"CTF-Grudge": 0.5,
+"CTF-Rankin": 0.5,
+"CTF-Entropic": -1.0,
+"CTF-Talya": -1.0,
+"CTF-Achromatic": -5.0,
+"CTF-Sprinta": -4.5
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 4,
+"blue": 0,
+"dur": 15.016666666666667,
+"tag": null,
+"kills": 709,
+"prefs": {
+"CTF-Anfractuous": 3.0,
+"CTF-Nuance99": 1.5,
+"CTF-Talya": 0.0,
+"CTF-Grudge": -0.5,
+"CTF-Entropic": -1.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Rankin": -3.5,
+"CTF-Sprinta": -4.0
+}
+},
+{
+"map": "CTF-Nuance99",
+"red": 1,
+"blue": 0,
+"dur": 15.133333333333333,
+"tag": "ADV",
+"kills": 759,
+"prefs": {
+"CTF-Nuance99": 4.0,
+"CTF-Talya": 2.0,
+"CTF-Grudge": 1.5,
+"CTF-Duku": 2.5,
+"CTF-Rankin": 0.5,
+"CTF-Sprinta": -2.0,
+"CTF-Entropic": -3.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Achromatic": -5.5
+}
+},
+{
+"map": "CTF-Klondike",
+"red": 5,
+"blue": 3,
+"dur": 15.05,
+"tag": "ADV",
+"kills": 774,
+"prefs": {
+"CTF-Klondike": 5.0,
+"CTF-Duku": 5.0,
+"CTF-Entropic": 0.0,
+"CTF-BrokenLimits": -1.0,
+"CTF-Talya": -1.5,
+"CTF-Sprinta": -2.5,
+"CTF-Grudge": -3.0,
+"CTF-Achromatic": -4.0
+}
+},
+{
+"map": "CTF-Grudge",
+"red": 4,
+"blue": 5,
+"dur": 15.0,
+"tag": null,
+"kills": 821,
+"prefs": {
+"CTF-Duku": 3.5,
+"CTF-Grudge": 2.0,
+"CTF-Rankin": 1.5,
+"CTF-Talya": 0.0,
+"CTF-Sprinta": 0.0,
+"CTF-Rune": 0.5,
+"CTF-Entropic": -2.5
+}
+},
+{
+"map": "CTF-Duku",
+"red": 4,
+"blue": 5,
+"dur": 18.05,
+"tag": "OT",
+"kills": 933,
+"prefs": {
+"CTF-Duku": 8.0,
+"CTF-Rune": 3.0,
+"CTF-BrokenLimits": 1.0,
+"CTF-Entropic": 0.0,
+"CTF-PryXon": 0.0,
+"CTF-Sprinta": -0.5,
+"CTF-Achromatic": -3.5,
+"CTF-Talya": -3.0,
+"CTF-Rankin": -3.5
+}
+},
+{
+"map": "CTF-Rune",
+"red": 2,
+"blue": 1,
+"dur": 21.716666666666665,
+"tag": "OT",
+"kills": 1045,
+"prefs": {
+"CTF-Rune": 5.0,
+"CTF-Talya": -1.0,
+"CTF-Entropic": -2.0,
+"CTF-Acrony": -2.0,
+"CTF-PryXon": -3.0,
+"CTF-Achromatic": -5.0
+}
+},
+{
+"map": "CTF-Command",
+"red": 7,
+"blue": 1,
+"dur": 15.15,
+"tag": "ADV",
+"kills": 860,
+"prefs": {
+"CTF-Command": 4.0,
+"CTF-Acrony": 2.0,
+"CTF-Talya": -1.5,
+"CTF-Rankin": -1.5,
+"CTF-Entropic": -3.5,
+"CTF-Sprinta": -3.0,
+"CTF-BrokenLimits": -5.0
+}
+},
+{
+"map": "CTF-Acrony",
+"red": 5,
+"blue": 1,
+"dur": 15.116666666666667,
+"tag": "ADV",
+"kills": 764,
+"prefs": {
+"CTF-Acrony": 0.0,
+"CTF-Talya": -1.0,
+"CTF-Sprinta": -2.0,
+"CTF-Entropic": -3.0,
+"CTF-Overflow": -1.5,
+"CTF-Rankin": -4.0,
+"CTF-BrokenLimits": -5.0,
+"CTF-PryXon": -6.0
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 4,
+"blue": 5,
+"dur": 15.0,
+"tag": null,
+"kills": 729,
+"prefs": {
+"CTF-Iztac": 3.5,
+"CTF-Talya": 2.0,
+"CTF-Sprinta": 1.0,
+"CTF-Entropic": -3.0,
+"CTF-Overflow": -2.5,
+"CTF-BrokenLimits": -4.5,
+"CTF-Rankin": -4.0,
+"CTF-Achromatic": -6.0
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 6,
+"blue": 0,
+"dur": 13.433333333333334,
+"tag": null,
+"kills": 662,
+"prefs": {
+"CTF-Anfractuous": 2.5,
+"CTF-Talya": 1.0,
+"CTF-Overflow": -1.5,
+"CTF-Sprinta": -3.0,
+"CTF-Rankin": -3.0,
+"CTF-Entropic": -4.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-PryXon": -4.0
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 5,
+"blue": 6,
+"dur": 15.016666666666667,
+"tag": "ADV",
+"kills": 753,
+"prefs": {
+"CTF-Iztac": 8.5,
+"CTF-Klondike": 7.0,
+"CTF-Rune": 7.0,
+"CTF-Nuance99": 6.5,
+"CTF-Command": 5.0,
+"CTF-Duku": 4.5,
+"CTF-Grudge": 2.5,
+"CTF-Talya": 1.5,
+"CTF-Overflow": 1.5,
+"CTF-Acrony": 1.5,
+"CTF-Entropic": -1.0,
+"CTF-Sprinta": -1.5,
+"CTF-Rankin": -1.5,
+"CTF-BrokenLimits": -2.0,
+"CTF-PryXon": -2.5,
+"CTF-Achromatic": -5.0
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 3,
+"blue": 1,
+"dur": 15.0,
+"tag": null,
+"kills": 698,
+"prefs": {
+"CTF-Nuance99": 6.5,
+"CTF-Anfractuous": 6.5,
+"CTF-Klondike": 6.0,
+"CTF-Duku": 4.5,
+"CTF-Rune": 3.0,
+"CTF-Command": 2.0,
+"CTF-Grudge": 1.5,
+"CTF-Talya": 1.0,
+"CTF-Acrony": 1.0,
+"CTF-Overflow": 0.0,
+"CTF-Entropic": -1.5,
+"CTF-PryXon": -1.0,
+"CTF-Sprinta": -2.0,
+"CTF-Rankin": -2.0,
+"CTF-BrokenLimits": -2.5,
+"CTF-Achromatic": -5.0
+}
+},
+{
+"map": "CTF-Klondike",
+"red": 2,
+"blue": 4,
+"dur": 15.0,
+"tag": null,
+"kills": 835,
+"prefs": {
+"CTF-Klondike": 8.0,
+"CTF-Command": 6.5,
+"CTF-Duku": 6.0,
+"CTF-Rune": 4.0,
+"CTF-Acrony": 4.0,
+"CTF-Nuance99": 3.5,
+"CTF-Talya": 1.0,
+"CTF-Grudge": 1.0,
+"CTF-PryXon": 0.5,
+"CTF-Overflow": 0.0,
+"CTF-Sprinta": -1.0,
+"CTF-Entropic": -2.0,
+"CTF-Achromatic": -2.5,
+"CTF-Rankin": -1.5,
+"CTF-BrokenLimits": -4.5
+}
+},
+{
+"map": "CTF-Nuance99",
+"red": 6,
+"blue": 0,
+"dur": 5.116666666666666,
+"tag": null,
+"kills": 223,
+"prefs": {
+"CTF-Nuance99": 4.0,
+"CTF-Talya": 3.0,
+"CTF-Sprinta": 3.0,
+"CTF-Duku": 2.0,
+"CTF-Command": 2.0,
+"CTF-Acrony": 2.0,
+"CTF-Grudge": 1.0,
+"CTF-Overflow": 0.0,
+"CTF-Entropic": -1.0,
+"CTF-Rune": -0.5,
+"CTF-PryXon": -1.0,
+"CTF-Achromatic": -2.5,
+"CTF-Rankin": -1.5,
+"CTF-BrokenLimits": -3.5
+}
+},
+{
+"map": "CTF-Command",
+"red": 5,
+"blue": 3,
+"dur": 15.0,
+"tag": null,
+"kills": 767,
+"prefs": {
+"CTF-Command": 5.0,
+"CTF-Duku": 3.5,
+"CTF-Sprinta": 3.0,
+"CTF-Overflow": 3.0,
+"CTF-Talya": 2.0,
+"CTF-Acrony": 1.5,
+"CTF-PryXon": 1.0,
+"CTF-Grudge": 1.0,
+"CTF-Achromatic": -0.5,
+"CTF-Entropic": -0.5,
+"CTF-Rune": -1.0,
+"CTF-Rankin": -1.5,
+"CTF-BrokenLimits": -4.5
+}
+},
+{
+"map": "CTF-Duku",
+"red": 6,
+"blue": 3,
+"dur": 15.0,
+"tag": null,
+"kills": 812,
+"prefs": {
+"CTF-Duku": 5.5,
+"CTF-Grudge": 3.5,
+"CTF-Acrony": 3.0,
+"CTF-Entropic": 1.5,
+"CTF-Talya": 1.5,
+"CTF-Overflow": 1.5,
+"CTF-PryXon": 1.0,
+"CTF-Rune": 1.0,
+"CTF-Sprinta": 0.5,
+"CTF-Achromatic": -1.5,
+"CTF-Rankin": -1.5,
+"CTF-BrokenLimits": -4.0
+}
+},
+{
+"map": "CTF-Rune",
+"red": 8,
+"blue": 3,
+"dur": 15.0,
+"tag": null,
+"kills": 805,
+"prefs": {
+"CTF-Rune": 2.5,
+"CTF-Acrony": 2.5,
+"CTF-Talya": 1.0,
+"CTF-Overflow": 1.0,
+"CTF-Entropic": -1.5,
+"CTF-Grudge": -2.0,
+"CTF-Sprinta": -3.0,
+"CTF-PryXon": -4.0,
+"CTF-BrokenLimits": -4.5
+}
+},
+{
+"map": "CTF-Acrony",
+"red": 2,
+"blue": 3,
+"dur": 17.6,
+"tag": "OT",
+"kills": 838,
+"prefs": {
+"CTF-Acrony": 5.5,
+"CTF-Talya": 2.5,
+"CTF-Overflow": 1.0,
+"CTF-PryXon": 0.5,
+"CTF-Grudge": 0.5,
+"CTF-Entropic": -1.5,
+"CTF-Rankin": -3.0,
+"CTF-Sprinta": -3.5,
+"CTF-Achromatic": -5.0
+}
+},
+{
+"map": "CTF-Talya",
+"red": 8,
+"blue": 4,
+"dur": 15.0,
+"tag": null,
+"kills": 652,
+"prefs": {
+"CTF-Talya": 0.5,
+"CTF-Entropic": -0.5,
+"CTF-Grudge": -0.5,
+"CTF-Overflow": -1.0,
+"CTF-Sprinta": -1.5,
+"CTF-BrokenLimits": -2.5,
+"CTF-PryXon": -4.0
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 4,
+"blue": 3,
+"dur": 15.0,
+"tag": null,
+"kills": 734,
+"prefs": {
+"CTF-Iztac": 4.0,
+"CTF-Overflow": 1.0,
+"CTF-Rankin": -0.5,
+"CTF-BrokenLimits": -1.5,
+"CTF-Sprinta": -1.5,
+"CTF-Grudge": -2.0,
+"CTF-Achromatic": -4.0,
+"CTF-Entropic": -4.5,
+"CTF-PryXon": -4.5
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 2,
+"blue": 1,
+"dur": 18.6,
+"tag": "OT",
+"kills": 854,
+"prefs": {
+"CTF-Anfractuous": 5.5,
+"CTF-Sprinta": 3.0,
+"CTF-Overflow": 0.0,
+"CTF-BrokenLimits": -0.5,
+"CTF-Entropic": -3.0,
+"CTF-Grudge": -2.5,
+"CTF-PryXon": -3.0,
+"CTF-Achromatic": -5.0,
+"CTF-Rankin": -5.5
+}
+},
+{
+"map": "CTF-Klondike",
+"red": 3,
+"blue": 2,
+"dur": 15.45,
+"tag": "OT",
+"kills": 836,
+"prefs": {
+"CTF-Klondike": 9.0,
+"CTF-Sprinta": 4.0,
+"CTF-Overflow": -0.5,
+"CTF-BrokenLimits": -1.0,
+"CTF-Rankin": -2.5,
+"CTF-PryXon": -2.5,
+"CTF-Grudge": -2.5
+}
+},
+{
+"map": "CTF-Nuance99",
+"red": 4,
+"blue": 5,
+"dur": 15.0,
+"tag": null,
+"kills": 666,
+"prefs": {
+"CTF-Nuance99": 5.0,
+"CTF-Sprinta": 1.5,
+"CTF-Overflow": 0.5,
+"CTF-PryXon": 0.0,
+"CTF-BrokenLimits": -0.5,
+"CTF-Entropic": -1.0,
+"CTF-Rankin": -1.0,
+"CTF-Achromatic": -3.0,
+"CTF-Grudge": -5.5
+}
+},
+{
+"map": "CTF-Command",
+"red": 1,
+"blue": 5,
+"dur": 15.083333333333334,
+"tag": "ADV",
+"kills": 737,
+"prefs": {
+"CTF-Command": 7.0,
+"CTF-Overflow": 2.5,
+"CTF-Sprinta": 1.5,
+"CTF-PryXon": 1.5,
+"CTF-Entropic": 0.5,
+"CTF-BrokenLimits": -0.5,
+"CTF-Grudge": -0.5,
+"CTF-Achromatic": -3.0,
+"CTF-Rankin": -4.0
+}
+},
+{
+"map": "CTF-Overflow",
+"red": 4,
+"blue": 5,
+"dur": 15.55,
+"tag": "OT",
+"kills": 699,
+"prefs": {
+"CTF-Overflow": 5.0,
+"CTF-Duku": 3.5,
+"CTF-Entropic": -2.0,
+"CTF-BrokenLimits": -3.5,
+"CTF-Rankin": -3.5,
+"CTF-Sprinta": -4.5,
+"CTF-PryXon": -5.0
+}
+},
+{
+"map": "CTF-Duku",
+"red": 1,
+"blue": 2,
+"dur": 21.866666666666667,
+"tag": "OT",
+"kills": 1132,
+"prefs": {
+"CTF-Duku": 9.5,
+"CTF-Sprinta": 5.5,
+"CTF-PryXon": 2.0,
+"CTF-Rune": 2.0,
+"CTF-Grudge": 0.5,
+"CTF-Entropic": -0.5,
+"CTF-BrokenLimits": -3.0,
+"CTF-Achromatic": -4.5
+}
+},
+{
+"map": "CTF-Rune",
+"red": 5,
+"blue": 4,
+"dur": 15.883333333333333,
+"tag": "OT",
+"kills": 850,
+"prefs": {
+"CTF-Rune": 6.0,
+"CTF-Acrony": 2.5,
+"CTF-PryXon": -1.5,
+"CTF-Entropic": -2.5,
+"CTF-Grudge": -2.0,
+"CTF-Rankin": -2.5,
+"CTF-BrokenLimits": -3.0,
+"CTF-Achromatic": -4.5,
+"CTF-Sprinta": -4.5
+}
+},
+{
+"map": "CTF-Acrony",
+"red": 2,
+"blue": 7,
+"dur": 16.283333333333335,
+"tag": "ADV",
+"kills": 820,
+"prefs": {
+"CTF-Entropic": 0.5,
+"CTF-Sprinta": 0.0,
+"CTF-PryXon": 0.0,
+"CTF-Acrony": 0.5,
+"CTF-Talya": -1.5,
+"CTF-BrokenLimits": -4.5,
+"CTF-Grudge": -5.5
+}
+},
+{
+"map": "CTF-Iztac",
+"red": 5,
+"blue": 2,
+"dur": 15.0,
+"tag": null,
+"kills": 778,
+"prefs": {
+"CTF-Iztac": 6.0,
+"CTF-Entropic": 0.5,
+"CTF-Talya": 1.5,
+"CTF-Sprinta": 0.5,
+"CTF-BrokenLimits": -1.0,
+"CTF-Achromatic": -2.0,
+"CTF-PryXon": -1.5,
+"CTF-Rankin": -3.0,
+"CTF-Grudge": -4.0
+}
+},
+{
+"map": "CTF-Anfractuous",
+"red": 3,
+"blue": 4,
+"dur": 15.7,
+"tag": "OT",
+"kills": 829,
+"prefs": {
+"CTF-Anfractuous": 5.5,
+"CTF-Sprinta": 1.0,
+"CTF-BrokenLimits": -2.5,
+"CTF-Entropic": -4.0,
+"CTF-Talya": -2.5,
+"CTF-Rankin": -4.0,
+"CTF-Grudge": -4.0,
+"CTF-PryXon": -5.0
+}
+},
+{
+"map": "CTF-Klondike",
+"red": 6,
+"blue": 2,
+"dur": 15.0,
+"tag": "ADV",
+"kills": 768,
+"prefs": {
+"CTF-Klondike": 7.5,
+"CTF-PryXon": -1.0,
+"CTF-Talya": -0.5,
+"CTF-Grudge": -2.0,
+"CTF-BrokenLimits": -3.0,
+"CTF-Entropic": -4.0,
+"CTF-Sprinta": -3.5
+}
+},
+{
+"map": "CTF-Nuance99",
+"red": 7,
+"blue": 1,
+"dur": 12.216666666666667,
+"tag": null,
+"kills": 611,
+"prefs": {
+"CTF-Nuance99": 3.5,
+"CTF-Sprinta": -1.0,
+"CTF-Talya": -0.5,
+"CTF-Grudge": -1.5,
+"CTF-PryXon": -2.0,
+"CTF-Entropic": -4.0,
+"CTF-Achromatic": -5.5,
+"CTF-BrokenLimits": -5.0
+}
+},
+{
+"map": "CTF-Command",
+"red": 3,
+"blue": 2,
+"dur": 15.0,
+"tag": null,
+"kills": 813,
+"prefs": {
+"CTF-Acrony": 6.5,
+"CTF-Command": 7.0,
+"CTF-Iztac": 4.5,
+"CTF-Klondike": 5.0,
+"CTF-Overflow": 2.0,
+"CTF-Sprinta": 0.5,
+"CTF-Anfractuous": 0.0,
+"CTF-Grudge": 0.0,
+"CTF-Rune": -1.0,
+"CTF-BrokenLimits": -3.0,
+"CTF-Nuance99": -3.0
+}
+},
+{
+"map": "CTF-Command",
+"red": 5,
+"blue": 2,
+"dur": 15.333333333333334,
+"tag": "ADV",
+"kills": 763,
+"prefs": {
+"CTF-Command": 3.0,
+"CTF-Entropic": -2.0,
+"CTF-Talya": -2.0,
+"CTF-Grudge": -3.0,
+"CTF-PryXon": -4.5,
+"CTF-Sprinta": -5.5
+}
+},
+{
+"map": "CTF-Overflow",
+"red": 5,
+"blue": 6,
+"dur": 15.433333333333334,
+"tag": "OT",
+"kills": 724,
+"prefs": {
+"CTF-Overflow": 2.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Talya": -3.0,
+"CTF-Sprinta": -4.5,
+"CTF-Entropic": -6.0
+}
+},
+{
+"map": "CTF-Duku",
+"red": 3,
+"blue": 1,
+"dur": 15.15,
+"tag": "ADV",
+"kills": 825,
+"prefs": {
+"CTF-Duku": 5.0,
+"CTF-BrokenLimits": -4.0,
+"CTF-Talya": -4.0,
+"CTF-Sprinta": -5.0,
+"CTF-Rankin": -6.0
+}
+},
+{
+"map": "CTF-Grudge",
+"red": 3,
+"blue": 9,
+"dur": 13.816666666666666,
+"tag": null,
+"kills": 700,
+"prefs": {
+"CTF-Grudge": 0.5,
+"CTF-Talya": -0.5,
+"CTF-Rune": -1.0,
+"CTF-Sprinta": -2.0,
+"CTF-BrokenLimits": -2.5,
+"CTF-PryXon": -2.5,
+"CTF-Entropic": -3.5,
+"CTF-Achromatic": -6.5,
+"CTF-Rankin": -6.0
+}
+}
+]

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "unrealed": {
+      "command": "C:\\Path\\To\\Python312\\python.exe",
+      "args": ["C:\\Path\\To\\Your\\UT469\\UnrealEdMCP\\server.py"]
+    }
+  }
+}

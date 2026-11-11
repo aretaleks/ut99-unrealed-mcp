@@ -1,0 +1,29 @@
+# This repository lives in the root of a UT99 v469 mapping install.
+# Ignore EVERYTHING (game files, maps, textures, caches, logs) except the files of this project.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/.mcp.json.example
+
+# the MCP server
+!/UnrealEdMCP/
+/UnrealEdMCP/*
+!/UnrealEdMCP/*.py
+!/UnrealEdMCP/README.md
+!/UnrealEdMCP/GUIDE.md
+!/UnrealEdMCP/research/
+/UnrealEdMCP/research/*
+!/UnrealEdMCP/research/*.py
+!/UnrealEdMCP/research/*.json
+!/UnrealEdMCP/research/*.txt
+
+# the Claude Code skill
+!/.claude/
+/.claude/*
+!/.claude/skills/
+/.claude/skills/*
+!/.claude/skills/ictf-map-design/
+
+__pycache__/
+*.pyc

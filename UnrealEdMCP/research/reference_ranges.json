@@ -1,0 +1,147 @@
+{
+ "liked_maps": [
+  "Acrony",
+  "Anfractuous",
+  "Command",
+  "Duku",
+  "Iztac",
+  "Klondike",
+  "Nuance99",
+  "Rune"
+ ],
+ "metrics": {
+  "corridor_width_median": {
+   "liked_min": 400,
+   "liked_max": 840,
+   "liked_median": 504.0,
+   "pool_min": 336,
+   "pool_max": 840
+  },
+  "narrow_spots_pct": {
+   "liked_min": 15.8,
+   "liked_max": 46.2,
+   "liked_median": 31.1,
+   "pool_min": 15.8,
+   "pool_max": 52.8
+  },
+  "long_sightlines_pct": {
+   "liked_min": 0.06,
+   "liked_max": 1.2,
+   "liked_median": 0.11499999999999999,
+   "pool_min": 0.0,
+   "pool_max": 1.2
+  },
+  "sightline_p99": {
+   "liked_min": 1920,
+   "liked_max": 3104,
+   "liked_median": 2120.0,
+   "pool_min": 1808,
+   "pool_max": 3104
+  },
+  "flag_entrances_1024": {
+   "liked_min": 2.5,
+   "liked_max": 8,
+   "liked_median": 3.5,
+   "pool_min": 2,
+   "pool_max": 10
+  },
+  "level_change_walk_median": {
+   "liked_min": 285,
+   "liked_max": 3000,
+   "liked_median": 427.5,
+   "pool_min": 257,
+   "pool_max": 3000
+  },
+  "spawn_to_own_flag_min": {
+   "liked_min": 1172,
+   "liked_max": 1974,
+   "liked_median": 1535,
+   "pool_min": 362,
+   "pool_max": 2303
+  },
+  "spawn_forwardness": {
+   "liked_min": 0.3,
+   "liked_max": 0.37,
+   "liked_median": 0.33,
+   "pool_min": 0.18,
+   "pool_max": 0.4
+  },
+  "spawns_seeing_own_flag": {
+   "liked_min": 0,
+   "liked_max": 4,
+   "liked_median": 1.0,
+   "pool_min": 0,
+   "pool_max": 4
+  },
+  "walk_area_kuu2": {
+   "liked_min": 13554.0,
+   "liked_max": 32950.0,
+   "liked_median": 18310.5,
+   "pool_min": 13554.0,
+   "pool_max": 32950.0
+  },
+  "flag_dist_straight": {
+   "liked_min": 4968,
+   "liked_max": 6510,
+   "liked_median": 5892.0,
+   "pool_min": 4482,
+   "pool_max": 7679
+  },
+  "flag_dist_walk": {
+   "liked_min": 5464,
+   "liked_max": 7392,
+   "liked_median": 6531,
+   "pool_min": 5300,
+   "pool_max": 8109
+  },
+  "floor_levels": {
+   "liked_min": 2,
+   "liked_max": 5,
+   "liked_median": 3.0,
+   "pool_min": 1,
+   "pool_max": 5
+  },
+  "height_range": {
+   "liked_min": 448,
+   "liked_max": 1248,
+   "liked_median": 864.0,
+   "pool_min": 384,
+   "pool_max": 2016
+  },
+  "sightline_median": {
+   "liked_min": 336,
+   "liked_max": 608,
+   "liked_median": 384.0,
+   "pool_min": 304,
+   "pool_max": 608
+  },
+  "sightline_p90": {
+   "liked_min": 1056,
+   "liked_max": 1712,
+   "liked_median": 1200.0,
+   "pool_min": 1008,
+   "pool_max": 1712
+  },
+  "spawns": {
+   "liked_min": 12,
+   "liked_max": 16,
+   "liked_median": 15.0,
+   "pool_min": 12,
+   "pool_max": 16
+  },
+  "spawn_to_own_flag": {
+   "liked_min": 1999,
+   "liked_max": 3169,
+   "liked_median": 2471,
+   "pool_min": 1185,
+   "pool_max": 3375
+  },
+  "spawn_to_enemy_flag": {
+   "liked_min": 4142,
+   "liked_max": 5380,
+   "liked_median": 4786,
+   "pool_min": 4120,
+   "pool_max": 6567
+  }
+ }
+}

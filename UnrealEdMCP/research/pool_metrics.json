@@ -1,0 +1,6678 @@
+{
+ "CTF-Achromatic-RE4": {
+  "voxel": 32.0,
+  "brushes": 760,
+  "lights": 260,
+  "movement_notes": [
+   "unlinked kicker",
+   "unlinked kicker"
+  ],
+  "movement_links": {
+   "kicker": 12,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 19723.0,
+  "extent_xy": [
+   3552,
+   7136
+  ],
+  "height_range": 544,
+  "floor_z_std": 168,
+  "floor_levels": 4,
+  "flag_dz": 0,
+  "flag_dist_straight": 6446,
+  "flag_dist_walk": 6830,
+  "routes": 3,
+  "route_lengths": [
+   6830,
+   7337,
+   7352
+  ],
+  "sightline_median": 336,
+  "sightline_p90": 1056,
+  "sightline_mean_max_per_spot": 1652,
+  "flag_visible_from_pct": [
+   7.0,
+   5.2
+  ],
+  "mutual_visibility_pct": 7.5,
+  "isovist_median_Muu2": 0.88,
+  "isovist_p90_Muu2": 1.36,
+  "island_wall_share_pct": 32.2,
+  "free_structures": 11,
+  "free_structures_footprint_k_uu2": 3454,
+  "free_structures_near_flags": 9,
+  "free_structure_list": [
+   {
+    "center": [
+     591,
+     4,
+     86
+    ],
+    "footprint_uu2": 1115136,
+    "height": 256,
+    "dist_to_nearest_flag": 3274
+   },
+   {
+    "center": [
+     -573,
+     8,
+     87
+    ],
+    "footprint_uu2": 1113088,
+    "height": 256,
+    "dist_to_nearest_flag": 3267
+   },
+   {
+    "center": [
+     523,
+     -1554,
+     121
+    ],
+    "footprint_uu2": 257024,
+    "height": 224,
+    "dist_to_nearest_flag": 1747
+   },
+   {
+    "center": [
+     -529,
+     1608,
+     121
+    ],
+    "footprint_uu2": 254976,
+    "height": 224,
+    "dist_to_nearest_flag": 1700
+   },
+   {
+    "center": [
+     5,
+     1818,
+     140
+    ],
+    "footprint_uu2": 214016,
+    "height": 256,
+    "dist_to_nearest_flag": 1406
+   },
+   {
+    "center": [
+     4,
+     -1815,
+     140
+    ],
+    "footprint_uu2": 211968,
+    "height": 256,
+    "dist_to_nearest_flag": 1407
+   },
+   {
+    "center": [
+     -881,
+     -1774,
+     42
+    ],
+    "footprint_uu2": 77824,
+    "height": 192,
+    "dist_to_nearest_flag": 1695
+   },
+   {
+    "center": [
+     -458,
+     2574,
+     136
+    ],
+    "footprint_uu2": 62464,
+    "height": 256,
+    "dist_to_nearest_flag": 795
+   },
+   {
+    "center": [
+     474,
+     -2559,
+     136
+    ],
+    "footprint_uu2": 62464,
+    "height": 256,
+    "dist_to_nearest_flag": 814
+   },
+   {
+    "center": [
+     435,
+     2525,
+     139
+    ],
+    "footprint_uu2": 47104,
+    "height": 256,
+    "dist_to_nearest_flag": 823
+   },
+   {
+    "center": [
+     -433,
+     -2532,
+     120
+    ],
+    "footprint_uu2": 37888,
+    "height": 224,
+    "dist_to_nearest_flag": 815
+   }
+  ],
+  "headroom_median": 256,
+  "headroom_over_640_pct": 5.6,
+  "dead_end_pct_near_flags": 1.2,
+  "dead_end_examples": [
+   [
+    696,
+    -3528,
+    24
+   ],
+   [
+    664,
+    -3272,
+    24
+   ]
+  ],
+  "light_median": 0.652,
+  "light_p25": 0.477,
+  "dark_floor_pct": 1.1,
+  "lights_per_Muu2": 13.18,
+  "ramp_area_by_slope_pct": {
+   "<=22": 63.8,
+   "22-30": 17.7,
+   "30-38": 6.2,
+   ">38": 12.2
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   80,
+   80,
+   80,
+   80,
+   160,
+   160,
+   192,
+   192,
+   192,
+   192,
+   224,
+   224,
+   224,
+   224,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512
+  ],
+  "corridor_width_median": 408,
+  "corridor_width_p25": 304,
+  "narrow_spots_pct": 42.8,
+  "long_sightlines_pct": 0.36,
+  "sightline_p99": 2208,
+  "flag_entrances": {
+   "768": [
+    5,
+    5
+   ],
+   "1024": [
+    5,
+    4
+   ],
+   "1280": [
+    5,
+    6
+   ]
+  },
+  "level_change_walk_median": 484,
+  "level_change_walk_p75": 802,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 2652,
+  "spawn_to_enemy_flag": 4800,
+  "spawn_to_own_flag_min": 1929,
+  "spawn_forwardness": 0.36,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 745,
+    "team": 1,
+    "to_own_flag": 1929,
+    "to_enemy_flag": 5554,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 746,
+    "team": 1,
+    "to_own_flag": 2949,
+    "to_enemy_flag": 5140,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 747,
+    "team": 1,
+    "to_own_flag": 2917,
+    "to_enemy_flag": 5249,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 748,
+    "team": 1,
+    "to_own_flag": 3086,
+    "to_enemy_flag": 4251,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 749,
+    "team": 1,
+    "to_own_flag": 3051,
+    "to_enemy_flag": 4206,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 750,
+    "team": 1,
+    "to_own_flag": 2220,
+    "to_enemy_flag": 4662,
+    "forward": 0.32,
+    "sees_own_flag": false
+   },
+   {
+    "id": 751,
+    "team": 1,
+    "to_own_flag": 2305,
+    "to_enemy_flag": 4694,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 752,
+    "team": 0,
+    "to_own_flag": 2279,
+    "to_enemy_flag": 4604,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 753,
+    "team": 0,
+    "to_own_flag": 2337,
+    "to_enemy_flag": 4662,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 754,
+    "team": 0,
+    "to_own_flag": 1980,
+    "to_enemy_flag": 5525,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 755,
+    "team": 0,
+    "to_own_flag": 3091,
+    "to_enemy_flag": 4166,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 756,
+    "team": 0,
+    "to_own_flag": 3136,
+    "to_enemy_flag": 4219,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 757,
+    "team": 0,
+    "to_own_flag": 2936,
+    "to_enemy_flag": 5100,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 758,
+    "team": 0,
+    "to_own_flag": 2904,
+    "to_enemy_flag": 5164,
+    "forward": 0.36,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 9,
+  "hazard_zones": 0
+ },
+ "CTF-Acrony-RE2": {
+  "voxel": 32.0,
+  "brushes": 1485,
+  "lights": 309,
+  "movement_notes": [
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift"
+  ],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 23284.0,
+  "extent_xy": [
+   2656,
+   8576
+  ],
+  "height_range": 1248,
+  "floor_z_std": 217,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 6140,
+  "flag_dist_walk": 7392,
+  "routes": 2,
+  "route_lengths": [
+   7392,
+   8175
+  ],
+  "sightline_median": 464,
+  "sightline_p90": 1376,
+  "sightline_mean_max_per_spot": 1854,
+  "flag_visible_from_pct": [
+   10.8,
+   13.8
+  ],
+  "mutual_visibility_pct": 10.7,
+  "isovist_median_Muu2": 1.49,
+  "isovist_p90_Muu2": 2.76,
+  "island_wall_share_pct": 24.2,
+  "free_structures": 17,
+  "free_structures_footprint_k_uu2": 2619,
+  "free_structures_near_flags": 13,
+  "free_structure_list": [
+   {
+    "center": [
+     -128,
+     2551,
+     -748
+    ],
+    "footprint_uu2": 617472,
+    "height": 256,
+    "dist_to_nearest_flag": 3061
+   },
+   {
+    "center": [
+     -123,
+     -891,
+     -782
+    ],
+    "footprint_uu2": 349184,
+    "height": 320,
+    "dist_to_nearest_flag": 381
+   },
+   {
+    "center": [
+     -122,
+     6001,
+     -783
+    ],
+    "footprint_uu2": 342016,
+    "height": 320,
+    "dist_to_nearest_flag": 371
+   },
+   {
+    "center": [
+     -117,
+     316,
+     -577
+    ],
+    "footprint_uu2": 219136,
+    "height": 800,
+    "dist_to_nearest_flag": 826
+   },
+   {
+    "center": [
+     -126,
+     4815,
+     -576
+    ],
+    "footprint_uu2": 207872,
+    "height": 800,
+    "dist_to_nearest_flag": 815
+   },
+   {
+    "center": [
+     -324,
+     842,
+     -656
+    ],
+    "footprint_uu2": 144384,
+    "height": 256,
+    "dist_to_nearest_flag": 1367
+   },
+   {
+    "center": [
+     72,
+     4292,
+     -657
+    ],
+    "footprint_uu2": 140288,
+    "height": 256,
+    "dist_to_nearest_flag": 1353
+   },
+   {
+    "center": [
+     563,
+     536,
+     -662
+    ],
+    "footprint_uu2": 75776,
+    "height": 192,
+    "dist_to_nearest_flag": 1253
+   },
+   {
+    "center": [
+     -803,
+     4584,
+     -662
+    ],
+    "footprint_uu2": 73728,
+    "height": 192,
+    "dist_to_nearest_flag": 1244
+   },
+   {
+    "center": [
+     -635,
+     -443,
+     -490
+    ],
+    "footprint_uu2": 65536,
+    "height": 416,
+    "dist_to_nearest_flag": 513
+   },
+   {
+    "center": [
+     -635,
+     5573,
+     -490
+    ],
+    "footprint_uu2": 65536,
+    "height": 416,
+    "dist_to_nearest_flag": 509
+   },
+   {
+    "center": [
+     389,
+     -443,
+     -490
+    ],
+    "footprint_uu2": 65536,
+    "height": 416,
+    "dist_to_nearest_flag": 520
+   }
+  ],
+  "headroom_median": 384,
+  "headroom_over_640_pct": 25.1,
+  "dead_end_pct_near_flags": 8.8,
+  "dead_end_examples": [
+   [
+    -904,
+    3448,
+    -1000
+   ],
+   [
+    -1096,
+    3320,
+    -1000
+   ],
+   [
+    -392,
+    3800,
+    -1000
+   ],
+   [
+    -840,
+    6104,
+    -1000
+   ],
+   [
+    -392,
+    5464,
+    -1000
+   ],
+   [
+    -1192,
+    3512,
+    -1000
+   ]
+  ],
+  "light_median": 0.594,
+  "light_p25": 0.339,
+  "dark_floor_pct": 6.1,
+  "lights_per_Muu2": 13.27,
+  "ramp_area_by_slope_pct": {
+   "<=22": 9.1,
+   "22-30": 77.4,
+   "30-38": 0.1,
+   ">38": 13.4
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   376,
+   376,
+   384,
+   384,
+   384,
+   384,
+   416,
+   416
+  ],
+  "corridor_width_median": 512,
+  "corridor_width_p25": 336,
+  "narrow_spots_pct": 28.5,
+  "long_sightlines_pct": 0.33,
+  "sightline_p99": 2480,
+  "flag_entrances": {
+   "768": [
+    12,
+    17
+   ],
+   "1024": [
+    8,
+    8
+   ],
+   "1280": [
+    9,
+    8
+   ]
+  },
+  "level_change_walk_median": 308,
+  "level_change_walk_p75": 566,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 3169,
+  "spawn_to_enemy_flag": 5380,
+  "spawn_to_own_flag_min": 1734,
+  "spawn_forwardness": 0.37,
+  "spawns_seeing_own_flag": 2,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 809,
+    "team": 1,
+    "to_own_flag": 2751,
+    "to_enemy_flag": 4641,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 810,
+    "team": 1,
+    "to_own_flag": 4318,
+    "to_enemy_flag": 5659,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 811,
+    "team": 1,
+    "to_own_flag": 1798,
+    "to_enemy_flag": 5118,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 812,
+    "team": 1,
+    "to_own_flag": 2544,
+    "to_enemy_flag": 5246,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 813,
+    "team": 1,
+    "to_own_flag": 3586,
+    "to_enemy_flag": 5685,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1616,
+    "team": 0,
+    "to_own_flag": 2714,
+    "to_enemy_flag": 4641,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1617,
+    "team": 0,
+    "to_own_flag": 4318,
+    "to_enemy_flag": 5558,
+    "forward": 0.44,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1618,
+    "team": 0,
+    "to_own_flag": 1734,
+    "to_enemy_flag": 5092,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1619,
+    "team": 0,
+    "to_own_flag": 2467,
+    "to_enemy_flag": 5301,
+    "forward": 0.32,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1620,
+    "team": 0,
+    "to_own_flag": 3527,
+    "to_enemy_flag": 5717,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1752,
+    "team": 1,
+    "to_own_flag": 3991,
+    "to_enemy_flag": 5489,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1753,
+    "team": 0,
+    "to_own_flag": 3977,
+    "to_enemy_flag": 5548,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1790,
+    "team": 1,
+    "to_own_flag": 3354,
+    "to_enemy_flag": 5774,
+    "forward": 0.37,
+    "sees_own_flag": true
+   },
+   {
+    "id": 1791,
+    "team": 0,
+    "to_own_flag": 3290,
+    "to_enemy_flag": 5845,
+    "forward": 0.36,
+    "sees_own_flag": true
+   }
+  ],
+  "zones": 19,
+  "hazard_zones": 2
+ },
+ "CTF-Anfractuous-PG1": {
+  "voxel": 32.0,
+  "brushes": 2251,
+  "lights": 335,
+  "movement_notes": [
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift"
+  ],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 19488.0,
+  "extent_xy": [
+   6496,
+   3296
+  ],
+  "height_range": 960,
+  "floor_z_std": 239,
+  "floor_levels": 4,
+  "flag_dz": -1,
+  "flag_dist_straight": 6240,
+  "flag_dist_walk": 6611,
+  "routes": 3,
+  "route_lengths": [
+   6611,
+   6850,
+   7597
+  ],
+  "sightline_median": 384,
+  "sightline_p90": 1072,
+  "sightline_mean_max_per_spot": 1557,
+  "flag_visible_from_pct": [
+   6.8,
+   7.2
+  ],
+  "mutual_visibility_pct": 6.7,
+  "isovist_median_Muu2": 0.92,
+  "isovist_p90_Muu2": 1.67,
+  "island_wall_share_pct": 15.6,
+  "free_structures": 3,
+  "free_structures_footprint_k_uu2": 585,
+  "free_structures_near_flags": 3,
+  "free_structure_list": [
+   {
+    "center": [
+     -1890,
+     -12,
+     -215
+    ],
+    "footprint_uu2": 201728,
+    "height": 320,
+    "dist_to_nearest_flag": 1230
+   },
+   {
+    "center": [
+     1878,
+     25,
+     -215
+    ],
+    "footprint_uu2": 192512,
+    "height": 320,
+    "dist_to_nearest_flag": 1242
+   },
+   {
+    "center": [
+     1716,
+     411,
+     269
+    ],
+    "footprint_uu2": 190464,
+    "height": 224,
+    "dist_to_nearest_flag": 1463
+   }
+  ],
+  "headroom_median": 384,
+  "headroom_over_640_pct": 14.3,
+  "dead_end_pct_near_flags": 9.4,
+  "dead_end_examples": [
+   [
+    -1704,
+    -872,
+    -328
+   ],
+   [
+    2584,
+    -168,
+    -360
+   ],
+   [
+    -584,
+    -264,
+    -456
+   ],
+   [
+    -1960,
+    120,
+    -392
+   ],
+   [
+    -2696,
+    88,
+    -360
+   ],
+   [
+    -2280,
+    1176,
+    -360
+   ]
+  ],
+  "light_median": 0.549,
+  "light_p25": 0.4,
+  "dark_floor_pct": 0.7,
+  "lights_per_Muu2": 17.19,
+  "ramp_area_by_slope_pct": {
+   "<=22": 18.1,
+   "22-30": 14.4,
+   "30-38": 0.0,
+   ">38": 67.5
+  },
+  "steep_ramp_widths": [
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   48,
+   48,
+   48,
+   48,
+   48,
+   48,
+   48,
+   48,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   96,
+   96,
+   96,
+   96,
+   156,
+   156,
+   156,
+   156,
+   161,
+   161,
+   240,
+   240,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   282,
+   282,
+   282,
+   282,
+   282,
+   282,
+   282,
+   282,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   307,
+   307,
+   319,
+   319,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   320,
+   323,
+   323,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   354,
+   354,
+   360,
+   360,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   400,
+   403,
+   403,
+   464,
+   464,
+   496,
+   496,
+   600,
+   600,
+   744,
+   744,
+   768,
+   768,
+   768,
+   768,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232,
+   1232
+  ],
+  "corridor_width_median": 464,
+  "corridor_width_p25": 384,
+  "narrow_spots_pct": 24.5,
+  "long_sightlines_pct": 0.12,
+  "sightline_p99": 2096,
+  "flag_entrances": {
+   "768": [
+    3,
+    4
+   ],
+   "1024": [
+    3,
+    2
+   ],
+   "1280": [
+    8,
+    8
+   ]
+  },
+  "level_change_walk_median": 416,
+  "level_change_walk_p75": 707,
+  "spawns": 12,
+  "spawns_per_team": [
+   6,
+   6
+  ],
+  "spawn_to_own_flag": 2287,
+  "spawn_to_enemy_flag": 5064,
+  "spawn_to_own_flag_min": 1172,
+  "spawn_forwardness": 0.31,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 297,
+    "team": 1,
+    "to_own_flag": 2678,
+    "to_enemy_flag": 4705,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 298,
+    "team": 1,
+    "to_own_flag": 1223,
+    "to_enemy_flag": 5883,
+    "forward": 0.17,
+    "sees_own_flag": false
+   },
+   {
+    "id": 299,
+    "team": 1,
+    "to_own_flag": 2897,
+    "to_enemy_flag": 5087,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 300,
+    "team": 0,
+    "to_own_flag": 2678,
+    "to_enemy_flag": 4769,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 301,
+    "team": 0,
+    "to_own_flag": 1172,
+    "to_enemy_flag": 5888,
+    "forward": 0.17,
+    "sees_own_flag": false
+   },
+   {
+    "id": 302,
+    "team": 0,
+    "to_own_flag": 2852,
+    "to_enemy_flag": 5106,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 303,
+    "team": 0,
+    "to_own_flag": 2873,
+    "to_enemy_flag": 4623,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 304,
+    "team": 1,
+    "to_own_flag": 2886,
+    "to_enemy_flag": 4591,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 305,
+    "team": 0,
+    "to_own_flag": 1719,
+    "to_enemy_flag": 4887,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 306,
+    "team": 1,
+    "to_own_flag": 1706,
+    "to_enemy_flag": 4855,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 307,
+    "team": 0,
+    "to_own_flag": 2380,
+    "to_enemy_flag": 5206,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 308,
+    "team": 1,
+    "to_own_flag": 2385,
+    "to_enemy_flag": 5169,
+    "forward": 0.32,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 0,
+  "hazard_zones": 0
+ },
+ "CTF-BrokenLimits-PG1-SA": {
+  "voxel": 32.0,
+  "brushes": 630,
+  "lights": 381,
+  "movement_notes": [
+   "unlinked kicker",
+   "unlinked kicker"
+  ],
+  "movement_links": {
+   "kicker": 4,
+   "teleporter": 4,
+   "jumppad": 0,
+   "lift": 12,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 18043.0,
+  "extent_xy": [
+   3040,
+   7648
+  ],
+  "height_range": 544,
+  "floor_z_std": 187,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 7258,
+  "flag_dist_walk": 8109,
+  "routes": 3,
+  "route_lengths": [
+   8109,
+   8165,
+   8398
+  ],
+  "sightline_median": 352,
+  "sightline_p90": 1056,
+  "sightline_mean_max_per_spot": 1341,
+  "flag_visible_from_pct": [
+   8.8,
+   8.2
+  ],
+  "mutual_visibility_pct": 8.0,
+  "isovist_median_Muu2": 0.82,
+  "isovist_p90_Muu2": 1.61,
+  "island_wall_share_pct": 23.8,
+  "free_structures": 13,
+  "free_structures_footprint_k_uu2": 1403,
+  "free_structures_near_flags": 6,
+  "free_structure_list": [
+   {
+    "center": [
+     532,
+     2277,
+     -4
+    ],
+    "footprint_uu2": 216064,
+    "height": 224,
+    "dist_to_nearest_flag": 1573
+   },
+   {
+    "center": [
+     -517,
+     -2013,
+     -4
+    ],
+    "footprint_uu2": 208896,
+    "height": 224,
+    "dist_to_nearest_flag": 1575
+   },
+   {
+    "center": [
+     15,
+     139,
+     -44
+    ],
+    "footprint_uu2": 169984,
+    "height": 320,
+    "dist_to_nearest_flag": 3618
+   },
+   {
+    "center": [
+     2,
+     -2544,
+     -7
+    ],
+    "footprint_uu2": 93184,
+    "height": 224,
+    "dist_to_nearest_flag": 957
+   },
+   {
+    "center": [
+     7,
+     -1495,
+     72
+    ],
+    "footprint_uu2": 80896,
+    "height": 640,
+    "dist_to_nearest_flag": 2006
+   },
+   {
+    "center": [
+     1159,
+     -1659,
+     10
+    ],
+    "footprint_uu2": 80896,
+    "height": 256,
+    "dist_to_nearest_flag": 2176
+   },
+   {
+    "center": [
+     1159,
+     -1657,
+     296
+    ],
+    "footprint_uu2": 80896,
+    "height": 192,
+    "dist_to_nearest_flag": 2178
+   },
+   {
+    "center": [
+     -1147,
+     1908,
+     10
+    ],
+    "footprint_uu2": 79872,
+    "height": 256,
+    "dist_to_nearest_flag": 2176
+   },
+   {
+    "center": [
+     -1147,
+     1907,
+     296
+    ],
+    "footprint_uu2": 79872,
+    "height": 192,
+    "dist_to_nearest_flag": 2177
+   },
+   {
+    "center": [
+     5,
+     1755,
+     74
+    ],
+    "footprint_uu2": 79872,
+    "height": 640,
+    "dist_to_nearest_flag": 2002
+   },
+   {
+    "center": [
+     1157,
+     1908,
+     23
+    ],
+    "footprint_uu2": 79872,
+    "height": 288,
+    "dist_to_nearest_flag": 2181
+   },
+   {
+    "center": [
+     0,
+     2800,
+     -6
+    ],
+    "footprint_uu2": 78848,
+    "height": 224,
+    "dist_to_nearest_flag": 957
+   }
+  ],
+  "headroom_median": 416,
+  "headroom_over_640_pct": 34.3,
+  "dead_end_pct_near_flags": 6.9,
+  "dead_end_examples": [
+   [
+    -520,
+    -3272,
+    -232
+   ],
+   [
+    440,
+    3640,
+    -232
+   ],
+   [
+    440,
+    3544,
+    -232
+   ],
+   [
+    -168,
+    -3624,
+    -232
+   ],
+   [
+    632,
+    3640,
+    -232
+   ],
+   [
+    -168,
+    3800,
+    -232
+   ]
+  ],
+  "light_median": 0.82,
+  "light_p25": 0.615,
+  "dark_floor_pct": 0.6,
+  "lights_per_Muu2": 21.12,
+  "ramp_area_by_slope_pct": {
+   "<=22": 5.6,
+   "22-30": 47.7,
+   "30-38": 4.3,
+   ">38": 42.3
+  },
+  "steep_ramp_widths": [
+   64,
+   64,
+   64,
+   64,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   256,
+   256,
+   256,
+   384,
+   384,
+   384,
+   384
+  ],
+  "corridor_width_median": 416,
+  "corridor_width_p25": 272,
+  "narrow_spots_pct": 43.0,
+  "long_sightlines_pct": 0.0,
+  "sightline_p99": 1808,
+  "flag_entrances": {
+   "768": [
+    1,
+    1
+   ],
+   "1024": [
+    3,
+    5
+   ],
+   "1280": [
+    3,
+    3
+   ]
+  },
+  "level_change_walk_median": 1115,
+  "level_change_walk_p75": 1548,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 3375,
+  "spawn_to_enemy_flag": 6567,
+  "spawn_to_own_flag_min": 1818,
+  "spawn_forwardness": 0.33,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 259,
+    "team": 0,
+    "to_own_flag": 1818,
+    "to_enemy_flag": 6516,
+    "forward": 0.22,
+    "sees_own_flag": false
+   },
+   {
+    "id": 260,
+    "team": 0,
+    "to_own_flag": 2219,
+    "to_enemy_flag": 6425,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 261,
+    "team": 0,
+    "to_own_flag": 3575,
+    "to_enemy_flag": 6897,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 262,
+    "team": 0,
+    "to_own_flag": 3599,
+    "to_enemy_flag": 6748,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 503,
+    "team": 1,
+    "to_own_flag": 3854,
+    "to_enemy_flag": 4617,
+    "forward": 0.45,
+    "sees_own_flag": false
+   },
+   {
+    "id": 504,
+    "team": 0,
+    "to_own_flag": 3867,
+    "to_enemy_flag": 4631,
+    "forward": 0.46,
+    "sees_own_flag": false
+   },
+   {
+    "id": 505,
+    "team": 1,
+    "to_own_flag": 5513,
+    "to_enemy_flag": 8771,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 506,
+    "team": 0,
+    "to_own_flag": 5462,
+    "to_enemy_flag": 8784,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 694,
+    "team": 1,
+    "to_own_flag": 1850,
+    "to_enemy_flag": 6503,
+    "forward": 0.22,
+    "sees_own_flag": false
+   },
+   {
+    "id": 695,
+    "team": 1,
+    "to_own_flag": 2206,
+    "to_enemy_flag": 6359,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 696,
+    "team": 1,
+    "to_own_flag": 3607,
+    "to_enemy_flag": 6865,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 697,
+    "team": 1,
+    "to_own_flag": 3631,
+    "to_enemy_flag": 6780,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1020,
+    "team": 1,
+    "to_own_flag": 3010,
+    "to_enemy_flag": 6036,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1021,
+    "team": 0,
+    "to_own_flag": 3042,
+    "to_enemy_flag": 6004,
+    "forward": 0.34,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 17,
+  "hazard_zones": 0
+ },
+ "CTF-Command-S6-5": {
+  "voxel": 32.0,
+  "brushes": 748,
+  "lights": 489,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 12,
+   "mover_lift": 0
+  },
+  "flag_reachable": false,
+  "walk_area_kuu2": 32950.0,
+  "extent_xy": [
+   6784,
+   5408
+  ],
+  "height_range": 736,
+  "floor_z_std": 159,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 5209,
+  "sightline_median": 608,
+  "sightline_p90": 1712,
+  "sightline_mean_max_per_spot": 2417,
+  "flag_visible_from_pct": [
+   5.8,
+   5.2
+  ],
+  "mutual_visibility_pct": 10.2,
+  "isovist_median_Muu2": 2.56,
+  "isovist_p90_Muu2": 3.67,
+  "island_wall_share_pct": 60.3,
+  "free_structures": 4,
+  "free_structures_footprint_k_uu2": 18235,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     -622,
+     1,
+     -39
+    ],
+    "footprint_uu2": 10150912,
+    "height": 672,
+    "dist_to_nearest_flag": 2538
+   },
+   {
+    "center": [
+     -690,
+     10,
+     88
+    ],
+    "footprint_uu2": 7953408,
+    "height": 384,
+    "dist_to_nearest_flag": 2602
+   },
+   {
+    "center": [
+     -689,
+     -1151,
+     9
+    ],
+    "footprint_uu2": 65536,
+    "height": 416,
+    "dist_to_nearest_flag": 2846
+   },
+   {
+    "center": [
+     -689,
+     1153,
+     9
+    ],
+    "footprint_uu2": 65536,
+    "height": 416,
+    "dist_to_nearest_flag": 2847
+   }
+  ],
+  "headroom_median": 384,
+  "headroom_over_640_pct": 27.7,
+  "dead_end_pct_near_flags": 46.9,
+  "dead_end_examples": [
+   [
+    184,
+    1272,
+    -360
+   ],
+   [
+    -3240,
+    1336,
+    -360
+   ],
+   [
+    -3784,
+    -1288,
+    -360
+   ],
+   [
+    -3176,
+    -2376,
+    -360
+   ],
+   [
+    1720,
+    -520,
+    -328
+   ],
+   [
+    920,
+    2104,
+    -360
+   ]
+  ],
+  "light_median": 0.19,
+  "light_p25": 0.074,
+  "dark_floor_pct": 42.4,
+  "lights_per_Muu2": 14.84,
+  "ramp_area_by_slope_pct": {
+   "<=22": 3.2,
+   "22-30": 3.8,
+   "30-38": 38.6,
+   ">38": 54.5
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   144,
+   144,
+   144,
+   144,
+   144,
+   144,
+   144,
+   144,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   200,
+   216,
+   216,
+   216,
+   216,
+   224,
+   224,
+   224,
+   224,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   407,
+   407,
+   407,
+   407,
+   407,
+   407,
+   407,
+   407,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   416,
+   458,
+   458,
+   458,
+   458,
+   458,
+   458,
+   458,
+   458,
+   498,
+   498,
+   498,
+   498,
+   498,
+   498,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   544,
+   544,
+   544,
+   544,
+   544,
+   544,
+   720,
+   720,
+   996,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   1024,
+   2048,
+   2048,
+   2304,
+   2304,
+   2304,
+   2304,
+   2560,
+   2560,
+   2560,
+   2560,
+   2560,
+   2560,
+   2560,
+   2560
+  ],
+  "corridor_width_median": 840,
+  "corridor_width_p25": 512,
+  "narrow_spots_pct": 15.8,
+  "long_sightlines_pct": 1.2,
+  "sightline_p99": 3104,
+  "flag_entrances": {
+   "768": [
+    2,
+    3
+   ],
+   "1024": [
+    2,
+    4
+   ],
+   "1280": [
+    2,
+    4
+   ]
+  },
+  "level_change_walk_median": 3000,
+  "level_change_walk_p75": 3000,
+  "spawns": 16,
+  "spawns_per_team": [
+   8,
+   8
+  ],
+  "spawns_seeing_own_flag": 4,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 380,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": true
+   },
+   {
+    "id": 381,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 404,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 448,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": true
+   },
+   {
+    "id": 829,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": true
+   },
+   {
+    "id": 830,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 853,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 897,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": true
+   },
+   {
+    "id": 992,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 993,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 994,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 995,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1164,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1165,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1166,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1167,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 10,
+  "hazard_zones": 3
+ },
+ "CTF-Duku-PG1": {
+  "voxel": 32.0,
+  "brushes": 549,
+  "lights": 199,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 6,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 13554.0,
+  "extent_xy": [
+   6688,
+   2528
+  ],
+  "height_range": 448,
+  "floor_z_std": 176,
+  "floor_levels": 2,
+  "flag_dz": 0,
+  "flag_dist_straight": 6510,
+  "flag_dist_walk": 7079,
+  "routes": 1,
+  "route_lengths": [
+   7079
+  ],
+  "sightline_median": 384,
+  "sightline_p90": 1200,
+  "sightline_mean_max_per_spot": 1545,
+  "flag_visible_from_pct": [
+   17.0,
+   9.5
+  ],
+  "mutual_visibility_pct": 10.2,
+  "isovist_median_Muu2": 1.16,
+  "isovist_p90_Muu2": 2.05,
+  "island_wall_share_pct": 34.2,
+  "free_structures": 1,
+  "free_structures_footprint_k_uu2": 459,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     9,
+     -1,
+     66
+    ],
+    "footprint_uu2": 458752,
+    "height": 224,
+    "dist_to_nearest_flag": 3246
+   }
+  ],
+  "headroom_median": 704,
+  "headroom_over_640_pct": 52.0,
+  "dead_end_pct_near_flags": 1.2,
+  "dead_end_examples": [
+   [
+    2744,
+    -1064,
+    -40
+   ],
+   [
+    2648,
+    -1000,
+    -40
+   ]
+  ],
+  "light_median": 0.655,
+  "light_p25": 0.529,
+  "dark_floor_pct": 0.3,
+  "lights_per_Muu2": 14.68,
+  "ramp_area_by_slope_pct": {
+   "<=22": 38.6,
+   "22-30": 51.5,
+   "30-38": 3.1,
+   ">38": 6.7
+  },
+  "steep_ramp_widths": [
+   384,
+   384,
+   384,
+   384,
+   385,
+   385
+  ],
+  "corridor_width_median": 528,
+  "corridor_width_p25": 320,
+  "narrow_spots_pct": 32.0,
+  "long_sightlines_pct": 0.06,
+  "sightline_p99": 2000,
+  "flag_entrances": {
+   "768": [
+    3,
+    3
+   ],
+   "1024": [
+    4,
+    4
+   ],
+   "1280": [
+    3,
+    3
+   ]
+  },
+  "level_change_walk_median": 1403,
+  "level_change_walk_p75": 1775,
+  "spawns": 16,
+  "spawns_per_team": [
+   8,
+   8
+  ],
+  "spawn_to_own_flag": 2494,
+  "spawn_to_enemy_flag": 5090,
+  "spawn_to_own_flag_min": 1335,
+  "spawn_forwardness": 0.33,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 213,
+    "team": 0,
+    "to_own_flag": 1457,
+    "to_enemy_flag": 5885,
+    "forward": 0.2,
+    "sees_own_flag": false
+   },
+   {
+    "id": 214,
+    "team": 0,
+    "to_own_flag": 1463,
+    "to_enemy_flag": 5690,
+    "forward": 0.2,
+    "sees_own_flag": false
+   },
+   {
+    "id": 215,
+    "team": 0,
+    "to_own_flag": 3077,
+    "to_enemy_flag": 4473,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 216,
+    "team": 0,
+    "to_own_flag": 1367,
+    "to_enemy_flag": 5842,
+    "forward": 0.19,
+    "sees_own_flag": false
+   },
+   {
+    "id": 217,
+    "team": 0,
+    "to_own_flag": 2999,
+    "to_enemy_flag": 4093,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 218,
+    "team": 0,
+    "to_own_flag": 3783,
+    "to_enemy_flag": 6161,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 219,
+    "team": 0,
+    "to_own_flag": 3012,
+    "to_enemy_flag": 4009,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 220,
+    "team": 0,
+    "to_own_flag": 2866,
+    "to_enemy_flag": 4519,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 221,
+    "team": 1,
+    "to_own_flag": 2821,
+    "to_enemy_flag": 4519,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 222,
+    "team": 1,
+    "to_own_flag": 2954,
+    "to_enemy_flag": 4125,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 223,
+    "team": 1,
+    "to_own_flag": 2985,
+    "to_enemy_flag": 4036,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 599,
+    "team": 1,
+    "to_own_flag": 1462,
+    "to_enemy_flag": 5872,
+    "forward": 0.2,
+    "sees_own_flag": false
+   },
+   {
+    "id": 600,
+    "team": 1,
+    "to_own_flag": 1495,
+    "to_enemy_flag": 5703,
+    "forward": 0.21,
+    "sees_own_flag": false
+   },
+   {
+    "id": 601,
+    "team": 1,
+    "to_own_flag": 3109,
+    "to_enemy_flag": 4505,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 602,
+    "team": 1,
+    "to_own_flag": 1335,
+    "to_enemy_flag": 5815,
+    "forward": 0.19,
+    "sees_own_flag": false
+   },
+   {
+    "id": 603,
+    "team": 1,
+    "to_own_flag": 3724,
+    "to_enemy_flag": 6200,
+    "forward": 0.38,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 16,
+  "hazard_zones": 0
+ },
+ "CTF-Entropic-RE5": {
+  "voxel": 32.0,
+  "brushes": 818,
+  "lights": 1101,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 6,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 18868.0,
+  "extent_xy": [
+   6304,
+   4320
+  ],
+  "height_range": 2016,
+  "floor_z_std": 329,
+  "floor_levels": 4,
+  "flag_dz": 0,
+  "flag_dist_straight": 5813,
+  "flag_dist_walk": 6078,
+  "routes": 3,
+  "route_lengths": [
+   6078,
+   6900,
+   7353
+  ],
+  "sightline_median": 464,
+  "sightline_p90": 1344,
+  "sightline_mean_max_per_spot": 1707,
+  "flag_visible_from_pct": [
+   11.0,
+   12.2
+  ],
+  "mutual_visibility_pct": 11.4,
+  "isovist_median_Muu2": 1.6,
+  "isovist_p90_Muu2": 2.38,
+  "island_wall_share_pct": 18.5,
+  "free_structures": 4,
+  "free_structures_footprint_k_uu2": 308,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     580,
+     -572,
+     9
+    ],
+    "footprint_uu2": 81920,
+    "height": 192,
+    "dist_to_nearest_flag": 2492
+   },
+   {
+    "center": [
+     -573,
+     583,
+     9
+    ],
+    "footprint_uu2": 78848,
+    "height": 192,
+    "dist_to_nearest_flag": 2503
+   },
+   {
+    "center": [
+     -614,
+     5,
+     10
+    ],
+    "footprint_uu2": 73728,
+    "height": 192,
+    "dist_to_nearest_flag": 2300
+   },
+   {
+    "center": [
+     630,
+     4,
+     10
+    ],
+    "footprint_uu2": 73728,
+    "height": 192,
+    "dist_to_nearest_flag": 2283
+   }
+  ],
+  "headroom_median": 480,
+  "headroom_over_640_pct": 35.9,
+  "dead_end_pct_near_flags": 25.0,
+  "dead_end_examples": [
+   [
+    -2696,
+    -200,
+    -456
+   ],
+   [
+    984,
+    2008,
+    -360
+   ],
+   [
+    3160,
+    216,
+    -456
+   ],
+   [
+    3000,
+    632,
+    -456
+   ],
+   [
+    -1320,
+    -1128,
+    -328
+   ],
+   [
+    -1224,
+    -1928,
+    -360
+   ]
+  ],
+  "light_median": 0.483,
+  "light_p25": 0.336,
+  "dark_floor_pct": 4.6,
+  "lights_per_Muu2": 58.35,
+  "ramp_area_by_slope_pct": {
+   "<=22": 49.0,
+   "22-30": 11.1,
+   "30-38": 9.2,
+   ">38": 30.7
+  },
+  "steep_ramp_widths": [
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   24,
+   144,
+   144,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   384,
+   384,
+   384,
+   384,
+   407,
+   407,
+   611,
+   611,
+   768,
+   768
+  ],
+  "corridor_width_median": 560,
+  "corridor_width_p25": 400,
+  "narrow_spots_pct": 17.2,
+  "long_sightlines_pct": 0.08,
+  "sightline_p99": 2224,
+  "flag_entrances": {
+   "768": [
+    1,
+    1
+   ],
+   "1024": [
+    2,
+    2
+   ],
+   "1280": [
+    5,
+    5
+   ]
+  },
+  "level_change_walk_median": 529,
+  "level_change_walk_p75": 1022,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 3148,
+  "spawn_to_enemy_flag": 4610,
+  "spawn_to_own_flag_min": 2303,
+  "spawn_forwardness": 0.4,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 1853,
+    "team": 0,
+    "to_own_flag": 3184,
+    "to_enemy_flag": 4248,
+    "forward": 0.43,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1854,
+    "team": 0,
+    "to_own_flag": 2980,
+    "to_enemy_flag": 5079,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1855,
+    "team": 0,
+    "to_own_flag": 3338,
+    "to_enemy_flag": 5115,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1856,
+    "team": 0,
+    "to_own_flag": 2780,
+    "to_enemy_flag": 4652,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1857,
+    "team": 0,
+    "to_own_flag": 3929,
+    "to_enemy_flag": 3701,
+    "forward": 0.51,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1858,
+    "team": 0,
+    "to_own_flag": 3417,
+    "to_enemy_flag": 4374,
+    "forward": 0.44,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1859,
+    "team": 0,
+    "to_own_flag": 2349,
+    "to_enemy_flag": 5230,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1864,
+    "team": 1,
+    "to_own_flag": 3189,
+    "to_enemy_flag": 4115,
+    "forward": 0.44,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1865,
+    "team": 1,
+    "to_own_flag": 2303,
+    "to_enemy_flag": 4645,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1866,
+    "team": 1,
+    "to_own_flag": 2980,
+    "to_enemy_flag": 5069,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1867,
+    "team": 1,
+    "to_own_flag": 3402,
+    "to_enemy_flag": 5131,
+    "forward": 0.4,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1868,
+    "team": 1,
+    "to_own_flag": 2826,
+    "to_enemy_flag": 4678,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1869,
+    "team": 1,
+    "to_own_flag": 3929,
+    "to_enemy_flag": 3709,
+    "forward": 0.51,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1870,
+    "team": 1,
+    "to_own_flag": 3462,
+    "to_enemy_flag": 4795,
+    "forward": 0.42,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 18,
+  "hazard_zones": 2
+ },
+ "CTF-Grudge-RE1": {
+  "voxel": 32.0,
+  "brushes": 2208,
+  "lights": 263,
+  "movement_notes": [
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift"
+  ],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 16,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 15181.0,
+  "extent_xy": [
+   5760,
+   3648
+  ],
+  "height_range": 576,
+  "floor_z_std": 146,
+  "floor_levels": 2,
+  "flag_dz": 0,
+  "flag_dist_straight": 4482,
+  "flag_dist_walk": 5609,
+  "routes": 2,
+  "route_lengths": [
+   5609,
+   5655
+  ],
+  "sightline_median": 304,
+  "sightline_p90": 1136,
+  "sightline_mean_max_per_spot": 1747,
+  "flag_visible_from_pct": [
+   12.0,
+   11.0
+  ],
+  "mutual_visibility_pct": 9.8,
+  "isovist_median_Muu2": 0.97,
+  "isovist_p90_Muu2": 2.06,
+  "island_wall_share_pct": 28.3,
+  "free_structures": 1,
+  "free_structures_footprint_k_uu2": 5279,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     -1,
+     9,
+     -33
+    ],
+    "footprint_uu2": 5278720,
+    "height": 224,
+    "dist_to_nearest_flag": 2240
+   }
+  ],
+  "headroom_median": 384,
+  "headroom_over_640_pct": 28.1,
+  "dead_end_pct_near_flags": 6.2,
+  "dead_end_examples": [
+   [
+    1176,
+    -8,
+    -488
+   ],
+   [
+    -456,
+    -72,
+    -392
+   ],
+   [
+    -2152,
+    696,
+    -232
+   ],
+   [
+    1272,
+    952,
+    -488
+   ],
+   [
+    -1224,
+    -904,
+    -488
+   ],
+   [
+    1304,
+    -1928,
+    -104
+   ]
+  ],
+  "light_median": 0.517,
+  "light_p25": 0.399,
+  "dark_floor_pct": 3.0,
+  "lights_per_Muu2": 17.32,
+  "ramp_area_by_slope_pct": {
+   "<=22": 10.7,
+   "22-30": 85.1,
+   "30-38": 0.0,
+   ">38": 4.2
+  },
+  "steep_ramp_widths": [
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   256,
+   256
+  ],
+  "corridor_width_median": 336,
+  "corridor_width_p25": 272,
+  "narrow_spots_pct": 52.8,
+  "long_sightlines_pct": 0.44,
+  "sightline_p99": 2432,
+  "flag_entrances": {
+   "768": [
+    11,
+    10
+   ],
+   "1024": [
+    5,
+    6
+   ],
+   "1280": [
+    8,
+    7
+   ]
+  },
+  "level_change_walk_median": 384,
+  "level_change_walk_p75": 598,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 1185,
+  "spawn_to_enemy_flag": 5108,
+  "spawn_to_own_flag_min": 362,
+  "spawn_forwardness": 0.18,
+  "spawns_seeing_own_flag": 4,
+  "spawns_within_1024_of_own_flag": 6,
+  "spawn_details": [
+   {
+    "id": 1866,
+    "team": 1,
+    "to_own_flag": 1412,
+    "to_enemy_flag": 4270,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1867,
+    "team": 1,
+    "to_own_flag": 896,
+    "to_enemy_flag": 4682,
+    "forward": 0.16,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1868,
+    "team": 1,
+    "to_own_flag": 2007,
+    "to_enemy_flag": 5687,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1869,
+    "team": 1,
+    "to_own_flag": 1921,
+    "to_enemy_flag": 5687,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1870,
+    "team": 1,
+    "to_own_flag": 362,
+    "to_enemy_flag": 5553,
+    "forward": 0.06,
+    "sees_own_flag": true
+   },
+   {
+    "id": 1871,
+    "team": 1,
+    "to_own_flag": 362,
+    "to_enemy_flag": 5580,
+    "forward": 0.06,
+    "sees_own_flag": true
+   },
+   {
+    "id": 1872,
+    "team": 0,
+    "to_own_flag": 1430,
+    "to_enemy_flag": 4270,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1873,
+    "team": 0,
+    "to_own_flag": 896,
+    "to_enemy_flag": 4701,
+    "forward": 0.16,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1874,
+    "team": 0,
+    "to_own_flag": 1903,
+    "to_enemy_flag": 5719,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1875,
+    "team": 0,
+    "to_own_flag": 1876,
+    "to_enemy_flag": 5692,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1876,
+    "team": 0,
+    "to_own_flag": 362,
+    "to_enemy_flag": 5580,
+    "forward": 0.06,
+    "sees_own_flag": true
+   },
+   {
+    "id": 1877,
+    "team": 0,
+    "to_own_flag": 362,
+    "to_enemy_flag": 5553,
+    "forward": 0.06,
+    "sees_own_flag": true
+   },
+   {
+    "id": 2474,
+    "team": 1,
+    "to_own_flag": 1393,
+    "to_enemy_flag": 4270,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2475,
+    "team": 0,
+    "to_own_flag": 1412,
+    "to_enemy_flag": 4270,
+    "forward": 0.25,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 18,
+  "hazard_zones": 0
+ },
+ "CTF-Iztac-PG2": {
+  "voxel": 32.0,
+  "brushes": 2601,
+  "lights": 369,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 16
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 15886.0,
+  "extent_xy": [
+   4096,
+   6112
+  ],
+  "height_range": 448,
+  "floor_z_std": 115,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 5644,
+  "flag_dist_walk": 6531,
+  "routes": 3,
+  "route_lengths": [
+   6531,
+   6782,
+   7374
+  ],
+  "sightline_median": 336,
+  "sightline_p90": 1056,
+  "sightline_mean_max_per_spot": 1476,
+  "flag_visible_from_pct": [
+   7.8,
+   6.2
+  ],
+  "mutual_visibility_pct": 8.5,
+  "isovist_median_Muu2": 0.9,
+  "isovist_p90_Muu2": 1.53,
+  "island_wall_share_pct": 35.9,
+  "free_structures": 5,
+  "free_structures_footprint_k_uu2": 4129,
+  "free_structures_near_flags": 2,
+  "free_structure_list": [
+   {
+    "center": [
+     6,
+     3,
+     -3142
+    ],
+    "footprint_uu2": 1504256,
+    "height": 224,
+    "dist_to_nearest_flag": 2819
+   },
+   {
+    "center": [
+     884,
+     -751,
+     -3055
+    ],
+    "footprint_uu2": 740352,
+    "height": 288,
+    "dist_to_nearest_flag": 2208
+   },
+   {
+    "center": [
+     -873,
+     747,
+     -3054
+    ],
+    "footprint_uu2": 729088,
+    "height": 288,
+    "dist_to_nearest_flag": 2208
+   },
+   {
+    "center": [
+     0,
+     -1883,
+     -3092
+    ],
+    "footprint_uu2": 579584,
+    "height": 416,
+    "dist_to_nearest_flag": 944
+   },
+   {
+    "center": [
+     12,
+     1892,
+     -3090
+    ],
+    "footprint_uu2": 575488,
+    "height": 416,
+    "dist_to_nearest_flag": 936
+   }
+  ],
+  "headroom_median": 768,
+  "headroom_over_640_pct": 56.7,
+  "dead_end_pct_near_flags": 1.2,
+  "dead_end_examples": [
+   [
+    1368,
+    2136,
+    -3272
+   ],
+   [
+    -520,
+    -840,
+    -3272
+   ]
+  ],
+  "light_median": 0.293,
+  "light_p25": 0.204,
+  "dark_floor_pct": 8.1,
+  "lights_per_Muu2": 23.23,
+  "ramp_area_by_slope_pct": {
+   "<=22": 19.1,
+   "22-30": 70.3,
+   "30-38": 5.3,
+   ">38": 5.3
+  },
+  "steep_ramp_widths": [
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   121,
+   121,
+   151,
+   151,
+   151,
+   151,
+   151,
+   151,
+   151,
+   151,
+   159,
+   159,
+   159,
+   159,
+   162,
+   162,
+   162,
+   162,
+   164,
+   164,
+   166,
+   166,
+   168,
+   168,
+   169,
+   169,
+   169,
+   169,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   259,
+   259,
+   260,
+   260
+  ],
+  "corridor_width_median": 400,
+  "corridor_width_p25": 288,
+  "narrow_spots_pct": 46.2,
+  "long_sightlines_pct": 0.06,
+  "sightline_p99": 2016,
+  "flag_entrances": {
+   "768": [
+    3,
+    3
+   ],
+   "1024": [
+    3,
+    3
+   ],
+   "1280": [
+    5,
+    4
+   ]
+  },
+  "level_change_walk_median": 548,
+  "level_change_walk_p75": 884,
+  "spawns": 16,
+  "spawns_per_team": [
+   8,
+   8
+  ],
+  "spawn_to_own_flag": 1999,
+  "spawn_to_enemy_flag": 4786,
+  "spawn_to_own_flag_min": 1640,
+  "spawn_forwardness": 0.3,
+  "spawns_seeing_own_flag": 2,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 1937,
+    "team": 0,
+    "to_own_flag": 1710,
+    "to_enemy_flag": 5260,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1938,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1939,
+    "team": 0,
+    "to_own_flag": 2175,
+    "to_enemy_flag": 4942,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1940,
+    "team": 0,
+    "to_own_flag": 1846,
+    "to_enemy_flag": 4619,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1980,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2805,
+    "team": 0,
+    "to_own_flag": 1672,
+    "to_enemy_flag": 5319,
+    "forward": 0.24,
+    "sees_own_flag": true
+   },
+   {
+    "id": 2833,
+    "team": 1,
+    "to_own_flag": 1742,
+    "to_enemy_flag": 5273,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2834,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2835,
+    "team": 1,
+    "to_own_flag": 2226,
+    "to_enemy_flag": 4929,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2836,
+    "team": 1,
+    "to_own_flag": 1814,
+    "to_enemy_flag": 4633,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2837,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2838,
+    "team": 1,
+    "to_own_flag": 1640,
+    "to_enemy_flag": 5200,
+    "forward": 0.24,
+    "sees_own_flag": true
+   },
+   {
+    "id": 2839,
+    "team": 0,
+    "to_own_flag": 1910,
+    "to_enemy_flag": 4719,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2842,
+    "team": 0,
+    "to_own_flag": 2683,
+    "to_enemy_flag": 3897,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2843,
+    "team": 1,
+    "to_own_flag": 1942,
+    "to_enemy_flag": 4759,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2844,
+    "team": 1,
+    "to_own_flag": 2632,
+    "to_enemy_flag": 3883,
+    "forward": 0.4,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 9,
+  "hazard_zones": 0
+ },
+ "CTF-Klondike-PG1": {
+  "voxel": 32.0,
+  "brushes": 1110,
+  "lights": 302,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 2,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 20456.0,
+  "extent_xy": [
+   3296,
+   5984
+  ],
+  "height_range": 1088,
+  "floor_z_std": 223,
+  "floor_levels": 4,
+  "flag_dz": 1,
+  "flag_dist_straight": 5440,
+  "flag_dist_walk": 5652,
+  "routes": 3,
+  "route_lengths": [
+   5652,
+   6262,
+   6273
+  ],
+  "sightline_median": 400,
+  "sightline_p90": 1200,
+  "sightline_mean_max_per_spot": 1719,
+  "flag_visible_from_pct": [
+   8.2,
+   11.0
+  ],
+  "mutual_visibility_pct": 6.8,
+  "isovist_median_Muu2": 1.13,
+  "isovist_p90_Muu2": 2.08,
+  "island_wall_share_pct": 19.7,
+  "free_structures": 5,
+  "free_structures_footprint_k_uu2": 1360,
+  "free_structures_near_flags": 2,
+  "free_structure_list": [
+   {
+    "center": [
+     5,
+     9,
+     -260
+    ],
+    "footprint_uu2": 1122304,
+    "height": 224,
+    "dist_to_nearest_flag": 2711
+   },
+   {
+    "center": [
+     -755,
+     8,
+     -308
+    ],
+    "footprint_uu2": 98304,
+    "height": 192,
+    "dist_to_nearest_flag": 2816
+   },
+   {
+    "center": [
+     7,
+     7,
+     -495
+    ],
+    "footprint_uu2": 65536,
+    "height": 384,
+    "dist_to_nearest_flag": 2713
+   },
+   {
+    "center": [
+     8,
+     -1880,
+     -600
+    ],
+    "footprint_uu2": 36864,
+    "height": 192,
+    "dist_to_nearest_flag": 840
+   },
+   {
+    "center": [
+     8,
+     1896,
+     -600
+    ],
+    "footprint_uu2": 36864,
+    "height": 192,
+    "dist_to_nearest_flag": 824
+   }
+  ],
+  "headroom_median": 768,
+  "headroom_over_640_pct": 53.4,
+  "dead_end_pct_near_flags": 11.9,
+  "dead_end_examples": [
+   [
+    984,
+    -1160,
+    -680
+   ],
+   [
+    1656,
+    -1416,
+    -936
+   ],
+   [
+    792,
+    -1160,
+    -680
+   ],
+   [
+    1464,
+    -1672,
+    -936
+   ],
+   [
+    1624,
+    1208,
+    -936
+   ],
+   [
+    -808,
+    1272,
+    -680
+   ]
+  ],
+  "light_median": 0.501,
+  "light_p25": 0.278,
+  "dark_floor_pct": 12.1,
+  "lights_per_Muu2": 14.76,
+  "ramp_area_by_slope_pct": {
+   "<=22": 27.4,
+   "22-30": 26.9,
+   "30-38": 33.9,
+   ">38": 11.8
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   64,
+   64,
+   64,
+   64,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   512,
+   512,
+   512,
+   512
+  ],
+  "corridor_width_median": 496,
+  "corridor_width_p25": 336,
+  "narrow_spots_pct": 30.2,
+  "long_sightlines_pct": 0.11,
+  "sightline_p99": 2464,
+  "flag_entrances": {
+   "768": [
+    6,
+    5
+   ],
+   "1024": [
+    8,
+    6
+   ],
+   "1280": [
+    7,
+    5
+   ]
+  },
+  "level_change_walk_median": 354,
+  "level_change_walk_p75": 546,
+  "spawns": 16,
+  "spawns_per_team": [
+   8,
+   8
+  ],
+  "spawn_to_own_flag": 2075,
+  "spawn_to_enemy_flag": 4142,
+  "spawn_to_own_flag_min": 1974,
+  "spawn_forwardness": 0.33,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 144,
+    "team": 1,
+    "to_own_flag": 2006,
+    "to_enemy_flag": 4379,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 145,
+    "team": 1,
+    "to_own_flag": 2020,
+    "to_enemy_flag": 4392,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 146,
+    "team": 1,
+    "to_own_flag": 2063,
+    "to_enemy_flag": 4137,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 147,
+    "team": 0,
+    "to_own_flag": 1988,
+    "to_enemy_flag": 4424,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 148,
+    "team": 0,
+    "to_own_flag": 1974,
+    "to_enemy_flag": 4411,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 149,
+    "team": 0,
+    "to_own_flag": 2063,
+    "to_enemy_flag": 4148,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 274,
+    "team": 0,
+    "to_own_flag": 2063,
+    "to_enemy_flag": 4156,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 275,
+    "team": 0,
+    "to_own_flag": 2060,
+    "to_enemy_flag": 3958,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 276,
+    "team": 1,
+    "to_own_flag": 2063,
+    "to_enemy_flag": 4129,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 277,
+    "team": 1,
+    "to_own_flag": 2060,
+    "to_enemy_flag": 3940,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1173,
+    "team": 1,
+    "to_own_flag": 2074,
+    "to_enemy_flag": 3953,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1174,
+    "team": 1,
+    "to_own_flag": 2187,
+    "to_enemy_flag": 4040,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1175,
+    "team": 1,
+    "to_own_flag": 2174,
+    "to_enemy_flag": 4061,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1176,
+    "team": 0,
+    "to_own_flag": 2074,
+    "to_enemy_flag": 3972,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1177,
+    "team": 0,
+    "to_own_flag": 2161,
+    "to_enemy_flag": 4093,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1178,
+    "team": 0,
+    "to_own_flag": 2174,
+    "to_enemy_flag": 4072,
+    "forward": 0.35,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 17,
+  "hazard_zones": 12
+ },
+ "CTF-Mesmerize-PG1-SA": {
+  "voxel": 32.0,
+  "brushes": 793,
+  "lights": 254,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 4,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 17727.0,
+  "extent_xy": [
+   2912,
+   5600
+  ],
+  "height_range": 480,
+  "floor_z_std": 139,
+  "floor_levels": 2,
+  "flag_dz": 0,
+  "flag_dist_straight": 5120,
+  "flag_dist_walk": 5571,
+  "routes": 4,
+  "route_lengths": [
+   5571,
+   5624,
+   6665,
+   6686
+  ],
+  "sightline_median": 352,
+  "sightline_p90": 1136,
+  "sightline_mean_max_per_spot": 1529,
+  "flag_visible_from_pct": [
+   20.0,
+   15.5
+  ],
+  "mutual_visibility_pct": 11.0,
+  "isovist_median_Muu2": 1.03,
+  "isovist_p90_Muu2": 1.74,
+  "island_wall_share_pct": 26.1,
+  "free_structures": 1,
+  "free_structures_footprint_k_uu2": 2224,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     0,
+     11,
+     101
+    ],
+    "footprint_uu2": 2224128,
+    "height": 416,
+    "dist_to_nearest_flag": 2549
+   }
+  ],
+  "headroom_median": 192,
+  "headroom_over_640_pct": 12.3,
+  "dead_end_pct_near_flags": 4.4,
+  "dead_end_examples": [
+   [
+    1016,
+    -2760,
+    -168
+   ],
+   [
+    24,
+    2104,
+    -168
+   ],
+   [
+    -40,
+    -1960,
+    -168
+   ],
+   [
+    56,
+    -2024,
+    -168
+   ],
+   [
+    -1000,
+    -2760,
+    -168
+   ],
+   [
+    792,
+    856,
+    -232
+   ]
+  ],
+  "light_median": 0.627,
+  "light_p25": 0.45,
+  "dark_floor_pct": 0.4,
+  "lights_per_Muu2": 14.33,
+  "ramp_area_by_slope_pct": {
+   "<=22": 43.4,
+   "22-30": 30.9,
+   "30-38": 1.6,
+   ">38": 24.2
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   110,
+   110,
+   110,
+   110,
+   126,
+   126,
+   126,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   135,
+   135,
+   137,
+   137,
+   137,
+   137,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   181,
+   192,
+   192,
+   192,
+   192,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   768,
+   1408,
+   1408,
+   1408,
+   1408,
+   1664,
+   1664,
+   1664,
+   1664,
+   1664,
+   1664,
+   1664,
+   1664
+  ],
+  "corridor_width_median": 384,
+  "corridor_width_p25": 272,
+  "narrow_spots_pct": 49.2,
+  "long_sightlines_pct": 0.0,
+  "sightline_p99": 2048,
+  "flag_entrances": {
+   "768": [
+    6,
+    5
+   ],
+   "1024": [
+    10,
+    10
+   ],
+   "1280": [
+    8,
+    8
+   ]
+  },
+  "level_change_walk_median": 393,
+  "level_change_walk_p75": 821,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 2228,
+  "spawn_to_enemy_flag": 4215,
+  "spawn_to_own_flag_min": 1479,
+  "spawn_forwardness": 0.34,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 755,
+    "team": 0,
+    "to_own_flag": 1737,
+    "to_enemy_flag": 4935,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 756,
+    "team": 0,
+    "to_own_flag": 1750,
+    "to_enemy_flag": 4909,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 757,
+    "team": 0,
+    "to_own_flag": 1492,
+    "to_enemy_flag": 4132,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 758,
+    "team": 0,
+    "to_own_flag": 1479,
+    "to_enemy_flag": 4118,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 759,
+    "team": 0,
+    "to_own_flag": 4636,
+    "to_enemy_flag": 4697,
+    "forward": 0.5,
+    "sees_own_flag": false
+   },
+   {
+    "id": 760,
+    "team": 1,
+    "to_own_flag": 1759,
+    "to_enemy_flag": 4935,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 761,
+    "team": 1,
+    "to_own_flag": 1511,
+    "to_enemy_flag": 4132,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 762,
+    "team": 1,
+    "to_own_flag": 1498,
+    "to_enemy_flag": 4118,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 763,
+    "team": 1,
+    "to_own_flag": 4636,
+    "to_enemy_flag": 4734,
+    "forward": 0.49,
+    "sees_own_flag": false
+   },
+   {
+    "id": 764,
+    "team": 1,
+    "to_own_flag": 1740,
+    "to_enemy_flag": 4909,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 878,
+    "team": 1,
+    "to_own_flag": 2260,
+    "to_enemy_flag": 3337,
+    "forward": 0.4,
+    "sees_own_flag": false
+   },
+   {
+    "id": 879,
+    "team": 1,
+    "to_own_flag": 2247,
+    "to_enemy_flag": 3324,
+    "forward": 0.4,
+    "sees_own_flag": false
+   },
+   {
+    "id": 880,
+    "team": 0,
+    "to_own_flag": 2215,
+    "to_enemy_flag": 3356,
+    "forward": 0.4,
+    "sees_own_flag": false
+   },
+   {
+    "id": 881,
+    "team": 0,
+    "to_own_flag": 2228,
+    "to_enemy_flag": 3369,
+    "forward": 0.4,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 12,
+  "hazard_zones": 0
+ },
+ "CTF-Nuance99-PG1-SA": {
+  "voxel": 32.0,
+  "brushes": 1544,
+  "lights": 308,
+  "movement_notes": [
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift"
+  ],
+  "movement_links": {
+   "kicker": 8,
+   "teleporter": 0,
+   "jumppad": 4,
+   "lift": 0,
+   "mover_lift": 16
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 17133.0,
+  "extent_xy": [
+   6752,
+   2464
+  ],
+  "height_range": 928,
+  "floor_z_std": 254,
+  "floor_levels": 5,
+  "flag_dz": 0,
+  "flag_dist_straight": 6144,
+  "flag_dist_walk": 6462,
+  "routes": 3,
+  "route_lengths": [
+   6462,
+   6886,
+   7026
+  ],
+  "sightline_median": 384,
+  "sightline_p90": 1216,
+  "sightline_mean_max_per_spot": 1554,
+  "flag_visible_from_pct": [
+   14.8,
+   11.5
+  ],
+  "mutual_visibility_pct": 9.0,
+  "isovist_median_Muu2": 1.16,
+  "isovist_p90_Muu2": 2.25,
+  "island_wall_share_pct": 21.5,
+  "free_structures": 4,
+  "free_structures_footprint_k_uu2": 3229,
+  "free_structures_near_flags": 2,
+  "free_structure_list": [
+   {
+    "center": [
+     -1370,
+     257,
+     1352
+    ],
+    "footprint_uu2": 1161216,
+    "height": 192,
+    "dist_to_nearest_flag": 1721
+   },
+   {
+    "center": [
+     1385,
+     -244,
+     1352
+    ],
+    "footprint_uu2": 1161216,
+    "height": 192,
+    "dist_to_nearest_flag": 1705
+   },
+   {
+    "center": [
+     5,
+     0,
+     1399
+    ],
+    "footprint_uu2": 459776,
+    "height": 288,
+    "dist_to_nearest_flag": 3067
+   },
+   {
+    "center": [
+     6,
+     0,
+     1066
+    ],
+    "footprint_uu2": 446464,
+    "height": 192,
+    "dist_to_nearest_flag": 3066
+   }
+  ],
+  "headroom_median": 256,
+  "headroom_over_640_pct": 7.6,
+  "dead_end_pct_near_flags": 7.5,
+  "dead_end_examples": [
+   [
+    3064,
+    -40,
+    1464
+   ],
+   [
+    984,
+    280,
+    984
+   ],
+   [
+    952,
+    1208,
+    1688
+   ],
+   [
+    3320,
+    -136,
+    1464
+   ],
+   [
+    3256,
+    -200,
+    1432
+   ],
+   [
+    -2440,
+    344,
+    1304
+   ]
+  ],
+  "light_median": 0.228,
+  "light_p25": 0.118,
+  "dark_floor_pct": 32.7,
+  "lights_per_Muu2": 17.98,
+  "ramp_area_by_slope_pct": {
+   "<=22": 25.8,
+   "22-30": 61.5,
+   "30-38": 2.7,
+   ">38": 10.0
+  },
+  "steep_ramp_widths": [
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   88,
+   104,
+   104,
+   104,
+   104,
+   208,
+   208,
+   208,
+   208,
+   256,
+   256,
+   258,
+   258
+  ],
+  "corridor_width_median": 528,
+  "corridor_width_p25": 304,
+  "narrow_spots_pct": 32.2,
+  "long_sightlines_pct": 0.11,
+  "sightline_p99": 2144,
+  "flag_entrances": {
+   "768": [
+    4,
+    4
+   ],
+   "1024": [
+    4,
+    4
+   ],
+   "1280": [
+    6,
+    7
+   ]
+  },
+  "level_change_walk_median": 219,
+  "level_change_walk_p75": 714,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 2742,
+  "spawn_to_enemy_flag": 4577,
+  "spawn_to_own_flag_min": 1413,
+  "spawn_forwardness": 0.37,
+  "spawns_seeing_own_flag": 2,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 773,
+    "team": 0,
+    "to_own_flag": 5051,
+    "to_enemy_flag": 5038,
+    "forward": 0.5,
+    "sees_own_flag": false
+   },
+   {
+    "id": 774,
+    "team": 0,
+    "to_own_flag": 2162,
+    "to_enemy_flag": 4353,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 775,
+    "team": 0,
+    "to_own_flag": 2162,
+    "to_enemy_flag": 4353,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 776,
+    "team": 0,
+    "to_own_flag": 1413,
+    "to_enemy_flag": 5220,
+    "forward": 0.21,
+    "sees_own_flag": true
+   },
+   {
+    "id": 777,
+    "team": 0,
+    "to_own_flag": 2414,
+    "to_enemy_flag": 5001,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 778,
+    "team": 0,
+    "to_own_flag": 2648,
+    "to_enemy_flag": 4329,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 795,
+    "team": 0,
+    "to_own_flag": 3458,
+    "to_enemy_flag": 3739,
+    "forward": 0.48,
+    "sees_own_flag": false
+   },
+   {
+    "id": 796,
+    "team": 1,
+    "to_own_flag": 1413,
+    "to_enemy_flag": 5212,
+    "forward": 0.21,
+    "sees_own_flag": true
+   },
+   {
+    "id": 797,
+    "team": 1,
+    "to_own_flag": 2584,
+    "to_enemy_flag": 4303,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 798,
+    "team": 1,
+    "to_own_flag": 2130,
+    "to_enemy_flag": 4385,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1666,
+    "team": 1,
+    "to_own_flag": 3458,
+    "to_enemy_flag": 3739,
+    "forward": 0.48,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1767,
+    "team": 1,
+    "to_own_flag": 2130,
+    "to_enemy_flag": 4385,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1876,
+    "team": 1,
+    "to_own_flag": 5019,
+    "to_enemy_flag": 5051,
+    "forward": 0.5,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1877,
+    "team": 1,
+    "to_own_flag": 2350,
+    "to_enemy_flag": 4975,
+    "forward": 0.32,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 25,
+  "hazard_zones": 0
+ },
+ "CTF-Overflow-PG1": {
+  "voxel": 32.0,
+  "brushes": 917,
+  "lights": 130,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 6,
+   "teleporter": 8,
+   "jumppad": 0,
+   "lift": 60,
+   "mover_lift": 8
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 21690.0,
+  "extent_xy": [
+   3744,
+   6240
+  ],
+  "height_range": 864,
+  "floor_z_std": 120,
+  "floor_levels": 2,
+  "flag_dz": -1,
+  "flag_dist_straight": 5312,
+  "flag_dist_walk": 6051,
+  "routes": 1,
+  "route_lengths": [
+   6051
+  ],
+  "sightline_median": 416,
+  "sightline_p90": 1408,
+  "sightline_mean_max_per_spot": 1984,
+  "flag_visible_from_pct": [
+   6.8,
+   9.8
+  ],
+  "mutual_visibility_pct": 11.5,
+  "isovist_median_Muu2": 1.36,
+  "isovist_p90_Muu2": 2.83,
+  "island_wall_share_pct": 50.1,
+  "free_structures": 5,
+  "free_structures_footprint_k_uu2": 5886,
+  "free_structures_near_flags": 4,
+  "free_structure_list": [
+   {
+    "center": [
+     15,
+     -2032,
+     -96
+    ],
+    "footprint_uu2": 2805760,
+    "height": 448,
+    "dist_to_nearest_flag": 624
+   },
+   {
+    "center": [
+     -9,
+     2042,
+     -97
+    ],
+    "footprint_uu2": 2789376,
+    "height": 448,
+    "dist_to_nearest_flag": 614
+   },
+   {
+    "center": [
+     6,
+     -824,
+     74
+    ],
+    "footprint_uu2": 100352,
+    "height": 640,
+    "dist_to_nearest_flag": 1832
+   },
+   {
+    "center": [
+     6,
+     840,
+     74
+    ],
+    "footprint_uu2": 100352,
+    "height": 640,
+    "dist_to_nearest_flag": 1816
+   },
+   {
+    "center": [
+     8,
+     -8,
+     -425
+    ],
+    "footprint_uu2": 90112,
+    "height": 288,
+    "dist_to_nearest_flag": 2648
+   }
+  ],
+  "headroom_median": 352,
+  "headroom_over_640_pct": 17.6,
+  "dead_end_pct_near_flags": 1.2,
+  "dead_end_examples": [
+   [
+    1624,
+    -872,
+    -232
+   ],
+   [
+    1080,
+    472,
+    -232
+   ]
+  ],
+  "light_median": 0.371,
+  "light_p25": 0.188,
+  "dark_floor_pct": 15.6,
+  "lights_per_Muu2": 5.99,
+  "ramp_area_by_slope_pct": {
+   "<=22": 18.5,
+   "22-30": 38.3,
+   "30-38": 2.8,
+   ">38": 40.3
+  },
+  "steep_ramp_widths": [
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   96,
+   96,
+   96,
+   96,
+   96,
+   96,
+   96,
+   96,
+   96,
+   96,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   224,
+   224,
+   224,
+   224,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256
+  ],
+  "corridor_width_median": 496,
+  "corridor_width_p25": 336,
+  "narrow_spots_pct": 32.2,
+  "long_sightlines_pct": 0.64,
+  "sightline_p99": 2672,
+  "flag_entrances": {
+   "768": [
+    4,
+    4
+   ],
+   "1024": [
+    6,
+    5
+   ],
+   "1280": [
+    6,
+    6
+   ]
+  },
+  "level_change_walk_median": 405,
+  "level_change_walk_p75": 648,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 2161,
+  "spawn_to_enemy_flag": 4701,
+  "spawn_to_own_flag_min": 1479,
+  "spawn_forwardness": 0.32,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 921,
+    "team": 1,
+    "to_own_flag": 1990,
+    "to_enemy_flag": 5383,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 922,
+    "team": 1,
+    "to_own_flag": 2022,
+    "to_enemy_flag": 5379,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 923,
+    "team": 1,
+    "to_own_flag": 2699,
+    "to_enemy_flag": 4244,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 924,
+    "team": 1,
+    "to_own_flag": 2624,
+    "to_enemy_flag": 4244,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 925,
+    "team": 1,
+    "to_own_flag": 2138,
+    "to_enemy_flag": 3953,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 926,
+    "team": 1,
+    "to_own_flag": 1479,
+    "to_enemy_flag": 5043,
+    "forward": 0.23,
+    "sees_own_flag": false
+   },
+   {
+    "id": 927,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 928,
+    "team": 0,
+    "to_own_flag": 1977,
+    "to_enemy_flag": 5396,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 929,
+    "team": 0,
+    "to_own_flag": 1945,
+    "to_enemy_flag": 5341,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 930,
+    "team": 0,
+    "to_own_flag": 2707,
+    "to_enemy_flag": 4244,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 931,
+    "team": 0,
+    "to_own_flag": 2656,
+    "to_enemy_flag": 4231,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 932,
+    "team": 0,
+    "to_own_flag": 2170,
+    "to_enemy_flag": 3894,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 933,
+    "team": 0,
+    "to_own_flag": 1530,
+    "to_enemy_flag": 5062,
+    "forward": 0.23,
+    "sees_own_flag": false
+   },
+   {
+    "id": 934,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 9,
+  "hazard_zones": 0
+ },
+ "CTF-PryXon-SA-RE3": {
+  "voxel": 32.0,
+  "brushes": 1115,
+  "lights": 355,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 2,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 17117.0,
+  "extent_xy": [
+   6016,
+   3360
+  ],
+  "height_range": 384,
+  "floor_z_std": 103,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 5088,
+  "flag_dist_walk": 5300,
+  "routes": 3,
+  "route_lengths": [
+   5300,
+   6475,
+   6494
+  ],
+  "sightline_median": 400,
+  "sightline_p90": 1200,
+  "sightline_mean_max_per_spot": 1697,
+  "flag_visible_from_pct": [
+   8.2,
+   11.2
+  ],
+  "mutual_visibility_pct": 10.7,
+  "isovist_median_Muu2": 1.21,
+  "isovist_p90_Muu2": 2.12,
+  "island_wall_share_pct": 57.9,
+  "free_structures": 5,
+  "free_structures_footprint_k_uu2": 5344,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [
+   {
+    "center": [
+     27,
+     -34,
+     44
+    ],
+    "footprint_uu2": 4220928,
+    "height": 448,
+    "dist_to_nearest_flag": 2539
+   },
+   {
+    "center": [
+     -393,
+     -766,
+     58
+    ],
+    "footprint_uu2": 308224,
+    "height": 320,
+    "dist_to_nearest_flag": 2242
+   },
+   {
+    "center": [
+     483,
+     -765,
+     71
+    ],
+    "footprint_uu2": 307200,
+    "height": 384,
+    "dist_to_nearest_flag": 2218
+   },
+   {
+    "center": [
+     -370,
+     736,
+     35
+    ],
+    "footprint_uu2": 254976,
+    "height": 288,
+    "dist_to_nearest_flag": 2276
+   },
+   {
+    "center": [
+     447,
+     739,
+     38
+    ],
+    "footprint_uu2": 252928,
+    "height": 416,
+    "dist_to_nearest_flag": 2264
+   }
+  ],
+  "headroom_median": 256,
+  "headroom_over_640_pct": 0.0,
+  "dead_end_pct_near_flags": 7.5,
+  "dead_end_examples": [
+   [
+    2744,
+    -488,
+    -72
+   ],
+   [
+    -2184,
+    312,
+    -72
+   ],
+   [
+    2776,
+    -616,
+    -72
+   ],
+   [
+    2616,
+    600,
+    -72
+   ],
+   [
+    -2792,
+    -200,
+    184
+   ],
+   [
+    568,
+    1048,
+    -72
+   ]
+  ],
+  "light_median": 0.955,
+  "light_p25": 0.6,
+  "dark_floor_pct": 1.0,
+  "lights_per_Muu2": 20.74,
+  "ramp_area_by_slope_pct": {
+   "<=22": 4.2,
+   "22-30": 7.3,
+   "30-38": 57.0,
+   ">38": 31.6
+  },
+  "steep_ramp_widths": [
+   80,
+   80,
+   80,
+   80,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   144,
+   144,
+   144,
+   144,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   288,
+   288,
+   288,
+   295,
+   295,
+   295,
+   295,
+   304,
+   304,
+   304,
+   304,
+   304,
+   304,
+   304,
+   304,
+   312,
+   317,
+   317,
+   317,
+   317,
+   352,
+   352,
+   352,
+   368,
+   368,
+   368,
+   384
+  ],
+  "corridor_width_median": 464,
+  "corridor_width_p25": 336,
+  "narrow_spots_pct": 32.0,
+  "long_sightlines_pct": 0.16,
+  "sightline_p99": 2368,
+  "flag_entrances": {
+   "768": [
+    4,
+    4
+   ],
+   "1024": [
+    3,
+    4
+   ],
+   "1280": [
+    5,
+    5
+   ]
+  },
+  "level_change_walk_median": 825,
+  "level_change_walk_p75": 1031,
+  "spawns": 12,
+  "spawns_per_team": [
+   6,
+   6
+  ],
+  "spawn_to_own_flag": 2044,
+  "spawn_to_enemy_flag": 4120,
+  "spawn_to_own_flag_min": 1548,
+  "spawn_forwardness": 0.33,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 915,
+    "team": 1,
+    "to_own_flag": 1594,
+    "to_enemy_flag": 3884,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 916,
+    "team": 0,
+    "to_own_flag": 1548,
+    "to_enemy_flag": 3884,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1352,
+    "team": 0,
+    "to_own_flag": 2224,
+    "to_enemy_flag": 4535,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1353,
+    "team": 0,
+    "to_own_flag": 2192,
+    "to_enemy_flag": 4529,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1354,
+    "team": 1,
+    "to_own_flag": 2504,
+    "to_enemy_flag": 3839,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1355,
+    "team": 1,
+    "to_own_flag": 2472,
+    "to_enemy_flag": 3934,
+    "forward": 0.39,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1454,
+    "team": 0,
+    "to_own_flag": 1562,
+    "to_enemy_flag": 3916,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1456,
+    "team": 1,
+    "to_own_flag": 1594,
+    "to_enemy_flag": 3903,
+    "forward": 0.29,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1457,
+    "team": 1,
+    "to_own_flag": 1713,
+    "to_enemy_flag": 4578,
+    "forward": 0.27,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1458,
+    "team": 1,
+    "to_own_flag": 1732,
+    "to_enemy_flag": 4559,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1482,
+    "team": 0,
+    "to_own_flag": 2716,
+    "to_enemy_flag": 3953,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1483,
+    "team": 0,
+    "to_own_flag": 2684,
+    "to_enemy_flag": 3921,
+    "forward": 0.41,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 12,
+  "hazard_zones": 0
+ },
+ "CTF-Rankin-PG2-SA": {
+  "voxel": 32.0,
+  "brushes": 1203,
+  "lights": 474,
+  "movement_notes": [
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift",
+   "unlinked mover lift"
+  ],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 14679.0,
+  "extent_xy": [
+   5792,
+   3296
+  ],
+  "height_range": 928,
+  "floor_z_std": 159,
+  "floor_levels": 3,
+  "flag_dz": 0,
+  "flag_dist_straight": 5694,
+  "flag_dist_walk": 6628,
+  "routes": 2,
+  "route_lengths": [
+   6628,
+   6714
+  ],
+  "sightline_median": 304,
+  "sightline_p90": 1008,
+  "sightline_mean_max_per_spot": 1421,
+  "flag_visible_from_pct": [
+   9.2,
+   9.0
+  ],
+  "mutual_visibility_pct": 9.7,
+  "isovist_median_Muu2": 0.75,
+  "isovist_p90_Muu2": 1.37,
+  "island_wall_share_pct": 16.3,
+  "free_structures": 0,
+  "free_structures_footprint_k_uu2": 0,
+  "free_structures_near_flags": 0,
+  "free_structure_list": [],
+  "headroom_median": 224,
+  "headroom_over_640_pct": 6.1,
+  "dead_end_pct_near_flags": 5.0,
+  "dead_end_examples": [
+   [
+    -3144,
+    216,
+    -104
+   ],
+   [
+    216,
+    -616,
+    -8
+   ],
+   [
+    1432,
+    -1064,
+    -104
+   ],
+   [
+    1720,
+    -1000,
+    -104
+   ],
+   [
+    1016,
+    1592,
+    -40
+   ],
+   [
+    -3016,
+    376,
+    -104
+   ]
+  ],
+  "light_median": 0.289,
+  "light_p25": 0.191,
+  "dark_floor_pct": 15.6,
+  "lights_per_Muu2": 32.29,
+  "ramp_area_by_slope_pct": {
+   "<=22": 30.7,
+   "22-30": 65.9,
+   "30-38": 2.7,
+   ">38": 0.7
+  },
+  "steep_ramp_widths": [
+   27,
+   27,
+   27,
+   27,
+   27,
+   27,
+   245,
+   245
+  ],
+  "corridor_width_median": 368,
+  "corridor_width_p25": 272,
+  "narrow_spots_pct": 50.2,
+  "long_sightlines_pct": 0.02,
+  "sightline_p99": 1888,
+  "flag_entrances": {
+   "768": [
+    3,
+    3
+   ],
+   "1024": [
+    4,
+    4
+   ],
+   "1280": [
+    5,
+    6
+   ]
+  },
+  "level_change_walk_median": 357,
+  "level_change_walk_p75": 708,
+  "spawns": 12,
+  "spawns_per_team": [
+   6,
+   6
+  ],
+  "spawn_to_own_flag": 2607,
+  "spawn_to_enemy_flag": 4840,
+  "spawn_to_own_flag_min": 1364,
+  "spawn_forwardness": 0.34,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 709,
+    "team": 0,
+    "to_own_flag": 1364,
+    "to_enemy_flag": 5540,
+    "forward": 0.2,
+    "sees_own_flag": false
+   },
+   {
+    "id": 710,
+    "team": 0,
+    "to_own_flag": 1737,
+    "to_enemy_flag": 4981,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 711,
+    "team": 0,
+    "to_own_flag": 2797,
+    "to_enemy_flag": 4806,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 712,
+    "team": 0,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1460,
+    "team": 1,
+    "to_own_flag": 1364,
+    "to_enemy_flag": 5513,
+    "forward": 0.2,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1461,
+    "team": 1,
+    "to_own_flag": 1782,
+    "to_enemy_flag": 4963,
+    "forward": 0.26,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1462,
+    "team": 1,
+    "to_own_flag": 2765,
+    "to_enemy_flag": 4793,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1463,
+    "team": 1,
+    "unreachable": true,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1604,
+    "team": 1,
+    "to_own_flag": 4712,
+    "to_enemy_flag": 4504,
+    "forward": 0.51,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1605,
+    "team": 0,
+    "to_own_flag": 4699,
+    "to_enemy_flag": 4517,
+    "forward": 0.51,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1606,
+    "team": 1,
+    "to_own_flag": 2425,
+    "to_enemy_flag": 4389,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1607,
+    "team": 0,
+    "to_own_flag": 2425,
+    "to_enemy_flag": 4389,
+    "forward": 0.36,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 7,
+  "hazard_zones": 0
+ },
+ "CTF-Rune-RTE4": {
+  "voxel": 32.0,
+  "brushes": 2216,
+  "lights": 185,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 0,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 0
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 16422.0,
+  "extent_xy": [
+   4640,
+   5728
+  ],
+  "height_range": 800,
+  "floor_z_std": 223,
+  "floor_levels": 2,
+  "flag_dz": 0,
+  "flag_dist_straight": 4968,
+  "flag_dist_walk": 5464,
+  "routes": 3,
+  "route_lengths": [
+   5464,
+   5765,
+   6071
+  ],
+  "sightline_median": 352,
+  "sightline_p90": 1056,
+  "sightline_mean_max_per_spot": 1454,
+  "flag_visible_from_pct": [
+   9.5,
+   9.8
+  ],
+  "mutual_visibility_pct": 7.0,
+  "isovist_median_Muu2": 0.87,
+  "isovist_p90_Muu2": 1.41,
+  "island_wall_share_pct": 19.8,
+  "free_structures": 12,
+  "free_structures_footprint_k_uu2": 2555,
+  "free_structures_near_flags": 10,
+  "free_structure_list": [
+   {
+    "center": [
+     -351,
+     -3357,
+     161
+    ],
+    "footprint_uu2": 570368,
+    "height": 192,
+    "dist_to_nearest_flag": 679
+   },
+   {
+    "center": [
+     -404,
+     293,
+     162
+    ],
+    "footprint_uu2": 565248,
+    "height": 192,
+    "dist_to_nearest_flag": 668
+   },
+   {
+    "center": [
+     -351,
+     408,
+     -55
+    ],
+    "footprint_uu2": 559104,
+    "height": 192,
+    "dist_to_nearest_flag": 545
+   },
+   {
+    "center": [
+     -462,
+     -567,
+     -188
+    ],
+    "footprint_uu2": 158720,
+    "height": 192,
+    "dist_to_nearest_flag": 1526
+   },
+   {
+    "center": [
+     -384,
+     -636,
+     424
+    ],
+    "footprint_uu2": 118784,
+    "height": 192,
+    "dist_to_nearest_flag": 1586
+   },
+   {
+    "center": [
+     -381,
+     -2422,
+     424
+    ],
+    "footprint_uu2": 114688,
+    "height": 192,
+    "dist_to_nearest_flag": 1600
+   },
+   {
+    "center": [
+     754,
+     -72,
+     42
+    ],
+    "footprint_uu2": 101376,
+    "height": 192,
+    "dist_to_nearest_flag": 1432
+   },
+   {
+    "center": [
+     -1508,
+     -2986,
+     41
+    ],
+    "footprint_uu2": 99328,
+    "height": 192,
+    "dist_to_nearest_flag": 1433
+   },
+   {
+    "center": [
+     -1136,
+     392,
+     133
+    ],
+    "footprint_uu2": 92160,
+    "height": 192,
+    "dist_to_nearest_flag": 1040
+   },
+   {
+    "center": [
+     384,
+     -3448,
+     133
+    ],
+    "footprint_uu2": 92160,
+    "height": 192,
+    "dist_to_nearest_flag": 1061
+   },
+   {
+    "center": [
+     -384,
+     -1330,
+     377
+    ],
+    "footprint_uu2": 46080,
+    "height": 192,
+    "dist_to_nearest_flag": 2278
+   },
+   {
+    "center": [
+     -383,
+     -1732,
+     372
+    ],
+    "footprint_uu2": 36864,
+    "height": 192,
+    "dist_to_nearest_flag": 2288
+   }
+  ],
+  "headroom_median": 320,
+  "headroom_over_640_pct": 10.7,
+  "dead_end_pct_near_flags": 7.5,
+  "dead_end_examples": [
+   [
+    1592,
+    -40,
+    -40
+   ],
+   [
+    -840,
+    1080,
+    -232
+   ],
+   [
+    -264,
+    1240,
+    -328
+   ],
+   [
+    -72,
+    280,
+    -232
+   ],
+   [
+    -2152,
+    -2536,
+    -72
+   ],
+   [
+    -8,
+    184,
+    -296
+   ]
+  ],
+  "light_median": 0.415,
+  "light_p25": 0.255,
+  "dark_floor_pct": 8.4,
+  "lights_per_Muu2": 11.27,
+  "ramp_area_by_slope_pct": {
+   "<=22": 36.3,
+   "22-30": 19.0,
+   "30-38": 10.3,
+   ">38": 34.4
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   32,
+   36,
+   36,
+   48,
+   48,
+   48,
+   48,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   113,
+   113,
+   128,
+   128,
+   128,
+   128,
+   129,
+   129,
+   129,
+   129,
+   154,
+   154,
+   160,
+   160,
+   160,
+   160,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   256,
+   429,
+   429,
+   429,
+   429,
+   429,
+   429,
+   448,
+   448,
+   448,
+   448,
+   448,
+   448,
+   486,
+   486,
+   486,
+   486,
+   486,
+   486,
+   486,
+   486,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   500,
+   505,
+   505,
+   507,
+   507,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   512,
+   535,
+   535,
+   541,
+   541,
+   554,
+   554,
+   579,
+   579,
+   579,
+   579,
+   589,
+   589,
+   607,
+   607,
+   607,
+   607,
+   607,
+   607,
+   618,
+   618,
+   621,
+   621,
+   710,
+   710,
+   716,
+   716,
+   716,
+   716,
+   716,
+   716,
+   724,
+   724,
+   792,
+   792,
+   810,
+   810,
+   810,
+   810,
+   810,
+   810,
+   936,
+   936,
+   1000,
+   1000,
+   1412,
+   1412,
+   1412,
+   1412,
+   1536,
+   1536,
+   1536,
+   1536
+  ],
+  "corridor_width_median": 408,
+  "corridor_width_p25": 320,
+  "narrow_spots_pct": 44.0,
+  "long_sightlines_pct": 0.12,
+  "sightline_p99": 1920,
+  "flag_entrances": {
+   "768": [
+    3,
+    3
+   ],
+   "1024": [
+    3,
+    3
+   ],
+   "1280": [
+    4,
+    4
+   ]
+  },
+  "level_change_walk_median": 235,
+  "level_change_walk_p75": 565,
+  "spawns": 14,
+  "spawns_per_team": [
+   7,
+   7
+  ],
+  "spawn_to_own_flag": 2471,
+  "spawn_to_enemy_flag": 4547,
+  "spawn_to_own_flag_min": 1535,
+  "spawn_forwardness": 0.35,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 2303,
+    "team": 1,
+    "to_own_flag": 2634,
+    "to_enemy_flag": 4352,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2304,
+    "team": 1,
+    "to_own_flag": 1535,
+    "to_enemy_flag": 3955,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2305,
+    "team": 1,
+    "to_own_flag": 1711,
+    "to_enemy_flag": 4435,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2306,
+    "team": 1,
+    "to_own_flag": 2712,
+    "to_enemy_flag": 4801,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2307,
+    "team": 1,
+    "to_own_flag": 3733,
+    "to_enemy_flag": 5092,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2308,
+    "team": 1,
+    "to_own_flag": 2227,
+    "to_enemy_flag": 4605,
+    "forward": 0.33,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2309,
+    "team": 1,
+    "to_own_flag": 2848,
+    "to_enemy_flag": 4752,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2318,
+    "team": 0,
+    "to_own_flag": 2589,
+    "to_enemy_flag": 4307,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2319,
+    "team": 0,
+    "to_own_flag": 1562,
+    "to_enemy_flag": 3955,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2320,
+    "team": 0,
+    "to_own_flag": 1756,
+    "to_enemy_flag": 4435,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2321,
+    "team": 0,
+    "to_own_flag": 2717,
+    "to_enemy_flag": 4750,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2322,
+    "team": 0,
+    "to_own_flag": 3739,
+    "to_enemy_flag": 5060,
+    "forward": 0.42,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2323,
+    "team": 0,
+    "to_own_flag": 2118,
+    "to_enemy_flag": 4541,
+    "forward": 0.32,
+    "sees_own_flag": false
+   },
+   {
+    "id": 2324,
+    "team": 0,
+    "to_own_flag": 2715,
+    "to_enemy_flag": 4618,
+    "forward": 0.37,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 12,
+  "hazard_zones": 0
+ },
+ "CTF-Sprinta-SA-RE3": {
+  "voxel": 32.0,
+  "brushes": 813,
+  "lights": 331,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 18,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 4
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 27426.0,
+  "extent_xy": [
+   10144,
+   3488
+  ],
+  "height_range": 896,
+  "floor_z_std": 187,
+  "floor_levels": 2,
+  "flag_dz": 0,
+  "flag_dist_straight": 7679,
+  "flag_dist_walk": 8018,
+  "routes": 3,
+  "route_lengths": [
+   8018,
+   8422,
+   8449
+  ],
+  "sightline_median": 400,
+  "sightline_p90": 1344,
+  "sightline_mean_max_per_spot": 1800,
+  "flag_visible_from_pct": [
+   14.8,
+   11.0
+  ],
+  "mutual_visibility_pct": 7.3,
+  "isovist_median_Muu2": 1.33,
+  "isovist_p90_Muu2": 3.72,
+  "island_wall_share_pct": 19.5,
+  "free_structures": 14,
+  "free_structures_footprint_k_uu2": 6365,
+  "free_structures_near_flags": 5,
+  "free_structure_list": [
+   {
+    "center": [
+     925,
+     6,
+     -154
+    ],
+    "footprint_uu2": 1145856,
+    "height": 192,
+    "dist_to_nearest_flag": 1244
+   },
+   {
+    "center": [
+     6115,
+     7,
+     -154
+    ],
+    "footprint_uu2": 1144832,
+    "height": 192,
+    "dist_to_nearest_flag": 1244
+   },
+   {
+    "center": [
+     2419,
+     8,
+     -148
+    ],
+    "footprint_uu2": 1026048,
+    "height": 224,
+    "dist_to_nearest_flag": 2738
+   },
+   {
+    "center": [
+     4628,
+     7,
+     -148
+    ],
+    "footprint_uu2": 989184,
+    "height": 224,
+    "dist_to_nearest_flag": 2731
+   },
+   {
+    "center": [
+     1836,
+     5,
+     104
+    ],
+    "footprint_uu2": 552960,
+    "height": 192,
+    "dist_to_nearest_flag": 2155
+   },
+   {
+    "center": [
+     5210,
+     7,
+     104
+    ],
+    "footprint_uu2": 552960,
+    "height": 192,
+    "dist_to_nearest_flag": 2149
+   },
+   {
+    "center": [
+     3520,
+     735,
+     -141
+    ],
+    "footprint_uu2": 333824,
+    "height": 224,
+    "dist_to_nearest_flag": 3909
+   },
+   {
+    "center": [
+     3520,
+     -793,
+     -154
+    ],
+    "footprint_uu2": 251904,
+    "height": 192,
+    "dist_to_nearest_flag": 3920
+   },
+   {
+    "center": [
+     3526,
+     6,
+     -237
+    ],
+    "footprint_uu2": 102400,
+    "height": 352,
+    "dist_to_nearest_flag": 3833
+   },
+   {
+    "center": [
+     -913,
+     -1105,
+     104
+    ],
+    "footprint_uu2": 79872,
+    "height": 192,
+    "dist_to_nearest_flag": 1254
+   },
+   {
+    "center": [
+     -1003,
+     436,
+     101
+    ],
+    "footprint_uu2": 53248,
+    "height": 192,
+    "dist_to_nearest_flag": 811
+   },
+   {
+    "center": [
+     -1003,
+     -431,
+     101
+    ],
+    "footprint_uu2": 52224,
+    "height": 192,
+    "dist_to_nearest_flag": 808
+   }
+  ],
+  "headroom_median": 512,
+  "headroom_over_640_pct": 48.2,
+  "dead_end_pct_near_flags": 10.0,
+  "dead_end_examples": [
+   [
+    -1416,
+    1624,
+    56
+   ],
+   [
+    -1480,
+    1656,
+    88
+   ],
+   [
+    5688,
+    24,
+    -424
+   ],
+   [
+    56,
+    984,
+    56
+   ],
+   [
+    7160,
+    -712,
+    -232
+   ],
+   [
+    -552,
+    568,
+    -232
+   ]
+  ],
+  "light_median": 0.383,
+  "light_p25": 0.259,
+  "dark_floor_pct": 6.9,
+  "lights_per_Muu2": 12.07,
+  "ramp_area_by_slope_pct": {
+   "<=22": 35.9,
+   "22-30": 15.8,
+   "30-38": 25.6,
+   ">38": 22.7
+  },
+  "steep_ramp_widths": [
+   32,
+   32,
+   32,
+   32,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   64,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   128,
+   192,
+   192,
+   192,
+   192,
+   192,
+   192,
+   251,
+   251,
+   256,
+   256,
+   281,
+   281,
+   284,
+   284,
+   295,
+   295,
+   295,
+   295,
+   295,
+   295,
+   295,
+   295,
+   316,
+   316,
+   316,
+   316,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   352,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   384,
+   512,
+   512,
+   640,
+   640,
+   640,
+   640,
+   768,
+   768,
+   768,
+   768
+  ],
+  "corridor_width_median": 528,
+  "corridor_width_p25": 400,
+  "narrow_spots_pct": 23.2,
+  "long_sightlines_pct": 0.25,
+  "sightline_p99": 2512,
+  "flag_entrances": {
+   "768": [
+    7,
+    5
+   ],
+   "1024": [
+    8,
+    6
+   ],
+   "1280": [
+    13,
+    10
+   ]
+  },
+  "level_change_walk_median": 509,
+  "level_change_walk_p75": 805,
+  "spawns": 16,
+  "spawns_per_team": [
+   8,
+   8
+  ],
+  "spawn_to_own_flag": 2786,
+  "spawn_to_enemy_flag": 5425,
+  "spawn_to_own_flag_min": 2284,
+  "spawn_forwardness": 0.34,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 1065,
+    "team": 1,
+    "to_own_flag": 2580,
+    "to_enemy_flag": 5808,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1066,
+    "team": 1,
+    "to_own_flag": 2580,
+    "to_enemy_flag": 5791,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1067,
+    "team": 0,
+    "to_own_flag": 2580,
+    "to_enemy_flag": 5765,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1068,
+    "team": 0,
+    "to_own_flag": 2612,
+    "to_enemy_flag": 5776,
+    "forward": 0.31,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1069,
+    "team": 0,
+    "to_own_flag": 2284,
+    "to_enemy_flag": 5926,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1070,
+    "team": 0,
+    "to_own_flag": 2284,
+    "to_enemy_flag": 5926,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1071,
+    "team": 0,
+    "to_own_flag": 3367,
+    "to_enemy_flag": 4858,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1072,
+    "team": 0,
+    "to_own_flag": 3412,
+    "to_enemy_flag": 4858,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1073,
+    "team": 1,
+    "to_own_flag": 3380,
+    "to_enemy_flag": 4844,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1074,
+    "team": 1,
+    "to_own_flag": 3393,
+    "to_enemy_flag": 4858,
+    "forward": 0.41,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1075,
+    "team": 1,
+    "to_own_flag": 2284,
+    "to_enemy_flag": 5926,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1076,
+    "team": 1,
+    "to_own_flag": 2284,
+    "to_enemy_flag": 5926,
+    "forward": 0.28,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1103,
+    "team": 0,
+    "to_own_flag": 3076,
+    "to_enemy_flag": 5278,
+    "forward": 0.37,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1104,
+    "team": 1,
+    "to_own_flag": 3044,
+    "to_enemy_flag": 5310,
+    "forward": 0.36,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1105,
+    "team": 1,
+    "to_own_flag": 2688,
+    "to_enemy_flag": 4992,
+    "forward": 0.35,
+    "sees_own_flag": false
+   },
+   {
+    "id": 1106,
+    "team": 0,
+    "to_own_flag": 2720,
+    "to_enemy_flag": 4960,
+    "forward": 0.35,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 7,
+  "hazard_zones": 0
+ },
+ "CTF-Talya-PG1": {
+  "voxel": 32.0,
+  "brushes": 686,
+  "lights": 210,
+  "movement_notes": [],
+  "movement_links": {
+   "kicker": 4,
+   "teleporter": 0,
+   "jumppad": 0,
+   "lift": 0,
+   "mover_lift": 4
+  },
+  "flag_reachable": true,
+  "walk_area_kuu2": 18950.0,
+  "extent_xy": [
+   6496,
+   3808
+  ],
+  "height_range": 544,
+  "floor_z_std": 116,
+  "floor_levels": 1,
+  "flag_dz": -2,
+  "flag_dist_straight": 4739,
+  "flag_dist_walk": 5498,
+  "routes": 5,
+  "route_lengths": [
+   5498,
+   5822,
+   6304,
+   6636,
+   6711
+  ],
+  "sightline_median": 384,
+  "sightline_p90": 1168,
+  "sightline_mean_max_per_spot": 1585,
+  "flag_visible_from_pct": [
+   11.5,
+   8.8
+  ],
+  "mutual_visibility_pct": 9.3,
+  "isovist_median_Muu2": 0.93,
+  "isovist_p90_Muu2": 2.3,
+  "island_wall_share_pct": 20.8,
+  "free_structures": 6,
+  "free_structures_footprint_k_uu2": 733,
+  "free_structures_near_flags": 6,
+  "free_structure_list": [
+   {
+    "center": [
+     -1438,
+     -745,
+     228
+    ],
+    "footprint_uu2": 260096,
+    "height": 320,
+    "dist_to_nearest_flag": 1144
+   },
+   {
+    "center": [
+     1453,
+     757,
+     227
+    ],
+    "footprint_uu2": 260096,
+    "height": 320,
+    "dist_to_nearest_flag": 1138
+   },
+   {
+    "center": [
+     -2563,
+     -528,
+     296
+    ],
+    "footprint_uu2": 63488,
+    "height": 192,
+    "dist_to_nearest_flag": 489
+   },
+   {
+    "center": [
+     2579,
+     544,
+     296
+    ],
+    "footprint_uu2": 63488,
+    "height": 192,
+    "dist_to_nearest_flag": 510
+   },
+   {
+    "center": [
+     -2008,
+     -680,
+     296
+    ],
+    "footprint_uu2": 43008,
+    "height": 192,
+    "dist_to_nearest_flag": 701
+   },
+   {
+    "center": [
+     2024,
+     696,
+     296
+    ],
+    "footprint_uu2": 43008,
+    "height": 192,
+    "dist_to_nearest_flag": 706
+   }
+  ],
+  "headroom_median": 416,
+  "headroom_over_640_pct": 3.1,
+  "dead_end_pct_near_flags": 1.9,
+  "dead_end_examples": [
+   [
+    1944,
+    -1640,
+    88
+   ],
+   [
+    2008,
+    -1672,
+    152
+   ],
+   [
+    -1320,
+    1208,
+    -232
+   ]
+  ],
+  "light_median": 0.157,
+  "light_p25": 0.101,
+  "dark_floor_pct": 47.9,
+  "lights_per_Muu2": 11.08,
+  "ramp_area_by_slope_pct": {
+   "<=22": 58.1,
+   "22-30": 26.8,
+   "30-38": 0.7,
+   ">38": 14.4
+  },
+  "steep_ramp_widths": [
+   96,
+   96,
+   96,
+   96,
+   112,
+   112,
+   256,
+   256,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   288,
+   384,
+   384,
+   448,
+   448,
+   453,
+   453,
+   832,
+   832,
+   1152,
+   1152,
+   1248,
+   1248
+  ],
+  "corridor_width_median": 432,
+  "corridor_width_p25": 336,
+  "narrow_spots_pct": 39.0,
+  "long_sightlines_pct": 0.09,
+  "sightline_p99": 2144,
+  "flag_entrances": {
+   "768": [
+    6,
+    5
+   ],
+   "1024": [
+    7,
+    7
+   ],
+   "1280": [
+    8,
+    7
+   ]
+  },
+  "level_change_walk_median": 536,
+  "level_change_walk_p75": 874,
+  "spawns": 12,
+  "spawns_per_team": [
+   6,
+   6
+  ],
+  "spawn_to_own_flag": 1857,
+  "spawn_to_enemy_flag": 4767,
+  "spawn_to_own_flag_min": 1191,
+  "spawn_forwardness": 0.28,
+  "spawns_seeing_own_flag": 0,
+  "spawns_within_1024_of_own_flag": 0,
+  "spawn_details": [
+   {
+    "id": 9,
+    "team": 1,
+    "to_own_flag": 1725,
+    "to_enemy_flag": 5384,
+    "forward": 0.24,
+    "sees_own_flag": false
+   },
+   {
+    "id": 787,
+    "team": 1,
+    "to_own_flag": 1191,
+    "to_enemy_flag": 6004,
+    "forward": 0.17,
+    "sees_own_flag": false
+   },
+   {
+    "id": 788,
+    "team": 1,
+    "to_own_flag": 2004,
+    "to_enemy_flag": 4650,
+    "forward": 0.3,
+    "sees_own_flag": false
+   },
+   {
+    "id": 790,
+    "team": 1,
+    "to_own_flag": 2320,
+    "to_enemy_flag": 4406,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 791,
+    "team": 1,
+    "to_own_flag": 2490,
+    "to_enemy_flag": 4086,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 792,
+    "team": 1,
+    "to_own_flag": 1386,
+    "to_enemy_flag": 4059,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 793,
+    "team": 0,
+    "to_own_flag": 1757,
+    "to_enemy_flag": 5397,
+    "forward": 0.25,
+    "sees_own_flag": false
+   },
+   {
+    "id": 794,
+    "team": 0,
+    "to_own_flag": 1255,
+    "to_enemy_flag": 6049,
+    "forward": 0.17,
+    "sees_own_flag": false
+   },
+   {
+    "id": 795,
+    "team": 0,
+    "to_own_flag": 2017,
+    "to_enemy_flag": 4637,
+    "forward": 0.3,
+    "sees_own_flag": false
+   },
+   {
+    "id": 796,
+    "team": 0,
+    "to_own_flag": 2269,
+    "to_enemy_flag": 4393,
+    "forward": 0.34,
+    "sees_own_flag": false
+   },
+   {
+    "id": 797,
+    "team": 0,
+    "to_own_flag": 2477,
+    "to_enemy_flag": 4073,
+    "forward": 0.38,
+    "sees_own_flag": false
+   },
+   {
+    "id": 798,
+    "team": 0,
+    "to_own_flag": 1399,
+    "to_enemy_flag": 4072,
+    "forward": 0.26,
+    "sees_own_flag": false
+   }
+  ],
+  "zones": 9,
+  "hazard_zones": 0
+ }
+}
