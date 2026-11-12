@@ -44,6 +44,12 @@ Rules are tagged by where they come from:
   - Or extend the carve over the whole corner.
 
   `build_map` and `map_metrics` report each one with the two brushes involved. **[data]** 15 of 18 pool maps have none.
+- **[community]** (CTF-Lowtown) **No spawn clusters:** at most 2 same-team spawns in one view (within 1024uu). Three in one view means a flag carrier meets three defenders at once, and killing one gets you spawned on again. **[data]** Pool maps never have 4+, at most 3. Spread spawns over separate spots, around corners.
+- **[community]** (CTF-Lowtown) **No big empty rooms and no placeholder cubes.**
+  - A huge room, or a tall one, with a lone plain box in the middle plays and looks empty. Split it into rooms, lower the ceiling, add levels, pillars and cover clusters.
+  - Shape cover: chamfer it, stack it, vary the heights, or use props (`add_asset`).
+  - **[data]** Plain lone boxes: 0 in 17 of 18 pool maps.
+  - Sludgeline's mid (no extra verticality, enough in it) worked; Lowtown's 1536×1408×768 room with one cube didn't.
 - **[community]** (CTF-Derelict) **No missing polygons.** A visible face of a solid brush lying in the same plane as a carve's face (e.g. a stair riser flush with the stairwell's open end) can lose its polygon: a black strip. Probe verification can't see this, so `build_map` lists "Coplanar faces": offset one of the brushes by at least 16uu, or extend the carve past it. `add_stairs` avoids it by itself.
 - **[community]** (CTF-Derelict) **A map made like another reuses its assets**, not just its textures: pipes, neon signs, fire escapes, barrels, fans. Use `extract_assets` / `add_asset`.
 - **[community]** **Flags stand on the floor.** `add_flag` places the FlagBase at floor + 64, as in the pool (median 65); at floor + 32 it sinks into the ground.
@@ -200,6 +206,9 @@ feel narrow in InstaGib.
 |---|---|
 | Spawns in the flag room or in sight of the flag | Move them forward, around corners, into side areas. |
 | Spawns facing a wall / looking back / no attacking path in view | `orient_spawns()` |
+| Spawn clusters (3+ in one view) | Move spawns apart or around corners; keep at most one team-mate spawn in view. |
+| Plain placeholder blocks | Chamfer or stack them, vary heights, build from several pieces, or use a prop. |
+| Big empty rooms | Split the room, lower the ceiling, add a level, pillars or 3+ cover pieces covering ≥ 8% of the floor. |
 | Knife edges between carves | Move the door onto the straight wall span, or widen the carve so it removes the whole wedge. |
 | Raised walkway climbable from one end | Add stairs, a ramp or a kicker at the other end (or mid-way along a long side). |
 | Sightlines too long (p90 > ~1200) | Bend or offset long corridors, add pillars or height changes along long axes. |

@@ -16,7 +16,8 @@ from mapgen import MapDoc  # noqa: E402
 from t3dimport import import_t3d  # noqa: E402
 
 KEYS = ("sightline_median", "sightline_p90", "sightline_p99", "corridor_run_p90", "long_corridor_spots_pct",
-        "detour_pct", "detour_pairs", "thin_wall_hits_per_1000_rays", "one_end_platforms", "knife_edges")
+        "detour_pct", "detour_pairs", "thin_wall_hits_per_1000_rays", "one_end_platforms", "knife_edges",
+        "max_spawns_in_one_view", "plain_blocks", "isovist_p90_Muu2", "isovist_max_Muu2", "headroom_over_640_pct")
 LIKED = ("Klondike", "Command", "Duku", "Iztac", "Anfractuous", "Nuance99", "Rune", "Acrony")
 
 exports = Path(sys.argv[1])

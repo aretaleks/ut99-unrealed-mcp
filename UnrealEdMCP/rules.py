@@ -63,6 +63,29 @@ def evaluate(m: dict) -> list[dict]:
         add("no line of sight to enemy spawns", not seen, f"{len(seen)} spawn(s) see enemy spawns {seen}",
             "0 (pool: 6.5% of spawns; Grudge, Overflow, Nuance99 4 each)",
             "spawning in sight of enemy spawns means instant spawn kills both ways - move or screen them", fail=True)
+    # --- CTF-Lowtown review
+    sv = m.get("max_spawns_in_one_view")
+    if sv is not None:
+        g = m.get("spawn_view_groups", [])
+        add("no spawn clusters", sv <= 2,
+            f"up to {sv} same-team spawns in one view {[x.get('actors') or x['ids'] for x in g[:3]]}",
+            "<= 2 (pool max 3 - Acrony, Command, Duku, Iztac - never 4+)",
+            "3 spawns in one view = a flag carrier meets 3 defenders at once, and killing one gets you spawned on "
+            "again: spread spawns so each sees at most one team-mate's spawn within 1024uu", fail=sv >= 4)
+    pb = m.get("plain_blocks")
+    if pb is not None:
+        add("no plain placeholder blocks", pb == 0,
+            f"{pb} {[(b['id'], b['size']) for b in m.get('plain_block_list', [])[:4]]}",
+            "0 (17 of 18 pool maps)",
+            "a lone untextured-looking box standing in the open reads as a placeholder - shape it (chamfer, bevel, "
+            "stack, vary heights), build it from several pieces, or use a prop (add_asset)")
+    bo = m.get("big_open_rooms")
+    if bo is not None:
+        add("no big empty rooms", bo == 0,
+            f"{bo} {[(r['id'], r['size'], r['pieces_inside']) for r in m.get('big_open_room_list', [])[:4]]}",
+            "0 rooms >= 1.5M uu^2 (or >= 0.8M uu^2 and >= 640 tall) with < 3 pieces of cover or < 8% of the floor covered",
+            "one huge (or tall) room with a lone block in it plays and looks empty - split it into rooms, lower the "
+            "ceiling, add levels, pillars and cover clusters (Sludgeline's mid worked; Lowtown's didn't)")
     # --- CTF-Tenement review
     gaps = m.get("flag_floor_gap") or []
     bad_g = [g for g in gaps if g is not None and not (48 <= g <= 96)]

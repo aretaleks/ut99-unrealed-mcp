@@ -53,6 +53,9 @@ The project improves one generated map at a time. Each review by an experienced 
 
 ## Contributing
 
+Claude Code sessions: see [CLAUDE.md](CLAUDE.md) for how the project is improved and its hard rules.
+
+
 Feedback on generated maps, rule proposals, bug reports and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License

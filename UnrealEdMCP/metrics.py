@@ -14,7 +14,7 @@ import math
 import numpy as np
 
 from analysis import OPEN, Voxels
-from mapgen import MapDoc
+from mapgen import MapDoc, poly_normal
 
 
 
@@ -896,6 +896,111 @@ def platform_access(doc, W, vox, reach, max_detour: float = 1024) -> dict:
     return {"one_end_platforms": len(out), "one_end_platform_list": out[:8]}
 
 
+def spawn_groups(doc, vox, radius: float = 1024) -> dict:
+    """Spawns of one team in one view: for each spawn, the same-team spawns it can see (eye to eye) within radius.
+    Three in one view means a flag carrier meets three defenders at once, and killing one gets you spawned on
+    again (CTF-Lowtown)."""
+    sp = [e for e in doc.elements if e.kind == "playerstart"]
+    worst, groups = 1, []
+    for e in sp:
+        t = int(e.params.get("team", 0))
+        p = np.array(e.params["location"], float) + [0, 0, EYE]
+        seen = [x for x in sp if x is not e and int(x.params.get("team", 0)) == t
+                and np.linalg.norm(np.array(x.params["location"], float)[:2] - p[:2]) <= radius
+                and los(vox, p, np.array(x.params["location"], float) + [0, 0, EYE])]
+        n = 1 + len(seen)
+        if n >= 3:
+            ids = sorted([e.id] + [x.id for x in seen])
+            if ids not in [g["ids"] for g in groups]:
+                groups.append({"ids": ids, "actors": [x.params.get("actor") for x in [e] + seen if x.params.get("actor")],
+                               "at": [round(v) for v in e.params["location"]], "team": t})
+        worst = max(worst, n)
+    return {"max_spawns_in_one_view": worst, "spawn_view_groups": groups[:8]}
+
+
+def plain_blocks(doc, binfo=None, min_size: float = 96, max_size: float = 768) -> dict:
+    """Lone plain boxes: a single axis-aligned box brush (add / semisolid, one texture) standing free in the open -
+    nothing touching it, open floor all round. Reads as a placeholder cube (CTF-Lowtown); shape it (chamfer / bevel),
+    stack or vary it, use a prop (add_asset) or several smaller pieces."""
+    import analysis as _an
+    bi = binfo or _an.brush_info(doc)
+    infos = {b["id"]: b for b in bi}
+    out = []
+    solids = [b for b in bi if not b["sheet"] and b["csg"] in ("add", "semisolid")]
+    for b in solids:
+        e = doc.get(b["id"])
+        if e is None or (e.params.get("poly_flags", 0) | e.params.get("actor_flags", 0)) & 1 or e.params.get("face_textures"):
+            continue
+        shape = e.params.get("shape")
+        if shape == "box" and not e.params.get("yaw"):
+            pass
+        elif shape == "mesh" and len(b["polys"]) == 6 and all(
+                max(abs(v) for v in poly_normal(p_)) > 0.999 for p_ in b["polys"]) and len(
+                {t.get("texture") for t in e.params.get("polytex", [])}) <= 1:
+            pass  # an imported plain box: 6 axis-aligned faces, one texture
+        else:
+            continue
+        size = b["hi"] - b["lo"]
+        if size[:2].min() < min_size or size.max() > max_size or size[2] < 64:
+            continue
+        touching = [o for o in solids if o is not b and (o["lo"] <= b["hi"] + 1).all() and (b["lo"] <= o["hi"] + 1).all()]
+        if touching:
+            continue
+        c = (b["lo"] + b["hi"]) / 2
+        ring = [[c[0] + dx, c[1] + dy, b["lo"][2] + 48] for dx, dy in
+                ((size[0] / 2 + 96, 0), (-size[0] / 2 - 96, 0), (0, size[1] / 2 + 96), (0, -size[1] / 2 - 96))]
+        if all(_an.classify(bi, np.array(q, float), 2.0) == "open" for q in ring):
+            out.append({"id": b["id"], "size": [round(float(v)) for v in size], "at": [round(float(v)) for v in c]})
+    del infos
+    return {"plain_blocks": len(out), "plain_block_list": out[:8]}
+
+
+def big_open_rooms(doc, binfo=None, min_area: float = 1.5e6, min_pieces: int = 3, min_cover: float = 0.08) -> dict:
+    """Big open rooms: a single room carve (subtract box / prism / cylinder) with >= min_area uu^2 of floor and
+    little inside it - fewer than min_pieces solid pieces >= 64uu tall, or under min_cover of the floor covered.
+    One huge room with a lone block in the middle is a no-go (CTF-Lowtown; Sludgeline's 1400x1900 mid felt
+    "too open" too): split it into rooms, lower the ceiling, add levels, pillars, cover clusters."""
+    import analysis as _an
+    bi = binfo or _an.brush_info(doc)
+    solids = [b for b in bi if not b["sheet"] and b["csg"] in ("add", "semisolid")]
+    out = []
+    for b in bi:
+        if b["sheet"] or b["csg"] != "subtract":
+            continue
+        e = doc.get(b["id"])
+        if e is None or e.params.get("shape") not in ("box", "prism", "cylinder", "mesh"):
+            continue
+        if (e.params.get("group") or "").lower() == "skybox":
+            continue  # the skybox room isn't played in (open-sky rooms are, and count)
+        size = b["hi"] - b["lo"]
+        area = float(size[0] * size[1])
+        tall = size[2] >= 640  # tall and empty reads as empty even when smaller (Lowtown vs Sludgeline)
+        if size[2] < 320 or min(size[0], size[1]) < 768 or area < (0.8e6 if tall else min_area):
+            continue
+        floor = b["lo"][2]
+        pieces, covered = 0, 0.0
+        for o in solids:
+            if (o["lo"][:2] >= b["hi"][:2]).any() or (o["hi"][:2] <= b["lo"][:2]).any():
+                continue
+            if o["hi"][2] < floor + 64 or o["lo"][2] > floor + 160:
+                continue  # floor detail / something above head height
+            lo = np.maximum(o["lo"][:2], b["lo"][:2])
+            hi = np.minimum(o["hi"][:2], b["hi"][:2])
+            inside = float(np.prod(np.maximum(hi - lo, 0)))
+            own = float(np.prod(o["hi"][:2] - o["lo"][:2]))
+            if (o["hi"] - o["lo"])[:2].min() < 64 or o["hi"][2] - max(o["lo"][2], floor) < 96 or inside < 0.5 * own:
+                continue  # props, ramp ends poking in, low kerbs - not cover that breaks up the room
+            pieces += 1
+            covered += inside
+        share = covered / area
+        if pieces < min_pieces or share < min_cover:
+            out.append({"id": b["id"], "size": [round(float(v)) for v in size], "floor_area_kuu2": round(area / 1000),
+                        "tall": bool(tall),
+                        "pieces_inside": pieces, "floor_covered_pct": round(100 * share, 1),
+                        "at": [round(float(v)) for v in (b["lo"] + b["hi"]) / 2]})
+    return {"big_open_rooms": len(out), "big_open_room_list": out[:8]}
+
+
 def _facing_score(f: dict, yaw: float) -> float:
     if f["view_ahead"] < 256:
         return -10.0  # staring at a wall
@@ -1093,6 +1198,10 @@ def compute(doc: MapDoc, res: float = 32, seed: int = 0) -> dict:
         gaps.append(int(solid[0] * 2) if len(solid) else None)
     out["flag_floor_gap"] = gaps
     out.update(platform_access(doc, W, vox, reach))
+    out.update(spawn_groups(doc, vox))
+    out.update(plain_blocks(doc))
+    out.update(big_open_rooms(doc))
+    out["isovist_max_Muu2"] = round(float(np.max(iso)), 2)
     out.update(knife_edges(doc))
     out.update(thin_walls(doc, vox, reach, rng))
     # flag room entrances: distinct openings crossing a ring at walking distance R around each flag
