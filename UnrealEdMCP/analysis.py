@@ -14,7 +14,7 @@ from collections import Counter, deque
 
 import numpy as np
 
-from mapgen import MapDoc, PF_PORTAL, add, poly_normal
+from mapgen import MapDoc, PF_INVISIBLE, PF_PORTAL, add, poly_normal
 
 DIRS = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
 SOLID, OPEN, SEMI = 0, 1, 2
@@ -518,3 +518,59 @@ def brushes_near(vox: Voxels, pts, pad: float = 64) -> list[int]:
                 ids.append(b["id"])
                 break
     return ids
+
+
+def coplanar_faces(doc: MapDoc, max_items: int = 20) -> dict:
+    """Risky coplanar faces: a face of an add / semisolid brush lying in the same plane as a face of a subtract brush
+    and overlapping it. UE1's CSG then has to decide which surface survives; often neither renders and a black strip
+    ("missing polygon") appears - e.g. a stair riser flush with the open end of its stair tunnel (CTF-Derelict). The
+    probe verification can't see these: the space is still open / solid where it should be, only the surface is gone."""
+    from texalign import _basis, _inside2d, _edge_points
+    infos = brush_info(doc)
+    els = {e.id: e for e in doc.ordered_brushes()}
+    faces = []
+    for b in infos:
+        if b["sheet"] or b["csg"] == "nonsolid" or b["portal"]:
+            continue
+        if int(els[b["id"]].params.get("poly_flags", 0)) & PF_INVISIBLE:
+            continue
+        for k, p in enumerate(b["polys"]):
+            P = np.array(p, float)
+            n = np.array(poly_normal([tuple(v) for v in P]))
+            faces.append({"id": b["id"], "csg": b["csg"], "P": P, "n": n, "d": float(n @ P[0]),
+                          "lo": P.min(0) - 0.5, "hi": P.max(0) + 0.5})
+    subs = [f for f in faces if f["csg"] == "subtract"]
+    solids = [f for f in faces if f["csg"] in ("add", "semisolid")]
+    out = []
+    for a in solids:
+        for s in subs:
+            if (a["lo"] > s["hi"]).any() or (s["lo"] > a["hi"]).any():
+                continue
+            if abs(abs(float(a["n"] @ s["n"])) - 1) > 1e-4 or abs(a["d"] - float(a["n"] @ s["P"][0])) > 0.5:
+                continue
+            e1, e2 = _basis(a["n"])
+            A2 = np.c_[a["P"] @ e1, a["P"] @ e2]
+            S2 = np.c_[s["P"] @ e1, s["P"] @ e2]
+            ca = A2.mean(0)
+            # overlap with area: a point inside both, a bit away from the edges
+            pts = [ca] + [ca + 0.6 * (v - ca) for v in A2] + [S2.mean(0)]
+            hit = next((q for q in pts if _inside2d(q, A2, tol=-1.0) and _inside2d(q, S2, tol=-1.0)), None)
+            if hit is not None:
+                c3 = hit[0] * e1 + hit[1] * e2 + a["d"] * a["n"]
+                out.append({"at": [round(float(v)) for v in c3], "solid_brush": a["id"], "subtract_brush": s["id"],
+                            "solid_csg": a["csg"], "normal": [round(float(v), 2) for v in a["n"]]})
+    if out:  # only faces you can see matter: open space in front of the solid face, solid behind it
+        import texalign
+        space = texalign.Space(doc)
+        P = np.array([o["at"] for o in out], float)
+        N = np.array([o["normal"] for o in out], float)
+        st = space.state(np.vstack([P + 3 * N, P - 3 * N]))
+        k = len(out)
+        out = [o for o, f, b_ in zip(out, st[:k], st[k:]) if f == 1 and b_ != 1]
+    seen, uniq = set(), []
+    for o in out:
+        k = (o["solid_brush"], o["subtract_brush"])
+        if k not in seen:
+            seen.add(k)
+            uniq.append(o)
+    return {"coplanar_faces": len(uniq), "coplanar_list": uniq[:max_items]}

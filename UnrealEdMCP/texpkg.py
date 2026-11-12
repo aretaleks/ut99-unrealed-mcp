@@ -172,6 +172,14 @@ class Package:
                 out[self.path_of(i + 1)] = [p["USize"], p["VSize"]]
         return out
 
+    def imported_classes(self) -> dict[str, str]:
+        """{'ClassName': 'Package'} for actor classes this package (e.g. a map) uses from other packages."""
+        out = {}
+        for i, imp in enumerate(self.imports):
+            if imp["class"] == "Class":
+                out.setdefault(imp["name"].lower(), self.path_of(-i - 1).split(".")[0])
+        return out
+
     def imported_textures(self) -> dict[str, str]:
         """{'Name': 'Package.Group.Name'} for textures this package (e.g. a map) imports from other packages."""
         out = {}

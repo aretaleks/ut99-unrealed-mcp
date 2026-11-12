@@ -8,7 +8,7 @@ argument-hint: <map name or .unr path> [what's wrong / what to change] [new name
 
 Arguments: `$ARGUMENTS`. The first word is the original map. The rest says what's wrong with it, and optionally the new name. Default name: `<base name>-RM1`. Keep the original author credited in the title or author field (e.g. `Author="<original author>, remake by ..."`).
 
-**A remake is not a copy.** It keeps what makes the layout play the way it does (routes, room sizes, heights, flag and spawn logic) and rebuilds it with clean geometry plus the corrections. Don't reproduce custom textures or decorative detail; use a coherent stock texture set. Load the `ictf-map-design` skill.
+**A remake is not a copy.** It keeps what makes the layout play the way it does (routes, room sizes, heights, flag and spawn logic) and rebuilds it with clean geometry plus the corrections. Reuse the original's look: its stock textures and its props via `extract_assets` / `add_asset`. Load the `ictf-map-design` skill.
 
 ## Is a remake the right tool?
 First run `review_map("<map>", rebuild_check=True)`. If the map survives a rebuild and its problems are local (spawns, a few leaks, textures, single sightlines), patch it instead: `/fix-map` or `/edit-map` keep everything the author made. Propose that, and remake only if the user still wants one or the problems are structural.
@@ -45,14 +45,16 @@ Ask the user to confirm or adjust (AskUserQuestion with the main choices). Don't
 
 ## 3. Build
 1. `new_map("<new name>", gametype="ctf", ...)`, keeping the original's coordinates where possible.
-2. Build the red half region by region:
+2. Run `extract_assets("<map>")`: the original's props (prefabs, decorations, special surfaces) come along with `add_asset`, so the remake keeps its atmosphere. Use the original's texture set where it's stock.
+3. Build the red half region by region:
    - **rooms:** `add_room` (chamfered or rounded corners) at the region's footprint and floor level, with its headroom;
    - **connections:** `add_corridor(portal=True)` or doors, at the extracted positions, widths and heights; widen anything under 256uu;
    - **elevation:** `add_ramp` / `add_stairs` (fake ramps) between floor levels, following the design rules;
    - **movement:** kickers and teleporters where the original had them;
    - the flag, spawns, zones (reuse the original's zone names), lights.
-3. Mid on the symmetry plane, then `mirror_map(<symmetry type>, center=<symmetry centre>)`.
-4. `preview`, `analyze_map`, `build_map`.
+   - **props:** `add_asset` at matching spots, kept off the routes.
+4. Mid on the symmetry plane, then `mirror_map(<symmetry type>, center=<symmetry centre>)`.
+5. `preview`, `analyze_map`, `build_map`.
 
 ## 4. Compare with the original
 - `layout_image()` of the remake next to `layout_image("<map>")`. Rooms, heights and connections should line up, apart from the agreed changes.

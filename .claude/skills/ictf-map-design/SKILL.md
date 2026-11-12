@@ -44,6 +44,8 @@ Rules are tagged by where they come from:
   - Or extend the carve over the whole corner.
 
   `build_map` and `map_metrics` report each one with the two brushes involved. **[data]** 15 of 18 pool maps have none.
+- **[community]** (CTF-Derelict) **No missing polygons.** A visible face of a solid brush lying in the same plane as a carve's face (e.g. a stair riser flush with the stairwell's open end) can lose its polygon: a black strip. Probe verification can't see this, so `build_map` lists "Coplanar faces": offset one of the brushes by at least 16uu, or extend the carve past it. `add_stairs` avoids it by itself.
+- **[community]** (CTF-Derelict) **A map made like another reuses its assets**, not just its textures: pipes, neon signs, fire escapes, barrels, fans. Use `extract_assets` / `add_asset`.
 - **[community]** **Flags stand on the floor.** `add_flag` places the FlagBase at floor + 64, as in the pool (median 65); at floor + 32 it sinks into the ground.
 
 **Geometry**

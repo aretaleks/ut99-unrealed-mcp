@@ -85,7 +85,8 @@ def _moddiff(a, b, m):
 class Space:
     def __init__(self, doc: MapDoc, cell: float = 512.0):
         self.binfo = [b for b, e in zip(analysis.brush_info(doc), doc.ordered_brushes())
-                      if not b["sheet"] and b["csg"] != "nonsolid" and not int(e.params.get("actor_flags", 0)) & PF_INVISIBLE]
+                      if not b["sheet"] and b["csg"] != "nonsolid"
+                      and not (int(e.params.get("actor_flags", 0)) | int(e.params.get("poly_flags", 0))) & PF_INVISIBLE]
         self.cell = cell
 
     def state(self, P: np.ndarray) -> np.ndarray:

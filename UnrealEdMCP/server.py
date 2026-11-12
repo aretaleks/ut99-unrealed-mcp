@@ -29,6 +29,7 @@ import texpkg  # noqa: E402
 import patch as pmode  # noqa: E402
 import review as mreview  # noqa: E402
 import layout as mlayout  # noqa: E402
+import assets as massets  # noqa: E402
 from t3dimport import import_t3d  # noqa: E402
 from mapgen import PF_AUTOUPAN, PF_AUTOVPAN, PF_FAKEBACKDROP, PF_UNLIT, PF_INVISIBLE, PORTAL_FLAGS, PF_PORTAL, PF_TWOSIDED, PF_NOTSOLID, PF_TRANSLUCENT, MapDoc, ZONE_CLASSES  # noqa: E402
 from preview import render  # noqa: E402
@@ -575,27 +576,33 @@ def add_stairs(start: list[float], floor_z: float, direction: str = "+x", steps:
     px, py = -vy, vx
     els = []
     if mode != "add":
-        a = (start[0], start[1])
-        b = (start[0] + vx * steps * step_depth, start[1] + vy * steps * step_depth)
+        # the tunnel starts one step BEFORE the first riser: a riser flush with the tunnel's open end is a coplanar
+        # add/subtract face pair, and UE1 then drops the riser polygon (black strip - CTF-Derelict)
+        a = (start[0] - vx * step_depth, start[1] - vy * step_depth)
+        b = (start[0] + vx * (steps * step_depth + 16), start[1] + vy * (steps * step_depth + 16))
         xs = [a[0] + px * width / 2, a[0] - px * width / 2, b[0] + px * width / 2, b[0] - px * width / 2]
         ys = [a[1] + py * width / 2, a[1] - py * width / 2, b[1] + py * width / 2, b[1] - py * width / 2]
         c, s = _box_minmax([min(xs), min(ys), floor_z], [max(xs), max(ys), floor_z + steps * step_height + headroom])
         els.append(d.add("brush", shape="box", csg="subtract", location=c, size=s, texture=texture,
                          group=(group or "Stairs") + "Tunnel"))
+    # carve mode: a 16uu floor-level landing before the first riser, so the riser never lies on the wall plane of
+    # the room the stairwell opens from (flights usually start at a doorway)
+    lead = 16 if mode != "add" else 0
     for i in range(int(steps)):
-        a = (start[0] + vx * i * step_depth, start[1] + vy * i * step_depth)
-        b = (start[0] + vx * (i + 1) * step_depth, start[1] + vy * (i + 1) * step_depth)
+        a = (start[0] + vx * (lead + i * step_depth), start[1] + vy * (lead + i * step_depth))
+        b = (start[0] + vx * (lead + (i + 1) * step_depth), start[1] + vy * (lead + (i + 1) * step_depth))
         top = floor_z + (i + 1) * step_height
         xs = [a[0] + px * width / 2, a[0] - px * width / 2, b[0] + px * width / 2, b[0] - px * width / 2]
         ys = [a[1] + py * width / 2, a[1] - py * width / 2, b[1] + py * width / 2, b[1] - py * width / 2]
         zlo, zhi = floor_z, top
         c, s = _box_minmax([min(xs), min(ys), zlo], [max(xs), max(ys), zhi])
-        els.append(d.add("brush", shape="box", csg="add", location=c, size=s, texture=texture,
+        # semisolid steps: solid to walk on, but they don't cut the world BSP (fewer cuts = fewer BSP holes)
+        els.append(d.add("brush", shape="box", csg="semisolid", location=c, size=s, texture=texture,
                          group=group or "Stairs"))
     msg = ""
     if fake_ramp:
         # Ramp plane through the step nosings: from the floor one step-depth before the stairs up to the last nosing.
-        s0, s1 = -step_depth, (steps - 1) * step_depth
+        s0, s1 = lead - step_depth, lead + (steps - 1) * step_depth
         ends = [(start[0] + vx * t, start[1] + vy * t) for t in (s0, s1)]
         xs = [p[0] + q * px * width / 2 for p in ends for q in (1, -1)]
         ys = [p[1] + q * py * width / 2 for p in ends for q in (1, -1)]
@@ -852,6 +859,10 @@ def _mirror_params(p: dict, mode: str, c: list[float]) -> dict:
         p["verts"] = [rel(v) for v in p["verts"]]
     if "polys" in p:
         p["polys"] = [[rel(v) for v in (poly[::-1] if reflect else poly)] for poly in p["polys"]]
+    if "polytex" in p:  # copied asset mapping: reflect with the geometry (text on signs reads mirrored in mirror modes)
+        for t in p["polytex"]:
+            for k in ("origin", "u", "v"):
+                t[k] = rel(t[k])
     if "pit_bounds" in p:
         (a0, b0), (a1, b1) = p["pit_bounds"]
         q0, q1 = pt([a0, b0, 0]), pt([a1, b1, 0])
@@ -1390,6 +1401,90 @@ def layout_image(path: str = "", layer: str = "top") -> Image:
     return Image(data=mlayout.render(sp, layer), format="png")
 
 
+def _assets_for(path: str) -> dict | str:
+    cache = STATE.setdefault("assets", {})
+    got = _export_existing(path)
+    if isinstance(got, str):
+        return got
+    t3d, unr = got
+    key = str((unr or t3d).resolve()) + str((unr or t3d).stat().st_mtime)
+    if key not in cache:
+        text = t3d.read_text(encoding="utf-8-sig", errors="replace")
+        full = {}
+        if unr is not None:
+            text = text.replace(f"'{unr.stem}.", "'MyLevel.")
+            try:
+                full = texpkg.Package(unr).imported_textures()
+            except Exception:
+                full = {}
+        cache[key] = massets.extract(text, (unr or t3d).stem, full)
+    return cache[key]
+
+
+@mcp.tool()
+def extract_assets(path: str) -> str:
+    """What an existing map offers for reuse when making a map "like" it (or remaking it): decorations (non-gameplay
+    actors such as barrels, fans, plants: class, count, properties), prefabs (clusters of touching detail brushes -
+    pipes, neon signs, fire escapes, fans, crates, railings - with size, textures, special flags and a label; similar
+    copies are listed once with a count) and special surfaces (unlit / translucent / masked textures: neon, glass,
+    grates, posters). Place them with add_asset. Use the source's look - its assets and texture set - not its layout."""
+    a = _assets_for(path)
+    if isinstance(a, str):
+        return a
+    return json.dumps(massets.public(a), indent=1, default=str)
+
+
+@mcp.tool()
+def add_asset(source: str, asset: str, location: list[float], yaw: float = 0, texture: str = "",
+              size: list[float] | None = None) -> str:
+    """Copy an asset listed by extract_assets(source) into the open map:
+    * 'prefab:N' - its brushes with their original textures and texture alignment; the prefab's base centre lands
+      on `location` (z = the floor it should stand on, or the wall height for wall-mounted signs), rotated by yaw.
+    * 'deco:<Class>' - the decoration actor with its properties (mesh, skin, scale) at `location`, facing `yaw`.
+    * 'surface:<Package.Texture>' - that texture on a flat panel: size=[width, height] (default: its typical size),
+      centred on `location`, facing yaw (0 = facing +X); e.g. a neon sign or poster on a wall. Unlit / translucent /
+      masked flags are kept.
+    Mirror_map copies assets too (in mirror modes, text on signs reads mirrored - use rotate180 or place signs per
+    side). Assets are decoration: check map_metrics afterwards if one blocks a route."""
+    a = _assets_for(source)
+    if isinstance(a, str):
+        return a
+    d = doc()
+    if asset.startswith("prefab:"):
+        els = [d.add("brush", **params) for params in massets.place_prefab(a, asset, location, yaw)]
+        return _added(*els)
+    if asset.startswith("deco:"):
+        cls = asset[5:]
+        g = next((x for x in a["decorations"] if x["class"] == cls), None)
+        if g is None:
+            return f"No decoration {cls} in {source}"
+        pkg = ""
+        got = _export_existing(source)
+        if not isinstance(got, str) and got[1] is not None:
+            try:
+                pkg = texpkg.Package(got[1]).imported_classes().get(cls.lower(), "")
+            except Exception:
+                pkg = ""
+        params = {"class": cls, "props": g["props"], "location": list(location), "yaw": yaw}
+        if pkg and pkg.lower() not in ("engine", "core", "myLevel".lower()):
+            params["package"] = pkg  # code package to load at build time (e.g. Botpack for barrel3)
+        return _added(d.add("actor", **params))
+    if asset.startswith("surface:"):
+        tex = asset[8:]
+        g = next((x for x in a["surfaces"] if x["texture"] == tex), None)
+        if g is None:
+            return f"No special surface {tex} in {source}"
+        w, h = (size or g["typical_size"])[:2]
+        flags = 0
+        for bit, name in massets.SPECIAL.items():
+            if name in g["flags"]:
+                flags |= bit
+        e = d.add("brush", shape="sheet", csg="nonsolid", location=list(location), width=float(w), height=float(h),
+                  axis="x", yaw=yaw, texture=tex, poly_flags=flags | 0x100, group="Asset_surface")
+        return _added(e)
+    return "asset must be 'prefab:N', 'deco:<Class>' or 'surface:<Package.Texture>' (see extract_assets)"
+
+
 @mcp.tool()
 def align_textures(kinds: list[str] | None = None, near: list[float] | None = None, radius: float = 0,
                    max_fixes: int = 500) -> str:
@@ -1572,6 +1667,15 @@ def _lint(d: MapDoc) -> list[str]:
                 out.append(f"Team {t} has {n} PlayerStarts - iCTF wants 8+ per team (more spawns = less spawn-camping of carriers)")
     elif len(starts) < 12:
         out.append(f"Only {len(starts)} PlayerStarts - DM maps usually want 12-16+ spread around the map")
+    try:  # CTF-Derelict: visible coplanar solid/carve faces -> missing polygons the probe check can't see
+        cf = analysis.coplanar_faces(d)
+        vert = [o for o in cf["coplanar_list"] if abs(o["normal"][2]) < 0.5]
+        for o in vert[:6]:
+            out.append(f"Coplanar faces at {o['at']}: a visible face of #{o['solid_brush']} ({o['solid_csg']}) lies on a "
+                       f"face of carve #{o['subtract_brush']} - UE1 may drop the polygon (black strip). Move one by "
+                       ">= 16uu or extend the carve past it")
+    except Exception:
+        pass
     try:  # CTF-Tenement lessons: knife edges between carves, flags sunk into the floor
         ke = mmetrics.knife_edges(d)
         for sp_ in ke["knife_edge_spots"][:6]:

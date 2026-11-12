@@ -288,6 +288,11 @@ class MapDoc:
             polys = shape_prism(pts, -p["height"] / 2, p["height"] / 2)
         elif shape == "mesh":  # imported brush: polygons in brush-local space (already transformed)
             polys = [Poly([tuple(v) for v in poly]) for poly in p["polys"]]
+            if p.get("polytex") and p.get("keep_mapping", True):  # copied asset: original textures + alignment
+                for poly, t in zip(polys, p["polytex"]):
+                    poly.texture = t.get("texture") or ""
+                    poly.flags |= int(t.get("flags", 0))
+                    poly.mapping = (tuple(t["origin"]), tuple(t["u"]), tuple(t["v"]), tuple(t.get("pan", [0, 0])))
         elif shape == "quad":
             polys = [Poly([tuple(v) for v in p["verts"]])]
         elif shape == "sheet":
@@ -324,7 +329,7 @@ class MapDoc:
             k = 1
             while k < len(v) - 1:
                 end = min(k + 11, len(v) - 1)  # piece = v0 + v[k..end]; consecutive pieces share edge v0-v[end]
-                split.append(Poly([v[0]] + list(v[k:end + 1]), poly.texture, poly.flags))
+                split.append(Poly([v[0]] + list(v[k:end + 1]), poly.texture, poly.flags, poly.mapping))
                 k = end
         polys = split
         # per-face flags: {"top": int, "bottom": int, "sides": int} (e.g. FakeBackdrop for a sky ceiling)
@@ -453,6 +458,14 @@ class MapDoc:
                     "End Actor",
                 ]
                 out += lines
+            elif e.kind == "actor":  # generic actor copied from another map (decorations)
+                name = nm(p["class"])
+                lines = [f"Begin Actor Class={p['class']} Name={name}"]
+                lines += [f"     {k}={v}" for k, v in (p.get("props") or {}).items()]
+                lines += [f"     Location={ploc(p['location'])}",
+                          f"     Rotation=(Yaw={int(round(p.get('yaw', 0) * 65536 / 360)) % 65536})",
+                          f'     Name="{name}"', "End Actor"]
+                out += lines
             elif e.kind == "zone":
                 cls = ZONE_CLASSES[p.get("type", "normal")]
                 name = nm(cls)
@@ -535,7 +548,8 @@ class MapDoc:
         pk = set()
         for t in [self.default_texture] + [e.params.get("texture") or "" for e in self.elements] + [
             v for e in self.elements for v in (e.params.get("face_textures") or {}).values()
-        ]:
+        ] + [t.get("texture") or "" for e in self.elements for t in (e.params.get("polytex") or [])]:
             if t and "." in t:
                 pk.add(t.split(".")[0])
+        pk |= {e.params["package"] for e in self.elements if e.kind == "actor" and e.params.get("package")}
         return pk

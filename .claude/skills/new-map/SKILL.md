@@ -18,6 +18,14 @@ Arguments: `$ARGUMENTS`. The first word is the map name (prefix `CTF-` if missin
   - large: about 7,000uu (Anfractuous).
 
   Check against the pool ranges in the design skill.
+- **Look and assets of a reference map** ("like DOM-Condemned"): run `extract_assets("<reference map>")` and reuse its **look**, not its layout:
+  - its texture set;
+  - its props via `add_asset`:
+    - prefabs: neon signs, fire barrels, lamps, grates, fire escapes, pipes, crates, skyline backdrops;
+    - decorations: barrels and other models;
+    - special surfaces: neon and window panels.
+
+  Place props where they don't block routes or create hiding spots; rotate180 symmetry keeps sign text readable.
 - **Theme:** pick one coherent texture set with `list_texture_packages` / `list_textures`. Stock packages only, unless the user names custom ones.
 - **Features:** map them to the design skill's tools:
   - kickers or teleporters: `add_kicker` / `add_teleporter`;

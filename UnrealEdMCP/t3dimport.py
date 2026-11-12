@@ -14,6 +14,28 @@ from pathlib import Path
 from mapgen import MapDoc, PF_PORTAL, PF_SEMISOLID, PF_NOTSOLID, ZONE_CLASSES
 
 ZONE_TYPES = {v: k for k, v in ZONE_CLASSES.items() if k != "kill"}
+# properties that belong to one placed instance (or are rebuilt by the engine) - not copied with an asset
+ACTOR_SKIP_PROPS = {"Level", "Region", "Location", "OldLocation", "Name", "Tag", "Rotation", "bSelected", "Group",
+                    "PhysicsVolume", "Base", "Owner", "Instigator", "Event", "Target", "LightingTag", "ColLocation",
+                    "NetTag", "Brush", "PrePivot", "bDynamicLight", "TimeSeconds", "AttachTag"}
+
+
+def _raw_props(body: str) -> dict:
+    """Top-level 'Key=Value' lines of an actor block (nested Begin/End sections skipped)."""
+    out, depth = {}, 0
+    for line in body.split("\n"):
+        s = line.strip()
+        if s.startswith("Begin "):
+            depth += 1
+            continue
+        if s.startswith("End "):
+            depth -= 1
+            continue
+        if depth == 0 and "=" in s:
+            k, v = s.split("=", 1)
+            if k.split("(")[0] not in ACTOR_SKIP_PROPS:
+                out[k] = v
+    return out
 
 
 def _vec(s: str | None, default=0.0):
@@ -195,6 +217,7 @@ def import_t3d_text(text: str, title: str = "Imported") -> MapDoc:
                         keys[int(km.group(1))] = _vec(km.group(2))
                     props["keys"] = [keys[k] for k in sorted(keys)]
             doc.extra_actors.append({"class": cls, "name": name, "location": loc, "props": props,  # type: ignore[attr-defined]
+                                     "raw_props": _raw_props(body), "yaw": _rotator(body)[1] * 360 / 65536,
                                      "team": int(team) if team and team.isdigit() else (0 if cls == "FlagBase" else None)})
     doc.import_warnings = warnings  # type: ignore[attr-defined]
     return doc

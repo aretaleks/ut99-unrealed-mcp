@@ -11,6 +11,7 @@ meant for InstaGib.
 - `mapgen.py`: geometry and T3D writer (format matched to a 469e export)
 - `ucc.py`: headless build and verification through `System/UCC.exe`
 - `preview.py`: Top/Front/Side wireframe PNGs
+- `assets.py`: reusable props of existing maps (`extract_assets`, `add_asset`)
 - `layout.py`: layout spec and floor images (`extract_layout`, `layout_image`)
 - `review.py`: read-only audit of existing maps (`review_map`)
 - `patch.py`: patch mode, editing existing maps (`open_existing_map`) with verification against the original

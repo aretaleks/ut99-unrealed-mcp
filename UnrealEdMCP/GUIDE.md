@@ -72,6 +72,7 @@ Claude ──MCP──> server.py ──> mapgen.py     (map model -> T3D text)
                      │──────> patch.py      (patch mode: edit existing maps, verify against the original)
                      │──────> review.py     (read-only audit of existing maps)
                      │──────> layout.py     (layout spec + floor images for remakes and comparisons)
+                     │──────> assets.py     (reusable props of existing maps: prefabs, decorations, surfaces)
                      │──────> texpkg.py     (reads texture sizes from .utx/.unr packages)
                      └──────> ucc.py        (headless UCC: build, export, list textures)
 ```
@@ -154,6 +155,7 @@ map grid (16 by default).
 | `batch(operations)` | Many operations in one call: `[{"op": "add_box", ...}, ...]`. Stops at the first error. |
 | `remove_elements(ids)` / `move_elements(ids, offset)` / `update_element(id, changes)` | Edit existing elements. |
 | `reorder_elements(ids, position)` | Change CSG order: `first`, `last`, `before:<id>`, `after:<id>`. |
+| `extract_assets(path)` / `add_asset(source, asset, location, yaw, texture, size)` | A map's reusable props: decorations, prefabs (clusters of detail brushes with textures and alignment: signs, pipes, fire escapes, barrels…) and special surfaces; copy them into a project (moved, rotated; `mirror_map` copies them too). |
 | `extract_layout(path)` / `layout_image(path, layer)` | Layout spec and floor height images of a map or the open project (Commands section). |
 | `review_map(path, rebuild_check=False)` | Read-only audit of an existing map (§10): findings with locations and fixes. |
 | `align_textures(kinds, near, radius)` | Patch mode: realign texture seams and corner steps of the original's brushes (§10). |
@@ -554,6 +556,8 @@ The original map is never modified; every command writes a new version and keeps
 | Silent water | `EntrySound=None`, `ExitSound=None`, `EntryActor=None`, `ExitActor=None`. |
 | Brush transform | PrePivot → MainScale → Rotation → PostScale → Location. Non-convex brushes are tested with their own BSP, as UE1 does. |
 | Texture mapping | Per polygon: `Origin` (a point), `TextureU`/`TextureV` (texels per uu; they transform with the inverse transpose of the brush transform), `Pan U= V=`. T3D names textures by object name only (`Texture=Brickw01`). Unmirrored when U × V points along the visible normal (UE1 is left-handed). UnrealEd leaves subtract-brush walls mirrored by default. |
+| Coplanar faces | A visible face of an add / semisolid brush in the same plane as a subtract brush's face can lose its polygon in CSG: a black strip. It's purely visual, so probe verification can't detect it; `build_map` lints it (`analysis.coplanar_faces`). |
+| Decorations | T3D import needs the decoration's class package loaded (`add_asset` records it, e.g. Botpack for Barrel3). The export writes class names in the class's own case (`Barrel3`), whatever case the T3D used. |
 | Patch builds | `MAP LOAD <original>` before `MAP IMPORT` keeps the objects embedded in the original's `MyLevel` package (textures, sounds, classes) and saves them into the new map. `MAP IMPORTADD` merges actors without a rebuild but leaves them unzoned (`iLeaf=-1`). Exported actors keep the `Region` (zone and leaf) of the author's build. |
 | Texture sizes | `USize`/`VSize` are tagged properties of each Texture export; `texpkg.py` reads them from the package without UCC. |
 | UCC commands | `exec` runs editor commands headlessly; `batchexport … Level t3d` exports maps; `listobjects` lists textures. |
@@ -625,4 +629,5 @@ The original map is never modified; every command writes a new version and keeps
 | All commands | `/new-map`, `/edit-map`, `/remake-map` added; `extract_layout` / `layout_image` (regions from the author's zones, connections, symmetry, floor height maps) for remakes and comparisons. |
 | Spawn facing | Community rule (don't face a wall, look along an attacking path or perpendicular, no sight of enemy spawns) measured on the pool's 230 spawns: four new checks and `orient_spawns`. Every earlier generated map had spawns staring at walls (Sludgeline 4, Bastion 2); Bastion's 12 spawns that can see enemy spawns need moving. |
 | **CTF-Tenement** review | Long sightlines → "prefer shorter sightlines" (p90 ≤ ~1200). Walkway climbable from one end → one-end platform check. Stairs cut off by per-step carves → `add_stairs` carve mode is one tunnel plus solid steps. Chamfer knife edges → knife-edge check (also found 4 on Sludgeline). Flags sunk into the floor → `add_flag` at floor + 64 and a flag-height check. General measures (corridor runs, ledge detours, thin walls) were calibrated too, but don't separate Tenement from the pool, so they stay informational. |
+| **CTF-Derelict** review | BSP bug at the bottom of carved stairs: the first riser was flush with the stair tunnel's open end (coplanar add/subtract faces, polygon dropped), a bug from the previous round's stairs change. Now: the tunnel starts one step earlier, a 16uu landing keeps the riser off the doorway's wall plane, steps are semisolid, and `build_map` lints visible coplanar faces (probe verification can't see missing polygons). Reusing a reference map's look → `extract_assets` / `add_asset` (prefabs with original texture alignment, decorations, special surfaces); `/new-map` and `/remake-map` use them. |
 | Texture alignment | `check_textures` and a texture summary in `build_map`. Found and fixed two generator bugs: add-brush faces were mirrored, and wall textures started at arbitrary heights (now anchored at the floor). Calibrated on the 18-map pool. |
