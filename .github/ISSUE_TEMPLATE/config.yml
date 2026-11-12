@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How it works (full guide)
+    url: https://github.com/aretaleks/ut99-unrealed-mcp/blob/main/UnrealEdMCP/GUIDE.md
+    about: Setup, tools, design rules, checks and troubleshooting.

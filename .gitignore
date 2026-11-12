@@ -5,6 +5,8 @@
 !/README.md
 !/LICENSE
 !/.mcp.json.example
+!/CONTRIBUTING.md
+!/.github/
 
 # the MCP server
 !/UnrealEdMCP/

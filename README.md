@@ -51,6 +51,10 @@ See **[UnrealEdMCP/GUIDE.md](UnrealEdMCP/GUIDE.md)** for everything else.
 
 The project improves one generated map at a time. Each review by an experienced iCTF player becomes a new rule or check, measured against the map pool first. The current rules come from the reviews of CTF-Coldrush, Motherlode and Bastion (see the history in the guide). Generated maps still need fine-tuning by hand in UnrealEd.
 
+## Contributing
+
+Feedback on generated maps, rule proposals, bug reports and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT (see `LICENSE`). Unreal Tournament and UnrealEd are trademarks of Epic Games. This project ships no game content.

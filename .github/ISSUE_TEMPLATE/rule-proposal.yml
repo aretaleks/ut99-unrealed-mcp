@@ -1,0 +1,48 @@
+name: Rule proposal
+description: Propose a design rule for generated maps (e.g. "flag rooms need at least 3 entrances").
+title: "[Rule] "
+labels: ["rule proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rules steer what gets built for everyone, so each needs a reason and, ideally, examples. See "How rules get in" in CONTRIBUTING.md.
+  - type: textarea
+    id: rule
+    attributes:
+      label: The rule
+      description: One sentence, as specific as you can (numbers help, but aren't required).
+      placeholder: Every ramp on a main route must be 30 degrees or gentler.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters in play
+      placeholder: Steep main ramps slow carriers and make them easy targets; steep ramps are fine on narrow bonus routes (Duku).
+    validations:
+      required: true
+  - type: input
+    id: bad
+    attributes:
+      label: Map(s) where it goes wrong
+  - type: input
+    id: good
+    attributes:
+      label: Map(s) that get it right
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source
+      options:
+        - My own experience as a player / mapper
+        - Agreed in my community (link or say where)
+        - Measured data (please attach or link)
+    validations:
+      required: true
+  - type: input
+    id: mode
+    attributes:
+      label: Game mode
+      description: Rules are tuned for 5v5 InstaGib CTF. Say if this is for another mode.
+      placeholder: iCTF 5v5

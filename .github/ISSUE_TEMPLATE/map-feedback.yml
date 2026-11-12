@@ -1,0 +1,51 @@
+name: Feedback on a generated map
+description: You played or looked at a map the tool generated (or fixed / remade) - tell us what's wrong or good about it.
+title: "[Map feedback] <map name>: "
+labels: ["map feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! This is the most valuable input the project gets: every review so far (Coldrush, Motherlode, Bastion, Sludgeline) became new rules and checks.
+  - type: input
+    id: map
+    attributes:
+      label: Map
+      description: The map name, and the command or version it came from if you know it (e.g. "CTF-Bastion, /new-map", "CTF-Nuance99-RM1").
+    validations:
+      required: true
+  - type: dropdown
+    id: how
+    attributes:
+      label: How did you test it?
+      options:
+        - Played it in a pug / with others
+        - Played it alone or with bots
+        - Walked around / looked in UnrealEd
+        - Only looked at screenshots or previews
+    validations:
+      required: true
+  - type: textarea
+    id: problems
+    attributes:
+      label: What's wrong?
+      description: One point per line. Where possible say where (room or zone name, or coordinates) and why it matters in play.
+      placeholder: |
+        - Red spawns in the flag room can see the flag: defenders respawn on it, so caps never happen.
+        - Mid is one huge hall; nowhere to break line of sight.
+    validations:
+      required: true
+  - type: textarea
+    id: good
+    attributes:
+      label: What works well?
+      description: Also useful, so we keep it.
+  - type: textarea
+    id: reference
+    attributes:
+      label: A map that gets this right
+      description: e.g. "Klondike's flag room has 4 entrances". This is how the feedback gets measured and turned into a check.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or anything else

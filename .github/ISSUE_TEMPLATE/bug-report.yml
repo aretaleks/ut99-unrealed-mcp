@@ -1,0 +1,36 @@
+name: Bug report
+description: A tool error, a broken build, a check that is clearly wrong, or a command that misbehaves.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The command or tool calls (e.g. `/review-map CTF-Klondike-PG1`, `build_map()`), and the map involved.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output / error
+      description: The tool's output or error text. For build problems also `UnrealEdMCP/work/last_build.log` and `build_crashes.log`.
+      render: text
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: UT version (e.g. 469e), Python version, the repository commit (`git log -1 --oneline`).
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I restarted Claude Code after pulling the latest version (the MCP server keeps old code until restarted).
+        - label: The map wasn't open in UnrealEd during the build.
