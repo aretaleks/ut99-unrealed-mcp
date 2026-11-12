@@ -63,6 +63,35 @@ def evaluate(m: dict) -> list[dict]:
         add("no line of sight to enemy spawns", not seen, f"{len(seen)} spawn(s) see enemy spawns {seen}",
             "0 (pool: 6.5% of spawns; Grudge, Overflow, Nuance99 4 each)",
             "spawning in sight of enemy spawns means instant spawn kills both ways - move or screen them", fail=True)
+    # --- CTF-Tenement review
+    gaps = m.get("flag_floor_gap") or []
+    bad_g = [g for g in gaps if g is not None and not (48 <= g <= 96)]
+    if gaps:
+        add("flags stand on the floor", not bad_g, f"FlagBase {gaps} uu above the floor",
+            "48-96 (pool median 65: a FlagBase stands on the floor at floor + 64)",
+            "a FlagBase placed lower sinks into the ground, higher floats (fix: add_flag uses floor_z + 64)",
+            fail=any(g is not None and g < 48 for g in bad_g))
+    ke = m.get("knife_edges")
+    if ke is not None:
+        add("no knife edges between carves", ke == 0,
+            f"{ke} {[(s['at'], s['angle_deg'], s['brushes']) for s in m.get('knife_edge_spots', [])[:4]]}",
+            "0 (15 of 18 pool maps have none)",
+            "a door or corridor cut into a chamfered / rounded corner leaves a wall wedge that tapers to an edge - "
+            "looks broken and snags players. Keep doors on straight wall spans, cut them square to the wall, or extend "
+            "the carve over the whole corner")
+    oe = m.get("one_end_platforms")
+    if oe is not None:
+        add("raised walkways climbable from both ends", oe == 0,
+            f"{oe} {[(p['id'], p['group'], p['worst_at'], p['worst_walk_up']) for p in m.get('one_end_platform_list', [])[:4]]}",
+            "0 (community rule; pool: Rune, Duku, PryXon 0, Nuance99 9)",
+            "a raised path with stairs / a ramp at one end only forces everyone coming from the other side into a "
+            "detour - add access at both ends (or every ~768uu along a long side), or a kicker")
+    p90 = m.get("sightline_p90")
+    if p90 is not None:
+        add("prefer shorter sightlines", p90 <= 1216, f"p90 {p90}uu, median {m.get('sightline_median')}uu",
+            "p90 <= ~1200uu (liked maps' median; range 1056-1712)",
+            "community preference: shorter sightlines - break long corridors and halls with turns, offsets, pillars "
+            "or height changes every ~1000-1500uu")
     tot = m.get("spawns", 0)
     per = m.get("spawns_per_team", [0, 0])
     add("enough spawn points", min(per) >= 8, f"{tot} total, per team {per}", ">= 8 per team (liked maps 12-16 total; more is better)",

@@ -602,6 +602,300 @@ def spawn_facing(W, vox, e, cell, dist_enemy: dict, enemy_flag, own_flag, enemy_
             "sees_enemy_spawns": len(seen), "seen_enemy_spawn_ids": [x.id for x in seen][:6]}
 
 
+def corridor_runs(hl: np.ndarray, widths: np.ndarray) -> dict:
+    """Straight corridor runs: at narrow spots (local width < 512uu), how far you can see along the corridor axis
+    (the longest opposite-ray pair). Long straight corridors are shooting galleries."""
+    narrow = widths < 512
+    if not narrow.any():
+        return {"corridor_run_p90": 0, "long_corridor_spots_pct": 0.0}
+    runs = np.max(hl[narrow, :8] + hl[narrow, 8:16], axis=1)
+    return {"corridor_run_p90": round(float(np.percentile(runs, 90))),
+            "long_corridor_spots_pct": round(100 * float(np.mean(runs >= 2048)), 1)}
+
+
+def detours(W, vox, reach, rng, n_max: int = 160) -> dict:
+    """Paths reachable from one side only: spots at the foot of a ledge too high to jump (65-192uu) with walkable
+    floor right on top of it. If getting up there takes a walk of more than 1024uu (or it's unreachable within
+    4000uu), the raised path is only accessible from one side and forces a detour. Share of such ledge spots."""
+    r = vox.r
+    st = W.stand
+    lo_c, hi_c = int(64 // r) + 1, int(192 // r)
+    pairs = []
+    for (x, y, z) in reach:
+        for dx, dy in ((2, 0), (-2, 0), (0, 2), (0, -2)):
+            col = W.cols.get((x + dx, y + dy))
+            if not col:
+                continue
+            ups = [zz for zz in col if lo_c <= zz - z <= hi_c and (x + dx, y + dy, zz) in reach]  # a real path on top
+            if ups:
+                pairs.append(((x, y, z), (x + dx, y + dy, min(ups))))
+    if not pairs:
+        return {"detour_pct": 0.0, "detour_pairs": 0, "detour_spots": []}
+    idx = rng.choice(len(pairs), min(n_max, len(pairs)), replace=False)
+    bad, spots = 0, []
+    for i in idx:
+        foot, top = pairs[int(i)]
+        dist, _ = W.dijkstra(foot, target=top, limit=4000 / r)
+        w = dist.get(top)
+        if w is None or w * r > 1024:
+            bad += 1
+            if len(spots) < 8:
+                p = vox.lo + (np.array(foot) + 0.5) * r
+                q = vox.lo + (np.array(top) + 0.5) * r
+                spots.append({"foot": [round(float(v)) for v in p], "top": [round(float(v)) for v in q],
+                              "walk": round(w * r) if w is not None else "> 4000"})
+    return {"detour_pct": round(100 * bad / len(idx), 1), "detour_pairs": int(len(idx)), "detour_spots": spots}
+
+
+def thin_walls(doc, vox, reach, rng, n: int = 300) -> dict:
+    """Knife edges and slivers: walls thinner than 24uu at eye height with open space behind them (exact CSG replay,
+    4uu steps). Typical cause: a chamfered corner or diagonal wall meeting another carve, leaving a wedge that tapers
+    to an edge. Railings below eye height don't count."""
+    import texalign
+    sp = texalign.Space(doc)
+    cells = list(reach)
+    if not cells:
+        return {"thin_wall_hits_per_1000_rays": 0.0, "thin_wall_spots": []}
+    pick = [cells[int(i)] for i in rng.choice(len(cells), min(n, len(cells)), replace=False)]
+    eyes = np.array([vox.lo + (np.array(c) + 0.5) * vox.r for c in pick]) + [0, 0, 64 - vox.r / 2]
+    dirs = np.array([(math.cos(a), math.sin(a), 0.0) for a in np.linspace(0, 2 * math.pi, 16, endpoint=False)])
+    ts = np.arange(4, 1024, 4.0)
+    P = eyes[:, None, None, :] + dirs[None, :, None, :] * ts[None, None, :, None]
+    st = sp.state(P.reshape(-1, 3)).reshape(len(eyes), len(dirs), len(ts)) != 1  # True = solid
+    hits, spots = 0, []
+    for a in range(len(eyes)):
+        for b in range(len(dirs)):
+            s = st[a, b]
+            i1 = int(np.argmax(s)) if s.any() else -1
+            if i1 < 0:
+                continue
+            rest = s[i1:]
+            if rest.all():
+                continue
+            thick = int(np.argmin(rest)) * 4
+            if thick <= 24:
+                hits += 1
+                if len(spots) < 10:
+                    spots.append([round(float(v)) for v in eyes[a] + dirs[b] * ts[i1]])
+    return {"thin_wall_hits_per_1000_rays": round(1000 * hits / (len(eyes) * len(dirs)), 2), "thin_wall_spots": spots}
+
+
+def knife_edges(doc, max_spots: int = 12) -> dict:
+    """Knife edges left between carves: where the outlines of two subtract brushes with vertical walls (boxes,
+    prisms from add_room / add_corridor, cylinders) cross, the solid outside both is a wedge. If it is sharper than
+    60 degrees and no other brush carves it away, a paper-thin wall edge remains (typical: a door or corridor cut
+    into a chamfered / rounded room corner)."""
+    import texalign
+    from mapgen import poly_normal as _pn
+    subs = []
+    for e in doc.ordered_brushes():
+        p = e.params
+        if p.get("csg", "subtract") != "subtract" or p.get("poly_flags", 0) & 0x04000000 or p.get("shape") == "sheet":
+            continue
+        loc, polys = doc.brush_polys(e)
+        V = [tuple(np.add(loc, v)) for poly in polys for v in poly.verts]
+        if len(polys) < 4 or any(0.01 < abs(_pn(poly.verts)[2]) < 0.99 for poly in polys):
+            continue  # not a vertical-walled solid (ramps, wedges)
+        pts = np.array(V)
+        hull = _hull2d(pts[:, :2])
+        if len(hull) < 3:
+            continue
+        subs.append({"id": e.id, "hull": hull, "z0": pts[:, 2].min(), "z1": pts[:, 2].max()})
+    if len(subs) < 2:
+        return {"knife_edges": 0, "knife_edge_spots": []}
+    space = texalign.Space(doc)
+    cand = []
+    for i in range(len(subs)):
+        A = subs[i]
+        for B in subs[i + 1:]:
+            z0, z1 = max(A["z0"], B["z0"]), min(A["z1"], B["z1"])
+            if z1 - z0 < 96:
+                continue
+            for pa, qa, na in _edges(A["hull"]):
+                for pb, qb, nb in _edges(B["hull"]):
+                    x = _seg_x(pa, qa, pb, qb)
+                    if x is None:
+                        continue
+                    cosang = float(np.dot(na, nb))
+                    if cosang > -0.5:  # angle between outward normals <= 120 deg -> solid wedge >= 60 deg
+                        continue
+                    bis = na + nb
+                    if np.linalg.norm(bis) < 1e-6:
+                        continue
+                    bis = bis / np.linalg.norm(bis)
+                    z = z0 + min(64.0, (z1 - z0) / 2)
+                    cand.append((x, bis, z, A["id"], B["id"], round(180 - np.degrees(np.arccos(np.clip(cosang, -1, 1))))))
+    if not cand:
+        return {"knife_edges": 0, "knife_edge_spots": []}
+    # the wedge must really be solid just beside the tip (another carve may remove it)
+    P = np.array([[c[0][0] + c[1][0] * 10, c[0][1] + c[1][1] * 10, c[2]] for c in cand])
+    st = space.state(P)
+    spots = []
+    for c, s in zip(cand, st):
+        if s == 1:
+            continue
+        if any(abs(c[0][0] - q["at"][0]) < 32 and abs(c[0][1] - q["at"][1]) < 32 for q in spots):
+            continue
+        spots.append({"at": [round(float(c[0][0])), round(float(c[0][1])), round(float(c[2]))], "angle_deg": c[5],
+                      "brushes": [c[3], c[4]]})
+    return {"knife_edges": len(spots), "knife_edge_spots": spots[:max_spots]}
+
+
+def _hull2d(pts):
+    pts = sorted(set((round(float(x), 3), round(float(y), 3)) for x, y in pts))
+    if len(pts) < 3:
+        return pts
+
+    def cr(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lo, hi = [], []
+    for p in pts:
+        while len(lo) >= 2 and cr(lo[-2], lo[-1], p) <= 0:
+            lo.pop()
+        lo.append(p)
+    for p in reversed(pts):
+        while len(hi) >= 2 and cr(hi[-2], hi[-1], p) <= 0:
+            hi.pop()
+        hi.append(p)
+    return lo[:-1] + hi[:-1]  # counter-clockwise
+
+
+def _edges(h):
+    for k in range(len(h)):
+        a, b = np.array(h[k], float), np.array(h[(k + 1) % len(h)], float)
+        d = b - a
+        n = np.array([d[1], -d[0]])  # outward for a counter-clockwise hull
+        L = np.linalg.norm(n)
+        if L > 1e-9:
+            yield a, b, n / L
+
+
+def _seg_x(p, q, r_, s):
+    """Proper crossing point of segments pq and rs (not at their end points), or None."""
+    d1, d2 = q - p, s - r_
+    den = d1[0] * d2[1] - d1[1] * d2[0]
+    if abs(den) < 1e-9:
+        return None
+    t = ((r_[0] - p[0]) * d2[1] - (r_[1] - p[1]) * d2[0]) / den
+    u = ((r_[0] - p[0]) * d1[1] - (r_[1] - p[1]) * d1[0]) / den
+    if 0.001 < t < 0.999 and 0.001 < u < 0.999:
+        return p + t * d1
+    return None
+
+
+def one_sided_paths(W, vox, reach, min_len: float = 768) -> dict:
+    """Raised walkways you can only get onto from one side. Flat floor areas (plateaus) are found by joining
+    neighbouring walkable spots at exactly the same height; a plateau is raised if at least a third of its edge
+    drops >= 65uu (too high to jump back up). Its access points are where you can walk on and off it (ramps,
+    stairs, level floor). A raised plateau >= min_len long whose access points all lie in one cluster forces
+    everyone arriving from the other end to walk around (detour)."""
+    r = vox.r
+    drop = int(64 // r) + 1
+    seen, out = set(), []
+    for c in reach:
+        if c in seen:
+            continue
+        comp, stack = [], [c]
+        seen.add(c)
+        access, edge, dropping = [], 0, 0
+        while stack:
+            u = stack.pop()
+            comp.append(u)
+            x, y, z = u
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                col = W.cols.get((x + dx, y + dy))
+                same = (x + dx, y + dy, z)
+                if col and z in col and same in reach:
+                    if same not in seen:
+                        seen.add(same)
+                        stack.append(same)
+                    continue
+                edge += 1
+                below = [zz for zz in (col or []) if zz < z]
+                if col and below and z - max(below) >= drop and not [zz for zz in col if abs(zz - z) < drop and zz != z]:
+                    dropping += 1
+            for n, _ in W.neighbours(u):
+                if n[2] != z and n in reach and any(m == u for m, _ in W.neighbours(n)):
+                    access.append(n)
+        if not edge or dropping / edge < 1 / 3:
+            continue
+        pts = np.array(comp, float)
+        length = float(max((pts.max(0) - pts.min(0))[:2])) * r + r
+        if length < min_len or len(comp) * r * r < 40_000:
+            continue
+        clusters = []
+        for a in access:
+            pa = np.array(a[:2], float) * r
+            if not any(np.linalg.norm(cl - pa) <= 384 for cl in clusters):
+                clusters.append(pa)
+        if len(clusters) <= 1:
+            ctr = vox.lo + (pts.mean(0) + 0.5) * r
+            out.append({"at": [round(float(v)) for v in ctr], "length": round(length), "access_points": len(clusters),
+                        "area_kuu2": round(len(comp) * r * r / 1000)})
+    return {"one_sided_paths": len(out), "one_sided_path_list": out[:8]}
+
+
+def platform_access(doc, W, vox, reach, max_detour: float = 1024) -> dict:
+    """Raised platforms / walkways climbable from one end only: add brushes whose top is a walkable strip 65-192uu
+    above the floor beside it and >= 512uu long. From floor spots along both long sides (every 64uu) we walk to the
+    top right above; if the worst walk exceeds max_detour, the platform can only be got onto from one end and
+    everyone coming from the other side has to walk around (CTF-Tenement review)."""
+    r = vox.r
+    out = []
+    for e in doc.ordered_brushes():
+        p = e.params
+        if p.get("csg") not in ("add", "semisolid") or p.get("poly_flags", 0) & 1:
+            continue
+        loc, polys = doc.brush_polys(e)
+        pts = np.array([np.add(loc, v) for poly in polys for v in poly.verts], float)
+        lo, hi = pts.min(0), pts.max(0)
+        size = hi - lo
+        length, width = max(size[0], size[1]), min(size[0], size[1])
+        if length < 512 or width < 64:
+            continue
+        along = 0 if size[0] >= size[1] else 1
+        side = 1 - along
+        top_z = hi[2]
+        worst, n_ok, n_tot, at = 0.0, 0, 0, None
+        for t in np.arange(lo[along] + 32, hi[along] - 31, 64):
+            for s_, sgn in ((lo[side] - 40, -1), (hi[side] + 40, 1)):
+                q = np.zeros(3)
+                q[along], q[side], q[2] = t, s_, top_z + 40
+                c1 = vox.cell_of(q)
+                if c1 is None:
+                    continue
+                lowz = [zz for zz in W.cols.get((c1[0], c1[1]), []) if 64 < top_z - (vox.lo[2] + zz * r) <= 192]
+                if not lowz:
+                    continue
+                foot = (c1[0], c1[1], max(lowz))  # the floor right beside the platform, in this exact column
+                if foot not in reach:
+                    continue
+                q2 = q.copy()
+                q2[side] -= sgn * 72
+                c2 = vox.cell_of(q2)
+                if c2 is None:
+                    continue
+                topz = [zz for zz in W.cols.get((c2[0], c2[1]), []) if abs(vox.lo[2] + zz * r - top_z) <= r]
+                if not topz:
+                    continue
+                top = (c2[0], c2[1], topz[0])
+                if top not in reach:
+                    continue
+                n_tot += 1
+                dist, _ = W.dijkstra(foot, target=top, limit=4000 / r)
+                w = dist.get(top)
+                w = w * r if w is not None else 4000.0
+                if w <= max_detour:
+                    n_ok += 1
+                if w > worst:
+                    worst, at = w, q[:2]
+        if n_tot >= 3 and worst > max_detour:
+            out.append({"id": e.id, "group": p.get("group", ""), "length": round(float(length)),
+                        "top_z": round(float(top_z)), "worst_walk_up": round(worst),
+                        "side_spots_ok": f"{n_ok}/{n_tot}", "worst_at": [round(float(v)) for v in at]})
+    return {"one_end_platforms": len(out), "one_end_platform_list": out[:8]}
+
+
 def _facing_score(f: dict, yaw: float) -> float:
     if f["view_ahead"] < 256:
         return -10.0  # staring at a wall
@@ -785,6 +1079,22 @@ def compute(doc: MapDoc, res: float = 32, seed: int = 0) -> dict:
     # cross-map sniping: share of horizontal sightlines longer than 3000uu, and the longest ones
     out["long_sightlines_pct"] = round(100 * float(np.mean(hl >= 3000)), 2)
     out["sightline_p99"] = round(float(np.percentile(hl, 99)))
+    out.update(corridor_runs(hl, widths))
+    out.update(detours(W, vox, reach, rng))
+    out.update(one_sided_paths(W, vox, reach))
+    # flag height: a FlagBase stands on the floor when its location is ~64uu above it (pool median 65)
+    import texalign as _ta
+    _sp = _ta.Space(doc)
+    gaps = []
+    for t in (0, 1):
+        col = flags[t] - np.array([[0, 0, dz] for dz in range(0, 202, 2)], float)
+        st = _sp.state(col)
+        solid = np.flatnonzero(st != 1)
+        gaps.append(int(solid[0] * 2) if len(solid) else None)
+    out["flag_floor_gap"] = gaps
+    out.update(platform_access(doc, W, vox, reach))
+    out.update(knife_edges(doc))
+    out.update(thin_walls(doc, vox, reach, rng))
     # flag room entrances: distinct openings crossing a ring at walking distance R around each flag
     out["flag_entrances"] = {}
     for R in (768, 1024, 1280):

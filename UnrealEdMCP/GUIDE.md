@@ -234,6 +234,7 @@ The full rules with sources are in the skill (`.claude\skills\ictf-map-design\SK
 - **[community]** Forward spawns: they push players to attack.
 - **[community]** More spawn points, so carriers don't get spawned on. Aim for 8+ per team. **[data]** Spawn count is the strongest geometric predictor of preference (rank correlation +0.52).
 - **[community]** Spawn facing: never stare at a wall (being next to one is fine), look along a path toward the enemy base or perpendicular to it, never back at your own flag. **[data]** No liked map has a spawn facing a wall closer than 256uu; 73% of pool spawns look down an attacking path. `orient_spawns()` sets facings from the layout.
+- **[community]** (Tenement review) Prefer shorter sightlines; raised walkways climbable from both ends; stairs never cut off; no knife edges where carves meet chamfered corners; flags standing on the floor (FlagBase at floor + 64).
 - **[community]** No line of sight between enemy spawns. **[data]** 6.5% of pool spawns can see one (Grudge, Overflow and Nuance99 have 4 each).
 
 ### Layout
@@ -284,6 +285,10 @@ Each check returns PASS, WARN or FAIL with the measured value, the target and th
 | spawns don't look back toward their own base | 0 losing ≥ 0.3uu toward the enemy flag per uu along the view | community, data (pool 3%) |
 | spawns look along an attacking path | ≥ 50% gaining ≥ 0.3uu toward the enemy flag per uu along the view | community, data (pool 73%) |
 | no line of sight to enemy spawns | 0 (FAIL) | community, data (pool 6.5%) |
+| flags stand on the floor | FlagBase 48–96uu above the floor (FAIL below 48) | data (pool median 65) |
+| no knife edges between carves | 0 wedges < 60° where two vertical-walled carves cross and nothing removes the wedge | community, data (15 of 18 pool maps: 0) |
+| raised walkways climbable from both ends | 0 platforms (65–192uu high, ≥ 512uu long) whose worst walk up from the floor beside them is > 1024uu | community (pool varies: Rune 0, Nuance99 9) |
+| prefer shorter sightlines | sightline p90 ≤ ~1200uu | community, data (liked median 1200) |
 | no spawns with line of sight to own flag | 0 within 1500uu | community |
 | enough spawn points | ≥ 8 per team | community, data |
 | spawns placed forward | 30–42% of the way to the enemy flag | community, data |
@@ -417,6 +422,7 @@ Texture alignment doesn't separate liked from disliked maps (liked Acrony, Klond
 | `pool_joined.json` | Metrics joined with preference and season stats. |
 | `fragmath_matches_sample.json` / `fragmath_season15.txt` | The source stats. |
 | `groundtruth.py` | The import-versus-engine validation script. |
+| `tenement_checks.json` / `tenement_checks.py` | Calibration of the Tenement-review checks on the pool: sightlines, corridor runs, ledge detours, thin walls, one-end platforms, knife edges. |
 | `spawn_orientation.json` / `spawn_orientation.py` | How the pool orients its 230 spawns: free view ahead, attack path, angle to the route, line of sight to enemy spawns. |
 | `patch_baseline_pool.json` / `patch_baseline_pool.py` | Does each pool map survive an unmodified headless rebuild (§10)? |
 | `texalign_pool.json` / `texalign_pool.py` | Texture alignment statistics per pool map (§7), and the script that produces them. |
@@ -618,4 +624,5 @@ The original map is never modified; every command writes a new version and keeps
 | Review and fix | `review_map` (author's-build zone, spawn and flag checks with concrete, clearance-checked moves; gameplay; textures; rebuild survival), `align_textures` for the original's brushes, intended zone fixes accepted by verification, `/review-map` and `/fix-map` commands. |
 | All commands | `/new-map`, `/edit-map`, `/remake-map` added; `extract_layout` / `layout_image` (regions from the author's zones, connections, symmetry, floor height maps) for remakes and comparisons. |
 | Spawn facing | Community rule (don't face a wall, look along an attacking path or perpendicular, no sight of enemy spawns) measured on the pool's 230 spawns: four new checks and `orient_spawns`. Every earlier generated map had spawns staring at walls (Sludgeline 4, Bastion 2); Bastion's 12 spawns that can see enemy spawns need moving. |
+| **CTF-Tenement** review | Long sightlines → "prefer shorter sightlines" (p90 ≤ ~1200). Walkway climbable from one end → one-end platform check. Stairs cut off by per-step carves → `add_stairs` carve mode is one tunnel plus solid steps. Chamfer knife edges → knife-edge check (also found 4 on Sludgeline). Flags sunk into the floor → `add_flag` at floor + 64 and a flag-height check. General measures (corridor runs, ledge detours, thin walls) were calibrated too, but don't separate Tenement from the pool, so they stay informational. |
 | Texture alignment | `check_textures` and a texture summary in `build_map`. Found and fixed two generator bugs: add-brush faces were mirrored, and wall textures started at arbitrary heights (now anchored at the floor). Calibrated on the 18-map pool. |

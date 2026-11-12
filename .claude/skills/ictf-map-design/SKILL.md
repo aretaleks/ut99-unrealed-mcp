@@ -34,6 +34,18 @@ Rules are tagged by where they come from:
   - `orient_spawns()` sets every facing from the actual layout. Run it after `mirror_map`, and again after moving spawns.
 - **[community]** No direct line of sight between enemy spawns: it means instant spawn kills both ways. **[data]** Only 6.5% of pool spawns can see an enemy spawn. Fix by placement (move, or screen with cover); facing can't fix it.
 
+**From the CTF-Tenement review** (a DOM map rebuilt as CTF):
+- **[community]** Prefer **shorter sightlines**. Break long corridors and halls with turns, offsets, pillars or height changes every ~1000–1500uu. **[data]** Liked maps' sightline p90 has a median of 1200uu; Tenement had 1328.
+- **[community]** **Raised walkways must be climbable from both ends.** A path you can only get onto from one end forces everyone coming from the other side into a detour. Add stairs, a ramp or a kicker at both ends, or every ~768uu along a long side. `map_metrics` lists one-end platforms with their element ids.
+- **[community]** **Stairs must not be cut off.** Use `add_stairs(mode="subtract")` for stairwells: it carves one tunnel with a flat ceiling and puts solid steps in it. Don't build stairs from per-step carves: they leave jagged ceilings, and the flight disappears where it starts in an already open room.
+- **[community]** **No knife edges.** A door or corridor cut into a chamfered or rounded corner leaves a wall wedge that tapers to an edge.
+  - Keep doors on the straight part of a wall (at least `corner_size` away from the corner).
+  - Cut them square to the wall.
+  - Or extend the carve over the whole corner.
+
+  `build_map` and `map_metrics` report each one with the two brushes involved. **[data]** 15 of 18 pool maps have none.
+- **[community]** **Flags stand on the floor.** `add_flag` places the FlagBase at floor + 64, as in the pool (median 65); at floor + 32 it sinks into the ground.
+
 **Geometry**
 - **[community]** Prefer open spaces to zig-zag or narrow corridors, but a map that's too large is also bad.
   - **[data]** Disliked maps have 43–53% "narrow spots"; liked maps have 16–32%.
@@ -186,6 +198,10 @@ feel narrow in InstaGib.
 |---|---|
 | Spawns in the flag room or in sight of the flag | Move them forward, around corners, into side areas. |
 | Spawns facing a wall / looking back / no attacking path in view | `orient_spawns()` |
+| Knife edges between carves | Move the door onto the straight wall span, or widen the carve so it removes the whole wedge. |
+| Raised walkway climbable from one end | Add stairs, a ramp or a kicker at the other end (or mid-way along a long side). |
+| Sightlines too long (p90 > ~1200) | Bend or offset long corridors, add pillars or height changes along long axes. |
+| Flags not standing on the floor | Re-place with `add_flag` (floor + 64). |
 | Spawns seeing enemy spawns | Move them, or put cover (a semisolid block or pillar) between them; then `orient_spawns()`. |
 | Not open enough / too many narrow spots | Widen corridors to 384–512+; replace zig-zags with rooms joined by wide openings. |
 | Cross-map sightlines | Offset corridors (don't line up doorways), add pillars or cover, add height changes on long axes. |

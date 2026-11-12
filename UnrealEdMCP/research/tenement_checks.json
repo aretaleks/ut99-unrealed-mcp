@@ -1,0 +1,1555 @@
+{
+ "CTF-Achromatic-RE4": {
+  "sightline_median": 336,
+  "sightline_p90": 1056,
+  "sightline_p99": 2208,
+  "corridor_run_p90": 3248,
+  "long_corridor_spots_pct": 33.9,
+  "detour_pct": 15.0,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 128.75,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -72,
+     1496,
+     -104
+    ],
+    "top": [
+     -72,
+     1432,
+     24
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -40,
+     1496,
+     -104
+    ],
+    "top": [
+     -104,
+     1496,
+     24
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     88,
+     1496,
+     -104
+    ],
+    "top": [
+     88,
+     1432,
+     24
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    45,
+    2952,
+    72
+   ],
+   [
+    -4,
+    2953,
+    72
+   ],
+   [
+    -168,
+    576,
+    392
+   ]
+  ]
+ },
+ "CTF-Acrony-RE2": {
+  "sightline_median": 464,
+  "sightline_p90": 1376,
+  "sightline_p99": 2480,
+  "corridor_run_p90": 3677,
+  "long_corridor_spots_pct": 54.3,
+  "detour_pct": 34.4,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 57.92,
+  "one_end_platforms": 6,
+  "knife_edges": 0,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -8,
+     4344,
+     -936
+    ],
+    "top": [
+     -8,
+     4280,
+     -744
+    ],
+    "walk": 1948
+   },
+   {
+    "foot": [
+     -72,
+     856,
+     -936
+    ],
+    "top": [
+     -8,
+     856,
+     -744
+    ],
+    "walk": 2046
+   },
+   {
+    "foot": [
+     24,
+     3032,
+     -616
+    ],
+    "top": [
+     24,
+     3096,
+     -520
+    ],
+    "walk": 2664
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    466,
+    -718,
+    -568
+   ],
+   [
+    136,
+    3768,
+    -376
+   ],
+   [
+    -657,
+    2703,
+    -888
+   ]
+  ]
+ },
+ "CTF-Anfractuous-PG1": {
+  "sightline_median": 368,
+  "sightline_p90": 1090,
+  "sightline_p99": 2144,
+  "corridor_run_p90": 2704,
+  "long_corridor_spots_pct": 42.8,
+  "detour_pct": 22.5,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 82.08,
+  "one_end_platforms": 1,
+  "knife_edges": 0,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -2504,
+     -904,
+     -328
+    ],
+    "top": [
+     -2504,
+     -840,
+     -232
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -2824,
+     280,
+     -360
+    ],
+    "top": [
+     -2824,
+     344,
+     -168
+    ],
+    "walk": 1111
+   },
+   {
+    "foot": [
+     1720,
+     888,
+     -328
+    ],
+    "top": [
+     1720,
+     824,
+     -136
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -528,
+    376,
+    -312
+   ],
+   [
+    -912,
+    376,
+    -312
+   ],
+   [
+    -2880,
+    376,
+    72
+   ]
+  ]
+ },
+ "CTF-BrokenLimits-PG1-SA": {
+  "sightline_median": 352,
+  "sightline_p90": 1056,
+  "sightline_p99": 1808,
+  "corridor_run_p90": 2192,
+  "long_corridor_spots_pct": 19.0,
+  "detour_pct": 44.4,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 45.62,
+  "one_end_platforms": 3,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     184,
+     2008,
+     -232
+    ],
+    "top": [
+     184,
+     2072,
+     -104
+    ],
+    "walk": 1111
+   },
+   {
+    "foot": [
+     -968,
+     1560,
+     -232
+    ],
+    "top": [
+     -968,
+     1624,
+     -104
+    ],
+    "walk": 1036
+   },
+   {
+    "foot": [
+     -296,
+     1976,
+     -232
+    ],
+    "top": [
+     -296,
+     2040,
+     -104
+    ],
+    "walk": 1077
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -127,
+    1,
+    -184
+   ],
+   [
+    -289,
+    33,
+    -184
+   ],
+   [
+    609,
+    -1790,
+    -56
+   ]
+  ]
+ },
+ "CTF-Command-S6-5": {
+  "sightline_median": 608,
+  "sightline_p90": 1712,
+  "sightline_p99": 3104,
+  "corridor_run_p90": 3603,
+  "long_corridor_spots_pct": 73.5,
+  "detour_pct": 97.5,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 73.96,
+  "one_end_platforms": 10,
+  "knife_edges": 0,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     376,
+     -1256,
+     -328
+    ],
+    "top": [
+     312,
+     -1256,
+     -136
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     1272,
+     1432,
+     -232
+    ],
+    "top": [
+     1272,
+     1368,
+     -72
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -2632,
+     1240,
+     -232
+    ],
+    "top": [
+     -2632,
+     1304,
+     -72
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    504,
+    -1024,
+    -88
+   ],
+   [
+    191,
+    -340,
+    72
+   ],
+   [
+    208,
+    -456,
+    72
+   ]
+  ]
+ },
+ "CTF-Duku-PG1": {
+  "sightline_median": 384,
+  "sightline_p90": 1200,
+  "sightline_p99": 2000,
+  "corridor_run_p90": 2848,
+  "long_corridor_spots_pct": 34.0,
+  "detour_pct": 30.6,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 56.46,
+  "one_end_platforms": 0,
+  "knife_edges": 8,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -2760,
+     984,
+     -168
+    ],
+    "top": [
+     -2760,
+     1048,
+     -40
+    ],
+    "walk": 1055
+   },
+   {
+    "foot": [
+     -2920,
+     824,
+     -168
+    ],
+    "top": [
+     -2920,
+     888,
+     -40
+    ],
+    "walk": 1349
+   },
+   {
+    "foot": [
+     -2856,
+     824,
+     -168
+    ],
+    "top": [
+     -2856,
+     888,
+     -40
+    ],
+    "walk": 1239
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -2816,
+    696,
+    -120
+   ],
+   [
+    2930,
+    -949,
+    8
+   ],
+   [
+    -2926,
+    -51,
+    328
+   ]
+  ]
+ },
+ "CTF-Entropic-RE5": {
+  "sightline_median": 464,
+  "sightline_p90": 1344,
+  "sightline_p99": 2224,
+  "corridor_run_p90": 2896,
+  "long_corridor_spots_pct": 43.8,
+  "detour_pct": 61.2,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 80.42,
+  "one_end_platforms": 2,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -1096,
+     312,
+     -264
+    ],
+    "top": [
+     -1096,
+     248,
+     -72
+    ],
+    "walk": 3434
+   },
+   {
+    "foot": [
+     -776,
+     440,
+     -456
+    ],
+    "top": [
+     -776,
+     504,
+     -296
+    ],
+    "walk": 3694
+   },
+   {
+    "foot": [
+     -1512,
+     1016,
+     -72
+    ],
+    "top": [
+     -1576,
+     1016,
+     56
+    ],
+    "walk": 1051
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    672,
+    88,
+    -408
+   ],
+   [
+    1584,
+    1496,
+    -24
+   ],
+   [
+    1674,
+    1318,
+    -24
+   ]
+  ]
+ },
+ "CTF-Grudge-RE1": {
+  "sightline_median": 304,
+  "sightline_p90": 1136,
+  "sightline_p99": 2432,
+  "corridor_run_p90": 3280,
+  "long_corridor_spots_pct": 53.5,
+  "detour_pct": 56.2,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 66.46,
+  "one_end_platforms": 8,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -72,
+     -1000,
+     -264
+    ],
+    "top": [
+     -136,
+     -1000,
+     -168
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -584,
+     824,
+     -104
+    ],
+    "top": [
+     -584,
+     760,
+     24
+    ],
+    "walk": 2565
+   },
+   {
+    "foot": [
+     632,
+     -776,
+     -136
+    ],
+    "top": [
+     632,
+     -712,
+     24
+    ],
+    "walk": 2572
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -320,
+    -936,
+    -88
+   ],
+   [
+    142,
+    1154,
+    -88
+   ],
+   [
+    -320,
+    1080,
+    -88
+   ]
+  ]
+ },
+ "CTF-Iztac-PG2": {
+  "sightline_median": 336,
+  "sightline_p90": 1056,
+  "sightline_p99": 2016,
+  "corridor_run_p90": 2544,
+  "long_corridor_spots_pct": 27.2,
+  "detour_pct": 26.2,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 72.08,
+  "one_end_platforms": 2,
+  "knife_edges": 2,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -1096,
+     -1224,
+     -3272
+    ],
+    "top": [
+     -1096,
+     -1288,
+     -3176
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -1320,
+     -1224,
+     -3272
+    ],
+    "top": [
+     -1256,
+     -1224,
+     -3144
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -1128,
+     -1224,
+     -3272
+    ],
+    "top": [
+     -1128,
+     -1288,
+     -3176
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -384,
+    -40,
+    -3224
+   ],
+   [
+    -663,
+    459,
+    -3224
+   ],
+   [
+    320,
+    -72,
+    -3256
+   ]
+  ]
+ },
+ "CTF-Klondike-PG1": {
+  "sightline_median": 400,
+  "sightline_p90": 1200,
+  "sightline_p99": 2464,
+  "corridor_run_p90": 3216,
+  "long_corridor_spots_pct": 45.5,
+  "detour_pct": 18.8,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 55.62,
+  "one_end_platforms": 1,
+  "knife_edges": 0,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     216,
+     88,
+     -616
+    ],
+    "top": [
+     216,
+     24,
+     -488
+    ],
+    "walk": 1616
+   },
+   {
+    "foot": [
+     -712,
+     1208,
+     -680
+    ],
+    "top": [
+     -648,
+     1208,
+     -584
+    ],
+    "walk": 1669
+   },
+   {
+    "foot": [
+     -648,
+     -1320,
+     -616
+    ],
+    "top": [
+     -584,
+     -1320,
+     -456
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    1404,
+    -1409,
+    -312
+   ],
+   [
+    -168,
+    -1792,
+    -632
+   ],
+   [
+    -94,
+    -2503,
+    -632
+   ]
+  ]
+ },
+ "CTF-Mesmerize-PG1-SA": {
+  "sightline_median": 352,
+  "sightline_p90": 1136,
+  "sightline_p99": 2048,
+  "corridor_run_p90": 2544,
+  "long_corridor_spots_pct": 43.9,
+  "detour_pct": 25.6,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 68.96,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -936,
+     -2504,
+     -168
+    ],
+    "top": [
+     -872,
+     -2504,
+     24
+    ],
+    "walk": 1066
+   },
+   {
+    "foot": [
+     -936,
+     -2440,
+     -168
+    ],
+    "top": [
+     -936,
+     -2504,
+     24
+    ],
+    "walk": 1157
+   },
+   {
+    "foot": [
+     1016,
+     2648,
+     -168
+    ],
+    "top": [
+     1016,
+     2584,
+     24
+    ],
+    "walk": 1269
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    336,
+    439,
+    104
+   ],
+   [
+    1112,
+    640,
+    104
+   ],
+   [
+    -320,
+    1656,
+    232
+   ]
+  ]
+ },
+ "CTF-Nuance99-PG1-SA": {
+  "sightline_median": 384,
+  "sightline_p90": 1216,
+  "sightline_p99": 2144,
+  "corridor_run_p90": 3056,
+  "long_corridor_spots_pct": 35.8,
+  "detour_pct": 73.1,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 73.75,
+  "one_end_platforms": 9,
+  "knife_edges": 4,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -104,
+     -232,
+     1656
+    ],
+    "top": [
+     -104,
+     -168,
+     1848
+    ],
+    "walk": 1513
+   },
+   {
+    "foot": [
+     408,
+     -136,
+     1656
+    ],
+    "top": [
+     408,
+     -72,
+     1848
+    ],
+    "walk": 1970
+   },
+   {
+    "foot": [
+     -1640,
+     24,
+     1656
+    ],
+    "top": [
+     -1576,
+     24,
+     1848
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -1896,
+    384,
+    1320
+   ],
+   [
+    -113,
+    -205,
+    1704
+   ],
+   [
+    544,
+    248,
+    1032
+   ]
+  ]
+ },
+ "CTF-Overflow-PG1": {
+  "sightline_median": 416,
+  "sightline_p90": 1408,
+  "sightline_p99": 2672,
+  "corridor_run_p90": 3792,
+  "long_corridor_spots_pct": 62.0,
+  "detour_pct": 62.5,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 68.75,
+  "one_end_platforms": 4,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -488,
+     -2888,
+     -232
+    ],
+    "top": [
+     -552,
+     -2888,
+     -40
+    ],
+    "walk": 1315
+   },
+   {
+    "foot": [
+     408,
+     2424,
+     -232
+    ],
+    "top": [
+     408,
+     2360,
+     -40
+    ],
+    "walk": 1455
+   },
+   {
+    "foot": [
+     280,
+     -2536,
+     -232
+    ],
+    "top": [
+     280,
+     -2600,
+     -40
+    ],
+    "walk": 1719
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -360,
+    1792,
+    8
+   ],
+   [
+    -1568,
+    -2111,
+    -88
+   ],
+   [
+    -1527,
+    -2513,
+    -88
+   ]
+  ]
+ },
+ "CTF-PryXon-SA-RE3": {
+  "sightline_median": 400,
+  "sightline_p90": 1200,
+  "sightline_p99": 2368,
+  "corridor_run_p90": 3216,
+  "long_corridor_spots_pct": 42.0,
+  "detour_pct": 10.1,
+  "detour_pairs": 109,
+  "thin_wall_hits_per_1000_rays": 149.58,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     280,
+     568,
+     -72
+    ],
+    "top": [
+     344,
+     568,
+     120
+    ],
+    "walk": 1183
+   },
+   {
+    "foot": [
+     280,
+     -648,
+     -72
+    ],
+    "top": [
+     344,
+     -648,
+     120
+    ],
+    "walk": 1157
+   },
+   {
+    "foot": [
+     280,
+     -616,
+     -72
+    ],
+    "top": [
+     344,
+     -616,
+     120
+    ],
+    "walk": 1221
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -808,
+    -224,
+    -56
+   ],
+   [
+    -808,
+    -864,
+    -56
+   ],
+   [
+    -648,
+    800,
+    -24
+   ]
+  ]
+ },
+ "CTF-Rankin-PG2-SA": {
+  "sightline_median": 304,
+  "sightline_p90": 1008,
+  "sightline_p99": 1888,
+  "corridor_run_p90": 2512,
+  "long_corridor_spots_pct": 25.4,
+  "detour_pct": 49.4,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 92.92,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     2328,
+     -264,
+     -104
+    ],
+    "top": [
+     2328,
+     -200,
+     56
+    ],
+    "walk": 3481
+   },
+   {
+    "foot": [
+     -2440,
+     -744,
+     24
+    ],
+    "top": [
+     -2440,
+     -808,
+     184
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     2264,
+     -200,
+     -104
+    ],
+    "top": [
+     2264,
+     -136,
+     56
+    ],
+    "walk": 3300
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -2222,
+    505,
+    -56
+   ],
+   [
+    324,
+    -490,
+    8
+   ],
+   [
+    312,
+    -504,
+    8
+   ]
+  ]
+ },
+ "CTF-Rune-RTE4": {
+  "sightline_median": 352,
+  "sightline_p90": 1056,
+  "sightline_p99": 1920,
+  "corridor_run_p90": 2672,
+  "long_corridor_spots_pct": 33.2,
+  "detour_pct": 27.5,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 103.54,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": true,
+  "detour_spots": [
+   {
+    "foot": [
+     -456,
+     -264,
+     152
+    ],
+    "top": [
+     -520,
+     -264,
+     344
+    ],
+    "walk": 2574
+   },
+   {
+    "foot": [
+     -1224,
+     -3272,
+     -104
+    ],
+    "top": [
+     -1224,
+     -3336,
+     88
+    ],
+    "walk": 2471
+   },
+   {
+    "foot": [
+     -520,
+     -2792,
+     152
+    ],
+    "top": [
+     -520,
+     -2856,
+     344
+    ],
+    "walk": 1296
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    256,
+    120,
+    -120
+   ],
+   [
+    289,
+    -4063,
+    -216
+   ],
+   [
+    -531,
+    -3229,
+    328
+   ]
+  ]
+ },
+ "CTF-Sprinta-SA-RE3": {
+  "sightline_median": 400,
+  "sightline_p90": 1344,
+  "sightline_p99": 2512,
+  "corridor_run_p90": 3040,
+  "long_corridor_spots_pct": 42.0,
+  "detour_pct": 8.8,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 47.5,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     2136,
+     -584,
+     -360
+    ],
+    "top": [
+     2200,
+     -584,
+     -168
+    ],
+    "walk": 2347
+   },
+   {
+    "foot": [
+     2264,
+     -712,
+     -360
+    ],
+    "top": [
+     2264,
+     -648,
+     -168
+    ],
+    "walk": 2528
+   },
+   {
+    "foot": [
+     2200,
+     600,
+     -168
+    ],
+    "top": [
+     2136,
+     600,
+     24
+    ],
+    "walk": 2315
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    704,
+    -584,
+    -184
+   ],
+   [
+    568,
+    -960,
+    -184
+   ],
+   [
+    -392,
+    -1388,
+    72
+   ]
+  ]
+ },
+ "CTF-Talya-PG1": {
+  "sightline_median": 384,
+  "sightline_p90": 1168,
+  "sightline_p99": 2144,
+  "corridor_run_p90": 2912,
+  "long_corridor_spots_pct": 43.5,
+  "detour_pct": 55.0,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 34.38,
+  "one_end_platforms": 2,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     1720,
+     56,
+     88
+    ],
+    "top": [
+     1784,
+     56,
+     248
+    ],
+    "walk": 1383
+   },
+   {
+    "foot": [
+     1848,
+     152,
+     88
+    ],
+    "top": [
+     1912,
+     152,
+     248
+    ],
+    "walk": 1111
+   },
+   {
+    "foot": [
+     1656,
+     -488,
+     88
+    ],
+    "top": [
+     1656,
+     -424,
+     280
+    ],
+    "walk": 1786
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    3104,
+    -8,
+    40
+   ],
+   [
+    -896,
+    -936,
+    296
+   ],
+   [
+    1000,
+    1459,
+    40
+   ]
+  ]
+ },
+ "CTF-Tenement (generated)": {
+  "sightline_median": 432,
+  "sightline_p90": 1328,
+  "sightline_p99": 2384,
+  "corridor_run_p90": 2832,
+  "long_corridor_spots_pct": 52.5,
+  "detour_pct": 12.6,
+  "detour_pairs": 135,
+  "thin_wall_hits_per_1000_rays": 56.25,
+  "one_end_platforms": 2,
+  "knife_edges": 8,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -1576,
+     -456,
+     24
+    ],
+    "top": [
+     -1512,
+     -456,
+     216
+    ],
+    "walk": 1059
+   },
+   {
+    "foot": [
+     1560,
+     -456,
+     24
+    ],
+    "top": [
+     1496,
+     -456,
+     216
+    ],
+    "walk": 1059
+   },
+   {
+    "foot": [
+     1592,
+     -456,
+     24
+    ],
+    "top": [
+     1528,
+     -456,
+     216
+    ],
+    "walk": 1027
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -2240,
+    -1096,
+    72
+   ],
+   [
+    2177,
+    632,
+    72
+   ],
+   [
+    2323,
+    339,
+    72
+   ]
+  ]
+ },
+ "CTF-Sludgeline (generated)": {
+  "sightline_median": 400,
+  "sightline_p90": 1184,
+  "sightline_p99": 2432,
+  "corridor_run_p90": 3344,
+  "long_corridor_spots_pct": 48.3,
+  "detour_pct": 20.6,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 69.79,
+  "one_end_platforms": 2,
+  "knife_edges": 4,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     -2024,
+     568,
+     24
+    ],
+    "top": [
+     -2088,
+     568,
+     216
+    ],
+    "walk": 1111
+   },
+   {
+    "foot": [
+     2040,
+     -520,
+     24
+    ],
+    "top": [
+     2104,
+     -520,
+     216
+    ],
+    "walk": 1093
+   },
+   {
+    "foot": [
+     -2024,
+     -552,
+     24
+    ],
+    "top": [
+     -2088,
+     -552,
+     216
+    ],
+    "walk": 1111
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    1344,
+    600,
+    72
+   ],
+   [
+    1777,
+    575,
+    72
+   ],
+   [
+    1167,
+    1408,
+    264
+   ]
+  ]
+ },
+ "CTF-Bastion (generated)": {
+  "sightline_median": 400,
+  "sightline_p90": 1136,
+  "sightline_p99": 2768,
+  "corridor_run_p90": 5136,
+  "long_corridor_spots_pct": 47.4,
+  "detour_pct": 0.0,
+  "detour_pairs": 136,
+  "thin_wall_hits_per_1000_rays": 97.71,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [],
+  "thin_wall_spots": [
+   [
+    -207,
+    1215,
+    -88
+   ],
+   [
+    1496,
+    -640,
+    72
+   ],
+   [
+    -1320,
+    640,
+    72
+   ]
+  ]
+ },
+ "CTF-Motherlode (generated)": {
+  "sightline_median": 448,
+  "sightline_p90": 1296,
+  "sightline_p99": 2304,
+  "corridor_run_p90": 3907,
+  "long_corridor_spots_pct": 60.4,
+  "detour_pct": 0.0,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 37.71,
+  "one_end_platforms": 0,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [],
+  "thin_wall_spots": [
+   [
+    2176,
+    -456,
+    72
+   ],
+   [
+    1736,
+    -95,
+    328
+   ],
+   [
+    1912,
+    -896,
+    328
+   ]
+  ]
+ },
+ "CTF-Coldrush (generated)": {
+  "sightline_median": 432,
+  "sightline_p90": 1344,
+  "sightline_p99": 2480,
+  "corridor_run_p90": 2912,
+  "long_corridor_spots_pct": 50.0,
+  "detour_pct": 36.2,
+  "detour_pairs": 160,
+  "thin_wall_hits_per_1000_rays": 28.54,
+  "one_end_platforms": 2,
+  "knife_edges": 0,
+  "liked": false,
+  "detour_spots": [
+   {
+    "foot": [
+     600,
+     -1032,
+     -168
+    ],
+    "top": [
+     600,
+     -1096,
+     -8
+    ],
+    "walk": "> 4000"
+   },
+   {
+    "foot": [
+     -1704,
+     -1480,
+     24
+    ],
+    "top": [
+     -1768,
+     -1480,
+     216
+    ],
+    "walk": 2057
+   },
+   {
+    "foot": [
+     -552,
+     -1064,
+     -168
+    ],
+    "top": [
+     -552,
+     -1128,
+     -40
+    ],
+    "walk": "> 4000"
+   }
+  ],
+  "thin_wall_spots": [
+   [
+    -2564,
+    959,
+    72
+   ],
+   [
+    1779,
+    1024,
+    72
+   ],
+   [
+    1528,
+    1056,
+    72
+   ]
+  ]
+ }
+}

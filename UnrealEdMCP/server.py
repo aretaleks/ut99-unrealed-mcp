@@ -556,7 +556,9 @@ def add_stairs(start: list[float], floor_z: float, direction: str = "+x", steps:
                texture: str = "", group: str = "", fake_ramp: bool = True) -> str:
     """Straight staircase. start = [x,y] centre of the bottom edge of the first step, going up toward
     direction ('+x','-x','+y','-y'). mode='add': solid steps placed inside an existing open space;
-    mode='subtract': carve a stair tunnel (with `headroom` above each step) through solid. step_height must be <= 24.
+    mode='subtract': carve ONE stair tunnel through solid (flat ceiling `headroom` above the top step, over the
+    whole flight) and put solid steps inside it - so the flight is complete wherever it starts (per-step carves left
+    jagged ceilings and flights cut off at the wall on CTF-Tenement). step_height must be <= 24.
     fake_ramp=True (default) adds "fake stairs" like Duku: an invisible semisolid ramp through the step edges, so
     players glide up smoothly while seeing stairs. Slope = atan(step_height/step_depth) must be <= 30 deg
     (16/32 = 27 deg, as on Duku). Leave >= 256uu of free floor beyond the top and in front of the bottom."""
@@ -572,19 +574,24 @@ def add_stairs(start: list[float], floor_z: float, direction: str = "+x", steps:
     vx, vy = {"+x": (1, 0), "-x": (-1, 0), "+y": (0, 1), "-y": (0, -1)}[direction]
     px, py = -vy, vx
     els = []
+    if mode != "add":
+        a = (start[0], start[1])
+        b = (start[0] + vx * steps * step_depth, start[1] + vy * steps * step_depth)
+        xs = [a[0] + px * width / 2, a[0] - px * width / 2, b[0] + px * width / 2, b[0] - px * width / 2]
+        ys = [a[1] + py * width / 2, a[1] - py * width / 2, b[1] + py * width / 2, b[1] - py * width / 2]
+        c, s = _box_minmax([min(xs), min(ys), floor_z], [max(xs), max(ys), floor_z + steps * step_height + headroom])
+        els.append(d.add("brush", shape="box", csg="subtract", location=c, size=s, texture=texture,
+                         group=(group or "Stairs") + "Tunnel"))
     for i in range(int(steps)):
         a = (start[0] + vx * i * step_depth, start[1] + vy * i * step_depth)
         b = (start[0] + vx * (i + 1) * step_depth, start[1] + vy * (i + 1) * step_depth)
         top = floor_z + (i + 1) * step_height
         xs = [a[0] + px * width / 2, a[0] - px * width / 2, b[0] + px * width / 2, b[0] - px * width / 2]
         ys = [a[1] + py * width / 2, a[1] - py * width / 2, b[1] + py * width / 2, b[1] - py * width / 2]
-        if mode == "add":
-            zlo, zhi = floor_z, top
-        else:
-            zlo, zhi = top, top + headroom
+        zlo, zhi = floor_z, top
         c, s = _box_minmax([min(xs), min(ys), zlo], [max(xs), max(ys), zhi])
-        els.append(d.add("brush", shape="box", csg="add" if mode == "add" else "subtract", location=c, size=s,
-                         texture=texture, group=group or "Stairs"))
+        els.append(d.add("brush", shape="box", csg="add", location=c, size=s, texture=texture,
+                         group=group or "Stairs"))
     msg = ""
     if fake_ramp:
         # Ramp plane through the step nosings: from the floor one step-depth before the stairs up to the last nosing.
@@ -788,14 +795,16 @@ def add_teleporter(a: list[float], b: list[float], two_way: bool = True, yaw_a: 
 
 @mcp.tool()
 def add_flag(team: int, x: float, y: float, floor_z: float, yaw: float = 0) -> str:
-    """CTF flag base (FlagBase) standing on the floor at floor_z. team 0 = red, 1 = blue. One per team."""
+    """CTF flag base (FlagBase) standing on the floor at floor_z. team 0 = red, 1 = blue. One per team.
+    The actor goes 64uu above the floor - where a FlagBase stands on it (pool median 65; 32 sank it into the
+    ground on CTF-Tenement)."""
     d = doc()
     if team not in (0, 1):
         raise ValueError("team must be 0 (red) or 1 (blue)")
     old = [e for e in d.elements if e.kind == "flag" and int(e.params.get("team", 0)) == team]
     if old:
         return f"Team {team} already has flag #{old[0].id} - remove or move it instead"
-    return _added(d.add("flag", location=[x, y, floor_z + 32], yaw=yaw, team=team))
+    return _added(d.add("flag", location=[x, y, floor_z + 64], yaw=yaw, team=team))
 
 
 def _mirror_params(p: dict, mode: str, c: list[float]) -> dict:
@@ -1563,6 +1572,22 @@ def _lint(d: MapDoc) -> list[str]:
                 out.append(f"Team {t} has {n} PlayerStarts - iCTF wants 8+ per team (more spawns = less spawn-camping of carriers)")
     elif len(starts) < 12:
         out.append(f"Only {len(starts)} PlayerStarts - DM maps usually want 12-16+ spread around the map")
+    try:  # CTF-Tenement lessons: knife edges between carves, flags sunk into the floor
+        ke = mmetrics.knife_edges(d)
+        for sp_ in ke["knife_edge_spots"][:6]:
+            out.append(f"Knife edge at {sp_['at']}: carves #{sp_['brushes'][0]} and #{sp_['brushes'][1]} leave a "
+                       f"{sp_['angle_deg']} deg wall wedge - keep doors on straight wall spans or extend the carve over the corner")
+        import texalign as _ta
+        sp = _ta.Space(d)
+        for f in (e for e in d.elements if e.kind == "flag"):
+            loc = np.array(f.params["location"], float)
+            st = sp.state(loc - np.array([[0, 0, dz] for dz in range(0, 202, 2)], float))
+            solid = np.flatnonzero(st != 1)
+            gap = int(solid[0] * 2) if len(solid) else None
+            if gap is not None and not 48 <= gap <= 96:
+                out.append(f"Flag #{f.id} is {gap}uu above the floor - a FlagBase stands on the floor at floor + 64")
+    except Exception:
+        pass
     if not any(e.kind == "light" for e in d.elements) and not any(e.kind == "zone" and e.params.get("ambient_brightness") for e in d.elements):
         out.append("No lights - the map will be pitch black")
     return out
