@@ -24,6 +24,8 @@
 !/.claude/skills/
 /.claude/skills/*
 !/.claude/skills/ictf-map-design/
+!/.claude/skills/review-map/
+!/.claude/skills/fix-map/
 
 __pycache__/
 *.pyc

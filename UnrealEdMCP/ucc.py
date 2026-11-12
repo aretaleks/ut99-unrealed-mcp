@@ -84,10 +84,12 @@ def bsp_command(bsp: dict | None) -> str:
 
 
 def build(t3d_path: Path, out_unr: Path, packages: set[str], light: bool = True, paths: str = "define",
-          bsp: dict | None = None, verify: bool = False) -> dict:
-    """Import T3D, rebuild geometry/BSP/lighting/paths, save .unr, then re-export and analyse it."""
+          bsp: dict | None = None, verify: bool = False, preload: Path | None = None) -> dict:
+    """Import T3D, rebuild geometry/BSP/lighting/paths, save .unr, then re-export and analyse it.
+    preload: an existing map loaded first (patch mode), so objects embedded in it - textures, sounds, classes in
+    its MyLevel package - stay available to the imported T3D and are saved into the new map."""
     WORK.mkdir(exist_ok=True)
-    cmds: list[str] = []
+    cmds: list[str] = [f'MAP LOAD FILE="{preload}"'] if preload else []
     missing = []
     for pk in sorted(packages):
         f = find_package(pk)

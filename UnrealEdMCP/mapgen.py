@@ -128,6 +128,8 @@ class Poly:
     verts: list[Vec]
     texture: str = ""
     flags: int = 0
+    # explicit texture mapping (brush-local origin, U, V, pan) - e.g. inherited from an existing map's faces
+    mapping: tuple | None = None
 
 
 def orient_outward(polys: list[Poly], center: Vec) -> list[Poly]:
@@ -493,19 +495,34 @@ class MapDoc:
             lines.append(f'     Group="{group}"')
         lines.append(f"     Location={ploc(loc)}")
         lines += [f"    Begin Brush Name={model}", "       Begin PolyList"]
-        # texture origin = -Location, so textures line up in world space across brushes
+        # Texture mapping (checked by texalign.py):
+        # * axes come from the VISIBLE side of the face (subtract brushes are seen from inside), so no face is
+        #   mirrored (U x V points along the visible normal, as UnrealEd's subtract walls and floors in the pool)
+        #   and floors/walls of add and subtract brushes on one plane share one mapping (no seams)
+        # * floors/ceilings/slopes: world-aligned (origin = world 0)
+        # * walls: world-aligned horizontally, vertically anchored at the brush's bottom edge, so the texture
+        #   (trims, baseboards) starts at the floor instead of at an arbitrary world height
         origin = scale(loc, -1)
+        zmin = min((v[2] for poly in polys for v in poly.verts), default=0.0)
+        wall_origin = (origin[0], origin[1], zmin)
         for poly in polys:
             n = poly_normal(poly.verts)
-            u, v = tex_axes(n, tex_scale or 1.0)
+            nv = n if csg == "CSG_Subtract" else scale(n, -1)  # tex_axes expects the side facing away from view
+            u, v = tex_axes(nv, tex_scale or 1.0)
+            o = wall_origin if abs(n[2]) <= 0.7 else origin
+            pan = None
+            if poly.mapping:
+                o, u, v, pan = poly.mapping
             hdr = "          Begin Polygon"
             if poly.texture:
                 hdr += f" Texture={poly.texture.split('.')[-1]}"
             if poly.flags:
                 hdr += f" Flags={poly.flags}"
             lines.append(hdr)
-            lines.append(f"             Origin   {fvec(origin)}")
+            lines.append(f"             Origin   {fvec(o)}")
             lines.append(f"             Normal   {fvec(n)}")
+            if pan and any(pan):
+                lines.append(f"             Pan      U={int(pan[0])} V={int(pan[1])}")
             lines.append(f"             TextureU {fvec(u)}")
             lines.append(f"             TextureV {fvec(v)}")
             for vert in poly.verts:

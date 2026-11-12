@@ -13,6 +13,8 @@ import re
 import sys
 from pathlib import Path
 
+import numpy as np
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from mcp.server.fastmcp import FastMCP, Image  # noqa: E402
@@ -22,6 +24,10 @@ import analysis  # noqa: E402
 import autofix  # noqa: E402
 import metrics as mmetrics  # noqa: E402
 import rules  # noqa: E402
+import texalign  # noqa: E402
+import texpkg  # noqa: E402
+import patch as pmode  # noqa: E402
+import review as mreview  # noqa: E402
 from t3dimport import import_t3d  # noqa: E402
 from mapgen import PF_AUTOUPAN, PF_AUTOVPAN, PF_FAKEBACKDROP, PF_UNLIT, PF_INVISIBLE, PORTAL_FLAGS, PF_PORTAL, PF_TWOSIDED, PF_NOTSOLID, PF_TRANSLUCENT, MapDoc, ZONE_CLASSES  # noqa: E402
 from preview import render  # noqa: E402
@@ -62,11 +68,15 @@ Textures are 'Package.Name' or 'Package.Group.Name' (see list_texture_packages /
 iCTF (InstaGib CTF, 5v5, 15 min): new_map(gametype='ctf'), build one base half incl. add_flag + 8+ spawns,
 mirror_map for the other team, then map_metrics to score against community rules (load the ictf-map-design skill
 for the design guide).
+EXISTING maps: open_existing_map(path, new_name) = patch mode. The original export is kept verbatim; change its actors
+with list_actors / remove_actors / move_actors / set_actor_properties, add new elements with the normal tools (new
+brushes without a texture inherit the original's texture + alignment), build_map verifies against the author's own
+build and saves under the new name (never over the original).
 """
 
 mcp = FastMCP("unrealed", instructions=INSTRUCTIONS)
 
-STATE: dict = {"doc": None, "name": None}
+STATE: dict = {"doc": None, "name": None, "patch": None}
 
 
 # ---------------------------------------------------------------- helpers
@@ -77,8 +87,22 @@ def doc() -> MapDoc:
 
 
 def save():
-    if STATE["doc"] is not None:
+    if STATE.get("patch") is not None:
+        STATE["patch"].overlay = STATE["doc"]
+        STATE["patch"]._bdoc_combined = None
+        (PROJECTS / f"{STATE['name']}.patch.json").write_text(STATE["patch"].to_json(), encoding="utf-8")
+    elif STATE["doc"] is not None:
         (PROJECTS / f"{STATE['name']}.json").write_text(STATE["doc"].to_json(), encoding="utf-8")
+
+
+def patch_project() -> "pmode.PatchProject | None":
+    return STATE.get("patch")
+
+
+def whole() -> MapDoc:
+    """The complete map for previews and checks: the project, or in patch mode original + edits combined."""
+    pp = patch_project()
+    return pp.combined_doc() if pp is not None else doc()
 
 
 def _safe_name(name: str) -> str:
@@ -155,30 +179,61 @@ def new_map(name: str, title: str = "", author: str = "Claude", default_texture:
     if gametype not in ("ctf", "dm"):
         raise ValueError("gametype must be 'ctf' or 'dm'")
     m.gametype = gametype
-    STATE.update(doc=m, name=name)
+    STATE.update(doc=m, name=name, patch=None)
     save()
     return f"New map '{name}' created (grid {grid})."
 
 
 @mcp.tool()
 def open_map(name: str) -> str:
-    """Open an existing map project."""
+    """Open an existing map project (a generated map, or a patch project made by open_existing_map)."""
     f = PROJECTS / f"{_safe_name(name)}.json"
+    fp = PROJECTS / f"{name}.patch.json"
+    if fp.exists():
+        pp = pmode.PatchProject.from_json(fp.read_text(encoding="utf-8"))
+        STATE.update(doc=pp.overlay, name=name, patch=pp)
+        return get_map()
     if not f.exists():
         return f"No project '{name}'. Existing: {list_maps()}"
-    STATE.update(doc=MapDoc.from_json(f.read_text(encoding="utf-8")), name=name)
+    STATE.update(doc=MapDoc.from_json(f.read_text(encoding="utf-8")), name=name, patch=None)
     return get_map()
 
 
 @mcp.tool()
 def list_maps() -> str:
-    """List saved map projects."""
-    return ", ".join(sorted(f.stem for f in PROJECTS.glob("*.json"))) or "(none)"
+    """List saved map projects (patch projects of existing maps are marked)."""
+    out = []
+    for f in sorted(PROJECTS.glob("*.json")):
+        if f.name.endswith(".patch.json"):
+            try:
+                src = Path(json.loads(f.read_text(encoding="utf-8"))["source"]).stem
+            except (OSError, ValueError, KeyError):
+                src = "?"
+            out.append(f"{f.name[:-11]} (patch of {src})")
+        else:
+            out.append(f.stem)
+    return ", ".join(out) or "(none)"
 
 
 @mcp.tool()
 def get_map() -> str:
-    """Describe the open map: settings, bounds and every element with its id."""
+    """Describe the open map: settings, bounds and every element with its id. In patch mode: the original, the
+    edits to its actors, and the new elements (ids >= 100001)."""
+    pp = patch_project()
+    if pp is not None:
+        _, blocks, _, _ = pp.base()
+        cls: dict[str, int] = {}
+        for b in blocks:
+            cls[b["cls"]] = cls.get(b["cls"], 0) + 1
+        top = ", ".join(f"{n} {c}" for c, n in sorted(cls.items(), key=lambda x: -x[1])[:10])
+        lines = [f"Patch project '{STATE['name']}' of {pp.source} (the original is never modified).",
+                 f"Original: {len(blocks)} actors ({top}). Use list_actors to find them by class / position.",
+                 f"Removed: {pp.removed or 'none'}",
+                 f"Changed: {json.dumps(pp.props) if pp.props else 'none'}",
+                 f"Baseline (unmodified rebuild): {json.dumps(pp.baseline) if pp.baseline else 'not run'}",
+                 f"{len(pp.overlay.elements)} new elements:"]
+        lines += [_desc(e) for e in pp.overlay.elements]
+        return "\n".join(lines)
     d = doc()
     b = d.bounds()
     lines = [
@@ -862,18 +917,46 @@ def list_textures(package: str) -> str:
 
 # ---------------------------------------------------------------- output
 @mcp.tool()
-def preview(view: str = "top", labels: bool = True) -> Image:
+def preview(view: str = "top", labels: bool = True, focus: list[float] | None = None, radius: float = 0) -> Image:
     """Wireframe image of the map, coloured like UnrealEd (orange subtract, blue add, pink semisolid,
     green zone portals, yellow lights with reach circles, red player starts, cyan zones). view: top | front | side.
     Element ids are drawn next to everything. After analyze_map/build_map, leak paths (magenta) and points where
-    the engine built the wrong thing (red X) are overlaid."""
-    return Image(data=render(doc(), view, labels=labels, markers=STATE.get("markers")), format="png")
+    the engine built the wrong thing (red X) are overlaid. focus=[x,y,z] + radius zooms to a region.
+    Patch mode (existing map): zooms to the edits by default (radius 1536 around them); the original is drawn
+    dimmed and unlabelled, new and changed elements bright with ids, removed brushes as red X."""
+    pp = patch_project()
+    d = whole()
+    bounds = highlight = None
+    markers = dict(STATE.get("markers") or {})
+    if pp is not None:
+        _, _, _, idx = pp.base()
+        highlight = {e.id for e in pp.overlay.elements} | {idx[n] + 1 for n in pp.props if n in idx}
+        boxes = pp.edit_boxes(pad=0)
+        bd = pp.base_doc()
+        rem = [e for e in bd.elements if e.kind == "brush" and e.params.get("group") in pp.removed]
+        markers["points"] = list(markers.get("points", [])) + [
+            list((np.array([v for q in e.params["polys"] for v in q]).mean(0) + np.array(e.params["location"])))
+            for e in rem]
+        if focus is None and boxes:
+            lo = np.min([b[0] for b in boxes], 0)
+            hi = np.max([b[1] for b in boxes], 0)
+            focus, radius = list((lo + hi) / 2), radius or float(max(hi - lo) / 2 + 1536)
+    if focus is not None:
+        r = radius or 2048
+        c = np.array(focus, float)
+        bounds = (tuple(c - r), tuple(c + r))
+    return Image(data=render(d, view, labels=labels, markers=markers, bounds=bounds, highlight=highlight), format="png")
 
 
 @mcp.tool()
 def export_t3d(path: str = "") -> str:
     """Write the map as T3D (for UnrealEd: File > Import, then Build > Build All). Default: UnrealEdMCP/output/<name>.t3d"""
     f = Path(path) if path else OUTPUT / f"{STATE['name']}.t3d"
+    pp = patch_project()
+    if pp is not None:
+        f.write_text(pp.compose(), encoding="latin-1", errors="replace", newline="")
+        return (f"Wrote {f} (original + edits). In UnrealEd open the ORIGINAL map first (so its embedded textures "
+                f"load), then File > Import this file, then Build All, and save under a new name.")
     f.write_text(doc().to_t3d(), encoding="ascii", errors="replace", newline="")
     pk = sorted(doc().texture_packages())
     note = f" Load these texture packages in UnrealEd before importing so textures resolve: {pk}" if pk else ""
@@ -887,7 +970,17 @@ def analyze_map(engine_check: bool = False) -> str:
     opening (with the leak path), zone actors in solid, regions without a zone actor.
     engine_check=True additionally test-builds with UCC and compares hundreds of probe points with what the engine
     actually built (detects zone bleeding and BSP errors: invisible walls, holes). Leak paths / bad points are
-    drawn by `preview`."""
+    drawn by `preview`.
+    Patch mode (existing map): the voxel check runs on original + edits; engine_check=True runs the patch
+    verification (author's zones kept, no zone merges, edits built as designed) - same as build_map's."""
+    pp = patch_project()
+    if pp is not None:
+        if engine_check:
+            return json.dumps(pmode.verify(pp), indent=1, default=str)
+        vox = analysis.Voxels(whole())
+        rep = vox.report()
+        STATE["markers"] = {"paths": vox.leak_paths, "points": []}
+        return json.dumps({"design": _clean_design(rep)}, indent=1, default=str)
     d = doc()
     if engine_check:
         r = autofix.verify(d)
@@ -911,7 +1004,7 @@ def _clean_design(rep: dict) -> dict:
 
 @mcp.tool()
 def build_map(filename: str = "", lighting: bool = True, paths: str = "define", overwrite: bool = False,
-              auto_fix: bool = True, max_fix_attempts: int = 8) -> str:
+              auto_fix: bool = True, max_fix_attempts: int = 8, accept_issues: bool = False) -> str:
     """Build headlessly with UCC and save to the game's Maps folder (filename defaults to '<map name>.unr').
     Pipeline: design check (voxel zoning) -> verification build with probe points -> if the engine produced
     zone bleeding or BSP errors and auto_fix=True, automatically try the classic fixes (re-create / re-order the
@@ -921,7 +1014,12 @@ def build_map(filename: str = "", lighting: bool = True, paths: str = "define", 
     Design problems (e.g. two zone actors in one sealed region) stop the build: fix the map, they can't be tweaked away.
     For CTF maps, run map_metrics afterwards to check gameplay rules.
     paths: 'define' (connect existing nav points), 'build' (469 auto-places PathNodes for bots), 'none'.
-    Close the map in UnrealEd first if it is open there."""
+    Close the map in UnrealEd first if it is open there.
+    Patch mode (existing map): verification first (two test builds; see analyze_map), then the final build
+    on top of the loaded original, saved under the patch project's name - never over the original. If the
+    verification finds new problems the final build is skipped unless accept_issues=True."""
+    if patch_project() is not None:
+        return _build_patch(filename, lighting, paths, overwrite, accept_issues)
     d = doc()
     fn = filename or f"{STATE['name']}.unr"
     if not fn.lower().endswith(".unr"):
@@ -952,6 +1050,13 @@ def build_map(filename: str = "", lighting: bool = True, paths: str = "define", 
     if res.get("ok"):
         _built_registry(add=str(out))
         res["problems"] = res.get("problems", []) + _lint(d)
+        try:
+            tx = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, max_items=3)
+            res["textures"] = {k: tx[k] for k in ("seams", "corner_steps", "distorted", "mirrored")} | {
+                "walls_aligned_share": tx["wall_base"]["share_aligned"],
+                "note": "run check_textures for locations" if tx["seams"] or tx["corner_steps"] or tx["distorted"] else "clean"}
+        except Exception as ex:  # never fail a build over the texture report
+            res["textures"] = {"error": str(ex)}
     report["final_build"] = res
     return json.dumps(report, indent=1, default=str)
 
@@ -979,29 +1084,328 @@ def map_metrics(detail: bool = False) -> str:
     line of sight / forward / 8+ per team), openness, size, flag distance, cross-map sightlines, number of levels,
     elevation access, flag-room entrances. Walk model includes kickers, teleporters, lifts. detail=True adds
     per-spawn distances. Needs both flags (add_flag). Takes ~5-20 s."""
-    return _metrics_report(doc(), detail)
+    return _metrics_report(whole(), detail)
 
 
 @mcp.tool()
 def analyze_existing_map(path: str, detail: bool = False) -> str:
     """Measure any existing map (.unr or exported .t3d) with the same metrics and rules - e.g. compare your own
     work, or study a pool map. A .unr is exported headlessly to T3D first (read-only; the file is not changed)."""
+    got = _export_existing(path)
+    if isinstance(got, str):
+        return got
+    return _metrics_report(import_t3d(got[0]), detail)
+
+
+# ---------------------------------------------------------------- patch mode (editing existing maps)
+def _resolve_map(path: str) -> Path | str:
     p = Path(path)
     if not p.exists():
         cand = ucc.GAME_DIR / "Maps" / (path if path.lower().endswith(".unr") else path + ".unr")
         if not cand.exists():
             return f"Not found: {path}"
         p = cand
-    if p.suffix.lower() == ".unr":
-        out = ucc.WORK / "analyze_export"
-        out.mkdir(parents=True, exist_ok=True)
-        for f in out.glob("*.t3d"):
-            f.unlink()
-        ucc._run(["batchexport", str(p), "Level", "t3d", str(out)], timeout=300)
-        p = out / "MyLevel.t3d"
-        if not p.exists():
-            return "Export failed (missing dependencies?)"
-    return _metrics_report(import_t3d(p), detail)
+    return p
+
+
+@mcp.tool()
+def open_existing_map(path: str, new_name: str, verify: bool = True) -> str:
+    """Start editing an EXISTING map (patch mode). path: a map name from Maps\\, or a .unr path. new_name: the
+    project / output map name, e.g. 'CTF-Nuance99-RE1' - must differ from the original, which is never modified.
+    The map is exported headlessly and kept verbatim; edits are recorded on top of it:
+    remove_actors / restore_actors / move_actors / set_actor_properties change original actors (find them with
+    list_actors); the normal geometry tools (add_box, add_room, add_light, add_player_start, ...) add NEW elements
+    (ids >= 100001). New brushes without an explicit texture take texture and alignment from the matching faces of
+    the original, so they continue its texturing seamlessly. preview / analyze_map / map_metrics / check_textures
+    work on original + edits; build_map verifies, then builds on top of the loaded original (embedded textures,
+    sounds and scripts are kept) and saves Maps\\<new_name>.unr.
+    verify=True first checks the map survives an UNMODIFIED rebuild (baseline; ~10-30 s): if it doesn't, edits
+    can't be judged against it - say so to the user."""
+    src = _resolve_map(path)
+    if isinstance(src, str):
+        return src
+    new_name = _safe_name(new_name)
+    if new_name.lower() == src.stem.lower():
+        return "new_name must differ from the original map's name (the original is never overwritten)."
+    if (PROJECTS / f"{new_name}.patch.json").exists() or (PROJECTS / f"{new_name}.json").exists():
+        return f"Project '{new_name}' already exists - open_map('{new_name}') or choose another name."
+    work = ucc.WORK / "patch" / new_name
+    if src.suffix.lower() != ".unr":  # e.g. a Cache .uxx: UCC only exports .unr files
+        import shutil
+        work.mkdir(parents=True, exist_ok=True)
+        dst = work / "source" / (src.stem + ".unr")
+        dst.parent.mkdir(exist_ok=True)
+        shutil.copy2(src, dst)
+        src = dst
+    base = pmode.export_source(src, work)
+    pp = pmode.PatchProject(new_name, str(src.resolve()), str(base.resolve()), src.stem)
+    if verify:
+        pp.baseline = pmode.baseline(pp)
+    STATE.update(doc=pp.overlay, name=new_name, patch=pp)
+    save()
+    out = [get_map()]
+    if pp.baseline and not pp.baseline.get("survives_rebuild", pp.baseline["clean"]):
+        out.append("WARNING: even an UNMODIFIED headless rebuild differs from the original (zones merge or many "
+                   "actors change zone - see baseline), with every BSP setting tried. Edits can't be verified "
+                   "reliably against this map: tell the user before editing.")
+    elif pp.baseline and pp.baseline["bsp"] != {"mode": "good", "balance": 15, "portal_bias": 70}:
+        out.append(f"Note: this map only rebuilds like the original with BSP settings {pp.baseline['bsp']} "
+                   "(chosen automatically and used for all builds of this project).")
+    return "\n".join(out)
+
+
+@mcp.tool()
+def list_actors(cls: str = "", near: list[float] | None = None, radius: float = 1024, csg: str = "",
+                limit: int = 60) -> str:
+    """Patch mode: find actors of the original map. cls filters by class (e.g. 'Brush', 'Light', 'PlayerStart',
+    'ZoneInfo', 'Mover'; substring match), near=[x,y,z] + radius by position, csg ('subtract'/'add'/'semisolid'/
+    'portal') for brushes. Brushes show their bounds and textures. Removed / changed actors are marked."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode - use open_existing_map first."
+    bd = pp.base_doc()
+    rows = []
+    info = {}
+    for e in bd.elements:
+        if e.kind == "brush":
+            pts = np.array([v for q in e.params["polys"] for v in q], float) + np.array(e.params["location"], float)
+            kind = "portal" if e.params.get("poly_flags", 0) & PF_PORTAL else e.params.get("csg")
+            tex = sorted({t["texture"] for t in e.params.get("polytex", []) if t.get("texture")})
+            info[e.params["group"]] = (pts.min(0), pts.max(0), kind, tex)
+    _, blocks, _, _ = pp.base()
+    for b in blocks:
+        if cls and cls.lower() not in b["cls"].lower():
+            continue
+        blk = pp.actor(b["name"])["text"]
+        loc = np.array(pmode._vec(pmode.get_prop(blk, "Location")))
+        if b["cls"] == "Brush":
+            if b["name"] not in info:
+                continue
+            lo, hi, kind, tex = info[b["name"]]
+            if csg and kind != csg:
+                continue
+            centre = (lo + hi) / 2
+        else:
+            if csg:
+                continue
+            centre = loc
+        if near is not None and np.linalg.norm(centre - np.array(near, float)) > radius:
+            continue
+        st = " REMOVED" if b["name"] in pp.removed else " CHANGED" if b["name"] in pp.props else ""
+        if b["cls"] == "Brush":
+            rows.append((np.linalg.norm(centre - np.array(near, float)) if near is not None else 0,
+                         f"{b['name']} {kind} min={[round(v) for v in lo]} max={[round(v) for v in hi]} tex={tex[:3]}{st}"))
+        else:
+            rows.append((np.linalg.norm(centre - np.array(near, float)) if near is not None else 0,
+                         f"{b['name']} ({b['cls']}) at {[round(v) for v in loc]}{st}"))
+    rows.sort(key=lambda r: r[0])
+    return f"{len(rows)} actors" + (f" (showing {limit})" if len(rows) > limit else "") + ":\n" + \
+        "\n".join(r[1] for r in rows[:limit])
+
+
+@mcp.tool()
+def remove_actors(names: list[str]) -> str:
+    """Patch mode: delete actors of the original map (brushes, lights, spawns, ...) by name (see list_actors).
+    Undo with restore_actors. Removing a subtract brush fills its space; removing an add brush opens it."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode."
+    pp.remove(names)
+    save()
+    return f"Removed {names}."
+
+
+@mcp.tool()
+def restore_actors(names: list[str]) -> str:
+    """Patch mode: undo remove_actors / move_actors / set_actor_properties for these original actors."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode."
+    pp.restore(names)
+    save()
+    return f"Restored {names} to the original."
+
+
+@mcp.tool()
+def move_actors(names: list[str], delta: list[float]) -> str:
+    """Patch mode: move original actors by delta [dx,dy,dz]. Brushes move with their textures."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode."
+    pp.move(names, delta)
+    save()
+    return f"Moved {names} by {delta}."
+
+
+@mcp.tool()
+def set_actor_properties(name: str, properties: dict) -> str:
+    """Patch mode: set top-level properties of an original actor as T3D text, e.g.
+    {"LightBrightness": "200"}, {"Location": "(X=0.000000,Y=64.000000,Z=-128.000000)"}, {"DamagePerSec": "300"}.
+    A value of null deletes the property (back to the class default)."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode."
+    pp.set(name, {k: (None if v is None else str(v)) for k, v in properties.items()})
+    save()
+    return f"{name}: {properties}"
+
+
+@mcp.tool()
+def review_map(path: str = "", rebuild_check: bool = False, max_findings: int = 40) -> str:
+    """Read-only audit of an existing map (map name, .unr or exported .t3d) - or, with no path in patch mode, of
+    original + edits. One list of findings, most severe first, each with location, actors and a fix hint:
+    * from the AUTHOR'S build (zones/leaves stored on every actor): zone leaks (zones that share a zone - wrong zone
+      names, stats, damage), spawns / flags / nav points in solid, spawns in hazard zones;
+    * spawns: fewer than 8 per team, overlapping spawns (telefrags), spawns clipping geometry;
+    * teleporters pointing nowhere, LevelInfo game type;
+    * iCTF gameplay rules (as map_metrics), texture seams / corner steps against the pool's ranges;
+    * rebuild_check=True (+10-60 s): does the map survive an unmodified headless rebuild (needed for patch-mode edits)?
+    Takes ~10-20 s without the rebuild check."""
+    pp = patch_project()
+    if not path and pp is not None:
+        text = pp.compose()
+        sizes = texpkg.TextureSizes(ucc.GAME_DIR, ucc.WORK, packages=pp.packages(), map_file=Path(pp.source))
+        r = mreview.review(text, STATE["name"], sizes, pp.baseline if rebuild_check else None)
+        r["note"] = "patch mode: findings are for original + edits; zone/solid findings come from the ORIGINAL build"
+    else:
+        if not path:
+            return "Give a map name or path (or open_existing_map first to review original + edits)."
+        got = _export_existing(path)
+        if isinstance(got, str):
+            return got
+        t3d, unr = got
+        rebuild = None
+        if rebuild_check and unr is not None:
+            base = pmode.export_source(unr, ucc.WORK / "review" / unr.stem)
+            tmp = pmode.PatchProject(f"_review_{unr.stem}", str(unr.resolve()), str(base.resolve()), unr.stem)
+            rebuild = pmode.baseline(tmp)
+            got = _export_existing(path)  # the baseline used the export folder; export again
+            t3d, unr = got
+        r = mreview.review_file(t3d, unr, rebuild)
+    r["findings"] = r["findings"][:max_findings]
+    return mreview.summary(r, max_findings) + "\n\n" + json.dumps(
+        {k: r[k] for k in ("counts", "stats", "textures", "rebuild") if k in r}, indent=1, default=str)
+
+
+@mcp.tool()
+def align_textures(kinds: list[str] | None = None, near: list[float] | None = None, radius: float = 0,
+                   max_fixes: int = 500) -> str:
+    """Patch mode: fix texture seams and corner steps on the ORIGINAL map's own brushes (geometry untouched).
+    kinds: ["seams", "corner_steps"] (default both). Seams: each group of touching coplanar faces with the same
+    texture gets the mapping of its largest face. Corner steps: the smaller wall is shifted vertically so its
+    horizontal bands continue the larger wall's. near=[x,y,z] + radius limits it to one area. Undo per brush with
+    restore_actors. Reports seams / steps before and after. Klondike: 457 -> 10 seams, 4 -> 0 steps."""
+    pp = patch_project()
+    if pp is None:
+        return "Not in patch mode - open_existing_map first."
+    sizes = texpkg.TextureSizes(ucc.GAME_DIR, ucc.WORK, packages=pp.packages(), map_file=Path(pp.source))
+    r = pmode.align_textures(pp, sizes, tuple(kinds or ("seams", "corner_steps")), near, radius, max_fixes)
+    save()
+    return json.dumps(r, indent=1, default=str)
+
+
+def _build_patch(filename: str, lighting: bool, paths: str, overwrite: bool, accept_issues: bool) -> str:
+    pp = patch_project()
+    fn = filename or f"{STATE['name']}.unr"
+    if not fn.lower().endswith(".unr"):
+        fn += ".unr"
+    out = (ucc.GAME_DIR / "Maps" / _safe_name(fn[:-4])).with_suffix(".unr")
+    if out.resolve() == Path(pp.source).resolve() or out.stem.lower() == Path(pp.source).stem.lower():
+        return "Refusing to overwrite the original map. Choose another filename."
+    if out.exists() and not overwrite and str(out) not in _built_registry():
+        return f"{out} exists and was not created by this tool. Pass overwrite=True to replace it."
+    report: dict = {}
+    try:
+        report["verification"] = v = pmode.verify(pp)
+    except RuntimeError as ex:
+        return json.dumps({"verification_error": str(ex)}, indent=1)
+    if not v["ok"] and not accept_issues:
+        report["stopped"] = ("The edits introduce problems (see verification). Fix them, or pass accept_issues=True "
+                             "to build anyway.")
+        return json.dumps(report, indent=1, default=str)
+    res = pmode.build(pp, out, light=lighting, paths=paths)
+    res.pop("probe_results", None)
+    if res.get("ok"):
+        _built_registry(add=str(out))
+        try:
+            td = pmode.texture_delta(pp, max_items=3)
+            res["textures"] = {"new_problems": td["counts"], "examples": td["new_seams"][:3] + td["new_corner_steps"][:3]}
+        except Exception as ex:
+            res["textures"] = {"error": str(ex)}
+    report["final_build"] = res
+    return json.dumps(report, indent=1, default=str)
+
+
+def _export_existing(path: str) -> tuple[Path, Path | None] | str:
+    """(exported .t3d, source .unr or None) for a map name / .unr / .t3d path. The .unr is never modified."""
+    p = Path(path)
+    if not p.exists():
+        cand = ucc.GAME_DIR / "Maps" / (path if path.lower().endswith(".unr") else path + ".unr")
+        if not cand.exists():
+            return f"Not found: {path}"
+        p = cand
+    if p.suffix.lower() != ".unr":
+        return p, None
+    out = ucc.WORK / "analyze_export"
+    out.mkdir(parents=True, exist_ok=True)
+    for f in out.glob("*.t3d"):
+        f.unlink()
+    ucc._run(["batchexport", str(p), "Level", "t3d", str(out)], timeout=300)
+    t = out / "MyLevel.t3d"
+    if not t.exists():
+        return "Export failed (missing dependencies?)"
+    return t, p
+
+
+def _pool_texture_ranges() -> dict:
+    try:
+        pool = json.loads((Path(__file__).parent / "research" / "texalign_pool.json").read_text())
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for k in ("seams_per100", "corner_steps_per100", "distorted_per100", "wall_base_share"):
+        vals = sorted(v[k] for v in pool.values() if v.get(k) is not None)
+        if vals:
+            out[k] = {"min": vals[0], "median": vals[len(vals) // 2], "max": vals[-1]}
+    return out
+
+
+@mcp.tool()
+def check_textures(path: str = "", max_items: int = 12) -> str:
+    """Texture alignment check. No path: the open project (as it will be built). With path: an existing map
+    (map name, .unr or exported .t3d; read-only). Only faces visible after CSG count. Reports
+    seams (coplanar touching faces, same texture, mapping offset/rotated -> visible break), band steps where walls
+    meet at a corner, distorted mappings (stretched/skewed/odd scale/tilted), mirrored faces, and walls whose
+    texture doesn't start at their bottom edge - each with world location and brush (project element id for
+    projects). Existing maps are compared with the community pool's ranges (pool maps are far from perfect: there
+    the useful question is whether an EDIT adds new problems - compare before/after). Generated maps should be
+    0 seams / 0 steps. Takes ~1 s for projects, 5-60 s for big existing maps."""
+    if not path and patch_project() is not None:
+        td = pmode.texture_delta(patch_project(), max_items)
+        return ("Patch mode: only problems the EDITS add count (the original's own are listed under 'before').\n"
+                + json.dumps(td, indent=1, default=str))
+    if not path:
+        d = doc()
+        r = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, max_items)
+        order = [e.id for e in d.ordered_brushes()]
+        for key in ("seam_list", "corner_step_list", "corner_pan_list", "distorted_list", "wall_base_list"):
+            for it in r[key]:  # T3D brush names -> project element ids
+                names = it.get("brushes") or [it.get("brush")]
+                it["element_ids"] = [order[int(n[5:]) - 1] for n in names
+                                     if n and n.startswith("Brush") and n[5:].isdigit() and 0 < int(n[5:]) <= len(order)]
+                it.pop("ids", None), it.pop("id", None)
+    else:
+        got = _export_existing(path)
+        if isinstance(got, str):
+            return got
+        t3d, unr = got
+        sizes = texpkg.TextureSizes(ucc.GAME_DIR, ucc.WORK, map_file=unr)
+        r = texalign.check(import_t3d(t3d), sizes, max_items)
+        for key in ("seam_list", "corner_step_list", "corner_pan_list", "distorted_list", "wall_base_list"):
+            for it in r[key]:
+                it.pop("ids", None), it.pop("id", None)
+        r["pool_reference"] = _pool_texture_ranges()
+    return texalign.summary(r) + "\n\n" + json.dumps(r, indent=1, default=str)
 
 
 @mcp.tool()
@@ -1032,7 +1436,7 @@ def reorder_elements(ids: list[int], position: str = "last") -> str:
 def set_bsp_options(mode: str | None = None, balance: int | None = None, portal_bias: int | None = None) -> str:
     """UnrealEd Build Options for the BSP: mode 'good' (default) | 'optimal' | 'lame'; balance 0-100 (default 15,
     tree balance vs. fewer cuts); portal_bias 0-100 (default 70)."""
-    d = doc()
+    d = patch_project() or doc()
     if mode is not None:
         d.bsp["mode"] = mode
     if balance is not None:

@@ -24,9 +24,12 @@ COL = {
 VIEWS = {"top": (0, 1, "X", "Y"), "front": (0, 2, "X", "Z"), "side": (1, 2, "Y", "Z")}
 
 
-def render(doc: MapDoc, view: str = "top", size: int = 1100, labels: bool = True, markers: dict | None = None) -> bytes:
+def render(doc: MapDoc, view: str = "top", size: int = 1100, labels: bool = True, markers: dict | None = None,
+           bounds=None, highlight: set | None = None) -> bytes:
+    """bounds=(lo, hi) zooms to a region; highlight = element ids drawn bright and labelled (everything else dimmed
+    and unlabelled - used for edits of big existing maps)."""
     ax, ay, nx, ny = VIEWS[view]
-    b = doc.bounds()
+    b = bounds or doc.bounds()
     img = Image.new("RGB", (size, size), (40, 40, 44))
     d = ImageDraw.Draw(img)
     if not b:
@@ -61,34 +64,50 @@ def render(doc: MapDoc, view: str = "top", size: int = 1100, labels: bool = True
         gy += g
 
     order = {"subtract": 0, "add": 1, "semisolid": 2, "nonsolid": 3}
-    brushes = sorted((e for e in doc.elements if e.kind == "brush"), key=lambda e: order.get(e.params.get("csg"), 0))
+    brushes = sorted((e for e in doc.elements if e.kind == "brush"), key=lambda e: (
+        highlight is not None and e.id in highlight, order.get(e.params.get("csg"), 0)))
+
+    def dim(c, e):
+        return c if highlight is None or e.id in highlight else tuple(int(v * 0.42 + 24) for v in c)
+
+    def lab(e):
+        return labels and (highlight is None or e.id in highlight)
+
     for e in brushes:
         loc, polys = doc.brush_polys(e)
+        if bounds is not None:
+            pts_ = [add(loc, v) for poly in polys for v in poly.verts]
+            if any(max(q[i] for q in pts_) < lo[i] or min(q[i] for q in pts_) > hi[i] for i in (ax, ay)):
+                continue
         portal = e.params.get("poly_flags", 0) & PF_PORTAL
-        col = COL["portal"] if portal else COL.get(e.params.get("csg", "subtract"), (200, 200, 200))
+        col = dim(COL["portal"] if portal else COL.get(e.params.get("csg", "subtract"), (200, 200, 200)), e)
         cx = cy = 0.0
         n = 0
         for poly in polys:
             pts = [P(add(loc, v)) for v in poly.verts]
-            d.line(pts + [pts[0]], fill=col, width=3 if portal else 1)
+            d.line(pts + [pts[0]], fill=col, width=3 if portal or (highlight and e.id in highlight) else 1)
             for p in pts:
                 cx += p[0]
                 cy += p[1]
                 n += 1
-        if labels and n:
+        if lab(e) and n:
             d.text((cx / n + 2, cy / n - 6), f"#{e.id}", fill=col)
 
     for e in doc.elements:
         if e.kind == "brush":
             continue
-        p = P(e.params["location"])
-        col = COL[e.kind]
+        loc_ = e.params["location"]
+        if bounds is not None and any(loc_[i] < lo[i] or loc_[i] > hi[i] for i in (ax, ay)):
+            continue
+        p = P(loc_)
+        col = dim(COL[e.kind], e)
+        show = lab(e)
         if e.kind == "playerstart" and int(e.params.get("team", 0)) == 1:
             col = (70, 140, 255)
         r = 5
         if e.kind == "light":
             d.ellipse([p[0] - r, p[1] - r, p[0] + r, p[1] + r], outline=col)
-            if view == "top":
+            if view == "top" and (highlight is None or e.id in highlight):
                 rad = 25 * (e.params.get("radius", 32) + 1) * s
                 d.ellipse([p[0] - rad, p[1] - rad, p[0] + rad, p[1] + rad], outline=(90, 85, 40))
         elif e.kind == "playerstart":
@@ -105,21 +124,21 @@ def render(doc: MapDoc, view: str = "top", size: int = 1100, labels: bool = True
                 tgt = dest.params["location"] if dest else None
             if tgt:
                 d.line([p, P(tgt)], fill=col, width=1)
-            if labels:
+            if show:
                 d.text((p[0] + 9, p[1] - 6), f"#{e.id} {'KICK' if e.kind == 'kicker' else 'TP ' + e.params.get('tag', '')}", fill=col)
             continue
         elif e.kind == "flag":
             fc = (255, 60, 60) if int(e.params.get("team", 0)) == 0 else (70, 140, 255)
             d.rectangle([p[0] - 9, p[1] - 9, p[0] + 9, p[1] + 9], outline=fc, width=3)
-            if labels:
+            if show:
                 d.text((p[0] + 11, p[1] - 6), f"#{e.id} {'RED' if int(e.params.get('team', 0)) == 0 else 'BLUE'} FLAG", fill=fc)
             continue
         else:  # zone
             d.rectangle([p[0] - r, p[1] - r, p[0] + r, p[1] + r], outline=col)
-            if labels:
+            if show:
                 d.text((p[0] + 7, p[1] - 6), f"#{e.id} {e.params.get('type', 'normal')}:{e.params.get('name', '')}", fill=col)
                 continue
-        if labels:
+        if show:
             d.text((p[0] + 7, p[1] - 6), f"#{e.id}", fill=col)
 
     for path in (markers or {}).get("paths", []):

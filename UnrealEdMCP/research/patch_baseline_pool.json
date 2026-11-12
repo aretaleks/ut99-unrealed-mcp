@@ -1,0 +1,376 @@
+{
+ "CTF-Achromatic-RE4": {
+  "probes": 827,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 663,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 7.5
+ },
+ "CTF-Acrony-RE2": {
+  "probes": 1079,
+  "rebuild_vs_design_mismatches": 3,
+  "actors_compared": 361,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [],
+  "build_problems": [
+   "ZoneInfo ZoneInfo1 (Redbase-lower) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo2 (Redbase-high) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo3 (Redbase-front-high) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 14.8
+ },
+ "CTF-Anfractuous-PG1": {
+  "probes": 634,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 461,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 14.9
+ },
+ "CTF-BrokenLimits-PG1-SA": {
+  "probes": 1347,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 773,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 9.5
+ },
+ "CTF-Command-S6-5": {
+  "probes": 1236,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 785,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [
+   "SlimeZone SlimeZone0 (None) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "SlimeZone SlimeZone2 (None) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 10.3
+ },
+ "CTF-Duku-PG1": {
+  "probes": 907,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 424,
+  "zone_mismatches": 3,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light31",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "UDamage0",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "InventorySpot8",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [],
+  "seconds": 7.6
+ },
+ "CTF-Entropic-RE5": {
+  "probes": 935,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 935,
+  "zone_mismatches": 184,
+  "merged_zones": [
+   {
+    "now_one_zone": "ZoneInfo14",
+    "were": [
+     "ZoneInfo14",
+     "ZoneInfo4",
+     "ZoneInfo5"
+    ]
+   }
+  ],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light1029",
+    "original_zone": "ZoneInfo5",
+    "now": "ZoneInfo9"
+   },
+   {
+    "actor": "Light1056",
+    "original_zone": "ZoneInfo5",
+    "now": "ZoneInfo9"
+   },
+   {
+    "actor": "Light1178",
+    "original_zone": "ZoneInfo4",
+    "now": "ZoneInfo14"
+   }
+  ],
+  "build_problems": [
+   "ZoneInfo ZoneInfo19 (None) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo25 (None) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "SlimeZone SlimeZone3 (None) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 8.0,
+  "with_bsp_optimal": {
+   "score": 0,
+   "bsp": {
+    "mode": "optimal",
+    "balance": 15,
+    "portal_bias": 70
+   }
+  }
+ },
+ "CTF-Grudge-RE1": {
+  "probes": 1309,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 633,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [
+   "ZoneInfo ZoneInfo2 (Red Lobby) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo3 (Blue Lobby) does not own a zone (shares zone with ZoneInfo1) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo6 (Right Red Chasm) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 19.5
+ },
+ "CTF-Iztac-PG2": {
+  "probes": 1015,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 474,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 20.6
+ },
+ "CTF-Klondike-PG1": {
+  "probes": 547,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 1259,
+  "zone_mismatches": 1,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light301",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [],
+  "seconds": 8.6
+ },
+ "CTF-Mesmerize-PG1-SA": {
+  "probes": 760,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 370,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": true,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 8.5
+ },
+ "CTF-Nuance99-PG1-SA": {
+  "probes": 1441,
+  "rebuild_vs_design_mismatches": 2,
+  "actors_compared": 508,
+  "zone_mismatches": 0,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [],
+  "build_problems": [],
+  "seconds": 17.8
+ },
+ "CTF-Overflow-PG1": {
+  "probes": 708,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 859,
+  "zone_mismatches": 1,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Mover10",
+    "original_zone": "ZoneInfo5",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [
+   "RockingSkyZoneInfo RockingSkyZoneInfo0 (None) does not own a zone (shares zone with RockingSkyZoneInfo1) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo6 (Underground) does not own a zone (shares zone with LevelInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 8.2
+ },
+ "CTF-PryXon-SA-RE3": {
+  "probes": 582,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 443,
+  "zone_mismatches": 3,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Mover5",
+    "original_zone": "ZoneInfo15",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "Mover7",
+    "original_zone": "ZoneInfo14",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "MedBox39",
+    "original_zone": "ZoneInfo8",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [
+   "ZoneInfo ZoneInfo3 (Red-Entry B1) does not own a zone (shares zone with ZoneInfo2) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo4 (Blue-Entry A2) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo5 (Red-Entry B2) does not own a zone (shares zone with ZoneInfo2) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 9.4
+ },
+ "CTF-Rankin-PG2-SA": {
+  "probes": 589,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 603,
+  "zone_mismatches": 16,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light671",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "Light674",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "Light677",
+    "original_zone": "ZoneInfo2",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [],
+  "seconds": 9.0,
+  "with_bsp_optimal": {
+   "score": 0,
+   "bsp": {
+    "mode": "optimal",
+    "balance": 15,
+    "portal_bias": 70
+   }
+  }
+ },
+ "CTF-Rune-RTE4": {
+  "probes": 580,
+  "rebuild_vs_design_mismatches": 4,
+  "actors_compared": 700,
+  "zone_mismatches": 17,
+  "merged_zones": [
+   {
+    "now_one_zone": "ZoneInfo5",
+    "were": [
+     "ZoneInfo5",
+     "ZoneInfo7"
+    ]
+   }
+  ],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light155",
+    "original_zone": "ZoneInfo7",
+    "now": "ZoneInfo5"
+   },
+   {
+    "actor": "AmbientSound32",
+    "original_zone": "ZoneInfo7",
+    "now": "ZoneInfo5"
+   },
+   {
+    "actor": "AmbientSound33",
+    "original_zone": "ZoneInfo7",
+    "now": "ZoneInfo5"
+   }
+  ],
+  "build_problems": [
+   "ZoneInfo ZoneInfo1 (Blue Flagroom) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo4 (Blue Low Ruins) does not own a zone (shares zone with ZoneInfo0) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid",
+   "ZoneInfo ZoneInfo6 (Red Flagroom) does not own a zone (shares zone with ZoneInfo5) - zone is leaking: a portal does not fully seal the opening, or the actor is in solid"
+  ],
+  "seconds": 18.6,
+  "with_bsp_optimal": {
+   "score": 4,
+   "bsp": {
+    "mode": "optimal",
+    "balance": 15,
+    "portal_bias": 70
+   }
+  }
+ },
+ "CTF-Sprinta-SA-RE3": {
+  "probes": 874,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 585,
+  "zone_mismatches": 2,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light150",
+    "original_zone": "ZoneInfo0",
+    "now": "in solid / outside the world"
+   },
+   {
+    "actor": "Light151",
+    "original_zone": "ZoneInfo0",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [],
+  "seconds": 8.1
+ },
+ "CTF-Talya-PG1": {
+  "probes": 909,
+  "rebuild_vs_design_mismatches": 0,
+  "actors_compared": 380,
+  "zone_mismatches": 1,
+  "merged_zones": [],
+  "clean": false,
+  "zone_mismatch_examples": [
+   {
+    "actor": "Light40",
+    "original_zone": "ZoneInfo4",
+    "now": "in solid / outside the world"
+   }
+  ],
+  "build_problems": [],
+  "seconds": 6.8
+ }
+}

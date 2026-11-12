@@ -11,6 +11,9 @@ meant for InstaGib.
 - `mapgen.py`: geometry and T3D writer (format matched to a 469e export)
 - `ucc.py`: headless build and verification through `System/UCC.exe`
 - `preview.py`: Top/Front/Side wireframe PNGs
+- `review.py`: read-only audit of existing maps (`review_map`)
+- `patch.py`: patch mode, editing existing maps (`open_existing_map`) with verification against the original
+- `texalign.py` / `texpkg.py`: texture alignment check (`check_textures`) and texture sizes read from packages
 - `projects/*.json`: map projects (the source of truth; edits save automatically)
 - `output/*.t3d`: exported T3D files
 

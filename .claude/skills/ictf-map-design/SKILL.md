@@ -166,6 +166,7 @@ feel narrow in InstaGib.
    - `preview` (top / front / side): look for long straight axes and dead ends.
    - `analyze_map`: zoning must show exactly one zone actor per sealed region.
 6. `build_map`: verifies against the engine and auto-fixes zone bleeding and BSP errors. Tell the user about any fixes it applied.
+   Its report includes a texture summary. A generated map must have **0 seams and 0 corner steps**; if not, run `check_textures` for locations and element ids.
 7. `map_metrics(detail=True)`: fix every FAIL and as many WARNs as reasonable, then rebuild and re-check.
 
 **How to fix each check:**
@@ -185,10 +186,29 @@ feel narrow in InstaGib.
 | Steep main ramp | Lengthen it to 30° or less (length ≥ 1.73 × height), or make it a narrow `route="bonus"` ramp next to a gentle main path. |
 | Ramp runs into a wall | Move or shorten it so 256uu of flat floor remains beyond the top and before the bottom, or turn it 90° along the wall. |
 | Not enough light | Add lights until there are ≥ 12 per M uu² of floor, evenly, including corridors and ramps. |
+| Texture seams or corner steps (`check_textures`) | Usually a manual `tex_scale` that isn't a power of two, or mixed scales on touching faces. Use 0.5, 1, 2 or 4, the same value for neighbours. |
 | Hiding pockets near the flags | Remove houses and enterable boxes; give side rooms two or more exits, or open them into the main route. |
 
 You can also study any existing map with `analyze_existing_map("<path or name>.unr")`, for example to compare a
 draft against Klondike.
+
+## Editing an existing map (patch mode)
+
+Use this to fix or change a map someone else made, instead of rebuilding it from scratch.
+
+1. Run `open_existing_map("<map>", new_name="<map>-<suffix>")`. Pick a new version suffix (e.g. `-RE1`); the original is never modified. Read the baseline:
+   - If it reports a **WARNING**, the map doesn't survive an unmodified headless rebuild. Tell the user before editing.
+   - If it notes **special BSP settings**, those are used automatically.
+2. Find what to change with `list_actors(near=[x,y,z], radius=...)` or `list_actors(cls="PlayerStart")`, and look with `preview` (it zooms to your edits).
+3. Make the edits:
+   - Change original actors with `remove_actors`, `move_actors` or `set_actor_properties`.
+   - Add new geometry and actors with the normal tools.
+   - Leave `texture` empty on new brushes so they inherit the original's textures and alignment.
+4. Check with `map_metrics` (the whole patched map against the community rules) and `check_textures` (only problems the edit adds).
+5. Run `build_map`: it verifies first.
+   - It stops if the edit changes zones elsewhere, merges zones (a leak, e.g. carving through a thin outer wall), or doesn't build as designed.
+   - Fix the cause rather than passing `accept_issues=True`.
+6. Tell the user what changed, plus the verification result: probes, zone check against the author's build, and new texture problems.
 
 ## Limits of the measurements
 
