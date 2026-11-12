@@ -26,6 +26,9 @@
 !/.claude/skills/ictf-map-design/
 !/.claude/skills/review-map/
 !/.claude/skills/fix-map/
+!/.claude/skills/new-map/
+!/.claude/skills/edit-map/
+!/.claude/skills/remake-map/
 
 __pycache__/
 *.pyc

@@ -26,7 +26,7 @@ The server encodes the rules from the community feedback, so generated maps shou
 7. [Texture alignment (`check_textures`)](#7-texture-alignment-check_textures)
 8. [Build pipeline and auto-fix](#8-build-pipeline-and-auto-fix)
 9. [Research data and how it was produced](#9-research-data-and-how-it-was-produced)
-10. [Working with existing maps](#10-working-with-existing-maps)
+10. [Working with existing maps](#10-working-with-existing-maps) (and [Commands](#commands))
 11. [UT / UnrealEd technical notes](#11-ut--unrealed-technical-notes)
 12. [Troubleshooting](#12-troubleshooting)
 13. [Extending the system](#13-extending-the-system)
@@ -71,6 +71,7 @@ Claude ──MCP──> server.py ──> mapgen.py     (map model -> T3D text)
                      │──────> texalign.py   (texture alignment check)
                      │──────> patch.py      (patch mode: edit existing maps, verify against the original)
                      │──────> review.py     (read-only audit of existing maps)
+                     │──────> layout.py     (layout spec + floor images for remakes and comparisons)
                      │──────> texpkg.py     (reads texture sizes from .utx/.unr packages)
                      └──────> ucc.py        (headless UCC: build, export, list textures)
 ```
@@ -153,6 +154,7 @@ map grid (16 by default).
 | `batch(operations)` | Many operations in one call: `[{"op": "add_box", ...}, ...]`. Stops at the first error. |
 | `remove_elements(ids)` / `move_elements(ids, offset)` / `update_element(id, changes)` | Edit existing elements. |
 | `reorder_elements(ids, position)` | Change CSG order: `first`, `last`, `before:<id>`, `after:<id>`. |
+| `extract_layout(path)` / `layout_image(path, layer)` | Layout spec and floor height images of a map or the open project (Commands section). |
 | `review_map(path, rebuild_check=False)` | Read-only audit of an existing map (§10): findings with locations and fixes. |
 | `align_textures(kinds, near, radius)` | Patch mode: realign texture seams and corner steps of the original's brushes (§10). |
 | `open_existing_map(path, new_name, verify=True)` | Edit an existing map (patch mode, §10): `list_actors`, `remove_actors`, `restore_actors`, `move_actors`, `set_actor_properties`, plus every tool below for new elements. |
@@ -470,14 +472,9 @@ If the edits add problems, the final build is skipped unless `accept_issues=True
 
 So every pool map can be edited and rebuilt headlessly.
 
-### Reviewing and fixing: `/review-map` and `/fix-map`
+### Reviewing and fixing
 
-Two Claude Code commands (skills in `.claude/skills/`) drive the tools for the common jobs:
-
-| Command | What it does |
-|---|---|
-| `/review-map <map> [focus]` | Read-only audit with `review_map(map, rebuild_check=True)`: a report with a verdict, must-fix / should-fix items with locations and concrete fixes, and what `/fix-map` can do automatically. |
-| `/fix-map <map> [what to fix\|all] [new name]` | Review, then a fix plan (mechanical fixes applied, design changes proposed and confirmed), then patch mode, `build_map` verification, and a report of every change. Output `Maps\<map>-FX1.unr` (or the given name); the original is untouched. |
+Used by the `/review-map` and `/fix-map` commands (§ Commands, after §10).
 
 **`review_map(path, rebuild_check=False)`** (`review.py`) gathers everything into one list of findings, most severe first, each with a location, the actors involved and a fix hint:
 - **From the author's build** (the zone and leaf stored on every exported actor, i.e. how the map really plays):
@@ -504,6 +501,26 @@ The mapping is converted back into each brush's own frame (inverse of PrePivot, 
 **Verification and intended zone changes.** Fixing a leak or a stuck zone actor *should* move actors into the repaired zone. If a zone actor was broken in the original (in solid, or sharing another zone) and now owns its zone, actors moving from its old zone into it count as `actors_now_in_fixed_zones`, not as mismatches. Everything else still blocks the build. In testing, a naive "nearest open spot" moved one of Entropic's stuck zone actors into a neighbouring room that already had a zone actor, and verification stopped the build ("ZoneInfo2 (LowMid) shares zone with ZoneInfo25"). That's why zone actors now only go to unclaimed regions.
 
 **Why not merge probes into the original without rebuilding?** `MAP LOAD` + `MAP IMPORTADD` adds actors to a built map without a rebuild, but the editor doesn't zone them (`iLeaf` stays −1). So the author's BSP can only be queried through the actors it already contains.
+
+## Commands
+
+Five Claude Code commands (skills in `.claude/skills/`) cover the common jobs. Each runs the tools in the right order, checks the result and reports it. You can also just ask in plain words; the commands are shortcuts with a fixed procedure.
+
+| Command | For | What it does |
+|---|---|---|
+| `/new-map <Name> [like <map>] [size] [theme] [features]` | A new map | Turns the brief into targets (a style reference's scale, levels and routes, from `extract_layout`), builds with the `ictf-map-design` workflow, and reports metrics against the targets. |
+| `/review-map <map> [focus]` | Assessing an existing map | Read-only audit (`review_map`, §10): verdict, must-fix and should-fix items with locations and concrete fixes. |
+| `/fix-map <map> [what\|all] [new name]` | Repairing an existing map | Review, a fix plan (mechanical fixes applied, design changes confirmed), patch mode, verification, `<map>-FX1.unr`. |
+| `/edit-map <map> <change> [new name]` | Specific changes to an existing map | Locates the place (layout, actors, preview), edits in patch mode with texture inheritance, verifies, `<map>-ED1.unr`. |
+| `/remake-map <map> [what's wrong] [new name]` | A layout beyond patching | Checks that patching isn't enough, extracts the layout, agrees a brief (keep / change per area), regenerates with clean geometry, compares floor images and metrics with the original, `<map>-RM1.unr`. |
+
+The original map is never modified; every command writes a new version and keeps the author credited.
+
+**Layout extraction** (`layout.py`, used by `/remake-map` and `/new-map`):
+- **`extract_layout(path)`** gives a map's regions: the author's zones, sealed by zone portals. Each has its floor area, footprint, floor height levels and headroom. It also gives the connections between regions (each zone portal with its position, width and height), flags, spawns per region, kickers, teleporters and lifts, hazards, and the **symmetry** (mirror X / mirror Y / rotate 180 and the centre, which is exactly what `mirror_map` needs).
+- **`layout_image(path, layer)`** draws the floor height map from above: every walkable floor coloured by height, with region outlines and names, connections, spawns and flags. `layer="lower"` shows the floor underneath where floors are stacked.
+- Both work on existing maps, on patch projects, and on generated projects (no path), so a remake can be compared with its original side by side.
+- About 2 s per map. Nuance99 and Duku come out as rotate-180 symmetric, with a 0–2uu mean error.
 
 ---
 
@@ -591,4 +608,5 @@ The mapping is converted back into each brush's own frame (inverse of PrePivot, 
 | **CTF-Bastion** review | Base-to-base shooting → base line-of-sight check. Ramps facing walls → approach check for all ramps. Huge ramps → rise ≤ 192 per incline. Bouncers/portals → `add_kicker` / `add_teleporter`. Floor BSP bug traced to 20-vertex polygons → automatic split to 13 or fewer. |
 | Patch mode | `open_existing_map` and actor-editing tools; builds on top of the loaded original (embedded textures kept); verification against the author's own build (actor zones) and the design (probes); BSP settings chosen per map. All 18 pool maps survive a headless rebuild. Texture inheritance for new brushes. |
 | Review and fix | `review_map` (author's-build zone, spawn and flag checks with concrete, clearance-checked moves; gameplay; textures; rebuild survival), `align_textures` for the original's brushes, intended zone fixes accepted by verification, `/review-map` and `/fix-map` commands. |
+| All commands | `/new-map`, `/edit-map`, `/remake-map` added; `extract_layout` / `layout_image` (regions from the author's zones, connections, symmetry, floor height maps) for remakes and comparisons. |
 | Texture alignment | `check_textures` and a texture summary in `build_map`. Found and fixed two generator bugs: add-brush faces were mirrored, and wall textures started at arbitrary heights (now anchored at the floor). Calibrated on the 18-map pool. |

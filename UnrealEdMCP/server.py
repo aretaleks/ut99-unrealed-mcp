@@ -28,6 +28,7 @@ import texalign  # noqa: E402
 import texpkg  # noqa: E402
 import patch as pmode  # noqa: E402
 import review as mreview  # noqa: E402
+import layout as mlayout  # noqa: E402
 from t3dimport import import_t3d  # noqa: E402
 from mapgen import PF_AUTOUPAN, PF_AUTOVPAN, PF_FAKEBACKDROP, PF_UNLIT, PF_INVISIBLE, PORTAL_FLAGS, PF_PORTAL, PF_TWOSIDED, PF_NOTSOLID, PF_TRANSLUCENT, MapDoc, ZONE_CLASSES  # noqa: E402
 from preview import render  # noqa: E402
@@ -1285,6 +1286,58 @@ def review_map(path: str = "", rebuild_check: bool = False, max_findings: int = 
     r["findings"] = r["findings"][:max_findings]
     return mreview.summary(r, max_findings) + "\n\n" + json.dumps(
         {k: r[k] for k in ("counts", "stats", "textures", "rebuild") if k in r}, indent=1, default=str)
+
+
+def _layout_for(path: str) -> dict | str:
+    """Layout spec of a map path / name, or (no path) of the open project or patch project. Cached per source."""
+    cache = STATE.setdefault("layouts", {})
+    if path:
+        got = _export_existing(path)
+        if isinstance(got, str):
+            return got
+        t3d, unr = got
+        key = str((unr or t3d).resolve()) + str((unr or t3d).stat().st_mtime)
+        if key not in cache:
+            text = t3d.read_text(encoding="utf-8-sig", errors="replace")
+            if unr is not None:
+                text = text.replace(f"'{unr.stem}.", "'MyLevel.")
+            from t3dimport import import_t3d_text
+            cache[key] = mlayout.extract(import_t3d_text(text, (unr or t3d).stem))
+        return cache[key]
+    if STATE["doc"] is None:
+        return "Give a map name or path, or open a project."
+    d = whole()
+    if patch_project() is None:  # a generated project: give it the same shape as an imported map
+        from t3dimport import import_t3d_text
+        d = import_t3d_text(d.to_t3d(), STATE["name"])
+    return mlayout.extract(d)
+
+
+@mcp.tool()
+def extract_layout(path: str = "") -> str:
+    """Layout spec of an existing map (name / .unr / .t3d), or with no path of the open project: the basis for a
+    remake and for comparing a remake with its original. Regions = the author's zones (sealed by zone portals) with
+    floor area, footprint, floor height levels and headroom; connections between regions (position, width, height);
+    flags; spawns per team with their region; kickers / teleporters / lifts; hazards; symmetry (mirror_x / mirror_y /
+    rotate180 + centre, i.e. what mirror_map needs). Look at layout_image too - regions of maps with few or leaking
+    zones span several rooms."""
+    sp = _layout_for(path)
+    if isinstance(sp, str):
+        return sp
+    return json.dumps(mlayout.public(sp), indent=1, default=str)
+
+
+@mcp.tool()
+def layout_image(path: str = "", layer: str = "top") -> Image:
+    """Floor height map from above of an existing map (or, with no path, the open project): every walkable floor
+    coloured by height, region (zone) outlines and names with their median floor height, connections (white circles),
+    spawns (triangles) and flags (squares), 1024uu grid. layer='top' shows the highest floor of each spot,
+    'lower' the floor underneath where floors are stacked. Use it as the reference when remaking a map, and to
+    compare the remake with the original."""
+    sp = _layout_for(path)
+    if isinstance(sp, str):
+        raise ValueError(sp)
+    return Image(data=mlayout.render(sp, layer), format="png")
 
 
 @mcp.tool()

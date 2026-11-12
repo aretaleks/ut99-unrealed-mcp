@@ -9,7 +9,7 @@ Claude describes a map as CSG brushes, zones, lights, spawns and flags. The serv
 - checks zoning and BSP correctness;
 - **builds the `.unr` headlessly with UCC**, automatically fixing zone bleeding and BSP errors;
 - **scores the gameplay** against the iCTF community's design rules and measurements of the community-liked map pool (FragMath pug data and the PassionateGaming cup pool);
-- **reviews and fixes existing maps** (`/review-map`, `/fix-map`) and **edits existing maps** without re-creating them (patch mode): the original stays untouched, and edits are verified against the author's own build;
+- **reviews, fixes, edits and remakes existing maps** (`/review-map`, `/fix-map`, `/edit-map`, `/remake-map`), editing without re-creating them (patch mode): the original stays untouched, and edits are verified against the author's own build;
 - **checks texture alignment** (seams, steps at wall corners, stretched or mirrored textures) on generated and existing maps.
 
 ## What's in the repository
@@ -20,7 +20,7 @@ Claude describes a map as CSG brushes, zones, lights, spawns and flags. The serv
 | `UnrealEdMCP/GUIDE.md` | **Full documentation**: setup, workflow, every tool, the design rules, the checks, the build pipeline, the research, troubleshooting. |
 | `UnrealEdMCP/research/` | Map-pool measurements, reference ranges used by the checks, and FragMath source data. |
 | `.claude/skills/ictf-map-design/` | The design guide Claude follows when making iCTF maps. |
-| `.claude/skills/review-map/`, `fix-map/` | The `/review-map` and `/fix-map` commands for existing maps. |
+| `.claude/skills/new-map/`, `review-map/`, `fix-map/`, `edit-map/`, `remake-map/` | The `/new-map`, `/review-map`, `/fix-map`, `/edit-map` and `/remake-map` commands. |
 | `.mcp.json.example` | Template for registering the server with Claude Code. |
 
 No game files are included. You need your own UT99 v469 install.
