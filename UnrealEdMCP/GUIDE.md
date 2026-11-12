@@ -212,6 +212,7 @@ map grid (16 by default).
 | `analyze_map(engine_check=False)` | Fast voxel zoning check. With `engine_check=True` it also does a probe verification build. |
 | `build_map(filename, lighting=True, paths="define", overwrite=False, auto_fix=True, accept_issues=False)` | The full pipeline (§8); in patch mode, verification and a build on top of the original (§10). `paths="build"` lets 469 place PathNodes automatically. It won't overwrite a `.unr` it didn't create without `overwrite=True`. |
 | `map_metrics(detail=False)` | Gameplay score (§6). |
+| `orient_spawns(ids, only_bad=False, step=15)` | Sets spawn facings from the layout: looking along an attacking path, long free view, never at a wall; keeps facings that are already good. Works in patch mode (original PlayerStarts get a new `Rotation`). |
 | `check_textures(path="", max_items=12)` | Texture alignment (§7) of the open project, or of an existing map (name, `.unr` or `.t3d`; read-only). |
 | `analyze_existing_map(path)` | The same score for any `.unr` or `.t3d` file (read-only). |
 | `export_t3d(path)` | T3D for UnrealEd: File → Import, then Build All. |
@@ -232,6 +233,8 @@ The full rules with sources are in the skill (`.claude\skills\ictf-map-design\SK
 - **[community]** No spawns in the flag room or in sight of their own flag, because they cause 0-0 stalemates.
 - **[community]** Forward spawns: they push players to attack.
 - **[community]** More spawn points, so carriers don't get spawned on. Aim for 8+ per team. **[data]** Spawn count is the strongest geometric predictor of preference (rank correlation +0.52).
+- **[community]** Spawn facing: never stare at a wall (being next to one is fine), look along a path toward the enemy base or perpendicular to it, never back at your own flag. **[data]** No liked map has a spawn facing a wall closer than 256uu; 73% of pool spawns look down an attacking path. `orient_spawns()` sets facings from the layout.
+- **[community]** No line of sight between enemy spawns. **[data]** 6.5% of pool spawns can see one (Grudge, Overflow and Nuance99 have 4 each).
 
 ### Layout
 - **[community]** Open spaces, not zig-zag narrow corridors, but not oversized either.
@@ -277,6 +280,10 @@ Each check returns PASS, WARN or FAIL with the measured value, the target and th
 | flags connected | carrier route between flags **without crossing lava, slime or deep water** | rule |
 | every spawn reaches both flags | 0 unreachable | rule |
 | no spawns in the flag room | 0 within 1024uu walk of own flag | community, data (only Grudge breaks it) |
+| spawns don't face a wall | 0 with a wall < 256uu straight ahead at eye height (FAIL) | community, data (liked maps: none) |
+| spawns don't look back toward their own base | 0 losing ≥ 0.3uu toward the enemy flag per uu along the view | community, data (pool 3%) |
+| spawns look along an attacking path | ≥ 50% gaining ≥ 0.3uu toward the enemy flag per uu along the view | community, data (pool 73%) |
+| no line of sight to enemy spawns | 0 (FAIL) | community, data (pool 6.5%) |
 | no spawns with line of sight to own flag | 0 within 1500uu | community |
 | enough spawn points | ≥ 8 per team | community, data |
 | spawns placed forward | 30–42% of the way to the enemy flag | community, data |
@@ -410,6 +417,7 @@ Texture alignment doesn't separate liked from disliked maps (liked Acrony, Klond
 | `pool_joined.json` | Metrics joined with preference and season stats. |
 | `fragmath_matches_sample.json` / `fragmath_season15.txt` | The source stats. |
 | `groundtruth.py` | The import-versus-engine validation script. |
+| `spawn_orientation.json` / `spawn_orientation.py` | How the pool orients its 230 spawns: free view ahead, attack path, angle to the route, line of sight to enemy spawns. |
 | `patch_baseline_pool.json` / `patch_baseline_pool.py` | Does each pool map survive an unmodified headless rebuild (§10)? |
 | `texalign_pool.json` / `texalign_pool.py` | Texture alignment statistics per pool map (§7), and the script that produces them. |
 
@@ -609,4 +617,5 @@ The original map is never modified; every command writes a new version and keeps
 | Patch mode | `open_existing_map` and actor-editing tools; builds on top of the loaded original (embedded textures kept); verification against the author's own build (actor zones) and the design (probes); BSP settings chosen per map. All 18 pool maps survive a headless rebuild. Texture inheritance for new brushes. |
 | Review and fix | `review_map` (author's-build zone, spawn and flag checks with concrete, clearance-checked moves; gameplay; textures; rebuild survival), `align_textures` for the original's brushes, intended zone fixes accepted by verification, `/review-map` and `/fix-map` commands. |
 | All commands | `/new-map`, `/edit-map`, `/remake-map` added; `extract_layout` / `layout_image` (regions from the author's zones, connections, symmetry, floor height maps) for remakes and comparisons. |
+| Spawn facing | Community rule (don't face a wall, look along an attacking path or perpendicular, no sight of enemy spawns) measured on the pool's 230 spawns: four new checks and `orient_spawns`. Every earlier generated map had spawns staring at walls (Sludgeline 4, Bastion 2); Bastion's 12 spawns that can see enemy spawns need moving. |
 | Texture alignment | `check_textures` and a texture summary in `build_map`. Found and fixed two generator bugs: add-brush faces were mirrored, and wall textures started at arbitrary heights (now anchored at the floor). Calibrated on the 18-map pool. |

@@ -31,7 +31,7 @@ Follow "Building a map with the unrealed MCP" in the design skill:
 1. `new_map`.
 2. The red half (flag, 9–10 forward spawns, zones with portals, lights).
 3. The shared mid.
-4. `mirror_map`.
+4. `mirror_map`, then `orient_spawns()`.
 5. `preview` and `analyze_map`.
 6. `build_map`.
 7. `map_metrics`.

@@ -41,6 +41,28 @@ def evaluate(m: dict) -> list[dict]:
     los_close = [d["id"] for d in det if d.get("sees_own_flag") and d.get("to_own_flag", 1e9) < 1500]
     add("no spawns with line of sight to own flag", not los_close, f"{len(los_close)} {los_close}", 0,
         "same stalemate problem: instant defence of the flag from spawn")
+    # --- spawn orientation (community rule; pool: research/spawn_orientation.json)
+    face = [d for d in det if "view_ahead" in d]
+    if face:
+        wall = [d["id"] for d in face if d["view_ahead"] < 256]
+        add("spawns don't face a wall", not wall, f"{len(wall)} spawn(s) look at a wall < 256uu away {wall}",
+            "0 (liked maps: none; pool p10 446uu, median 752uu straight ahead)",
+            "spawning nose-to-wall wastes the first second of life; being NEXT to a wall is fine - only the view "
+            "straight ahead counts (fix: orient_spawns)", fail=True)
+        back = [d["id"] for d in face if d.get("attack_progress") is not None and d["attack_progress"] <= -0.3]
+        add("spawns don't look back toward their own base", not back, f"{len(back)} {back}",
+            "0 (pool: 3% of spawns)", "spawns should look toward the enemy base or, if not possible, perpendicular - "
+            "never back toward their own flag (fix: orient_spawns)")
+        att = sum(1 for d in face if (d.get("attack_progress") or -9) >= 0.3)
+        share = att / len(face)
+        add("spawns look along an attacking path", share >= 0.5, f"{att}/{len(face)} ({share:.0%})",
+            ">= 50% (pool 73%; liked maps 29-100%)",
+            "looking down a path that leads toward the enemy (any attacking route, also odd angles) gets players "
+            "moving; measured as walk-distance gained toward the enemy flag along the view (fix: orient_spawns)")
+        seen = [d["id"] for d in face if d.get("sees_enemy_spawns")]
+        add("no line of sight to enemy spawns", not seen, f"{len(seen)} spawn(s) see enemy spawns {seen}",
+            "0 (pool: 6.5% of spawns; Grudge, Overflow, Nuance99 4 each)",
+            "spawning in sight of enemy spawns means instant spawn kills both ways - move or screen them", fail=True)
     tot = m.get("spawns", 0)
     per = m.get("spawns_per_team", [0, 0])
     add("enough spawn points", min(per) >= 8, f"{tot} total, per team {per}", ">= 8 per team (liked maps 12-16 total; more is better)",

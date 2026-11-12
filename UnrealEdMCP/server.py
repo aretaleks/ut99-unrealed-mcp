@@ -701,8 +701,49 @@ def add_light(location: list[float], brightness: int = 180, radius: int = 32, hu
 @mcp.tool()
 def add_player_start(x: float, y: float, floor_z: float, yaw: float = 0, team: int = 0) -> str:
     """Player spawn standing on the floor at floor_z. yaw in degrees: 0=+X, 90=+Y, 180=-X, 270=-Y.
-    Keep >= 64uu from walls; face into the open area."""
+    Keep >= 64uu from walls. Facing matters (community rule): never stare at a wall, look along a path toward the
+    enemy base (or perpendicular), never back at the own flag, no sight of enemy spawns. Once flags and geometry
+    exist, orient_spawns() sets every facing from the actual layout."""
     return _added(doc().add("playerstart", location=[x, y, floor_z + 40], yaw=yaw, team=team))
+
+
+@mcp.tool()
+def orient_spawns(ids: list[int] | None = None, only_bad: bool = False, step: int = 15) -> str:
+    """Set each spawn's facing from the actual layout (needs both flags). Tries every `step` degrees and picks the
+    view that looks down a walkable path toward the enemy flag (any attacking route - odd angles are fine) with a
+    long free view (never a wall < 256uu ahead), preferring 45-degree multiples; keeps the current yaw when it is
+    already about as good. only_bad=True only touches spawns that face a wall, look back toward their own base or
+    have no attacking path in view. Works on generated projects and in patch mode (original PlayerStarts get a new
+    Rotation). Pool convention it follows: research/spawn_orientation.json."""
+    pp = patch_project()
+    d = whole()
+    if pp is not None:
+        _, _, _, idx = pp.base()
+    res = mmetrics.best_spawn_yaws(d, ids=ids, step=step)
+    changed = []
+    for r in res:
+        bad_now = r["old"]["view_ahead"] < 256 or (r["old"]["attack_progress"] is None) or r["old"]["attack_progress"] <= 0
+        if not r["changed"] or (only_bad and not bad_now):
+            continue
+        if pp is not None and r["actor"] and r["actor"] in idx:
+            blk = pp.current_block(r["actor"])
+            rot = pmode.get_prop(blk, "Rotation") or "()"
+            parts = {k: v for k, v in re.findall(r"(Pitch|Yaw|Roll)=(-?\d+)", rot)}
+            parts["Yaw"] = str(int(round(r["new_yaw"] * 65536 / 360)) % 65536)
+            pp.set(r["actor"], {"Rotation": "(" + ",".join(f"{k}={parts[k]}" for k in ("Pitch", "Yaw", "Roll") if k in parts) + ")"})
+        else:
+            e = doc().get(r["id"])
+            if e is None:
+                continue
+            e.params["yaw"] = r["new_yaw"]
+        changed.append(r)
+    save()
+    lines = [f"{len(changed)} of {len(res)} spawns re-oriented."]
+    for r in changed:
+        lines.append(f"  {r['actor'] or '#' + str(r['id'])} (team {r['team']}): yaw {r['old_yaw']} -> {r['new_yaw']}; "
+                     f"view {r['old']['view_ahead']} -> {r['new']['view_ahead']}uu, attack progress "
+                     f"{r['old']['attack_progress']} -> {r['new']['attack_progress']}")
+    return "\n".join(lines)
 
 
 GRAVITY = 950.0

@@ -23,11 +23,12 @@ Sort the findings into two groups.
 |---|---|
 | Spawn / flag / zone actor in solid, overlapping spawns, spawn clipping geometry | The `move_actors([...], [dx,dy,dz])` from the finding (clearance-checked). No suggestion means a judgment call: see the hint. |
 | Zone actor stuck in solid with no free region nearby | Usually a leftover: `remove_actors`. Confirm with `preview(focus=...)` first. |
+| Spawns facing a wall, looking back at their own base, or with no attacking path in view | `orient_spawns(only_bad=True)`: keeps the author's other facings |
 | Texture seams / corner steps | `align_textures()`; use `near` + `radius` for one area only. |
 | Teleporter URL pointing nowhere | `set_actor_properties(name, {"URL": "\"<tag>\""})` to the intended destination's Tag. |
 | LevelInfo game type / title | `set_actor_properties("LevelInfo0", {...})` |
 
-**Design** (propose, then ask): spawns in or in sight of the flag room, too few spawns, base-to-base sightlines, too few flag-room entrances, hiding pockets, zone leaks. A leak needs a zone portal across the opening: find it with `preview(focus=<zone actor location>)` and `list_actors(csg="portal", near=...)`. Too-small portals are replaced: `remove_actors` the old one, then `add_zone_portal` a larger one. Load the `ictf-map-design` skill for these.
+**Design** (propose, then ask): spawns in or in sight of the flag room, spawns that see enemy spawns, too few spawns, base-to-base sightlines, too few flag-room entrances, hiding pockets, zone leaks. A leak needs a zone portal across the opening: find it with `preview(focus=<zone actor location>)` and `list_actors(csg="portal", near=...)`. Too-small portals are replaced: `remove_actors` the old one, then `add_zone_portal` a larger one. Load the `ictf-map-design` skill for these.
 
 Show the plan as a short table (finding, change, mechanical or design). If the request was "all" or listed exact fixes, go ahead with those; otherwise ask the user which design changes to make (AskUserQuestion) before applying them.
 

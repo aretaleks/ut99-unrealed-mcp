@@ -542,6 +542,131 @@ def ray_len(vox: Voxels, p, direction, max_len=10000.0) -> float:
     return float(ts[bad[0]] if len(bad) else max_len)
 
 
+EYE = 27.0  # eye height above a PlayerStart's location (collision centre)
+
+
+def _angle(a, b) -> float:
+    """Unsigned horizontal angle between two vectors, degrees."""
+    a = np.array([a[0], a[1]], float)
+    b = np.array([b[0], b[1]], float)
+    na, nb = np.linalg.norm(a), np.linalg.norm(b)
+    if na < 1e-6 or nb < 1e-6:
+        return float("nan")
+    return float(np.degrees(np.arccos(np.clip(a @ b / (na * nb), -1, 1))))
+
+
+def route_direction(W, dist: dict, c, steps: int = 20):
+    """Horizontal direction of the first ~steps cells of the shortest walk toward the target of `dist`."""
+    cur = c
+    for _ in range(steps):
+        best = min(((dist.get(n, math.inf), n) for n, _ in W.neighbours(cur)), default=None)
+        if best is None or best[0] >= dist.get(cur, math.inf):
+            break
+        cur = best[1]
+    v = (np.array(cur) - np.array(c)) * W.v.r
+    v[2] = 0
+    return v if np.linalg.norm(v) > 1e-6 else None
+
+
+def spawn_facing(W, vox, e, cell, dist_enemy: dict, enemy_flag, own_flag, enemy_spawns) -> dict:
+    """Where a spawn looks: free view ahead (wall distance at eye height, straight and the narrowest of a +-20 degree
+    cone), angle to the walking route toward the enemy flag, straight angles to both flags, and how many enemy
+    spawns it can see (eye to eye)."""
+    loc = np.array(e.params["location"], float)
+    eye = loc + [0, 0, EYE]
+    yaw = float(e.params.get("yaw", 0)) % 360
+    f = np.array([math.cos(math.radians(yaw)), math.sin(math.radians(yaw)), 0.0])
+    ahead = ray_len(vox, eye, f, 4000)
+    cone = min(ray_len(vox, eye, [math.cos(math.radians(yaw + a)), math.sin(math.radians(yaw + a)), 0.0], 4000)
+               for a in (-20, -10, 10, 20))
+    rd = route_direction(W, dist_enemy, cell) if cell else None
+    seen = [x for x in enemy_spawns if los(vox, eye, np.array(x.params["location"], float) + [0, 0, EYE])]
+    # attack path: does what you look at lead toward the enemy? Walk-distance to the enemy flag gained per uu, at
+    # floor spots 256-768uu along the view (any attacking route counts, not only the shortest one)
+    progress = None
+    if cell is not None and cell in dist_enemy:
+        best = None
+        for dd in (256, 384, 512, 768):
+            if dd > ahead:
+                break
+            c2 = W.nearest(loc + f * dd, below=4)
+            if c2 is not None and c2 in dist_enemy:
+                g = (dist_enemy[cell] - dist_enemy[c2]) * W.v.r / dd
+                best = g if best is None else max(best, g)
+        progress = round(float(best), 2) if best is not None else None
+    return {"yaw": round(yaw), "view_ahead": round(ahead), "view_cone_min": round(min(ahead, cone)),
+            "attack_progress": progress,
+            "angle_to_route": round(_angle(f, rd), 1) if rd is not None else None,
+            "angle_to_enemy_flag": round(_angle(f, np.asarray(enemy_flag) - loc), 1),
+            "angle_to_own_flag": round(_angle(f, np.asarray(own_flag) - loc), 1),
+            "sees_enemy_spawns": len(seen), "seen_enemy_spawn_ids": [x.id for x in seen][:6]}
+
+
+def _facing_score(f: dict, yaw: float) -> float:
+    if f["view_ahead"] < 256:
+        return -10.0  # staring at a wall
+    p = f["attack_progress"]
+    s = 2.0 * min(1.0, p) if p is not None else -1.0
+    s += 0.5 * min(f["view_ahead"], 1500) / 1500
+    s -= 0.3 if f["view_cone_min"] < 160 else 0
+    s += 0.15 if round(yaw) % 45 == 0 else 0
+    return s
+
+
+def best_spawn_yaws(doc: MapDoc, ids=None, step: int = 15, res: float = 32) -> list[dict]:
+    """For each PlayerStart (or those in ids): the facing that looks along an attacking path with a long free view
+    (pool convention: 73% of spawns look down a path toward the enemy, none of the liked maps' spawns face a wall
+    closer than 256uu), preferring 45-degree multiples. The current yaw is kept if it scores within 0.1 of the best."""
+    keys = [np.array(e.params["location"]) for e in doc.elements if e.kind == "playerstart"]
+    keys += list(flags_of(doc).values())
+    k = np.array(keys)
+    vox = Voxels(doc, res=res, max_cells=12_000_000, bounds=(k.min(0) - [3072, 3072, 2048], k.max(0) + [3072, 3072, 2048]),
+                 components=False)
+    hz = [(e.params["pit_bounds"][0], e.params["pit_bounds"][1], e.params.get("pit_top", e.params["location"][2] + 64))
+          for e in doc.elements if e.kind == "zone" and e.params.get("pit_bounds")
+          and e.params.get("type") in ("lava", "slime", "kill")]
+    W = Walk(vox, hz)
+    flags = flags_of(doc)
+    if 0 not in flags or 1 not in flags:
+        raise ValueError("map needs both flags")
+    W.add_movement(doc)
+    dists = {}
+    for t in (0, 1):
+        c = W.nearest(flags[t], below=6)
+        if c is None:
+            raise ValueError(f"flag {t} not on standable floor")
+        dists[t], _ = W.dijkstra(c)
+    sp = [e for e in doc.elements if e.kind == "playerstart"]
+    out = []
+    for e in sp:
+        if ids is not None and e.id not in ids:
+            continue
+        team = int(e.params.get("team", 0))
+        loc = np.array(e.params["location"], float)
+        cell = W.nearest(loc)
+        de = dists[1 - team]
+        old_yaw = float(e.params.get("yaw", 0)) % 360
+
+        def facing(yaw):
+            tmp = type(e)(e.id, e.kind, {**e.params, "yaw": yaw})
+            return spawn_facing(W, vox, tmp, cell, de, flags[1 - team], flags[team], [])
+
+        cur = facing(old_yaw)
+        cur_s = _facing_score(cur, old_yaw)
+        best_yaw, best, best_s = old_yaw, cur, cur_s
+        for yaw in range(0, 360, step):
+            f = facing(yaw)
+            s = _facing_score(f, yaw)
+            if s > best_s:
+                best_yaw, best, best_s = float(yaw), f, s
+        keep = best_s - cur_s <= 0.1
+        out.append({"id": e.id, "actor": e.params.get("actor"), "team": team, "old_yaw": round(old_yaw),
+                    "new_yaw": round(old_yaw if keep else best_yaw), "changed": not keep,
+                    "old": {k_: cur[k_] for k_ in ("view_ahead", "attack_progress")},
+                    "new": {k_: (cur if keep else best)[k_] for k_ in ("view_ahead", "attack_progress")}})
+    return out
+
+
 def compute(doc: MapDoc, res: float = 32, seed: int = 0) -> dict:
     keys = [np.array(e.params["location"]) for e in doc.elements if e.kind == "playerstart"]
     keys += list(flags_of(doc).values())
@@ -713,8 +838,11 @@ def compute(doc: MapDoc, res: float = 32, seed: int = 0) -> dict:
         do, de = (d0 if team == 0 else d1) * r, (d1 if team == 0 else d0) * r
         own.append(do)
         enemy.append(de)
-        details.append({"id": e.id, "team": team, "to_own_flag": round(do), "to_enemy_flag": round(de),
-                        "forward": round(do / (do + de), 2), "sees_own_flag": sees_flag})
+        det = {"id": e.id, "team": team, "to_own_flag": round(do), "to_enemy_flag": round(de),
+               "forward": round(do / (do + de), 2), "sees_own_flag": sees_flag}
+        det.update(spawn_facing(W, vox, e, c, dist1 if team == 0 else dist0, flags[1 - team], flags[team],
+                                [x for x in sp if int(x.params.get("team", 0)) != team]))
+        details.append(det)
     if own:
         out["spawn_to_own_flag"] = round(float(np.mean(own)))
         out["spawn_to_enemy_flag"] = round(float(np.mean(enemy)))

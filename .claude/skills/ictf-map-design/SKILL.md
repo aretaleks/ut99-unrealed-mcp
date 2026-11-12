@@ -23,6 +23,16 @@ Rules are tagged by where they come from:
   - **[data]** Liked maps put spawns 30–40% of the way from their own flag to the enemy flag.
 - **[community]** More spawn points are better, so a flag carrier doesn't get "spawned on".
   - **[data]** Spawn count is the strongest geometric predictor of preference (rank correlation +0.52). Aim for **8+ per team, ideally 9–10**, spread across several areas.
+- **[community]** Spawn **facing** matters:
+  - Never face a wall when spawning. Standing *next to* a wall is fine; only the view straight ahead counts.
+  - Look toward the enemy base, along a path that leads there. If that's not possible, look perpendicular to it; odd angles are fine.
+  - Never look back at your own flag.
+  - **[data]** Pool (230 spawns, `research/spawn_orientation.json`):
+    - no liked map has a spawn facing a wall closer than 256uu; the median free view straight ahead is 752uu;
+    - 73% of spawns look down a walkable path toward the enemy flag, and only 3% look back;
+    - 66% use 45° multiples.
+  - `orient_spawns()` sets every facing from the actual layout. Run it after `mirror_map`, and again after moving spawns.
+- **[community]** No direct line of sight between enemy spawns: it means instant spawn kills both ways. **[data]** Only 6.5% of pool spawns can see an enemy spawn. Fix by placement (move, or screen with cover); facing can't fix it.
 
 **Geometry**
 - **[community]** Prefer open spaces to zig-zag or narrow corridors, but a map that's too large is also bad.
@@ -162,6 +172,7 @@ feel narrow in InstaGib.
    - lights, and zones with portals: name the zones for stats ("Red Flag Room", "Red Base", "Mid") and seal each zone with portals (`add_corridor(portal=True)` or `add_zone_portal`).
 3. Build the shared midfield centred on the mirror plane. Elements sitting on the plane aren't duplicated.
 4. Run `mirror_map("mirror_x", center=[0,0,0])`. This swaps flags, spawn teams and Red/Blue zone names. Use `rotate180` if the layout should be point-symmetric.
+   Then run `orient_spawns()`, so every spawn looks along an attacking path and none faces a wall.
 5. Check the layout:
    - `preview` (top / front / side): look for long straight axes and dead ends.
    - `analyze_map`: zoning must show exactly one zone actor per sealed region.
@@ -174,6 +185,8 @@ feel narrow in InstaGib.
 | Check | Fix |
 |---|---|
 | Spawns in the flag room or in sight of the flag | Move them forward, around corners, into side areas. |
+| Spawns facing a wall / looking back / no attacking path in view | `orient_spawns()` |
+| Spawns seeing enemy spawns | Move them, or put cover (a semisolid block or pillar) between them; then `orient_spawns()`. |
 | Not open enough / too many narrow spots | Widen corridors to 384–512+; replace zig-zags with rooms joined by wide openings. |
 | Cross-map sightlines | Offset corridors (don't line up doorways), add pillars or cover, add height changes on long axes. |
 | Too many stories / elevation far away | Merge levels; add ramps or kickers at several points around raised areas. |
