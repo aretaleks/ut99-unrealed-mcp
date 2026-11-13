@@ -14,10 +14,15 @@ WORK = HERE / "work"
 
 
 def _run(args: list[str], timeout: int = 600) -> tuple[str, str]:
-    """Run UCC from System/, return (stdout, UCC.log text)."""
+    """Run UCC from System/, return (stdout, UCC.log text).
+
+    stdin must be closed (DEVNULL): otherwise UCC inherits the MCP server's stdio pipe, which never closes,
+    and some maps' rebuilds (CTF-Byproduct]I[-GU4) block on it forever - 10 s with DEVNULL, a timeout without.
+    """
     p = subprocess.run(
         [str(UCC), *args],
         cwd=SYSTEM,
+        stdin=subprocess.DEVNULL,
         capture_output=True,
         text=True,
         errors="replace",

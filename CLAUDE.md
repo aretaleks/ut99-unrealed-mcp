@@ -48,6 +48,7 @@ The user (an experienced iCTF player) plays generated maps and reports what's wr
 - **Commit and push only when the user asks.** End commit messages with the Co-Authored-By line from the session instructions. The repo is public, so check staged files for personal paths before committing. The user's direct pushes to `main` bypass its branch protection, which is expected; others go through pull requests.
 - **No new Python dependencies** without discussion (see CONTRIBUTING.md). Currently: `mcp>=1.2,<2` (2.x fails here), pillow, numpy.
 - In `server.py`, **import heavy modules (numpy etc.) at module level**. A lazy import inside a tool hangs the stdio MCP server.
+- **Launch UCC with `stdin=DEVNULL`** (as `ucc._run` does). With the MCP server's stdio pipe as stdin, some rebuilds block until they time out.
 - **UCC can't run twice at once**: it shares `System/UCC.log` and `work/export/`. Don't start a UCC job while a background one runs.
 
 ## Practical notes
