@@ -74,6 +74,7 @@ Claude ──MCP──> server.py ──> mapgen.py     (map model -> T3D text)
                      │──────> layout.py     (layout spec + floor images for remakes and comparisons)
                      │──────> assets.py     (reusable props of existing maps: prefabs, decorations, surfaces)
                      │──────> texpkg.py     (reads texture sizes from .utx/.unr packages)
+                     │──────> unrbsp.py     (reads the world BSP of a built .unr: point tests, floor traces)
                      └──────> ucc.py        (headless UCC: build, export, list textures)
 ```
 
@@ -172,7 +173,7 @@ map grid (16 by default).
 | `add_arc_corridor(center, inner_radius, outer_radius, start_angle, end_angle, floor_z, height, segment_deg=15)` | Curved corridor or rounded corner, with about 15° segments as on Command. |
 | `add_corridor(start, end, floor_z, width=256, height=256, portal=False)` | Straight corridor in any direction. Diagonals use grid-snapped corners. `portal=True` adds a zone portal at the middle. |
 | `add_ramp(min, max, rises_toward, route="main")` | Wedge ramp. `main`: 30° or less and a rise of 192uu or less (rejected otherwise). `bonus`: up to 45°, narrow (256 or less) dodge or shortcut ramps. |
-| `add_stairs(start, floor_z, direction, steps, step_height=16, step_depth=32, width, mode="add", fake_ramp=True)` | Stairs. `fake_ramp` adds Duku-style **fake stairs**: an invisible semisolid ramp over the steps (`PolyFlags=33`). Stairs steeper than 30°, or a flight climbing more than 192uu, are rejected. |
+| `add_stairs(start, floor_z, direction, steps, step_height=16, step_depth=32, width, mode="add", fake_ramp=True)` | Stairs. `fake_ramp` adds Duku-style **fake stairs**: an invisible semisolid ramp over the steps (`PolyFlags=33`); the steps under it are then **solid adds**, as on Duku (a semisolid ramp over semisolid steps is dropped from the BSP). Without a ramp the steps are semisolid. Stairs steeper than 30°, or a flight climbing more than 192uu, are rejected. |
 | `add_zone_portal(center, width, height, normal="x", yaw=0)` | Zone portal sheet. It must cover the opening completely. |
 | `add_window(min, max)` | A see-through opening that players can't pass: carves the hole and fills it with an invisible semisolid blocker, as Anfractuous does. |
 
@@ -204,7 +205,7 @@ map grid (16 by default).
 
 | Tool | What it does |
 |---|---|
-| `mirror_map(mode="mirror_x", center=[0,0,0], ids=None)` | Copies elements through the centre (`mirror_x`, `mirror_y` or `rotate180`). Teams and Red/Blue names are swapped. Elements centred on the plane aren't duplicated. |
+| `mirror_map(mode="mirror_x", center=[0,0,0], ids=None)` | Copies elements through the centre (`mirror_x`, `mirror_y` or `rotate180`). Teams and Red/Blue names are swapped. Elements centred on the plane, and copies that already exist, aren't duplicated: params are compared in a canonical form (numbers rounded so 0 = 0.0 = -0.0, prism outlines and brush polygons as point sets). |
 
 ### Checking, building, output
 
@@ -326,7 +327,7 @@ It doesn't include dodge-jumps or trick jumps. Hazard pits are impassable.
 
 ## 7. Texture alignment (`check_textures`)
 
-`check_textures()` checks the open project exactly as it will be built. `check_textures("CTF-Klondike-PG1")` checks an existing map (a name from `Maps\`, a `.unr` or an exported `.t3d`; read-only). `build_map` adds a short texture summary to its report.
+`check_textures()` checks the open project exactly as it will be built. `check_textures("CTF-Klondike-PG1")` checks an existing map (a name from `Maps\`, a `.unr` or an exported `.t3d`; read-only). `build_map` adds a short texture summary to its report. Problems that lie entirely inside prefabs copied with `add_asset` keep the source map's own alignment; both the summary and `check_textures` count them separately (`from_copied_assets` / `copied_assets`), and the 0 seams / 0 corner steps target applies to the generated geometry only.
 
 **How it works**
 1. Every brush polygon is read with its texture mapping (`Origin`, `TextureU`, `TextureV`, `Pan`) and transformed to world space. Texture vectors transform with the inverse transpose of the brush transform, so scaled and mirrored brushes come out right.
@@ -395,6 +396,7 @@ Texture alignment doesn't separate liked from disliked maps (liked Acrony, Klond
    ```
    It retries once if UCC crashes.
 5. **Report.** The saved map is exported again and checked: zones (kill zones flagged), which zone each spawn is in, leaking zones, spawns inside solid or over hazards, missing flags, and per-team spawn counts.
+6. **Walk-surface check** (`unrbsp.py`, also after patch builds). The world BSP is read straight from the saved `.unr` and point-traced downward: every ramp (wedge brush, including invisible fake-stairs ramps) must have its slope there (±3uu at 18 points), and every stair step its top (no hole). Probe verification can't see either: a missing ramp leaves the steps to walk on, and a probe in a step hole is just "open". Calibrated on CTF-Slumgate (8/8 ramps missing, 7 holes) against all other reviewed maps and CTF-Duku (0).
 
 **Prevention, on every build:**
 - Every brush is regenerated with clean, on-grid vertices. That's the "rebuild the brush" fix, applied automatically.
@@ -428,6 +430,7 @@ Texture alignment doesn't separate liked from disliked maps (liked Acrony, Klond
 | `pool_joined.json` | Metrics joined with preference and season stats. |
 | `fragmath_matches_sample.json` / `fragmath_season15.txt` | The source stats. |
 | `groundtruth.py` | The import-versus-engine validation script. |
+| `regression.py` + `../examples/` | Regression set: the reviewed generated maps (project JSON) and `expected.json` (what the checks and the build lint must say about each). Run after any change to checks or generator. |
 | `tenement_checks.json` / `tenement_checks.py` | Calibration of the Tenement-review checks on the pool: sightlines, corridor runs, ledge detours, thin walls, one-end platforms, knife edges. |
 | `spawn_orientation.json` / `spawn_orientation.py` | How the pool orients its 230 spawns: free view ahead, attack path, angle to the route, line of sight to enemy spawns. |
 | `patch_baseline_pool.json` / `patch_baseline_pool.py` | Does each pool map survive an unmodified headless rebuild (§10)? |
@@ -550,7 +553,8 @@ The original map is never modified; every command writes a new version and keeps
 |---|---|
 | Polygon normal | `(v1−v0)×(v2−v0)`, pointing out of the brush solid. |
 | Zone portal | Sheet brush, `PolyFlags=67109129` (Portal + TwoSided + NotSolid + Invisible). |
-| Fake stairs / window blocker | `PolyFlags=33` (Invisible + Semisolid). Semisolid doesn't delete faces of other brushes, so steps stay visible. |
+| Fake stairs / window blocker | `PolyFlags=33` (Invisible + Semisolid). Semisolid doesn't delete faces of other brushes, so steps stay visible. **The steps under it must be solid adds** (Duku: plain `CSG_Add` staircase + PF 33 ramp). A semisolid ramp over semisolid steps disappears from the BSP, fully in a stair tunnel and partly in the open, and top steps can become holes (CTF-Slumgate). A plain (non-semisolid) invisible add ramp collides, but deletes the visible step faces. `_lint` flags an invisible semisolid brush overlapping semisolid brushes. |
+| Reading the built BSP | `unrbsp.py` parses `UModel` (package version 69): tagged props, FBox, FSphere, Vectors, Points, Nodes (plane, ZoneMask, flags, 7 compact indices, iZone[2], NumVertices, iLeaf[2]), Surfs. Point test: walk the tree, front = outside, back = inside, `NF_NotCsg` nodes don't change it. The world model is the Model export with the most nodes. |
 | Sky | Main-map faces use `FakeBackdrop` (0x80); the skybox room is Unlit (0x400000) with AutoUPan or AutoVPan (0x200 / 0x400). |
 | Lava/slime | `bWaterZone=True` (swimmable). The class default `DamagePerSec` is 40. |
 | Kill zones | `bKillZone=True` means instant death. |
@@ -635,4 +639,7 @@ The original map is never modified; every command writes a new version and keeps
 | **CTF-Tenement** review | Long sightlines → "prefer shorter sightlines" (p90 ≤ ~1200). Walkway climbable from one end → one-end platform check. Stairs cut off by per-step carves → `add_stairs` carve mode is one tunnel plus solid steps. Chamfer knife edges → knife-edge check (also found 4 on Sludgeline). Flags sunk into the floor → `add_flag` at floor + 64 and a flag-height check. General measures (corridor runs, ledge detours, thin walls) were calibrated too, but don't separate Tenement from the pool, so they stay informational. |
 | **CTF-Derelict** review | BSP bug at the bottom of carved stairs: the first riser was flush with the stair tunnel's open end (coplanar add/subtract faces, polygon dropped), a bug from the previous round's stairs change. Now: the tunnel starts one step earlier, a 16uu landing keeps the riser off the doorway's wall plane, steps are semisolid, and `build_map` lints visible coplanar faces (probe verification can't see missing polygons). Reusing a reference map's look → `extract_assets` / `add_asset` (prefabs with original texture alignment, decorations, special surfaces); `/new-map` and `/remake-map` use them. |
 | **CTF-Lowtown** review | 3 spawns in one view → spawn-cluster check (pool max 3, generated maps had 4–6). Huge room with a cube in the middle → big-empty-room check (area, or tall and empty) and plain-placeholder-block check (pool: 0 in 17/18). The user rated Sludgeline better (no extra verticality, enough in it): the room check flags Lowtown's rooms and leaves Sludgeline alone. Visible floor area (isovist) did not separate Lowtown from the pool. CLAUDE.md added. |
+| Regression set | The reviewed maps (Coldrush … Lowtown) are in `examples/` with their expected check and lint results; `research/regression.py` verifies them. Props copied from DOM-Condemned were removed from Lowtown's file (no game content in the repo). |
+| **CTF-Slumgate** (`/new-map` like DOM-Condemned) | `mirror_map` duplicated everything centred on the plane except plain boxes (prisms list their corners in another order after mirroring; a zone or kicker at x=0 became 0.0 / -0.0): now compared in canonical form, and existing copies are skipped. All 18 "seams" of the build were inside Condemned's copied lamp, dumpster and grates (source alignment): texture counts now split off copied-asset problems. Skill: add text signs per side after mirroring. |
+| **CTF-Slumgate** review | Fake stairs gave the step-up view jitter, and the middle stairs had a BSP bug at the top. Reading the built BSP showed every invisible ramp missing (0/17 trace points) and the top step of 7 of 8 flights a hole to the floor: semisolid steps (from the Derelict round) under a semisolid ramp. Test builds of variants: solid add steps (Duku's construction) restore both, a plain-add ramp hides the steps. `add_stairs` now makes solid steps under a fake ramp; new `unrbsp.py` reads the world BSP and `build_map` traces every ramp and step after the build; `_lint` flags invisible semisolid over semisolid. Slumgate rebuilt (all ramps 17/17, no holes) and added to the examples. |
 | Texture alignment | `check_textures` and a texture summary in `build_map`. Found and fixed two generator bugs: add-brush faces were mirrored, and wall textures started at arbitrary heights (now anchored at the floor). Calibrated on the 18-map pool. |

@@ -13,9 +13,11 @@ meant for InstaGib.
 - `preview.py`: Top/Front/Side wireframe PNGs
 - `assets.py`: reusable props of existing maps (`extract_assets`, `add_asset`)
 - `layout.py`: layout spec and floor images (`extract_layout`, `layout_image`)
+- `examples/`: the reviewed generated maps and their expected check results (`research/regression.py`)
 - `review.py`: read-only audit of existing maps (`review_map`)
 - `patch.py`: patch mode, editing existing maps (`open_existing_map`) with verification against the original
 - `texalign.py` / `texpkg.py`: texture alignment check (`check_textures`) and texture sizes read from packages
+- `unrbsp.py`: reads the world BSP of a built `.unr`; `build_map` traces every ramp and stair step in it
 - `projects/*.json`: map projects (the source of truth; edits save automatically)
 - `output/*.t3d`: exported T3D files
 

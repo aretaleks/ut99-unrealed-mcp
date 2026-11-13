@@ -26,6 +26,7 @@ import metrics as mmetrics  # noqa: E402
 import rules  # noqa: E402
 import texalign  # noqa: E402
 import texpkg  # noqa: E402
+import unrbsp  # noqa: E402
 import patch as pmode  # noqa: E402
 import review as mreview  # noqa: E402
 import layout as mlayout  # noqa: E402
@@ -596,9 +597,11 @@ def add_stairs(start: list[float], floor_z: float, direction: str = "+x", steps:
         ys = [a[1] + py * width / 2, a[1] - py * width / 2, b[1] + py * width / 2, b[1] - py * width / 2]
         zlo, zhi = floor_z, top
         c, s = _box_minmax([min(xs), min(ys), zlo], [max(xs), max(ys), zhi])
-        # semisolid steps: solid to walk on, but they don't cut the world BSP (fewer cuts = fewer BSP holes)
-        els.append(d.add("brush", shape="box", csg="semisolid", location=c, size=s, texture=texture,
-                         group=group or "Stairs"))
+        # Under a fake ramp the steps must be SOLID adds (as on Duku): a semisolid ramp over semisolid steps is
+        # dropped from the BSP (CTF-Slumgate: no ramp collision -> step-up view jitter, and top steps became
+        # holes). Without a ramp, semisolid steps don't cut the world BSP (fewer cuts = fewer BSP holes).
+        els.append(d.add("brush", shape="box", csg="add" if fake_ramp else "semisolid", location=c, size=s,
+                         texture=texture, group=group or "Stairs"))
     msg = ""
     if fake_ramp:
         # Ramp plane through the step nosings: from the floor one step-depth before the stairs up to the last nosing.
@@ -874,6 +877,30 @@ def _mirror_params(p: dict, mode: str, c: list[float]) -> dict:
     return p
 
 
+def _canon_params(p):
+    """Comparable form of element params: numbers rounded (0 == 0.0 == -0.0), and point lists that describe one
+    shape (prism outline, brush verts / polygons) compared as sets - mirroring a centred prism lists the same
+    corners in another order (CTF-Slumgate: centred prisms, zones and kickers were duplicated)."""
+    def num(v):
+        if isinstance(v, bool) or not isinstance(v, (int, float)):
+            return v
+        r = round(float(v), 3)
+        return 0.0 if r == 0 else r
+
+    def walk(v, key=None):
+        if isinstance(v, dict):
+            return {k: walk(x, k) for k, x in v.items() if k != "polytex"}
+        if isinstance(v, list):
+            out = [walk(x) for x in v]
+            if key in ("points", "verts"):
+                return sorted(out, key=json.dumps)
+            if key == "polys":
+                return sorted((sorted(q, key=json.dumps) for q in out), key=json.dumps)
+            return out
+        return num(v)
+    return json.dumps(walk(p), sort_keys=True)
+
+
 @mcp.tool()
 def mirror_map(mode: str = "mirror_x", center: list[float] | None = None, ids: list[int] | None = None) -> str:
     """Build the other team's half: copies elements (default: all) through the map centre, swapping teams
@@ -887,10 +914,10 @@ def mirror_map(mode: str = "mirror_x", center: list[float] | None = None, ids: l
         raise ValueError("mode must be mirror_x, mirror_y or rotate180")
     src = [e for e in d.elements if ids is None or e.id in ids]
     added, skipped = [], []
+    present = {(x.kind, _canon_params(x.params)) for x in d.elements}
     for e in src:
         np_ = _mirror_params(e.params, mode, c)
-        same = json.dumps(np_, sort_keys=True) == json.dumps(e.params, sort_keys=True)
-        if same:
+        if (e.kind, _canon_params(np_)) in present:  # maps onto itself, or its mirror copy already exists
             skipped.append(e.id)
             continue
         if e.kind == "flag" and any(x.kind == "flag" and int(x.params.get("team", 0)) == np_["team"] for x in d.elements):
@@ -1111,12 +1138,15 @@ def build_map(filename: str = "", lighting: bool = True, paths: str = "define", 
     res.pop("probe_results", None)
     if res.get("ok"):
         _built_registry(add=str(out))
-        res["problems"] = res.get("problems", []) + _lint(d)
+        res["problems"] = res.get("problems", []) + _lint(d) + unrbsp.walk_surface_problems(d, out)
         try:
-            tx = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, max_items=3)
-            res["textures"] = {k: tx[k] for k in ("seams", "corner_steps", "distorted", "mirrored")} | {
-                "walls_aligned_share": tx["wall_base"]["share_aligned"],
-                "note": "run check_textures for locations" if tx["seams"] or tx["corner_steps"] or tx["distorted"] else "clean"}
+            tx = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, max_items=100000)
+            split = _split_asset_textures(d, tx)  # prefabs copied with add_asset keep their source's alignment
+            gen = {k: tx[k] - split.get(k, 0) for k in ("seams", "corner_steps", "distorted")}
+            res["textures"] = gen | {"mirrored": tx["mirrored"], "walls_aligned_share": tx["wall_base"]["share_aligned"],
+                                     "note": "run check_textures for locations" if any(gen.values()) else "clean"}
+            if any(split.values()):
+                res["textures"]["from_copied_assets"] = split
         except Exception as ex:  # never fail a build over the texture report
             res["textures"] = {"error": str(ex)}
     report["final_build"] = res
@@ -1525,6 +1555,9 @@ def _build_patch(filename: str, lighting: bool, paths: str, overwrite: bool, acc
     res.pop("probe_results", None)
     if res.get("ok"):
         _built_registry(add=str(out))
+        walk = unrbsp.walk_surface_problems(STATE["doc"], out)  # ramps / stairs added in this patch
+        if walk:
+            res["problems"] = res.get("problems", []) + walk
         try:
             td = pmode.texture_delta(pp, max_items=3)
             res["textures"] = {"new_problems": td["counts"], "examples": td["new_seams"][:3] + td["new_corner_steps"][:3]}
@@ -1568,6 +1601,26 @@ def _pool_texture_ranges() -> dict:
     return out
 
 
+def _split_asset_textures(d, r: dict) -> dict:
+    """Map texture-check items to project element ids (in place) and count the seams / corner steps / distortions
+    that lie entirely inside prefabs copied with add_asset. Those keep the source map's own alignment
+    (CTF-Slumgate: all 18 seams were inside DOM-Condemned's lamp, dumpster and grates), so the generated-geometry
+    target of 0 seams / 0 steps excludes them. Needs uncapped lists (max_items large)."""
+    order = [e.id for e in d.ordered_brushes()]
+    assets = {e.id for e in d.elements if "polytex" in e.params or str(e.params.get("group", "")).startswith("Asset_")}
+    for key in ("seam_list", "corner_step_list", "corner_pan_list", "distorted_list", "wall_base_list"):
+        for it in r.get(key, []):  # T3D brush names -> project element ids
+            names = it.get("brushes") or [it.get("brush")]
+            it["element_ids"] = [order[int(n[5:]) - 1] for n in names
+                                 if n and n.startswith("Brush") and n[5:].isdigit() and 0 < int(n[5:]) <= len(order)]
+            it.pop("ids", None), it.pop("id", None)
+
+    def n_in_assets(key):
+        return sum(1 for it in r.get(key, []) if it["element_ids"] and set(it["element_ids"]) <= assets)
+    return {"seams": n_in_assets("seam_list"), "corner_steps": n_in_assets("corner_step_list"),
+            "distorted": n_in_assets("distorted_list")}
+
+
 @mcp.tool()
 def check_textures(path: str = "", max_items: int = 12) -> str:
     """Texture alignment check. No path: the open project (as it will be built). With path: an existing map
@@ -1584,14 +1637,15 @@ def check_textures(path: str = "", max_items: int = 12) -> str:
                 + json.dumps(td, indent=1, default=str))
     if not path:
         d = doc()
-        r = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, max_items)
-        order = [e.id for e in d.ordered_brushes()]
+        r = texalign.check_mapdoc(d, ucc.GAME_DIR, ucc.WORK, 100000)
+        split = _split_asset_textures(d, r)
         for key in ("seam_list", "corner_step_list", "corner_pan_list", "distorted_list", "wall_base_list"):
-            for it in r[key]:  # T3D brush names -> project element ids
-                names = it.get("brushes") or [it.get("brush")]
-                it["element_ids"] = [order[int(n[5:]) - 1] for n in names
-                                     if n and n.startswith("Brush") and n[5:].isdigit() and 0 < int(n[5:]) <= len(order)]
-                it.pop("ids", None), it.pop("id", None)
+            r[key] = r[key][:max_items]
+        r["copied_assets"] = split
+        if any(split.values()):
+            r["note"] = ("counts above include problems inside prefabs copied with add_asset (the source author's own "
+                         "alignment): " + json.dumps(split) + " - the 0 seams / 0 steps target is for the generated "
+                         "geometry, i.e. the counts minus these")
     else:
         got = _export_existing(path)
         if isinstance(got, str):
@@ -1676,6 +1730,28 @@ def _lint(d: MapDoc) -> list[str]:
                        ">= 16uu or extend the carve past it")
     except Exception:
         pass
+    # CTF-Slumgate: an invisible semisolid brush (fake-stairs ramp) over semisolid brushes is dropped from the BSP
+    # (built map: no ramp collision -> step-up view jitter, top steps turned into holes). Solid add steps work.
+    def _bbox(e):
+        try:
+            loc, polys = d.brush_polys(e)
+            pts = np.array([v for p in polys for v in p.verts], float) + np.array(loc, float)
+            return pts.min(0) + 1, pts.max(0) - 1  # shrunk 1uu: brushes that only touch don't count
+        except Exception:
+            return None
+    invis = [e for e in d.elements if e.kind == "brush" and e.params.get("csg") == "semisolid"
+             and e.params.get("poly_flags", 0) & PF_INVISIBLE]
+    semis = [e for e in d.elements if e.kind == "brush" and e.params.get("csg") == "semisolid"
+             and not e.params.get("poly_flags", 0) & PF_INVISIBLE]
+    for r in invis:
+        rb = _bbox(r)
+        if not rb:
+            continue
+        under = [s.id for s in semis if (sb := _bbox(s)) and all(sb[0][i] < rb[1][i] and rb[0][i] < sb[1][i] for i in range(3))]
+        if under:
+            out.append(f"Fake-stairs ramp #{r.id} (invisible semisolid) overlaps semisolid brush(es) #{', #'.join(map(str, under[:6]))}"
+                       f"{' ...' if len(under) > 6 else ''} - UE1 drops the ramp from the BSP, players walk the steps (view "
+                       "jitter). Make the steps csg='add' (add_stairs does this now)")
     try:  # CTF-Tenement lessons: knife edges between carves, flags sunk into the floor
         ke = mmetrics.knife_edges(d)
         for sp_ in ke["knife_edge_spots"][:6]:

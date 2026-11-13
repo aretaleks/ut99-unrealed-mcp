@@ -44,7 +44,7 @@ Follow "Building a map with the unrealed MCP" in the design skill:
 6. `build_map`.
 7. `map_metrics`.
 
-Fix every FAIL, and WARNs where reasonable, then rebuild. The `build_map` report includes a texture summary, which must show 0 seams and 0 corner steps.
+Fix every FAIL, and WARNs where reasonable, then rebuild. The `build_map` report includes a texture summary, which must show 0 seams and 0 corner steps for the generated geometry (problems inside copied `add_asset` prefabs are listed separately under `from_copied_assets`).
 
 ## 3. Report
 - The file: `Maps\<name>.unr`.

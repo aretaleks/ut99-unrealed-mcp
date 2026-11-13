@@ -1,0 +1,9238 @@
+{
+ "title": "Sludgeline",
+ "author": "Claude (unrealed MCP)",
+ "grid": 16,
+ "default_texture": "UTtech1.Wall.ClifCon2",
+ "bsp": {
+  "mode": "good",
+  "balance": 15,
+  "portal_bias": 70
+ },
+ "gametype": "ctf",
+ "next_id": 469,
+ "elements": [
+  {
+   "id": 12,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -3104,
+     -1248,
+     416.0
+    ],
+    "points": [
+     [
+      96,
+      -416
+     ],
+     [
+      288,
+      -224
+     ],
+     [
+      288,
+      224
+     ],
+     [
+      96,
+      416
+     ],
+     [
+      -96,
+      416
+     ],
+     [
+      -288,
+      224
+     ],
+     [
+      -288,
+      -224
+     ],
+     [
+      -96,
+      -416
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "RedNorthWing",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 1,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     5120
+    ],
+    "size": [
+     2048,
+     2048,
+     2048
+    ],
+    "texture": "SkyBox.Effects.NCld",
+    "poly_flags": 4194816,
+    "group": "SkyBox"
+   }
+  },
+  {
+   "id": 2,
+   "kind": "zone",
+   "params": {
+    "type": "sky",
+    "name": "Sky",
+    "location": [
+     0,
+     0,
+     4608.0
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -3168,
+     0,
+     448.0
+    ],
+    "points": [
+     [
+      224,
+      -576
+     ],
+     [
+      352,
+      -448
+     ],
+     [
+      352,
+      448
+     ],
+     [
+      224,
+      576
+     ],
+     [
+      -224,
+      576
+     ],
+     [
+      -352,
+      448
+     ],
+     [
+      -352,
+      -448
+     ],
+     [
+      -224,
+      -576
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk1"
+    },
+    "group": "RedFlagRoom",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 4,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3744.0,
+     0.0,
+     352.0
+    ],
+    "size": [
+     320,
+     768,
+     704
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "UTtech1.Wall.ClifBrk3"
+    },
+    "group": "RedVista",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 5,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3552.0,
+     0.0,
+     448.0
+    ],
+    "size": [
+     64,
+     512,
+     256
+    ],
+    "group": "RedVista"
+   }
+  },
+  {
+   "id": 6,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3552.0,
+     0.0,
+     448.0
+    ],
+    "size": [
+     64,
+     512,
+     256
+    ],
+    "poly_flags": 1,
+    "group": "RedVistaBlocker"
+   }
+  },
+  {
+   "id": 7,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2560.0,
+     0.0,
+     512.0
+    ],
+    "size": [
+     384,
+     2304,
+     640
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr4",
+     "sides": "UTtech1.Wall.ClifBrk2"
+    },
+    "group": "RedMoat",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 8,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2784.0,
+     -320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 9,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2784.0,
+     320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 10,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2336.0,
+     -320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 11,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2336.0,
+     320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 13,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -3104,
+     1248,
+     416.0
+    ],
+    "points": [
+     [
+      96,
+      -416
+     ],
+     [
+      169,
+      -401
+     ],
+     [
+      232,
+      -360
+     ],
+     [
+      273,
+      -297
+     ],
+     [
+      288,
+      -224
+     ],
+     [
+      288,
+      224
+     ],
+     [
+      273,
+      297
+     ],
+     [
+      232,
+      360
+     ],
+     [
+      169,
+      401
+     ],
+     [
+      96,
+      416
+     ],
+     [
+      -96,
+      416
+     ],
+     [
+      -169,
+      401
+     ],
+     [
+      -232,
+      360
+     ],
+     [
+      -273,
+      297
+     ],
+     [
+      -288,
+      224
+     ],
+     [
+      -288,
+      -224
+     ],
+     [
+      -273,
+      -297
+     ],
+     [
+      -232,
+      -360
+     ],
+     [
+      -169,
+      -401
+     ],
+     [
+      -96,
+      -416
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "RedSouthWing",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 14,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3200.0,
+     -704.0,
+     320.0
+    ],
+    "size": [
+     256,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 15,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3200.0,
+     704.0,
+     320.0
+    ],
+    "size": [
+     256,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 16,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2784.0,
+     -1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 17,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2784.0,
+     1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 18,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -1824,
+     0,
+     288
+    ],
+    "points": [
+     [
+      352,
+      -768
+     ],
+     [
+      480,
+      -640
+     ],
+     [
+      480,
+      640
+     ],
+     [
+      352,
+      768
+     ],
+     [
+      -352,
+      768
+     ],
+     [
+      -480,
+      640
+     ],
+     [
+      -480,
+      -640
+     ],
+     [
+      -352,
+      -768
+     ]
+    ],
+    "height": 576,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr3",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk1"
+    },
+    "group": "RedHub",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 19,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1728.0,
+     -1152.0,
+     384.0
+    ],
+    "size": [
+     1152,
+     512,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon2"
+    },
+    "group": "RedHighWalk",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 20,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2336.0,
+     -1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 21,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2176.0,
+     -832.0,
+     320.0
+    ],
+    "size": [
+     256,
+     160,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 22,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2208.0,
+     952.0,
+     320.0
+    ],
+    "size": [
+     320,
+     400,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedSouthWalk",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 23,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1632.0,
+     1216.0,
+     -32.0
+    ],
+    "size": [
+     960,
+     640,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5",
+     "top": "UTtech1.Ceiling.bmCeiling3",
+     "sides": "UTtech1.Wall.ClifBrk3"
+    },
+    "group": "RedLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 24,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1728.0,
+     712.0,
+     64.0
+    ],
+    "size": [
+     384,
+     400,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5"
+    },
+    "group": "RedLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 25,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -960.0,
+     1216.0,
+     32.0
+    ],
+    "size": [
+     384,
+     384,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5"
+    },
+    "group": "RedLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 26,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -1024,
+     -192,
+     224
+    ],
+    "points": [
+     [
+      64,
+      -640
+     ],
+     [
+      256,
+      -448
+     ],
+     [
+      256,
+      448
+     ],
+     [
+      64,
+      640
+     ],
+     [
+      -64,
+      640
+     ],
+     [
+      -256,
+      448
+     ],
+     [
+      -256,
+      -448
+     ],
+     [
+      -64,
+      -640
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr3",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "RedCourt",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 27,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1312.0,
+     -448.0,
+     160.0
+    ],
+    "size": [
+     64,
+     512,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 28,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -736.0,
+     128.0,
+     160.0
+    ],
+    "size": [
+     64,
+     512,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 29,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     -1312,
+     256.0
+    ],
+    "points": [
+     [
+      960,
+      -288
+     ],
+     [
+      1056,
+      -256
+     ],
+     [
+      1120,
+      -192
+     ],
+     [
+      1152,
+      -96
+     ],
+     [
+      1152,
+      288
+     ],
+     [
+      -1152,
+      288
+     ],
+     [
+      -1152,
+      -96
+     ],
+     [
+      -1120,
+      -192
+     ],
+     [
+      -1056,
+      -256
+     ],
+     [
+      -960,
+      -288
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk2"
+    },
+    "group": "NorthGallery",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 30,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -192.0,
+     -992.0,
+     160.0
+    ],
+    "size": [
+     256,
+     64,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 31,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2560,
+     0,
+     64
+    ],
+    "size": [
+     384,
+     1792,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 32,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2560,
+     0,
+     64
+    ],
+    "width": 384,
+    "height": 1792,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 33,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Red Moat Slime",
+    "location": [
+     -2560,
+     0,
+     0
+    ],
+    "pit_bounds": [
+     [
+      -2752.0,
+      -896.0
+     ],
+     [
+      -2368.0,
+      896.0
+     ]
+    ],
+    "pit_top": 192,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 34,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2560.0,
+     -320.0,
+     176.0
+    ],
+    "size": [
+     384,
+     256,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr6",
+    "face_textures": {},
+    "group": "RedBridges",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 35,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2560.0,
+     320.0,
+     176.0
+    ],
+    "size": [
+     384,
+     256,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr6",
+    "face_textures": {},
+    "group": "RedBridges",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 36,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1696,
+     1408,
+     -320
+    ],
+    "size": [
+     576,
+     256,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 37,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1696,
+     1408,
+     -320
+    ],
+    "width": 576,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67109644,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 38,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Red Channel Slime",
+    "location": [
+     -1696,
+     1408,
+     -384
+    ],
+    "pit_bounds": [
+     [
+      -1984.0,
+      1280.0
+     ],
+     [
+      -1408.0,
+      1536.0
+     ]
+    ],
+    "pit_top": -192,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 39,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3744.0,
+     0.0,
+     -128.0
+    ],
+    "size": [
+     320,
+     768,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 40,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -3744.0,
+     0.0,
+     -128
+    ],
+    "width": 320,
+    "height": 768,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 41,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Red Vista Slime",
+    "location": [
+     -3744.0,
+     0.0,
+     -192.0
+    ],
+    "pit_bounds": [
+     [
+      -3904.0,
+      -384.0
+     ],
+     [
+      -3584.0,
+      384.0
+     ]
+    ],
+    "pit_top": 0,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 42,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2176,
+     0,
+     96
+    ],
+    "size": [
+     256,
+     1536,
+     192
+    ],
+    "texture": "UTtech1.Wall.ClifCon5",
+    "face_textures": {
+     "top": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "RedHubLedge",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 43,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1680.0,
+     0.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 44,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1712.0,
+     0.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 45,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1744.0,
+     0.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 46,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1776.0,
+     0.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 47,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1808.0,
+     0.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 48,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1840.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 49,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1872.0,
+     0.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 50,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1904.0,
+     0.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 51,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1936.0,
+     0.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 52,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1968.0,
+     0.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 53,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2000.0,
+     0.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 54,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2032.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHubStairs"
+   }
+  },
+  {
+   "id": 55,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -1824.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 180,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedHubStairsFakeRamp"
+   }
+  },
+  {
+   "id": 56,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     880.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 57,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     848.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 58,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     816.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 59,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     784.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 60,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     752.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 61,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     720.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 62,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     688.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 63,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     656.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 64,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     624.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 65,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     592.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 66,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     560.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 67,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1728.0,
+     528.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedTunnelStairs"
+   }
+  },
+  {
+   "id": 68,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -1728.0,
+     736.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedTunnelStairsFakeRamp"
+   }
+  },
+  {
+   "id": 69,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -784.0,
+     -1216.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 70,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -816.0,
+     -1216.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 71,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -848.0,
+     -1216.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 72,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -880.0,
+     -1216.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 73,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -912.0,
+     -1216.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 74,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -944.0,
+     -1216.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 75,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -976.0,
+     -1216.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 76,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1008.0,
+     -1216.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 77,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1040.0,
+     -1216.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 78,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1072.0,
+     -1216.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 79,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1104.0,
+     -1216.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 80,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1136.0,
+     -1216.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedHighStairs"
+   }
+  },
+  {
+   "id": 81,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -928.0,
+     -1216.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 180,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedHighStairsFakeRamp"
+   }
+  },
+  {
+   "id": 82,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1136.0,
+     1216.0,
+     -184.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 83,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1104.0,
+     1216.0,
+     -176.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 84,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1072.0,
+     1216.0,
+     -168.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 85,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1040.0,
+     1216.0,
+     -160.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 86,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1008.0,
+     1216.0,
+     -152.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 87,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -976.0,
+     1216.0,
+     -144.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 88,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -944.0,
+     1216.0,
+     -136.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 89,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -912.0,
+     1216.0,
+     -128.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 90,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -880.0,
+     1216.0,
+     -120.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 91,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -848.0,
+     1216.0,
+     -112.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 92,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -816.0,
+     1216.0,
+     -104.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 93,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -784.0,
+     1216.0,
+     -96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "RedLowStairs"
+   }
+  },
+  {
+   "id": 94,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -992.0,
+     1216.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 0,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedLowStairsFakeRamp"
+   }
+  },
+  {
+   "id": 95,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -1600,
+     -480,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "UTtech1.pillar.ClfPilr1",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 96,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -1056,
+     -192,
+     224.0
+    ],
+    "radius": 96,
+    "height": 448,
+    "sides": 8,
+    "texture": "UTtech1.pillar.ClfPilr2",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 97,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1664.0,
+     -1344.0,
+     384.0
+    ],
+    "size": [
+     128,
+     128,
+     384
+    ],
+    "texture": "UTtech1.pillar.ClfPilr3",
+    "face_textures": {},
+    "group": "",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 98,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2784,
+     -320,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 99,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2784,
+     320,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 100,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -3200,
+     -704,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 101,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -3200,
+     704,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 102,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1312,
+     -448,
+     160
+    ],
+    "width": 544,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 103,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1184,
+     -1152,
+     384
+    ],
+    "width": 544,
+    "height": 416,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 104,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1184,
+     1216,
+     -32
+    ],
+    "width": 672,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 105,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Flag Room",
+    "location": [
+     -3168,
+     256,
+     448
+    ],
+    "ambient_brightness": 14,
+    "ambient_hue": 0,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 106,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Base",
+    "location": [
+     -1856,
+     -384,
+     320
+    ],
+    "ambient_brightness": 14,
+    "ambient_hue": 80,
+    "ambient_saturation": 230
+   }
+  },
+  {
+   "id": 107,
+   "kind": "flag",
+   "params": {
+    "location": [
+     -3200,
+     0,
+     224
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 108,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1600,
+     1088,
+     -152
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 109,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1344,
+     1088,
+     -152
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 110,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1408,
+     -1152,
+     232
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 111,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1856,
+     -1152,
+     232
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 112,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1152,
+     -576,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 113,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1152,
+     192,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 114,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -896,
+     -448,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 115,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -896,
+     64,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 116,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1536,
+     -320,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 117,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1536,
+     320,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 118,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3344,
+     -432,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 119,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3344,
+     -144,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 120,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3344,
+     144,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 121,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3344,
+     432,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 122,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2992,
+     -432,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 123,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2992,
+     -144,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 124,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2992,
+     144,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 125,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2992,
+     432,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 126,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     -992,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 127,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     -656,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 128,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     -336,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 129,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 130,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     336,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 131,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     656,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 132,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     992,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 133,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     -1520,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 134,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     -1248,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 135,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     -976,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 136,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     -1520,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 137,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     -1248,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 138,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     -976,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 139,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     976,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 140,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     1248,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 141,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3248,
+     1520,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 142,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     976,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 143,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     1248,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 144,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2960,
+     1520,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 145,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     -608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 146,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     -304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 147,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 148,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 149,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 150,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     -608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 151,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     -304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 152,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 153,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 154,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 155,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     -608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 156,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     -304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 157,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 158,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     304,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 159,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     608,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 160,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     -1280,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 161,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2160,
+     -1024,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 162,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1872,
+     -1280,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 163,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1872,
+     -1024,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 164,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1584,
+     -1280,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 165,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1584,
+     -1024,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 166,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1296,
+     -1280,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 167,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1296,
+     -1024,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 168,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2208,
+     960,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 169,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1952,
+     1056,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 170,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1952,
+     1376,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 171,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1632,
+     1056,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 172,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1632,
+     1376,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 173,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1312,
+     1056,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 174,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1312,
+     1376,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 175,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1200,
+     -672,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 176,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1200,
+     -352,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 177,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1200,
+     -32,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 178,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1200,
+     288,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 179,
+   "kind": "light",
+   "params": {
+    "location": [
+     -912,
+     -672,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 180,
+   "kind": "light",
+   "params": {
+    "location": [
+     -912,
+     -352,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 181,
+   "kind": "light",
+   "params": {
+    "location": [
+     -912,
+     -32,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 182,
+   "kind": "light",
+   "params": {
+    "location": [
+     -912,
+     288,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 183,
+   "kind": "light",
+   "params": {
+    "location": [
+     -992,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 184,
+   "kind": "light",
+   "params": {
+    "location": [
+     -992,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 185,
+   "kind": "light",
+   "params": {
+    "location": [
+     -656,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 186,
+   "kind": "light",
+   "params": {
+    "location": [
+     -656,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 187,
+   "kind": "light",
+   "params": {
+    "location": [
+     -336,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 188,
+   "kind": "light",
+   "params": {
+    "location": [
+     -336,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 189,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 190,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 191,
+   "kind": "light",
+   "params": {
+    "location": [
+     336,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 192,
+   "kind": "light",
+   "params": {
+    "location": [
+     336,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 193,
+   "kind": "light",
+   "params": {
+    "location": [
+     656,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 194,
+   "kind": "light",
+   "params": {
+    "location": [
+     656,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 195,
+   "kind": "light",
+   "params": {
+    "location": [
+     992,
+     -1456,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 196,
+   "kind": "light",
+   "params": {
+    "location": [
+     992,
+     -1168,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 197,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3744,
+     -192,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 198,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3744,
+     192,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 199,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     -768,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 200,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     0,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 201,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     768,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 202,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1696,
+     1408,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 203,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1840,
+     1408,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 204,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1552,
+     1408,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 205,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     3168.0,
+     0.0,
+     448.0
+    ],
+    "points": [
+     [
+      224,
+      -576
+     ],
+     [
+      352,
+      -448
+     ],
+     [
+      352,
+      448
+     ],
+     [
+      224,
+      576
+     ],
+     [
+      -224,
+      576
+     ],
+     [
+      -352,
+      448
+     ],
+     [
+      -352,
+      -448
+     ],
+     [
+      -224,
+      -576
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk1"
+    },
+    "group": "BlueFlagRoom",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 206,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3744.0,
+     0.0,
+     352.0
+    ],
+    "size": [
+     320,
+     768,
+     704
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "UTtech1.Wall.ClifBrk3"
+    },
+    "group": "BlueVista",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 207,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3552.0,
+     0.0,
+     448.0
+    ],
+    "size": [
+     64,
+     512,
+     256
+    ],
+    "group": "BlueVista"
+   }
+  },
+  {
+   "id": 208,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3552.0,
+     0.0,
+     448.0
+    ],
+    "size": [
+     64,
+     512,
+     256
+    ],
+    "poly_flags": 1,
+    "group": "BlueVistaBlocker"
+   }
+  },
+  {
+   "id": 209,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2560.0,
+     0.0,
+     512.0
+    ],
+    "size": [
+     384,
+     2304,
+     640
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr4",
+     "sides": "UTtech1.Wall.ClifBrk2"
+    },
+    "group": "BlueMoat",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 210,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2784.0,
+     320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 211,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2784.0,
+     -320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 212,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2336.0,
+     320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 213,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2336.0,
+     -320.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2",
+     "sides": "UTtech1.Trim.hzpanel1"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 214,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     3104.0,
+     1248.0,
+     416.0
+    ],
+    "points": [
+     [
+      -96,
+      416
+     ],
+     [
+      -288,
+      224
+     ],
+     [
+      -288,
+      -224
+     ],
+     [
+      -96,
+      -416
+     ],
+     [
+      96,
+      -416
+     ],
+     [
+      288,
+      -224
+     ],
+     [
+      288,
+      224
+     ],
+     [
+      96,
+      416
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "BlueNorthWing",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 215,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     3104.0,
+     -1248.0,
+     416.0
+    ],
+    "points": [
+     [
+      -96,
+      416
+     ],
+     [
+      -169,
+      401
+     ],
+     [
+      -232,
+      360
+     ],
+     [
+      -273,
+      297
+     ],
+     [
+      -288,
+      224
+     ],
+     [
+      -288,
+      -224
+     ],
+     [
+      -273,
+      -297
+     ],
+     [
+      -232,
+      -360
+     ],
+     [
+      -169,
+      -401
+     ],
+     [
+      -96,
+      -416
+     ],
+     [
+      96,
+      -416
+     ],
+     [
+      169,
+      -401
+     ],
+     [
+      232,
+      -360
+     ],
+     [
+      273,
+      -297
+     ],
+     [
+      288,
+      -224
+     ],
+     [
+      288,
+      224
+     ],
+     [
+      273,
+      297
+     ],
+     [
+      232,
+      360
+     ],
+     [
+      169,
+      401
+     ],
+     [
+      96,
+      416
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "BlueSouthWing",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 216,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3200.0,
+     704.0,
+     320.0
+    ],
+    "size": [
+     256,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 217,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3200.0,
+     -704.0,
+     320.0
+    ],
+    "size": [
+     256,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 218,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2784.0,
+     1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 219,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2784.0,
+     -1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 221,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1728.0,
+     1152.0,
+     384.0
+    ],
+    "size": [
+     1152,
+     512,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon2"
+    },
+    "group": "BlueHighWalk",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 222,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2336.0,
+     1024.0,
+     320.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 223,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2176.0,
+     832.0,
+     320.0
+    ],
+    "size": [
+     256,
+     160,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 224,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2208.0,
+     -952.0,
+     320.0
+    ],
+    "size": [
+     320,
+     400,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueSouthWalk",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 225,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1632.0,
+     -1216.0,
+     -32.0
+    ],
+    "size": [
+     960,
+     640,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5",
+     "top": "UTtech1.Ceiling.bmCeiling3",
+     "sides": "UTtech1.Wall.ClifBrk3"
+    },
+    "group": "BlueLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 226,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1728.0,
+     -712.0,
+     64.0
+    ],
+    "size": [
+     384,
+     400,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5"
+    },
+    "group": "BlueLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 227,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     960.0,
+     -1216.0,
+     32.0
+    ],
+    "size": [
+     384,
+     384,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr5"
+    },
+    "group": "BlueLowTunnel",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 228,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     1024,
+     192,
+     224
+    ],
+    "points": [
+     [
+      64,
+      -640
+     ],
+     [
+      256,
+      -448
+     ],
+     [
+      256,
+      448
+     ],
+     [
+      64,
+      640
+     ],
+     [
+      -64,
+      640
+     ],
+     [
+      -256,
+      448
+     ],
+     [
+      -256,
+      -448
+     ],
+     [
+      -64,
+      -640
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr3",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifCon1"
+    },
+    "group": "BlueCourt",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 229,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1312.0,
+     448.0,
+     160.0
+    ],
+    "size": [
+     64,
+     512,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 230,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     736.0,
+     -128.0,
+     160.0
+    ],
+    "size": [
+     64,
+     512,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 231,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1312.0,
+     256.0
+    ],
+    "points": [
+     [
+      -960,
+      288
+     ],
+     [
+      -1056,
+      256
+     ],
+     [
+      -1120,
+      192
+     ],
+     [
+      -1152,
+      96
+     ],
+     [
+      -1152,
+      -288
+     ],
+     [
+      1152,
+      -288
+     ],
+     [
+      1152,
+      96
+     ],
+     [
+      1120,
+      192
+     ],
+     [
+      1056,
+      256
+     ],
+     [
+      960,
+      288
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr1",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk2"
+    },
+    "group": "NorthGallery",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 232,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     192.0,
+     992.0,
+     160.0
+    ],
+    "size": [
+     256,
+     64,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueDoors",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 233,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2560,
+     0,
+     64
+    ],
+    "size": [
+     384,
+     1792,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 234,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2560,
+     0,
+     64
+    ],
+    "width": 384,
+    "height": 1792,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 235,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Blue Moat Slime",
+    "location": [
+     2560,
+     0,
+     0
+    ],
+    "pit_bounds": [
+     [
+      2368.0,
+      -896.0
+     ],
+     [
+      2752.0,
+      896.0
+     ]
+    ],
+    "pit_top": 192,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 236,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2560.0,
+     320.0,
+     176.0
+    ],
+    "size": [
+     384,
+     256,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr6",
+    "face_textures": {},
+    "group": "BlueBridges",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 237,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2560.0,
+     -320.0,
+     176.0
+    ],
+    "size": [
+     384,
+     256,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr6",
+    "face_textures": {},
+    "group": "BlueBridges",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 238,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1696,
+     -1408,
+     -320
+    ],
+    "size": [
+     576,
+     256,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 239,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1696,
+     -1408,
+     -320
+    ],
+    "width": 576,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67109644,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 240,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Blue Channel Slime",
+    "location": [
+     1696,
+     -1408,
+     -384
+    ],
+    "pit_bounds": [
+     [
+      1408.0,
+      -1536.0
+     ],
+     [
+      1984.0,
+      -1280.0
+     ]
+    ],
+    "pit_top": -192,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 241,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3744.0,
+     0.0,
+     -128.0
+    ],
+    "size": [
+     320,
+     768,
+     256
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 242,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     3744.0,
+     0.0,
+     -128
+    ],
+    "width": 320,
+    "height": 768,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 243,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Blue Vista Slime",
+    "location": [
+     3744.0,
+     0.0,
+     -192.0
+    ],
+    "pit_bounds": [
+     [
+      3584.0,
+      -384.0
+     ],
+     [
+      3904.0,
+      384.0
+     ]
+    ],
+    "pit_top": 0,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 220,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     1824,
+     0,
+     288
+    ],
+    "points": [
+     [
+      352,
+      -768
+     ],
+     [
+      480,
+      -640
+     ],
+     [
+      480,
+      640
+     ],
+     [
+      352,
+      768
+     ],
+     [
+      -352,
+      768
+     ],
+     [
+      -480,
+      640
+     ],
+     [
+      -480,
+      -640
+     ],
+     [
+      -352,
+      -768
+     ]
+    ],
+    "height": 576,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr3",
+     "top": "UTtech1.Ceiling.nmceiling5",
+     "sides": "UTtech1.Wall.ClifBrk1"
+    },
+    "group": "BlueHub",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 244,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2176,
+     0,
+     96
+    ],
+    "size": [
+     256,
+     1536,
+     192
+    ],
+    "texture": "UTtech1.Wall.ClifCon5",
+    "face_textures": {
+     "top": "UTtech1.Floor.rClfFlr2"
+    },
+    "group": "BlueHubLedge",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 245,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1680.0,
+     0.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 246,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1712.0,
+     0.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 247,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1744.0,
+     0.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 248,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1776.0,
+     0.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 249,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1808.0,
+     0.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 250,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1840.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 251,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1872.0,
+     0.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 252,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1904.0,
+     0.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 253,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1936.0,
+     0.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 254,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1968.0,
+     0.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 255,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2000.0,
+     0.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 256,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2032.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHubStairs"
+   }
+  },
+  {
+   "id": 257,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     1824.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 0,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueHubStairsFakeRamp"
+   }
+  },
+  {
+   "id": 258,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -880.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 259,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -848.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 260,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -816.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 261,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -784.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 262,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -752.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 263,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -720.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 264,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -688.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 265,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -656.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 266,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -624.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 267,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -592.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 268,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -560.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 269,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1728.0,
+     -528.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueTunnelStairs"
+   }
+  },
+  {
+   "id": 270,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     1728.0,
+     -736.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueTunnelStairsFakeRamp"
+   }
+  },
+  {
+   "id": 271,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     784.0,
+     1216.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 272,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     816.0,
+     1216.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 273,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     848.0,
+     1216.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 274,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     880.0,
+     1216.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 275,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     912.0,
+     1216.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 276,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     944.0,
+     1216.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 277,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     976.0,
+     1216.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 278,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1008.0,
+     1216.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 279,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1040.0,
+     1216.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 280,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1072.0,
+     1216.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 281,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1104.0,
+     1216.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 282,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1136.0,
+     1216.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueHighStairs"
+   }
+  },
+  {
+   "id": 283,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     928.0,
+     1216.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 0,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueHighStairsFakeRamp"
+   }
+  },
+  {
+   "id": 284,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1136.0,
+     -1216.0,
+     -184.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 285,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1104.0,
+     -1216.0,
+     -176.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 286,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1072.0,
+     -1216.0,
+     -168.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 287,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1040.0,
+     -1216.0,
+     -160.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 288,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1008.0,
+     -1216.0,
+     -152.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 289,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     976.0,
+     -1216.0,
+     -144.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 290,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     944.0,
+     -1216.0,
+     -136.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 291,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     912.0,
+     -1216.0,
+     -128.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 292,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     880.0,
+     -1216.0,
+     -120.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 293,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     848.0,
+     -1216.0,
+     -112.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 294,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     816.0,
+     -1216.0,
+     -104.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 295,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     784.0,
+     -1216.0,
+     -96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "UTtech1.Floor.rClfFlr7",
+    "group": "BlueLowStairs"
+   }
+  },
+  {
+   "id": 296,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     992.0,
+     -1216.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 180,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueLowStairsFakeRamp"
+   }
+  },
+  {
+   "id": 297,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     1600.0,
+     480.0,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "UTtech1.pillar.ClfPilr1",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 298,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     1056.0,
+     192.0,
+     224.0
+    ],
+    "radius": 96,
+    "height": 448,
+    "sides": 8,
+    "texture": "UTtech1.pillar.ClfPilr2",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 299,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1664.0,
+     1344.0,
+     384.0
+    ],
+    "size": [
+     128,
+     128,
+     384
+    ],
+    "texture": "UTtech1.pillar.ClfPilr3",
+    "face_textures": {},
+    "group": "",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 300,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2784.0,
+     320.0,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 301,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2784.0,
+     -320.0,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 302,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     3200.0,
+     704.0,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 303,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     3200.0,
+     -704.0,
+     320
+    ],
+    "width": 288,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 304,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1312.0,
+     448.0,
+     160
+    ],
+    "width": 544,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 305,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1184.0,
+     1152.0,
+     384
+    ],
+    "width": 544,
+    "height": 416,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 306,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1184.0,
+     -1216.0,
+     -32
+    ],
+    "width": 672,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 307,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Flag Room",
+    "location": [
+     3168.0,
+     -256.0,
+     448
+    ],
+    "ambient_brightness": 14,
+    "ambient_hue": 0,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 308,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Base",
+    "location": [
+     1856.0,
+     384.0,
+     320
+    ],
+    "ambient_brightness": 14,
+    "ambient_hue": 80,
+    "ambient_saturation": 230
+   }
+  },
+  {
+   "id": 309,
+   "kind": "flag",
+   "params": {
+    "location": [
+     3200.0,
+     0.0,
+     224
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 310,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1600.0,
+     -1088.0,
+     -152
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 311,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1344.0,
+     -1088.0,
+     -152
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 312,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1408.0,
+     1152.0,
+     232
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 313,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1856.0,
+     1152.0,
+     232
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 314,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1152.0,
+     576.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 315,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1152.0,
+     -192.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 316,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     896.0,
+     448.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 317,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     896.0,
+     -64.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 318,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1536.0,
+     320.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 319,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1536.0,
+     -320.0,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 320,
+   "kind": "light",
+   "params": {
+    "location": [
+     3344.0,
+     432.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 321,
+   "kind": "light",
+   "params": {
+    "location": [
+     3344.0,
+     144.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 322,
+   "kind": "light",
+   "params": {
+    "location": [
+     3344.0,
+     -144.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 323,
+   "kind": "light",
+   "params": {
+    "location": [
+     3344.0,
+     -432.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 324,
+   "kind": "light",
+   "params": {
+    "location": [
+     2992.0,
+     432.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 325,
+   "kind": "light",
+   "params": {
+    "location": [
+     2992.0,
+     144.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 326,
+   "kind": "light",
+   "params": {
+    "location": [
+     2992.0,
+     -144.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 327,
+   "kind": "light",
+   "params": {
+    "location": [
+     2992.0,
+     -432.0,
+     640
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 328,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     992.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 329,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     656.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 330,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     336.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 331,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     0.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 332,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     -336.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 333,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     -656.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 334,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     -992.0,
+     496
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 110
+   }
+  },
+  {
+   "id": 335,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     1520.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 336,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     1248.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 337,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     976.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 338,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     1520.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 339,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     1248.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 340,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     976.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 341,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     -976.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 342,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     -1248.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 343,
+   "kind": "light",
+   "params": {
+    "location": [
+     3248.0,
+     -1520.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 344,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     -976.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 345,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     -1248.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 346,
+   "kind": "light",
+   "params": {
+    "location": [
+     2960.0,
+     -1520.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 347,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 348,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 349,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     0.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 350,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     -304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 351,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     -608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 352,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 353,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 354,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     0.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 355,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     -304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 356,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     -608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 357,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 358,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 359,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     0.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 360,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     -304.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 361,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     -608.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 362,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     1280.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 363,
+   "kind": "light",
+   "params": {
+    "location": [
+     2160.0,
+     1024.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 364,
+   "kind": "light",
+   "params": {
+    "location": [
+     1872.0,
+     1280.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 365,
+   "kind": "light",
+   "params": {
+    "location": [
+     1872.0,
+     1024.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 366,
+   "kind": "light",
+   "params": {
+    "location": [
+     1584.0,
+     1280.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 367,
+   "kind": "light",
+   "params": {
+    "location": [
+     1584.0,
+     1024.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 368,
+   "kind": "light",
+   "params": {
+    "location": [
+     1296.0,
+     1280.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 369,
+   "kind": "light",
+   "params": {
+    "location": [
+     1296.0,
+     1024.0,
+     512
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 220
+   }
+  },
+  {
+   "id": 370,
+   "kind": "light",
+   "params": {
+    "location": [
+     2208.0,
+     -960.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 371,
+   "kind": "light",
+   "params": {
+    "location": [
+     1952.0,
+     -1056.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 372,
+   "kind": "light",
+   "params": {
+    "location": [
+     1952.0,
+     -1376.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 373,
+   "kind": "light",
+   "params": {
+    "location": [
+     1632.0,
+     -1056.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 374,
+   "kind": "light",
+   "params": {
+    "location": [
+     1632.0,
+     -1376.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 375,
+   "kind": "light",
+   "params": {
+    "location": [
+     1312.0,
+     -1056.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 376,
+   "kind": "light",
+   "params": {
+    "location": [
+     1312.0,
+     -1376.0,
+     64
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 377,
+   "kind": "light",
+   "params": {
+    "location": [
+     1200.0,
+     672.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 378,
+   "kind": "light",
+   "params": {
+    "location": [
+     1200.0,
+     352.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 379,
+   "kind": "light",
+   "params": {
+    "location": [
+     1200.0,
+     32.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 380,
+   "kind": "light",
+   "params": {
+    "location": [
+     1200.0,
+     -288.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 381,
+   "kind": "light",
+   "params": {
+    "location": [
+     912.0,
+     672.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 382,
+   "kind": "light",
+   "params": {
+    "location": [
+     912.0,
+     352.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 383,
+   "kind": "light",
+   "params": {
+    "location": [
+     912.0,
+     32.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 384,
+   "kind": "light",
+   "params": {
+    "location": [
+     912.0,
+     -288.0,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 235
+   }
+  },
+  {
+   "id": 385,
+   "kind": "light",
+   "params": {
+    "location": [
+     992.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 386,
+   "kind": "light",
+   "params": {
+    "location": [
+     992.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 387,
+   "kind": "light",
+   "params": {
+    "location": [
+     656.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 388,
+   "kind": "light",
+   "params": {
+    "location": [
+     656.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 389,
+   "kind": "light",
+   "params": {
+    "location": [
+     336.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 390,
+   "kind": "light",
+   "params": {
+    "location": [
+     336.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 391,
+   "kind": "light",
+   "params": {
+    "location": [
+     0.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 392,
+   "kind": "light",
+   "params": {
+    "location": [
+     0.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 393,
+   "kind": "light",
+   "params": {
+    "location": [
+     -336.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 394,
+   "kind": "light",
+   "params": {
+    "location": [
+     -336.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 395,
+   "kind": "light",
+   "params": {
+    "location": [
+     -656.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 396,
+   "kind": "light",
+   "params": {
+    "location": [
+     -656.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 397,
+   "kind": "light",
+   "params": {
+    "location": [
+     -992.0,
+     1456.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 398,
+   "kind": "light",
+   "params": {
+    "location": [
+     -992.0,
+     1168.0,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 140,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 399,
+   "kind": "light",
+   "params": {
+    "location": [
+     3744.0,
+     192.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 400,
+   "kind": "light",
+   "params": {
+    "location": [
+     3744.0,
+     -192.0,
+     576
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 401,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     768.0,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 402,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     0.0,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 403,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     -768.0,
+     96
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 404,
+   "kind": "light",
+   "params": {
+    "location": [
+     1696.0,
+     -1408.0,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 405,
+   "kind": "light",
+   "params": {
+    "location": [
+     1840.0,
+     -1408.0,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 406,
+   "kind": "light",
+   "params": {
+    "location": [
+     1552.0,
+     -1408.0,
+     -256
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 407,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     256
+    ],
+    "points": [
+     [
+      320,
+      -960
+     ],
+     [
+      704,
+      -576
+     ],
+     [
+      704,
+      576
+     ],
+     [
+      320,
+      960
+     ],
+     [
+      -320,
+      960
+     ],
+     [
+      -704,
+      576
+     ],
+     [
+      -704,
+      -576
+     ],
+     [
+      -320,
+      -960
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "UTtech1.Floor.rClfFlr4",
+     "sides": "UTtech1.Wall.ClifBrk2"
+    },
+    "group": "Core",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 408,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     -128
+    ],
+    "size": [
+     896,
+     896,
+     320
+    ],
+    "texture": "UTtech1.Wall.ClifBrk3",
+    "group": "Pits",
+    "points": [
+     [
+      288,
+      -448
+     ],
+     [
+      448,
+      -288
+     ],
+     [
+      448,
+      288
+     ],
+     [
+      288,
+      448
+     ],
+     [
+      -288,
+      448
+     ],
+     [
+      -448,
+      288
+     ],
+     [
+      -448,
+      -288
+     ],
+     [
+      -288,
+      -448
+     ]
+    ],
+    "height": 256
+   }
+  },
+  {
+   "id": 409,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     0,
+     0,
+     -128
+    ],
+    "width": 896,
+    "height": 896,
+    "axis": "z",
+    "poly_flags": 67109644,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 410,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Core Slime",
+    "location": [
+     -352,
+     0,
+     -192
+    ],
+    "pit_bounds": [
+     [
+      -448.0,
+      -448.0
+     ],
+     [
+      448.0,
+      448.0
+     ]
+    ],
+    "pit_top": 0,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 40
+   }
+  },
+  {
+   "id": 411,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "add",
+    "location": [
+     0,
+     0,
+     160.0
+    ],
+    "radius": 224,
+    "height": 960,
+    "sides": 8,
+    "texture": "UTtech1.pillar.ClfPilr1",
+    "face_textures": {},
+    "group": "Core"
+   }
+  },
+  {
+   "id": 412,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Mid",
+    "location": [
+     0,
+     720,
+     320
+    ],
+    "ambient_brightness": 14,
+    "ambient_hue": 80,
+    "ambient_saturation": 200
+   }
+  },
+  {
+   "id": 413,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576,
+     -320,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 140
+   }
+  },
+  {
+   "id": 414,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576,
+     320,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 140
+   }
+  },
+  {
+   "id": 415,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     -320,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 140
+   }
+  },
+  {
+   "id": 416,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     320,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 80,
+    "saturation": 140
+   }
+  },
+  {
+   "id": 417,
+   "kind": "light",
+   "params": {
+    "location": [
+     -320,
+     -704,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 418,
+   "kind": "light",
+   "params": {
+    "location": [
+     448,
+     -560,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 419,
+   "kind": "light",
+   "params": {
+    "location": [
+     -448,
+     560,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 420,
+   "kind": "light",
+   "params": {
+    "location": [
+     320,
+     704,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 421,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -704,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 422,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     704,
+     448
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 423,
+   "kind": "light",
+   "params": {
+    "location": [
+     -336,
+     0,
+     64
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 424,
+   "kind": "light",
+   "params": {
+    "location": [
+     336,
+     0,
+     64
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 425,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -336,
+     64
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 426,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     336,
+     64
+    ],
+    "brightness": 160,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 60
+   }
+  },
+  {
+   "id": 427,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -3552,
+     0,
+     448
+    ],
+    "width": 544,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 428,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     3552,
+     0,
+     448
+    ],
+    "width": 544,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 429,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Vista",
+    "location": [
+     -3744,
+     0,
+     400
+    ]
+   }
+  },
+  {
+   "id": 430,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Vista",
+    "location": [
+     3744,
+     0,
+     400
+    ]
+   }
+  },
+  {
+   "id": 431,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     240,
+     -784,
+     256.0
+    ],
+    "points": [
+     [
+      -112,
+      -192
+     ],
+     [
+      112,
+      -192
+     ],
+     [
+      112,
+      80
+     ],
+     [
+      80,
+      112
+     ],
+     [
+      -80,
+      112
+     ],
+     [
+      -112,
+      80
+     ]
+    ],
+    "height": 512,
+    "texture": "UTtech1.Wall.ClifCon5",
+    "face_textures": {},
+    "group": "CoreCover"
+   }
+  },
+  {
+   "id": 432,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -448.0,
+     -704.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 433,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -448.0,
+     -704.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 435,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1728.0,
+     -512.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 436,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1728,
+     -512,
+     176
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 437,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1408.0,
+     480.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 438,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1408.0,
+     480.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 439,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -320.0,
+     -1216.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 440,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -320.0,
+     -1216.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 441,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     128.0,
+     -1544.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 442,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     256.0,
+     -1544.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 443,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     192.0,
+     -1544.0,
+     176.0
+    ],
+    "size": [
+     128,
+     112,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 444,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     576.0,
+     -1080.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 445,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     576.0,
+     -1088.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 446,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3464.0,
+     -384.0,
+     256.0
+    ],
+    "size": [
+     144,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 447,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3456.0,
+     -384.0,
+     368.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 448,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3464.0,
+     384.0,
+     256.0
+    ],
+    "size": [
+     144,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 449,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3456.0,
+     384.0,
+     368.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 450,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -240.0,
+     784.0,
+     256.0
+    ],
+    "points": [
+     [
+      112,
+      192
+     ],
+     [
+      -112,
+      192
+     ],
+     [
+      -112,
+      -80
+     ],
+     [
+      -80,
+      -112
+     ],
+     [
+      80,
+      -112
+     ],
+     [
+      112,
+      -80
+     ]
+    ],
+    "height": 512,
+    "texture": "UTtech1.Wall.ClifCon5",
+    "face_textures": {},
+    "group": "CoreCover"
+   }
+  },
+  {
+   "id": 451,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     448.0,
+     704.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 452,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     448.0,
+     704.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 454,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1728.0,
+     512.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 455,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1728,
+     512,
+     176
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 456,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1408.0,
+     -480.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 457,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1408.0,
+     -480.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 458,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     320.0,
+     1216.0,
+     64.0
+    ],
+    "size": [
+     128,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 459,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     320.0,
+     1216.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 460,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -128.0,
+     1544.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 461,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -256.0,
+     1544.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 462,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -192.0,
+     1544.0,
+     176.0
+    ],
+    "size": [
+     128,
+     112,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 463,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -576.0,
+     1080.0,
+     64.0
+    ],
+    "size": [
+     128,
+     144,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 464,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -576.0,
+     1088.0,
+     176.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 465,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3464.0,
+     384.0,
+     256.0
+    ],
+    "size": [
+     144,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 466,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3456.0,
+     384.0,
+     368.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 467,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3464.0,
+     -384.0,
+     256.0
+    ],
+    "size": [
+     144,
+     128,
+     128
+    ],
+    "texture": "UTtech1.Deco.bmBox3",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 468,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3456.0,
+     -384.0,
+     368.0
+    ],
+    "size": [
+     96,
+     96,
+     96
+    ],
+    "texture": "UTtech1.Deco.bmBox2",
+    "face_textures": {},
+    "group": "Crates",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  }
+ ]
+}

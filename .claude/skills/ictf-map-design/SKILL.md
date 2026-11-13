@@ -90,7 +90,8 @@ Rules are tagged by where they come from:
   - `add_kicker(x, y, floor_z, target)` makes a jump pad: the launch velocity is solved for UT gravity, so players land on `target`, with a small visible pad.
   - `add_teleporter(a, b, two_way=True)` makes a pair of portals.
   - Use them for upper walkways, flank shortcuts and getting back up after a drop. Keep 128uu or more free around arrival spots. The walk model counts both, so levels reached only by kickers or portals still connect.
-- **[community]** For a nicer look, use **"fake stairs"** (as on Duku's sides): visible steps with an invisible ramp over them, so movement is as smooth as a ramp. `add_stairs` does this by default (`fake_ramp=True`). It adds an invisible semisolid wedge through the step edges, `PolyFlags=33` (Invisible + Semisolid), exactly as Duku does. Duku's are 27°, which is steps 16 high by 32 deep.
+- **[community]** For a nicer look, use **"fake stairs"** (as on Duku's sides): visible steps with an invisible ramp over them, so movement is as smooth as a ramp. `add_stairs` does this by default (`fake_ramp=True`). It adds an invisible semisolid wedge through the step edges, `PolyFlags=33` (Invisible + Semisolid), exactly as Duku does, over **solid add steps** (also as on Duku). Duku's are 27°, which is steps 16 high by 32 deep.
+  - **[community]** (CTF-Slumgate) **The ramp must really be there.** A semisolid ramp over *semisolid* steps is dropped from the BSP: players walk the steps (step-up view jitter) and top steps can turn into holes. `add_stairs` builds solid steps under the ramp; don't change them to semisolid. After the build, `build_map` traces the built BSP and reports any ramp or step that isn't where the project puts it.
   - Prefer fake stairs over bare wedges for main-route height changes in base and indoor areas. Keep plain ramps for outdoor, cave or industrial looks, and steep narrow ramps for bonus routes.
   - The same rules apply: 30° or less, 256–448 wide, 256uu of landing at both ends.
 
@@ -193,11 +194,13 @@ feel narrow in InstaGib.
 3. Build the shared midfield centred on the mirror plane. Elements sitting on the plane aren't duplicated.
 4. Run `mirror_map("mirror_x", center=[0,0,0])`. This swaps flags, spawn teams and Red/Blue zone names. Use `rotate180` if the layout should be point-symmetric.
    Then run `orient_spawns()`, so every spawn looks along an attacking path and none faces a wall.
+   Mirror once. Pieces centred on the plane (mid rooms, kiosks, kickers, the mid zone) and copies that already exist are skipped. Add props with **text** (signs, scrolling panels) per side *after* mirroring, so they read correctly on both sides; text-free props (windows, barrels, lamps) can be mirrored with `mirror_map(ids=[...])`.
 5. Check the layout:
    - `preview` (top / front / side): look for long straight axes and dead ends.
    - `analyze_map`: zoning must show exactly one zone actor per sealed region.
 6. `build_map`: verifies against the engine and auto-fixes zone bleeding and BSP errors. Tell the user about any fixes it applied.
    Its report includes a texture summary. A generated map must have **0 seams and 0 corner steps**; if not, run `check_textures` for locations and element ids.
+   Problems inside prefabs copied with `add_asset` keep the source author's alignment; they are listed separately (`from_copied_assets`) and don't count against the target.
 7. `map_metrics(detail=True)`: fix every FAIL and as many WARNs as reasonable, then rebuild and re-check.
 
 **How to fix each check:**
@@ -227,6 +230,7 @@ feel narrow in InstaGib.
 | Ramp runs into a wall | Move or shorten it so 256uu of flat floor remains beyond the top and before the bottom, or turn it 90° along the wall. |
 | Not enough light | Add lights until there are ≥ 12 per M uu² of floor, evenly, including corridors and ramps. |
 | Texture seams or corner steps (`check_textures`) | Usually a manual `tex_scale` that isn't a power of two, or mixed scales on touching faces. Use 0.5, 1, 2 or 4, the same value for neighbours. |
+| Fake-stairs ramp missing from the built BSP / stair step is a hole (build problems) | Make the steps under the ramp `csg="add"` (`update_element`, or rebuild the flight with `add_stairs`) and build again. |
 | Hiding pockets near the flags | Remove houses and enterable boxes; give side rooms two or more exits, or open them into the main route. |
 
 You can also study any existing map with `analyze_existing_map("<path or name>.unr")`, for example to compare a

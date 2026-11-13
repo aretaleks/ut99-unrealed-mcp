@@ -1,0 +1,9166 @@
+{
+ "title": "Bastion",
+ "author": "Claude (unrealed MCP)",
+ "grid": 16,
+ "default_texture": "Metalmys.MysMetl2",
+ "bsp": {
+  "mode": "good",
+  "balance": 15,
+  "portal_bias": 70
+ },
+ "gametype": "ctf",
+ "next_id": 485,
+ "elements": [
+  {
+   "id": 252,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -1600.0,
+     -1536,
+     48.0
+    ],
+    "points": [
+     [
+      -320,
+      -448
+     ],
+     [
+      -512,
+      -256
+     ],
+     [
+      -512,
+      256
+     ],
+     [
+      -320,
+      448
+     ],
+     [
+      320,
+      448
+     ],
+     [
+      512,
+      256
+     ],
+     [
+      512,
+      -256
+     ],
+     [
+      320,
+      -448
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_grtblock",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueSouthWalk",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 1,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     5120
+    ],
+    "size": [
+     2048,
+     2048,
+     2048
+    ],
+    "texture": "SkyBox.Effects.NCld",
+    "poly_flags": 4194816,
+    "group": "SkyBox"
+   }
+  },
+  {
+   "id": 2,
+   "kind": "zone",
+   "params": {
+    "type": "sky",
+    "name": "Sky",
+    "location": [
+     0,
+     0,
+     4608.0
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     288.0
+    ],
+    "points": [
+     [
+      512,
+      -640
+     ],
+     [
+      704,
+      -448
+     ],
+     [
+      704,
+      448
+     ],
+     [
+      512,
+      640
+     ],
+     [
+      -512,
+      640
+     ],
+     [
+      -704,
+      448
+     ],
+     [
+      -704,
+      -448
+     ],
+     [
+      -512,
+      -640
+     ]
+    ],
+    "height": 576,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "Core",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 4,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     832.0,
+     352.0,
+     128.0
+    ],
+    "size": [
+     256,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 5,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     832.0,
+     -352.0,
+     128.0
+    ],
+    "size": [
+     256,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 6,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     832.0,
+     0.0,
+     352.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_floor_vent",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 7,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     1472,
+     0,
+     224.0
+    ],
+    "points": [
+     [
+      320,
+      -640
+     ],
+     [
+      512,
+      -448
+     ],
+     [
+      512,
+      448
+     ],
+     [
+      320,
+      640
+     ],
+     [
+      -320,
+      640
+     ],
+     [
+      -512,
+      448
+     ],
+     [
+      -512,
+      -448
+     ],
+     [
+      -320,
+      -640
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedCentral",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 8,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2176.0,
+     352.0,
+     128.0
+    ],
+    "size": [
+     384,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BaseGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 9,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2176.0,
+     -352.0,
+     128.0
+    ],
+    "size": [
+     384,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BaseGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 10,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     2880,
+     0,
+     288.0
+    ],
+    "points": [
+     [
+      256,
+      -704
+     ],
+     [
+      354,
+      -685
+     ],
+     [
+      437,
+      -629
+     ],
+     [
+      493,
+      -546
+     ],
+     [
+      512,
+      -448
+     ],
+     [
+      512,
+      448
+     ],
+     [
+      493,
+      546
+     ],
+     [
+      437,
+      629
+     ],
+     [
+      354,
+      685
+     ],
+     [
+      256,
+      704
+     ],
+     [
+      -256,
+      704
+     ],
+     [
+      -354,
+      685
+     ],
+     [
+      -437,
+      629
+     ],
+     [
+      -493,
+      546
+     ],
+     [
+      -512,
+      448
+     ],
+     [
+      -512,
+      -448
+     ],
+     [
+      -493,
+      -546
+     ],
+     [
+      -437,
+      -629
+     ],
+     [
+      -354,
+      -685
+     ],
+     [
+      -256,
+      -704
+     ]
+    ],
+    "height": 576,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SGtechfloor2red",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedFlagRoom",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 11,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     2880,
+     1312,
+     32.0
+    ],
+    "points": [
+     [
+      320,
+      -288
+     ],
+     [
+      512,
+      -96
+     ],
+     [
+      512,
+      96
+     ],
+     [
+      320,
+      288
+     ],
+     [
+      -320,
+      288
+     ],
+     [
+      -512,
+      96
+     ],
+     [
+      -512,
+      -96
+     ],
+     [
+      -320,
+      -288
+     ]
+    ],
+    "height": 384,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedNorthFlank",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 12,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     2880,
+     -1312,
+     32.0
+    ],
+    "points": [
+     [
+      320,
+      -288
+     ],
+     [
+      512,
+      -96
+     ],
+     [
+      512,
+      96
+     ],
+     [
+      320,
+      288
+     ],
+     [
+      -320,
+      288
+     ],
+     [
+      -512,
+      96
+     ],
+     [
+      -512,
+      -96
+     ],
+     [
+      -320,
+      -288
+     ]
+    ],
+    "height": 384,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedSouthFlank",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 13,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2240.0,
+     1248.0,
+     0.0
+    ],
+    "size": [
+     256,
+     320,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedNorthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 14,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2240.0,
+     -1248.0,
+     0.0
+    ],
+    "size": [
+     256,
+     320,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedSouthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 15,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     1600,
+     1536,
+     48.0
+    ],
+    "points": [
+     [
+      320,
+      -448
+     ],
+     [
+      512,
+      -256
+     ],
+     [
+      512,
+      256
+     ],
+     [
+      320,
+      448
+     ],
+     [
+      -320,
+      448
+     ],
+     [
+      -512,
+      256
+     ],
+     [
+      -512,
+      -256
+     ],
+     [
+      -320,
+      -448
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_grtblock",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedNorthWalk",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 16,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     1600,
+     -1536,
+     48.0
+    ],
+    "points": [
+     [
+      320,
+      -448
+     ],
+     [
+      512,
+      -256
+     ],
+     [
+      512,
+      256
+     ],
+     [
+      320,
+      448
+     ],
+     [
+      -320,
+      448
+     ],
+     [
+      -512,
+      256
+     ],
+     [
+      -512,
+      -256
+     ],
+     [
+      -320,
+      -448
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_grtblock",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedSouthWalk",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 19,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     1600,
+     48.0
+    ],
+    "points": [
+     [
+      448,
+      -384
+     ],
+     [
+      640,
+      -192
+     ],
+     [
+      640,
+      192
+     ],
+     [
+      448,
+      384
+     ],
+     [
+      -448,
+      384
+     ],
+     [
+      -640,
+      192
+     ],
+     [
+      -640,
+      -192
+     ],
+     [
+      -448,
+      -384
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "NorthSide",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 20,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     -1600,
+     48.0
+    ],
+    "points": [
+     [
+      448,
+      -384
+     ],
+     [
+      640,
+      -192
+     ],
+     [
+      640,
+      192
+     ],
+     [
+      448,
+      384
+     ],
+     [
+      -448,
+      384
+     ],
+     [
+      -640,
+      192
+     ],
+     [
+      -640,
+      -192
+     ],
+     [
+      -448,
+      -384
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "SouthSide",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 21,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     768.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "NorthSide",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 22,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -768.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "SouthSide",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 23,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1200.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 24,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1168.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 25,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1136.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 26,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1104.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 27,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1072.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 28,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1040.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 29,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     1008.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 30,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     976.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 31,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     944.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 32,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     912.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 33,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     0.0,
+     1088.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "NorthSideFakeRamp"
+   }
+  },
+  {
+   "id": 34,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1200.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 35,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1168.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 36,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1136.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 37,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1104.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 38,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1072.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 39,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1040.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 40,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1008.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 41,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -976.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 42,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -944.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 43,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -912.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 44,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     0.0,
+     -1088.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "SouthSideFakeRamp"
+   }
+  },
+  {
+   "id": 45,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     704.0,
+     128.0
+    ],
+    "size": [
+     384,
+     128,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 46,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -704.0,
+     128.0
+    ],
+    "size": [
+     384,
+     128,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 47,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     1072.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 48,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     1040.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 49,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     1008.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 50,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     976.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 51,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     944.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 52,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     912.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 53,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     880.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 54,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     848.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 55,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     816.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 56,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     784.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 57,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     1472.0,
+     960.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedNorthWalkFakeRamp"
+   }
+  },
+  {
+   "id": 58,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -1072.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 59,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -1040.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 60,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -1008.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 61,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -976.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 62,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -944.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 63,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -912.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 64,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -880.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 65,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -848.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 66,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -816.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 67,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -784.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 68,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     1472.0,
+     -960.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedSouthWalkFakeRamp"
+   }
+  },
+  {
+   "id": 69,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     1008.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 70,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     976.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 71,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     944.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 72,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     912.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 73,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     880.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 74,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     848.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 75,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     816.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 76,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     784.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 77,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     752.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 78,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     720.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedNorthFlank"
+   }
+  },
+  {
+   "id": 79,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     2944.0,
+     896.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedNorthFlankFakeRamp"
+   }
+  },
+  {
+   "id": 80,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -1008.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 81,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -976.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 82,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -944.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 83,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -912.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 84,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -880.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 85,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -848.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 86,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -816.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 87,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -784.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 88,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -752.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 89,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -720.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "RedSouthFlank"
+   }
+  },
+  {
+   "id": 90,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     2944.0,
+     -896.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "RedSouthFlankFakeRamp"
+   }
+  },
+  {
+   "id": 91,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     0.0,
+     -160.0
+    ],
+    "size": [
+     640,
+     512,
+     320
+    ],
+    "texture": "Metalmys.MysIron1",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 92,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     0.0,
+     0.0,
+     -192
+    ],
+    "width": 640,
+    "height": 512,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 93,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Core Slime",
+    "location": [
+     0.0,
+     0.0,
+     -256.0
+    ],
+    "pit_bounds": [
+     [
+      -320.0,
+      -256.0
+     ],
+     [
+      320.0,
+      256.0
+     ]
+    ],
+    "pit_top": 0,
+    "pit_depth": 320,
+    "instant_kill": false,
+    "damage_per_sec": 60
+   }
+  },
+  {
+   "id": 94,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0,
+     0,
+     240
+    ],
+    "size": [
+     1408,
+     768,
+     32
+    ],
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "face_textures": {},
+    "group": "CoreBridge",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 96,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     448,
+     448,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "SGTech1.Pillars.SG_pillarCROSS1",
+    "face_textures": {},
+    "group": "Core"
+   }
+  },
+  {
+   "id": 97,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     448,
+     -448,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "SGTech1.Pillars.SG_pillarCROSS1",
+    "face_textures": {},
+    "group": "Core"
+   }
+  },
+  {
+   "id": 98,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1088.0,
+     0.0,
+     128.0
+    ],
+    "size": [
+     256,
+     384,
+     256
+    ],
+    "texture": "SGTech1.Walls.SG_bluemetalA",
+    "face_textures": {
+     "top": "SGTech1.Floors.SG_floor_vent"
+    },
+    "group": "RedCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 99,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     1440.0,
+     0.0,
+     128.0
+    ],
+    "size": [
+     448,
+     384,
+     256
+    ],
+    "yaw": 180,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "RedCentral",
+    "route": "main"
+   }
+  },
+  {
+   "id": 100,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1664.0,
+     448.0,
+     224.0
+    ],
+    "size": [
+     128,
+     128,
+     448
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarA",
+    "face_textures": {},
+    "group": "RedCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 101,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1664.0,
+     -448.0,
+     224.0
+    ],
+    "size": [
+     128,
+     128,
+     448
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarA",
+    "face_textures": {},
+    "group": "RedCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 102,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2624.0,
+     384.0,
+     288.0
+    ],
+    "size": [
+     128,
+     128,
+     576
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarB",
+    "face_textures": {},
+    "group": "RedFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 103,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2624.0,
+     -384.0,
+     288.0
+    ],
+    "size": [
+     128,
+     128,
+     576
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarB",
+    "face_textures": {},
+    "group": "RedFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 104,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     3168.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     64,
+     256,
+     96
+    ],
+    "texture": "SGTech1.Trim.SG_hazard1",
+    "face_textures": {},
+    "group": "RedFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 105,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1600.0,
+     1856.0,
+     -288.0
+    ],
+    "size": [
+     640,
+     256,
+     256
+    ],
+    "texture": "Metalmys.MysIron1",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 106,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1600.0,
+     1856.0,
+     -288
+    ],
+    "width": 640,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 107,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Red North Slime",
+    "location": [
+     1600.0,
+     1856.0,
+     -352.0
+    ],
+    "pit_bounds": [
+     [
+      1280.0,
+      1728.0
+     ],
+     [
+      1920.0,
+      1984.0
+     ]
+    ],
+    "pit_top": -160,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 60
+   }
+  },
+  {
+   "id": 108,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1600.0,
+     1720.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 109,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1600.0,
+     1992.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 110,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1272.0,
+     1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 111,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1928.0,
+     1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 112,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1600.0,
+     -1856.0,
+     -288.0
+    ],
+    "size": [
+     640,
+     256,
+     256
+    ],
+    "texture": "Metalmys.MysIron1",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 113,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1600.0,
+     -1856.0,
+     -288
+    ],
+    "width": 640,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 114,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Red South Slime",
+    "location": [
+     1600.0,
+     -1856.0,
+     -352.0
+    ],
+    "pit_bounds": [
+     [
+      1280.0,
+      -1984.0
+     ],
+     [
+      1920.0,
+      -1728.0
+     ]
+    ],
+    "pit_top": -160,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 60
+   }
+  },
+  {
+   "id": 115,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1600.0,
+     -1992.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 116,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1600.0,
+     -1720.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 117,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1272.0,
+     -1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 118,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1928.0,
+     -1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 119,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     0,
+     1616,
+     48
+    ],
+    "radius": 112,
+    "height": 416,
+    "sides": 12,
+    "texture": "SGTech1.Pillars.SG_concretepill",
+    "face_textures": {},
+    "group": "NorthSide"
+   }
+  },
+  {
+   "id": 120,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     0,
+     -1616,
+     48
+    ],
+    "radius": 112,
+    "height": 416,
+    "sides": 12,
+    "texture": "SGTech1.Pillars.SG_concretepill",
+    "face_textures": {},
+    "group": "SouthSide"
+   }
+  },
+  {
+   "id": 121,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2944.0,
+     1408.0,
+     -112.0
+    ],
+    "size": [
+     256,
+     128,
+     96
+    ],
+    "texture": "SGTech1.Crates.SG_Acrateside",
+    "face_textures": {},
+    "group": "RedNorthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 122,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2944.0,
+     -1408.0,
+     -112.0
+    ],
+    "size": [
+     256,
+     128,
+     96
+    ],
+    "texture": "SGTech1.Crates.SG_Acrateside",
+    "face_textures": {},
+    "group": "RedSouthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 123,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     832,
+     0,
+     224
+    ],
+    "width": 1088,
+    "height": 480,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 124,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2176,
+     0,
+     128
+    ],
+    "width": 1088,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 125,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     0,
+     768,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 126,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     0,
+     -768,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 127,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1472,
+     704,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 128,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1472,
+     -704,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 129,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2944,
+     976,
+     -16
+    ],
+    "width": 448,
+    "height": 416,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 130,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2944,
+     -976,
+     -16
+    ],
+    "width": 448,
+    "height": 416,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 131,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     864,
+     1536,
+     0
+    ],
+    "width": 384,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 132,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     864,
+     -1536,
+     0
+    ],
+    "width": 384,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 133,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Command Core",
+    "location": [
+     0,
+     448,
+     96
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 134,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Central",
+    "location": [
+     1600,
+     -288,
+     96
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 135,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Flag Room",
+    "location": [
+     2880,
+     -160,
+     128
+    ],
+    "ambient_brightness": 16,
+    "ambient_hue": 0,
+    "ambient_saturation": 200
+   }
+  },
+  {
+   "id": 136,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red North Flank",
+    "location": [
+     1600,
+     1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 137,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red South Flank",
+    "location": [
+     1600,
+     -1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 138,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "North Side Route",
+    "location": [
+     0,
+     1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 139,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "South Side Route",
+    "location": [
+     0,
+     -1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 140,
+   "kind": "flag",
+   "params": {
+    "location": [
+     2944,
+     0,
+     32
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 141,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1088,
+     448,
+     40
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 142,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1088,
+     -448,
+     40
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 143,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1088,
+     0,
+     296
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 144,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1344,
+     1280,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 145,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1856,
+     1536,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 146,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1344,
+     -1280,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 147,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1856,
+     -1536,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 148,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     544,
+     352,
+     40
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 149,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     544,
+     -352,
+     40
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 150,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     320,
+     1328,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 151,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     320,
+     -1328,
+     -120
+    ],
+    "yaw": 180,
+    "team": 0
+   }
+  },
+  {
+   "id": 152,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 26,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 153,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 26,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 154,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -192,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 155,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     192,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 80,
+    "saturation": 120
+   }
+  },
+  {
+   "id": 156,
+   "kind": "light",
+   "params": {
+    "location": [
+     320,
+     -480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 157,
+   "kind": "light",
+   "params": {
+    "location": [
+     320,
+     -160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 158,
+   "kind": "light",
+   "params": {
+    "location": [
+     320,
+     160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 159,
+   "kind": "light",
+   "params": {
+    "location": [
+     320,
+     480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 160,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     -480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 161,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     -160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 162,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 163,
+   "kind": "light",
+   "params": {
+    "location": [
+     576,
+     480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 164,
+   "kind": "light",
+   "params": {
+    "location": [
+     448,
+     -160,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 165,
+   "kind": "light",
+   "params": {
+    "location": [
+     448,
+     160,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 166,
+   "kind": "light",
+   "params": {
+    "location": [
+     832,
+     -352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 167,
+   "kind": "light",
+   "params": {
+    "location": [
+     832,
+     352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 168,
+   "kind": "light",
+   "params": {
+    "location": [
+     832,
+     0,
+     400
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 169,
+   "kind": "light",
+   "params": {
+    "location": [
+     1152,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 170,
+   "kind": "light",
+   "params": {
+    "location": [
+     1152,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 171,
+   "kind": "light",
+   "params": {
+    "location": [
+     1152,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 172,
+   "kind": "light",
+   "params": {
+    "location": [
+     1152,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 173,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 174,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 175,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 176,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 177,
+   "kind": "light",
+   "params": {
+    "location": [
+     1792,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 178,
+   "kind": "light",
+   "params": {
+    "location": [
+     1792,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 179,
+   "kind": "light",
+   "params": {
+    "location": [
+     1792,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 180,
+   "kind": "light",
+   "params": {
+    "location": [
+     1792,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 181,
+   "kind": "light",
+   "params": {
+    "location": [
+     1088,
+     0,
+     400
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 182,
+   "kind": "light",
+   "params": {
+    "location": [
+     2176,
+     -352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 183,
+   "kind": "light",
+   "params": {
+    "location": [
+     2176,
+     352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 184,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 185,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 186,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 187,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 188,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 189,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 190,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 191,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 192,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 193,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 194,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 195,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 196,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944,
+     -864,
+     100
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 197,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944,
+     864,
+     100
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 198,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 199,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 200,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 201,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 202,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 203,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 204,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 205,
+   "kind": "light",
+   "params": {
+    "location": [
+     2880,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 206,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 207,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 208,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 209,
+   "kind": "light",
+   "params": {
+    "location": [
+     3200,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 210,
+   "kind": "light",
+   "params": {
+    "location": [
+     2240,
+     -1248,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 211,
+   "kind": "light",
+   "params": {
+    "location": [
+     2240,
+     1248,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 212,
+   "kind": "light",
+   "params": {
+    "location": [
+     1280,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 213,
+   "kind": "light",
+   "params": {
+    "location": [
+     1280,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 214,
+   "kind": "light",
+   "params": {
+    "location": [
+     1280,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 215,
+   "kind": "light",
+   "params": {
+    "location": [
+     1280,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 216,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 217,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 218,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 219,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 220,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 221,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 222,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 223,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 224,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     -1856,
+     -96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 225,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600,
+     1856,
+     -96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 226,
+   "kind": "light",
+   "params": {
+    "location": [
+     864,
+     -1536,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 227,
+   "kind": "light",
+   "params": {
+    "location": [
+     864,
+     1536,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 228,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     -880,
+     128
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 229,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472,
+     880,
+     128
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 230,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 231,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -1344,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 232,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     1344,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 233,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 234,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -960,
+     160
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 235,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     960,
+     160
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 236,
+   "kind": "light",
+   "params": {
+    "location": [
+     384,
+     -1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 237,
+   "kind": "light",
+   "params": {
+    "location": [
+     384,
+     -1376,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 238,
+   "kind": "light",
+   "params": {
+    "location": [
+     384,
+     1376,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 239,
+   "kind": "light",
+   "params": {
+    "location": [
+     384,
+     1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 240,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -832.0,
+     352.0,
+     128.0
+    ],
+    "size": [
+     256,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 241,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -832.0,
+     -352.0,
+     128.0
+    ],
+    "size": [
+     256,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 242,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -832.0,
+     0.0,
+     352.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_floor_vent",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "CoreGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 243,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     0,
+     224.0
+    ],
+    "points": [
+     [
+      -320,
+      -640
+     ],
+     [
+      -512,
+      -448
+     ],
+     [
+      -512,
+      448
+     ],
+     [
+      -320,
+      640
+     ],
+     [
+      320,
+      640
+     ],
+     [
+      512,
+      448
+     ],
+     [
+      512,
+      -448
+     ],
+     [
+      320,
+      -640
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueCentral",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 244,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2176.0,
+     352.0,
+     128.0
+    ],
+    "size": [
+     384,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BaseGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 245,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2176.0,
+     -352.0,
+     128.0
+    ],
+    "size": [
+     384,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BaseGate",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 246,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -2880.0,
+     0,
+     288.0
+    ],
+    "points": [
+     [
+      -256,
+      -704
+     ],
+     [
+      -354,
+      -685
+     ],
+     [
+      -437,
+      -629
+     ],
+     [
+      -493,
+      -546
+     ],
+     [
+      -512,
+      -448
+     ],
+     [
+      -512,
+      448
+     ],
+     [
+      -493,
+      546
+     ],
+     [
+      -437,
+      629
+     ],
+     [
+      -354,
+      685
+     ],
+     [
+      -256,
+      704
+     ],
+     [
+      256,
+      704
+     ],
+     [
+      354,
+      685
+     ],
+     [
+      437,
+      629
+     ],
+     [
+      493,
+      546
+     ],
+     [
+      512,
+      448
+     ],
+     [
+      512,
+      -448
+     ],
+     [
+      493,
+      -546
+     ],
+     [
+      437,
+      -629
+     ],
+     [
+      354,
+      -685
+     ],
+     [
+      256,
+      -704
+     ]
+    ],
+    "height": 576,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SGtechfloor2red",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueFlagRoom",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 247,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -2880.0,
+     1312,
+     32.0
+    ],
+    "points": [
+     [
+      -320,
+      -288
+     ],
+     [
+      -512,
+      -96
+     ],
+     [
+      -512,
+      96
+     ],
+     [
+      -320,
+      288
+     ],
+     [
+      320,
+      288
+     ],
+     [
+      512,
+      96
+     ],
+     [
+      512,
+      -96
+     ],
+     [
+      320,
+      -288
+     ]
+    ],
+    "height": 384,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueNorthFlank",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 248,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -2880.0,
+     -1312,
+     32.0
+    ],
+    "points": [
+     [
+      -320,
+      -288
+     ],
+     [
+      -512,
+      -96
+     ],
+     [
+      -512,
+      96
+     ],
+     [
+      -320,
+      288
+     ],
+     [
+      320,
+      288
+     ],
+     [
+      512,
+      96
+     ],
+     [
+      512,
+      -96
+     ],
+     [
+      320,
+      -288
+     ]
+    ],
+    "height": 384,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueSouthFlank",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 249,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2240.0,
+     1248.0,
+     0.0
+    ],
+    "size": [
+     256,
+     320,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueNorthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 250,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2240.0,
+     -1248.0,
+     0.0
+    ],
+    "size": [
+     256,
+     320,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueSouthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 251,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -1600.0,
+     1536,
+     48.0
+    ],
+    "points": [
+     [
+      -320,
+      -448
+     ],
+     [
+      -512,
+      -256
+     ],
+     [
+      -512,
+      256
+     ],
+     [
+      -320,
+      448
+     ],
+     [
+      320,
+      448
+     ],
+     [
+      512,
+      256
+     ],
+     [
+      512,
+      -256
+     ],
+     [
+      320,
+      -448
+     ]
+    ],
+    "height": 416,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_grtblock",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueNorthWalk",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 255,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     704.0,
+     128.0
+    ],
+    "size": [
+     384,
+     128,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 256,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -704.0,
+     128.0
+    ],
+    "size": [
+     384,
+     128,
+     256
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 257,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     1072.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 258,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     1040.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 259,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     1008.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 260,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     976.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 261,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     944.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 262,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     912.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 263,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     880.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 264,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     848.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 265,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     816.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 266,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     784.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 267,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -1472.0,
+     960.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueNorthWalkFakeRamp"
+   }
+  },
+  {
+   "id": 268,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -1072.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 269,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -1040.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 270,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -1008.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 271,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -976.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 272,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -944.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 273,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -912.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 274,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -880.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 275,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -848.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 276,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -816.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 277,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -784.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 278,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -1472.0,
+     -960.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueSouthWalkFakeRamp"
+   }
+  },
+  {
+   "id": 279,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     1008.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 280,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     976.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 281,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     944.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 282,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     912.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 283,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     880.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 284,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     848.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 285,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     816.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 286,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     784.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 287,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     752.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 288,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     720.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueNorthFlank"
+   }
+  },
+  {
+   "id": 289,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -2944.0,
+     896.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueNorthFlankFakeRamp"
+   }
+  },
+  {
+   "id": 290,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -1008.0,
+     -16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 291,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -976.0,
+     0.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 292,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -944.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 293,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -912.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 294,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -880.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 295,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -848.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 296,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -816.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 297,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -784.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 298,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -752.0,
+     112.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 299,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944.0,
+     -720.0,
+     128.0
+    ],
+    "size": [
+     384,
+     32,
+     256
+    ],
+    "texture": "SGTech1.Floors.SG_techfloor1",
+    "group": "BlueSouthFlank"
+   }
+  },
+  {
+   "id": 300,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -2944.0,
+     -896.0,
+     -80.0
+    ],
+    "size": [
+     320,
+     384,
+     160
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "BlueSouthFlankFakeRamp"
+   }
+  },
+  {
+   "id": 301,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -448.0,
+     448,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "SGTech1.Pillars.SG_pillarCROSS1",
+    "face_textures": {},
+    "group": "Core"
+   }
+  },
+  {
+   "id": 302,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -448.0,
+     -448,
+     288.0
+    ],
+    "radius": 64,
+    "height": 576,
+    "sides": 8,
+    "texture": "SGTech1.Pillars.SG_pillarCROSS1",
+    "face_textures": {},
+    "group": "Core"
+   }
+  },
+  {
+   "id": 303,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1088.0,
+     0.0,
+     128.0
+    ],
+    "size": [
+     256,
+     384,
+     256
+    ],
+    "texture": "SGTech1.Walls.SG_bluemetalA",
+    "face_textures": {
+     "top": "SGTech1.Floors.SG_floor_vent"
+    },
+    "group": "BlueCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 304,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -1440.0,
+     0.0,
+     128.0
+    ],
+    "size": [
+     448,
+     384,
+     256
+    ],
+    "yaw": 0,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "BlueCentral",
+    "route": "main"
+   }
+  },
+  {
+   "id": 305,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1664.0,
+     448.0,
+     224.0
+    ],
+    "size": [
+     128,
+     128,
+     448
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarA",
+    "face_textures": {},
+    "group": "BlueCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 306,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1664.0,
+     -448.0,
+     224.0
+    ],
+    "size": [
+     128,
+     128,
+     448
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarA",
+    "face_textures": {},
+    "group": "BlueCentral",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 307,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2624.0,
+     384.0,
+     288.0
+    ],
+    "size": [
+     128,
+     128,
+     576
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarB",
+    "face_textures": {},
+    "group": "BlueFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 308,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2624.0,
+     -384.0,
+     288.0
+    ],
+    "size": [
+     128,
+     128,
+     576
+    ],
+    "texture": "SGTech1.Pillars.SG_boxpillarB",
+    "face_textures": {},
+    "group": "BlueFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 309,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -3168.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     64,
+     256,
+     96
+    ],
+    "texture": "SGTech1.Trim.SG_hazard1",
+    "face_textures": {},
+    "group": "BlueFlagRoom",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 310,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1600.0,
+     1856.0,
+     -288.0
+    ],
+    "size": [
+     640,
+     256,
+     256
+    ],
+    "texture": "Metalmys.MysIron1",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 311,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1600.0,
+     1856.0,
+     -288
+    ],
+    "width": 640,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 312,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Blue North Slime",
+    "location": [
+     -1600.0,
+     1856.0,
+     -352.0
+    ],
+    "pit_bounds": [
+     [
+      -1920.0,
+      1728.0
+     ],
+     [
+      -1280.0,
+      1984.0
+     ]
+    ],
+    "pit_top": -160,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 60
+   }
+  },
+  {
+   "id": 313,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1600.0,
+     1720.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 314,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1600.0,
+     1992.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 315,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1272.0,
+     1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 316,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1928.0,
+     1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 317,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1600.0,
+     -1856.0,
+     -288.0
+    ],
+    "size": [
+     640,
+     256,
+     256
+    ],
+    "texture": "Metalmys.MysIron1",
+    "group": "Pits"
+   }
+  },
+  {
+   "id": 318,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1600.0,
+     -1856.0,
+     -288
+    ],
+    "width": 640,
+    "height": 256,
+    "axis": "z",
+    "poly_flags": 67110156,
+    "texture": "GenFluid.Water.Goopm",
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 319,
+   "kind": "zone",
+   "params": {
+    "type": "slime",
+    "name": "Blue South Slime",
+    "location": [
+     -1600.0,
+     -1856.0,
+     -352.0
+    ],
+    "pit_bounds": [
+     [
+      -1920.0,
+      -1984.0
+     ],
+     [
+      -1280.0,
+      -1728.0
+     ]
+    ],
+    "pit_top": -160,
+    "pit_depth": 256,
+    "instant_kill": false,
+    "damage_per_sec": 60
+   }
+  },
+  {
+   "id": 320,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1600.0,
+     -1992.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 321,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1600.0,
+     -1720.0,
+     -144.0
+    ],
+    "size": [
+     672,
+     16,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 322,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1272.0,
+     -1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 323,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1928.0,
+     -1856.0,
+     -144.0
+    ],
+    "size": [
+     16,
+     256,
+     32
+    ],
+    "texture": "",
+    "group": "PitRailing"
+   }
+  },
+  {
+   "id": 324,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2944.0,
+     1408.0,
+     -112.0
+    ],
+    "size": [
+     256,
+     128,
+     96
+    ],
+    "texture": "SGTech1.Crates.SG_Acrateside",
+    "face_textures": {},
+    "group": "BlueNorthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 325,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2944.0,
+     -1408.0,
+     -112.0
+    ],
+    "size": [
+     256,
+     128,
+     96
+    ],
+    "texture": "SGTech1.Crates.SG_Acrateside",
+    "face_textures": {},
+    "group": "BlueSouthFlank",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 326,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -832.0,
+     0,
+     224
+    ],
+    "width": 1088,
+    "height": 480,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 327,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2176.0,
+     0,
+     128
+    ],
+    "width": 1088,
+    "height": 288,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 328,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1472.0,
+     704,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 329,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1472.0,
+     -704,
+     128
+    ],
+    "width": 448,
+    "height": 288,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 330,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2944.0,
+     976,
+     -16
+    ],
+    "width": 448,
+    "height": 416,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 331,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2944.0,
+     -976,
+     -16
+    ],
+    "width": 448,
+    "height": 416,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 332,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -864,
+     1536,
+     0
+    ],
+    "width": 384,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 333,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -864,
+     -1536,
+     0
+    ],
+    "width": 384,
+    "height": 352,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 334,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Central",
+    "location": [
+     -1600.0,
+     -288,
+     96
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 335,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Flag Room",
+    "location": [
+     -2880.0,
+     -160,
+     128
+    ],
+    "ambient_brightness": 16,
+    "ambient_hue": 0,
+    "ambient_saturation": 200
+   }
+  },
+  {
+   "id": 336,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue North Flank",
+    "location": [
+     -1600.0,
+     1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 337,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue South Flank",
+    "location": [
+     -1600.0,
+     -1344,
+     0
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 338,
+   "kind": "flag",
+   "params": {
+    "location": [
+     -2944.0,
+     0,
+     32
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 339,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1088.0,
+     448,
+     40
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 340,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1088.0,
+     -448,
+     40
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 341,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1088.0,
+     0,
+     296
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 342,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1344.0,
+     1280,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 343,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1856.0,
+     1536,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 344,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1344.0,
+     -1280,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 345,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1856.0,
+     -1536,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 346,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -544.0,
+     352,
+     40
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 347,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -544.0,
+     -352,
+     40
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 348,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -320,
+     1328,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 349,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -320,
+     -1328,
+     -120
+    ],
+    "yaw": 0,
+    "team": 1
+   }
+  },
+  {
+   "id": 350,
+   "kind": "light",
+   "params": {
+    "location": [
+     -320.0,
+     -480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 351,
+   "kind": "light",
+   "params": {
+    "location": [
+     -320.0,
+     -160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 352,
+   "kind": "light",
+   "params": {
+    "location": [
+     -320.0,
+     160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 353,
+   "kind": "light",
+   "params": {
+    "location": [
+     -320.0,
+     480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 354,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576.0,
+     -480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 355,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576.0,
+     -160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 356,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576.0,
+     160,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 357,
+   "kind": "light",
+   "params": {
+    "location": [
+     -576.0,
+     480,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 358,
+   "kind": "light",
+   "params": {
+    "location": [
+     -448.0,
+     -160,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 359,
+   "kind": "light",
+   "params": {
+    "location": [
+     -448.0,
+     160,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 360,
+   "kind": "light",
+   "params": {
+    "location": [
+     -832.0,
+     -352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 361,
+   "kind": "light",
+   "params": {
+    "location": [
+     -832.0,
+     352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 362,
+   "kind": "light",
+   "params": {
+    "location": [
+     -832.0,
+     0,
+     400
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 363,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1152.0,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 364,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1152.0,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 365,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1152.0,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 366,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1152.0,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 367,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 368,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 369,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 370,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 371,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1792.0,
+     -448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 372,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1792.0,
+     -160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 373,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1792.0,
+     160,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 374,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1792.0,
+     448,
+     384
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 375,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1088.0,
+     0,
+     400
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 376,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2176.0,
+     -352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 377,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2176.0,
+     352,
+     192
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 378,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 379,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 380,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 381,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 382,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 383,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 384,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 385,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 386,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     -512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 387,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     -192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 388,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     192,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 389,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     512,
+     480
+    ],
+    "brightness": 190,
+    "radius": 24,
+    "hue": 0,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 390,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944.0,
+     -864,
+     100
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 391,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944.0,
+     864,
+     100
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 392,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 393,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 394,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 395,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560.0,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 396,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 397,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 398,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 399,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2880.0,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 400,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     -1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 401,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     -1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 402,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     1184,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 403,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3200.0,
+     1440,
+     160
+    ],
+    "brightness": 190,
+    "radius": 20,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 404,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2240.0,
+     -1248,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 405,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2240.0,
+     1248,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 406,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1280.0,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 407,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1280.0,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 408,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1280.0,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 409,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1280.0,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 410,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 411,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 412,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 413,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 414,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920.0,
+     -1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 415,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920.0,
+     -1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 416,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920.0,
+     1248,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 417,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920.0,
+     1536,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 418,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     -1856,
+     -96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 419,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600.0,
+     1856,
+     -96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 80,
+    "saturation": 100
+   }
+  },
+  {
+   "id": 420,
+   "kind": "light",
+   "params": {
+    "location": [
+     -864,
+     -1536,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 421,
+   "kind": "light",
+   "params": {
+    "location": [
+     -864,
+     1536,
+     96
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 422,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     -880,
+     128
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 423,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472.0,
+     880,
+     128
+    ],
+    "brightness": 190,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 424,
+   "kind": "light",
+   "params": {
+    "location": [
+     -384.0,
+     -1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 425,
+   "kind": "light",
+   "params": {
+    "location": [
+     -384.0,
+     -1376,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 426,
+   "kind": "light",
+   "params": {
+    "location": [
+     -384.0,
+     1376,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 427,
+   "kind": "light",
+   "params": {
+    "location": [
+     -384.0,
+     1856,
+     192
+    ],
+    "brightness": 190,
+    "radius": 22,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 428,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     0.0,
+     0.0,
+     416.0
+    ],
+    "size": [
+     192,
+     384,
+     320
+    ],
+    "texture": "SGTech1.Pillars.SG_pillarCROSS1",
+    "face_textures": {},
+    "group": "CoreBridge",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 433,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     256.0,
+     512.0,
+     128.0
+    ],
+    "size": [
+     256,
+     128,
+     256
+    ],
+    "yaw": 270,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "CoreBridge",
+    "route": "bonus"
+   }
+  },
+  {
+   "id": 434,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -256.0,
+     512.0,
+     128.0
+    ],
+    "size": [
+     256,
+     128,
+     256
+    ],
+    "yaw": 270,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "CoreBridge",
+    "route": "bonus"
+   }
+  },
+  {
+   "id": 435,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     256.0,
+     -512.0,
+     128.0
+    ],
+    "size": [
+     256,
+     128,
+     256
+    ],
+    "yaw": 90,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "CoreBridge",
+    "route": "bonus"
+   }
+  },
+  {
+   "id": 436,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -256.0,
+     -512.0,
+     128.0
+    ],
+    "size": [
+     256,
+     128,
+     256
+    ],
+    "yaw": 90,
+    "texture": "SGTech1.Floors.SG_floor_vent",
+    "group": "CoreBridge",
+    "route": "bonus"
+   }
+  },
+  {
+   "id": 437,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     864,
+     1536,
+     0.0
+    ],
+    "points": [
+     [
+      -224,
+      -64
+     ],
+     [
+      224,
+      -256
+     ],
+     [
+      224,
+      64
+     ],
+     [
+      -224,
+      256
+     ]
+    ],
+    "height": 320,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedNorthWalk"
+   }
+  },
+  {
+   "id": 438,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     864,
+     -1536,
+     0.0
+    ],
+    "points": [
+     [
+      -224,
+      -256
+     ],
+     [
+      224,
+      -64
+     ],
+     [
+      224,
+      256
+     ],
+     [
+      -224,
+      64
+     ]
+    ],
+    "height": 320,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "RedSouthWalk"
+   }
+  },
+  {
+   "id": 439,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -864,
+     1536,
+     0.0
+    ],
+    "points": [
+     [
+      224,
+      256
+     ],
+     [
+      -224,
+      64
+     ],
+     [
+      -224,
+      -256
+     ],
+     [
+      224,
+      -64
+     ]
+    ],
+    "height": 320,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueNorthWalk"
+   }
+  },
+  {
+   "id": 440,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -864,
+     -1536,
+     0.0
+    ],
+    "points": [
+     [
+      224,
+      64
+     ],
+     [
+      -224,
+      256
+     ],
+     [
+      -224,
+      -64
+     ],
+     [
+      224,
+      -256
+     ]
+    ],
+    "height": 320,
+    "texture": "",
+    "face_textures": {
+     "bottom": "SGTech1.Floors.SG_techfloor1",
+     "top": "SGTech1.Ceilings.SG_blockcl1",
+     "sides": "Metalmys.MysIron1"
+    },
+    "group": "BlueSouthWalk"
+   }
+  },
+  {
+   "id": 441,
+   "kind": "light",
+   "params": {
+    "location": [
+     1312,
+     -320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 442,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1312,
+     -320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 443,
+   "kind": "light",
+   "params": {
+    "location": [
+     1312,
+     320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 444,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1312,
+     320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 445,
+   "kind": "light",
+   "params": {
+    "location": [
+     1632,
+     -320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 446,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1632,
+     -320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 447,
+   "kind": "light",
+   "params": {
+    "location": [
+     1632,
+     320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 448,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1632,
+     320,
+     160
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 449,
+   "kind": "light",
+   "params": {
+    "location": [
+     2720,
+     -352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 450,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2720,
+     -352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 451,
+   "kind": "light",
+   "params": {
+    "location": [
+     2720,
+     352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 452,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2720,
+     352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 453,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072,
+     -352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 454,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     -352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 455,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072,
+     352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 456,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     352,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 457,
+   "kind": "light",
+   "params": {
+    "location": [
+     1440,
+     -1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 458,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1440,
+     -1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 459,
+   "kind": "light",
+   "params": {
+    "location": [
+     1440,
+     1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 460,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1440,
+     1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 461,
+   "kind": "light",
+   "params": {
+    "location": [
+     1760,
+     -1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 462,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1760,
+     -1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 463,
+   "kind": "light",
+   "params": {
+    "location": [
+     1760,
+     1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 464,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1760,
+     1392,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 465,
+   "kind": "light",
+   "params": {
+    "location": [
+     2720,
+     -1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 466,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2720,
+     -1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 467,
+   "kind": "light",
+   "params": {
+    "location": [
+     2720,
+     1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 468,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2720,
+     1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 469,
+   "kind": "light",
+   "params": {
+    "location": [
+     3040,
+     -1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 470,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3040,
+     -1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 471,
+   "kind": "light",
+   "params": {
+    "location": [
+     3040,
+     1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 472,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3040,
+     1312,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 473,
+   "kind": "light",
+   "params": {
+    "location": [
+     256,
+     -1408,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 474,
+   "kind": "light",
+   "params": {
+    "location": [
+     -256,
+     -1408,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 475,
+   "kind": "light",
+   "params": {
+    "location": [
+     256,
+     1408,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 476,
+   "kind": "light",
+   "params": {
+    "location": [
+     -256,
+     1408,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 477,
+   "kind": "light",
+   "params": {
+    "location": [
+     256,
+     -1824,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 478,
+   "kind": "light",
+   "params": {
+    "location": [
+     -256,
+     -1824,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 479,
+   "kind": "light",
+   "params": {
+    "location": [
+     256,
+     1824,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 480,
+   "kind": "light",
+   "params": {
+    "location": [
+     -256,
+     1824,
+     64
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 481,
+   "kind": "light",
+   "params": {
+    "location": [
+     448,
+     -544,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 482,
+   "kind": "light",
+   "params": {
+    "location": [
+     -448,
+     -544,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 483,
+   "kind": "light",
+   "params": {
+    "location": [
+     448,
+     544,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  },
+  {
+   "id": 484,
+   "kind": "light",
+   "params": {
+    "location": [
+     -448,
+     544,
+     224
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 0,
+    "saturation": 255
+   }
+  }
+ ]
+}

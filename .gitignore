@@ -20,6 +20,7 @@
 !/UnrealEdMCP/research/*.py
 !/UnrealEdMCP/research/*.json
 !/UnrealEdMCP/research/*.txt
+!/UnrealEdMCP/examples/
 
 # the Claude Code skill
 !/.claude/

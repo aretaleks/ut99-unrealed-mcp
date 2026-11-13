@@ -1,0 +1,3182 @@
+{
+ "title": "Coldrush",
+ "author": "Claude (unrealed MCP)",
+ "grid": 16,
+ "default_texture": "Mine.Base.Rockwall",
+ "bsp": {
+  "mode": "good",
+  "balance": 15,
+  "portal_bias": 70
+ },
+ "gametype": "ctf",
+ "next_id": 426,
+ "elements": [
+  {
+   "id": 1,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     0.0,
+     512.0
+    ],
+    "size": [
+     6656,
+     3328,
+     1024
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Base.Mdirt1",
+     "top": "Mine.Base.Rock",
+     "sides": "Mine.Base.Rockwall"
+    },
+    "group": "Yard",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 2,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     0.0,
+     -96.0
+    ],
+    "size": [
+     1280,
+     3328,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Base.Mud1",
+     "sides": "Mine.Wall.Rockwal"
+    },
+    "group": "Trench",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 3,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0.0,
+     0.0,
+     416.0
+    ],
+    "size": [
+     640,
+     768,
+     1216
+    ],
+    "texture": "Mine.Wall.MBRKWL1A",
+    "face_textures": {},
+    "group": "Mid",
+    "tex_scale": 1.0,
+    "min": [
+     -320,
+     -384,
+     -192
+    ],
+    "max": [
+     320,
+     384,
+     1024
+    ]
+   }
+  },
+  {
+   "id": 4,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -448.0,
+     -1376.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     576,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 5,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -448.0,
+     1376.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     576,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 7,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2944,
+     -1280,
+     288
+    ],
+    "size": [
+     768,
+     768,
+     576
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall1"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 8,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -2944,
+     1280,
+     288
+    ],
+    "size": [
+     768,
+     768,
+     576
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall1"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 11,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1856.0,
+     0.0,
+     144.0
+    ],
+    "size": [
+     512,
+     1408,
+     288
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.MBRKWL2A"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0,
+    "min": [
+     -2112,
+     -704,
+     0
+    ],
+    "max": [
+     -1600,
+     704,
+     288
+    ]
+   }
+  },
+  {
+   "id": 12,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -1344.0,
+     0.0,
+     144.0
+    ],
+    "size": [
+     512,
+     384,
+     288
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 13,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1440,
+     -1344,
+     256
+    ],
+    "size": [
+     704,
+     640,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall2"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 14,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1440,
+     -1344,
+     208
+    ],
+    "size": [
+     640,
+     576,
+     416
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 15,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1104.0,
+     -1344.0,
+     96.0
+    ],
+    "size": [
+     32,
+     320,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 16,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1456.0,
+     -1040.0,
+     96.0
+    ],
+    "size": [
+     288,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 17,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1440,
+     1344,
+     256
+    ],
+    "size": [
+     704,
+     640,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall2"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 18,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1440,
+     1344,
+     208
+    ],
+    "size": [
+     640,
+     576,
+     416
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 19,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1104.0,
+     1344.0,
+     96.0
+    ],
+    "size": [
+     32,
+     320,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 20,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1456.0,
+     1040.0,
+     96.0
+    ],
+    "size": [
+     288,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 21,
+   "kind": "flag",
+   "params": {
+    "location": [
+     -2944,
+     0,
+     32
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 22,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1600,
+     -1344,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 23,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1376,
+     -1472,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 24,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1248,
+     -1216,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 25,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1600,
+     1344,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 26,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1376,
+     1472,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 27,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1248,
+     1216,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 28,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1760,
+     -384,
+     328
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 29,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1760,
+     384,
+     328
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 30,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -896,
+     -704,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 31,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -896,
+     704,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 60,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0,
+     -928,
+     416
+    ],
+    "size": [
+     1024,
+     448,
+     1216
+    ],
+    "texture": "Mine.Wall.MBRKWL1A",
+    "face_textures": {},
+    "group": "Mid",
+    "tex_scale": 1.0,
+    "min": [
+     -512,
+     -1152,
+     -192
+    ],
+    "max": [
+     512,
+     -704,
+     1024
+    ]
+   }
+  },
+  {
+   "id": 61,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0,
+     928,
+     416
+    ],
+    "size": [
+     1024,
+     448,
+     1216
+    ],
+    "texture": "Mine.Wall.MBRKWL1A",
+    "face_textures": {},
+    "group": "Mid",
+    "tex_scale": 1.0,
+    "min": [
+     -512,
+     704,
+     -192
+    ],
+    "max": [
+     512,
+     1152,
+     1024
+    ]
+   }
+  },
+  {
+   "id": 64,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944,
+     -1280,
+     224
+    ],
+    "size": [
+     704,
+     704,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 65,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2576.0,
+     -1088.0,
+     96.0
+    ],
+    "size": [
+     32,
+     256,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 66,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2672,
+     -912,
+     96
+    ],
+    "size": [
+     160,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 67,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2944,
+     1280,
+     224
+    ],
+    "size": [
+     704,
+     704,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 68,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2576.0,
+     1088.0,
+     96.0
+    ],
+    "size": [
+     32,
+     256,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 106,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -992,
+     -384,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 107,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -992,
+     384,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 108,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -752,
+     -640,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 109,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -752,
+     640,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 110,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -480.0,
+     -544.0,
+     -96.0
+    ],
+    "size": [
+     320,
+     320,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 111,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -480.0,
+     544.0,
+     -96.0
+    ],
+    "size": [
+     320,
+     320,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 153,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -944,
+     -1344,
+     512.0
+    ],
+    "radius": 96,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar2",
+    "face_textures": {},
+    "group": "RedHouseL"
+   }
+  },
+  {
+   "id": 154,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -944,
+     1344,
+     512.0
+    ],
+    "radius": 96,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar2",
+    "face_textures": {},
+    "group": "RedHouseR"
+   }
+  },
+  {
+   "id": 155,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1856.0,
+     0.0,
+     400.0
+    ],
+    "size": [
+     256,
+     448,
+     224
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall3"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 242,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -2336,
+     -1120,
+     512
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 243,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -2336,
+     1120,
+     512
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 246,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -2336.0,
+     -576.0,
+     144.0
+    ],
+    "size": [
+     448,
+     256,
+     288
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 247,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -2336.0,
+     576.0,
+     144.0
+    ],
+    "size": [
+     448,
+     256,
+     288
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 250,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -3136.0,
+     1024.0,
+     96.0
+    ],
+    "size": [
+     320,
+     192,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 251,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -3168.0,
+     1376.0,
+     96.0
+    ],
+    "size": [
+     512,
+     256,
+     192
+    ],
+    "yaw": 270,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseBR"
+   }
+  },
+  {
+   "id": 252,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3152.0,
+     912.0,
+     304.0
+    ],
+    "size": [
+     224,
+     32,
+     224
+    ],
+    "texture": "Mine.Window.Windowm",
+    "face_textures": {},
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 253,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -3024.0,
+     -1024.0,
+     96.0
+    ],
+    "size": [
+     544,
+     192,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 254,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -3168.0,
+     -1376.0,
+     96.0
+    ],
+    "size": [
+     512,
+     256,
+     192
+    ],
+    "yaw": 90,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseBL"
+   }
+  },
+  {
+   "id": 255,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2864.0,
+     -912.0,
+     304.0
+    ],
+    "size": [
+     224,
+     32,
+     224
+    ],
+    "texture": "Mine.Window.Windowm",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 256,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1920.0,
+     1472.0,
+     96.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 257,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -2304.0,
+     1504.0,
+     96.0
+    ],
+    "size": [
+     512,
+     320,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseR"
+   }
+  },
+  {
+   "id": 258,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1776.0,
+     1456.0,
+     304.0
+    ],
+    "size": [
+     32,
+     288,
+     224
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 259,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     -1920.0,
+     -1472.0,
+     96.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 260,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     -2304.0,
+     -1504.0,
+     96.0
+    ],
+    "size": [
+     512,
+     320,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseL"
+   }
+  },
+  {
+   "id": 261,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1776.0,
+     -1456.0,
+     304.0
+    ],
+    "size": [
+     32,
+     288,
+     224
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 319,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2560,
+     0,
+     512
+    ],
+    "width": 3360,
+    "height": 1056,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 320,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -640,
+     0,
+     512
+    ],
+    "width": 3360,
+    "height": 1056,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 321,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Flag Room",
+    "location": [
+     -2944,
+     384,
+     320
+    ],
+    "ambient_brightness": 10,
+    "ambient_hue": 150,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 322,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Base",
+    "location": [
+     -1408,
+     0,
+     640
+    ],
+    "ambient_brightness": 10,
+    "ambient_hue": 150,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 323,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Mid",
+    "location": [
+     0,
+     1408,
+     320
+    ],
+    "ambient_brightness": 10,
+    "ambient_hue": 150,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 324,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944,
+     0,
+     384
+    ],
+    "brightness": 210,
+    "radius": 30,
+    "hue": 0,
+    "saturation": 90
+   }
+  },
+  {
+   "id": 325,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3008,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 326,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3008,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 327,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2304,
+     -1440,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 328,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2304,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 329,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2304,
+     1440,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 330,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 331,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 332,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 333,
+   "kind": "light",
+   "params": {
+    "location": [
+     -864,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 334,
+   "kind": "light",
+   "params": {
+    "location": [
+     -864,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 335,
+   "kind": "light",
+   "params": {
+    "location": [
+     -864,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 336,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1440,
+     -1344,
+     352
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 337,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1440,
+     1344,
+     352
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 338,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2848,
+     -1344,
+     384
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 339,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2848,
+     1344,
+     384
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 340,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -1408,
+     400
+    ],
+    "brightness": 160,
+    "radius": 34,
+    "hue": 40,
+    "saturation": 180
+   }
+  },
+  {
+   "id": 341,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     1408,
+     400
+    ],
+    "brightness": 160,
+    "radius": 34,
+    "hue": 40,
+    "saturation": 180
+   }
+  },
+  {
+   "id": 342,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     -544,
+     320
+    ],
+    "brightness": 160,
+    "radius": 30,
+    "hue": 40,
+    "saturation": 180
+   }
+  },
+  {
+   "id": 343,
+   "kind": "light",
+   "params": {
+    "location": [
+     0,
+     544,
+     320
+    ],
+    "brightness": 160,
+    "radius": 30,
+    "hue": 40,
+    "saturation": 180
+   }
+  },
+  {
+   "id": 344,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     448.0,
+     -1376.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     576,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 345,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     448.0,
+     1376.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     576,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 346,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2944.0,
+     -1280,
+     288
+    ],
+    "size": [
+     768,
+     768,
+     576
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall1"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 347,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     2944.0,
+     1280,
+     288
+    ],
+    "size": [
+     768,
+     768,
+     576
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall1"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 348,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1856.0,
+     0.0,
+     144.0
+    ],
+    "size": [
+     512,
+     1408,
+     288
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.MBRKWL2A"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0,
+    "min": [
+     -2112,
+     -704,
+     0
+    ],
+    "max": [
+     -1600,
+     704,
+     288
+    ]
+   }
+  },
+  {
+   "id": 349,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     1344.0,
+     0.0,
+     144.0
+    ],
+    "size": [
+     512,
+     384,
+     288
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 350,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1440.0,
+     -1344,
+     256
+    ],
+    "size": [
+     704,
+     640,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall2"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 351,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1440.0,
+     -1344,
+     208
+    ],
+    "size": [
+     640,
+     576,
+     416
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 352,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1104.0,
+     -1344.0,
+     96.0
+    ],
+    "size": [
+     32,
+     320,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 353,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1456.0,
+     -1040.0,
+     96.0
+    ],
+    "size": [
+     288,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 354,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1440.0,
+     1344,
+     256
+    ],
+    "size": [
+     704,
+     640,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall2"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 355,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1440.0,
+     1344,
+     208
+    ],
+    "size": [
+     640,
+     576,
+     416
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 356,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1104.0,
+     1344.0,
+     96.0
+    ],
+    "size": [
+     32,
+     320,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 357,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1456.0,
+     1040.0,
+     96.0
+    ],
+    "size": [
+     288,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 358,
+   "kind": "flag",
+   "params": {
+    "location": [
+     2944.0,
+     0,
+     32
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 359,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1600.0,
+     -1344,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 360,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1376.0,
+     -1472,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 361,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1248.0,
+     -1216,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 362,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1600.0,
+     1344,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 363,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1376.0,
+     1472,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 364,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1248.0,
+     1216,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 365,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1760.0,
+     -384,
+     328
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 366,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1760.0,
+     384,
+     328
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 367,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     896.0,
+     -704,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 368,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     896.0,
+     704,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 369,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0.0,
+     -928,
+     416
+    ],
+    "size": [
+     1024,
+     448,
+     1216
+    ],
+    "texture": "Mine.Wall.MBRKWL1A",
+    "face_textures": {},
+    "group": "Mid",
+    "tex_scale": 1.0,
+    "min": [
+     -512,
+     -1152,
+     -192
+    ],
+    "max": [
+     512,
+     -704,
+     1024
+    ]
+   }
+  },
+  {
+   "id": 370,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     0.0,
+     928,
+     416
+    ],
+    "size": [
+     1024,
+     448,
+     1216
+    ],
+    "texture": "Mine.Wall.MBRKWL1A",
+    "face_textures": {},
+    "group": "Mid",
+    "tex_scale": 1.0,
+    "min": [
+     -512,
+     704,
+     -192
+    ],
+    "max": [
+     512,
+     1152,
+     1024
+    ]
+   }
+  },
+  {
+   "id": 371,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     -1280,
+     224
+    ],
+    "size": [
+     704,
+     704,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 372,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2576.0,
+     -1088.0,
+     96.0
+    ],
+    "size": [
+     32,
+     256,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 373,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2672.0,
+     -912,
+     96
+    ],
+    "size": [
+     160,
+     32,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 374,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     1280,
+     224
+    ],
+    "size": [
+     704,
+     704,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "bottom": "Mine.Floor.mFloor",
+     "top": "Mine.Ceiling.mCeilin1",
+     "sides": "Mine.Wall.Irnwall2"
+    },
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 375,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2576.0,
+     1088.0,
+     96.0
+    ],
+    "size": [
+     32,
+     256,
+     192
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 376,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     992.0,
+     -384,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 377,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     992.0,
+     384,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 378,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     752.0,
+     -640,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 379,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     752.0,
+     640,
+     512.0
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 380,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     480.0,
+     -544.0,
+     -96.0
+    ],
+    "size": [
+     320,
+     320,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 381,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     480.0,
+     544.0,
+     -96.0
+    ],
+    "size": [
+     320,
+     320,
+     192
+    ],
+    "yaw": 0,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "Trench"
+   }
+  },
+  {
+   "id": 382,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     944.0,
+     -1344,
+     512.0
+    ],
+    "radius": 96,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar2",
+    "face_textures": {},
+    "group": "RedHouseL"
+   }
+  },
+  {
+   "id": 383,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     944.0,
+     1344,
+     512.0
+    ],
+    "radius": 96,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar2",
+    "face_textures": {},
+    "group": "RedHouseR"
+   }
+  },
+  {
+   "id": 384,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1856.0,
+     0.0,
+     400.0
+    ],
+    "size": [
+     256,
+     448,
+     224
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Wall.Brkwall3"
+    },
+    "group": "RedBase",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 385,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     2336.0,
+     -1120,
+     512
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 386,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     2336.0,
+     1120,
+     512
+    ],
+    "radius": 112,
+    "height": 1024,
+    "sides": 8,
+    "texture": "Mine.Pillar.mPillar1",
+    "face_textures": {},
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 387,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     2336.0,
+     -576.0,
+     144.0
+    ],
+    "size": [
+     448,
+     256,
+     288
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 388,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     2336.0,
+     576.0,
+     144.0
+    ],
+    "size": [
+     448,
+     256,
+     288
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedBase"
+   }
+  },
+  {
+   "id": 389,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     3136.0,
+     1024.0,
+     96.0
+    ],
+    "size": [
+     320,
+     192,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 390,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     3168.0,
+     1376.0,
+     96.0
+    ],
+    "size": [
+     512,
+     256,
+     192
+    ],
+    "yaw": 270,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseBR"
+   }
+  },
+  {
+   "id": 391,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3152.0,
+     912.0,
+     304.0
+    ],
+    "size": [
+     224,
+     32,
+     224
+    ],
+    "texture": "Mine.Window.Windowm",
+    "face_textures": {},
+    "group": "RedHouseBR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 392,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     3024.0,
+     -1024.0,
+     96.0
+    ],
+    "size": [
+     544,
+     192,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 393,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     3168.0,
+     -1376.0,
+     96.0
+    ],
+    "size": [
+     512,
+     256,
+     192
+    ],
+    "yaw": 90,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseBL"
+   }
+  },
+  {
+   "id": 394,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2864.0,
+     -912.0,
+     304.0
+    ],
+    "size": [
+     224,
+     32,
+     224
+    ],
+    "texture": "Mine.Window.Windowm",
+    "face_textures": {},
+    "group": "RedHouseBL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 395,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1920.0,
+     1472.0,
+     96.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 396,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     2304.0,
+     1504.0,
+     96.0
+    ],
+    "size": [
+     512,
+     320,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseR"
+   }
+  },
+  {
+   "id": 397,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1776.0,
+     1456.0,
+     304.0
+    ],
+    "size": [
+     32,
+     288,
+     224
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseR",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 398,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "add",
+    "location": [
+     1920.0,
+     -1472.0,
+     96.0
+    ],
+    "size": [
+     256,
+     384,
+     192
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Mine.Floor.Woodmai2",
+     "sides": "Mine.Trim.MGIRDRS1"
+    },
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 399,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "add",
+    "location": [
+     2304.0,
+     -1504.0,
+     96.0
+    ],
+    "size": [
+     512,
+     320,
+     192
+    ],
+    "yaw": 180,
+    "texture": "Mine.Floor.Woodmai3",
+    "group": "RedHouseL"
+   }
+  },
+  {
+   "id": 400,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1776.0,
+     -1456.0,
+     304.0
+    ],
+    "size": [
+     32,
+     288,
+     224
+    ],
+    "texture": "Mine.Arch.mDoor",
+    "face_textures": {},
+    "group": "RedHouseL",
+    "tex_scale": 1.0
+   }
+  },
+  {
+   "id": 401,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2560.0,
+     0,
+     512
+    ],
+    "width": 3360,
+    "height": 1056,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 402,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     640.0,
+     0,
+     512
+    ],
+    "width": 3360,
+    "height": 1056,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 403,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Flag Room",
+    "location": [
+     2944.0,
+     384,
+     320
+    ],
+    "ambient_brightness": 10,
+    "ambient_hue": 150,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 404,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Base",
+    "location": [
+     1408.0,
+     0,
+     640
+    ],
+    "ambient_brightness": 10,
+    "ambient_hue": 150,
+    "ambient_saturation": 220
+   }
+  },
+  {
+   "id": 406,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944.0,
+     0,
+     384
+    ],
+    "brightness": 210,
+    "radius": 30,
+    "hue": 160,
+    "saturation": 90
+   }
+  },
+  {
+   "id": 407,
+   "kind": "light",
+   "params": {
+    "location": [
+     3008.0,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 408,
+   "kind": "light",
+   "params": {
+    "location": [
+     3008.0,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 409,
+   "kind": "light",
+   "params": {
+    "location": [
+     2304,
+     -1440,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 410,
+   "kind": "light",
+   "params": {
+    "location": [
+     2304.0,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 411,
+   "kind": "light",
+   "params": {
+    "location": [
+     2304,
+     1440,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 412,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 413,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 414,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 415,
+   "kind": "light",
+   "params": {
+    "location": [
+     864.0,
+     -1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 416,
+   "kind": "light",
+   "params": {
+    "location": [
+     864.0,
+     0,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 417,
+   "kind": "light",
+   "params": {
+    "location": [
+     864.0,
+     1216,
+     736
+    ],
+    "brightness": 150,
+    "radius": 36,
+    "hue": 32,
+    "saturation": 200
+   }
+  },
+  {
+   "id": 418,
+   "kind": "light",
+   "params": {
+    "location": [
+     1440.0,
+     -1344,
+     352
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 419,
+   "kind": "light",
+   "params": {
+    "location": [
+     1440.0,
+     1344,
+     352
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 420,
+   "kind": "light",
+   "params": {
+    "location": [
+     2848.0,
+     -1344,
+     384
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  },
+  {
+   "id": 421,
+   "kind": "light",
+   "params": {
+    "location": [
+     2848.0,
+     1344,
+     384
+    ],
+    "brightness": 180,
+    "radius": 22,
+    "hue": 32,
+    "saturation": 160
+   }
+  }
+ ]
+}

@@ -15,6 +15,7 @@ Guidance for Claude Code sessions in this repository: an MCP server (`unrealed`)
   | `autofix.py` | Verification builds |
   | `metrics.py` + `rules.py` | Gameplay measurements and PASS/WARN/FAIL checks |
   | `texalign.py` / `texpkg.py` | Texture alignment, texture sizes from packages |
+  | `unrbsp.py` | World BSP of a built `.unr`: point tests, ramp/step traces after builds |
   | `patch.py` | Editing existing maps |
   | `review.py` | Audit of existing maps |
   | `layout.py` | Layout spec and floor images |
@@ -22,19 +23,21 @@ Guidance for Claude Code sessions in this repository: an MCP server (`unrealed`)
   | `t3dimport.py` | T3D importer |
   | `ucc.py` | Headless UCC |
 - Skills: `ictf-map-design` holds the design rules; `new-map`, `review-map`, `fix-map`, `edit-map` and `remake-map` are the commands.
+- Reviewed example maps (committed, the regression set): `UnrealEdMCP/examples/`.
 - Projects (not committed): `UnrealEdMCP/projects/<name>.json`, and `<name>.patch.json` for patch projects. Built maps go to `Maps/<name>.unr`.
 
 ## How the project improves: map reviews
 The user (an experienced iCTF player) plays generated maps and reports what's wrong, usually with screenshots. **The goal is to fix the generator, the checks and the skill, not the individual map.** For each point:
 1. Find the cause in the project JSON (`MapDoc.from_json`). Element ids in reports refer to it.
-2. **Calibrate on the community pool before adding a check.** Run the measurement on the 18 pool maps and on earlier generated maps (`research/*.py` scripts; results in `research/*.json`).
+2. **Calibrate on the community pool before adding a check.** Run the measurement on the 18 pool maps and on the reviewed maps in `UnrealEdMCP/examples/` (`research/*.py` scripts; results in `research/*.json`).
    - Keep a check only if it separates the problem from liked maps.
    - Generic measures often don't separate them: corridor runs, ledge detours and thin walls were all dropped after calibration.
    - Targeted geometric checks usually do: knife edges, one-end platforms, plain blocks, big empty rooms.
    - Community rules from the user take priority over pool data. Pool splits become WARN; never-in-pool problems can be FAIL.
 3. **Prevent the problem in the generator where possible**: tool defaults and validation in `server.py`/`mapgen.py`. Then add the check (`metrics.py` + `rules.py`, or `_lint` in `server.py` for build-time issues).
-4. **Verify with real builds** (`build_map` / `ucc.build`). Remove test maps afterwards (`Maps/`, `projects/`, `output/`, and their entries in `work/built_maps.json`).
-5. **Update everything:**
+4. **Verify with real builds** (`build_map` / `ucc.build`), and run `python research/regression.py`: every earlier review's problems must still be found, and what the reviewer liked must still pass. Re-record (`--record`) only for intended changes. Remove test maps afterwards (`Maps/`, `projects/`, `output/`, and their entries in `work/built_maps.json`).
+5. **Add the reviewed map to `UnrealEdMCP/examples/`.** Use the project JSON. Strip any props copied from Epic or community maps with `add_asset` (no game content in the repo). Then record its expectations and add a row to the examples README.
+6. **Update everything:**
    - the skill rules (tag [community] / [data]) and the "how to fix" table;
    - GUIDE.md: rules (§5), the checks table (§6), the tool table, research files, and a **history row**;
    - the READMEs, if structure changed.
@@ -58,5 +61,6 @@ The user (an experienced iCTF player) plays generated maps and reports what's wr
   - load the original map before `MAP IMPORT` to keep its embedded objects;
   - texture vectors transform with the inverse transpose;
   - UE1 is left-handed (unmirrored when U × V points along the visible normal);
-  - FlagBase stands at floor + 64.
+  - FlagBase stands at floor + 64;
+  - a semisolid fake ramp over semisolid steps vanishes from the BSP: steps under it must be solid adds (Duku). To see what the engine really built, trace the BSP with `unrbsp.py`.
 - **Checking a fix visually:** UCC can't render, so ask the user to look in-game or in UnrealEd at specific coordinates when a fix is visual (textures, missing polygons).

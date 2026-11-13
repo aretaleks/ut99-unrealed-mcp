@@ -1,0 +1,9105 @@
+{
+ "title": "Slumgate",
+ "author": "Claude",
+ "grid": 16,
+ "default_texture": "Slums.Concrete.Conc41",
+ "bsp": {
+  "mode": "good",
+  "balance": 15,
+  "portal_bias": 70
+ },
+ "gametype": "ctf",
+ "next_id": 1141,
+ "elements": [
+  {
+   "id": 1,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0,
+     0,
+     5120
+    ],
+    "size": [
+     2048,
+     2048,
+     2048
+    ],
+    "texture": "SkyBox.Effects.NCld",
+    "poly_flags": 4194816,
+    "group": "SkyBox"
+   }
+  },
+  {
+   "id": 2,
+   "kind": "zone",
+   "params": {
+    "type": "sky",
+    "name": "Sky",
+    "location": [
+     0,
+     0,
+     4608.0
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -2944,
+     0,
+     256.0
+    ],
+    "points": [
+     [
+      320,
+      -512
+     ],
+     [
+      512,
+      -320
+     ],
+     [
+      512,
+      320
+     ],
+     [
+      320,
+      512
+     ],
+     [
+      -320,
+      512
+     ],
+     [
+      -512,
+      320
+     ],
+     [
+      -512,
+      -320
+     ],
+     [
+      -320,
+      -512
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "Slums.Concrete.Conc22",
+     "top": "Slums.metal.Metal10",
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "RedFlagRoom",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 4,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     -2560,
+     1152,
+     224.0
+    ],
+    "points": [
+     [
+      512,
+      -384
+     ],
+     [
+      640,
+      -256
+     ],
+     [
+      640,
+      256
+     ],
+     [
+      512,
+      384
+     ],
+     [
+      -512,
+      384
+     ],
+     [
+      -640,
+      256
+     ],
+     [
+      -640,
+      -256
+     ],
+     [
+      -512,
+      -384
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "RedHall",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 5,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1856.0,
+     128.0,
+     192.0
+    ],
+    "size": [
+     896,
+     768,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Slums.metal.Metal10",
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "RedLobby",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 6,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2496.0,
+     -1280.0,
+     64.0
+    ],
+    "size": [
+     1408,
+     768,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "RedYard",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 7,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1536.0,
+     1152.0,
+     192.0
+    ],
+    "size": [
+     512,
+     768,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "RedAlley",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 8,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1472.0,
+     -1312.0,
+     64.0
+    ],
+    "size": [
+     384,
+     832,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "RedUnderpass",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 9,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     1088,
+     224.0
+    ],
+    "points": [
+     [
+      -1088,
+      -448
+     ],
+     [
+      -1152,
+      -384
+     ],
+     [
+      -1152,
+      384
+     ],
+     [
+      -1088,
+      448
+     ],
+     [
+      1088,
+      448
+     ],
+     [
+      1152,
+      384
+     ],
+     [
+      1152,
+      -384
+     ],
+     [
+      1088,
+      -448
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "MidStreet",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 10,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -1280.0,
+     160.0
+    ],
+    "size": [
+     2304,
+     768,
+     704
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "MidCanal",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 11,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     0,
+     -128,
+     416.0
+    ],
+    "points": [
+     [
+      -960,
+      -384
+     ],
+     [
+      -1024,
+      -320
+     ],
+     [
+      -1024,
+      320
+     ],
+     [
+      -960,
+      384
+     ],
+     [
+      960,
+      384
+     ],
+     [
+      1024,
+      320
+     ],
+     [
+      1024,
+      -320
+     ],
+     [
+      960,
+      -384
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "MidRoof",
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 12,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     0.0,
+     -704.0,
+     416.0
+    ],
+    "size": [
+     768,
+     384,
+     448
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "MidRoof",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 83,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     0,
+     960,
+     96.0
+    ],
+    "points": [
+     [
+      128,
+      -192
+     ],
+     [
+      224,
+      -96
+     ],
+     [
+      224,
+      96
+     ],
+     [
+      128,
+      192
+     ],
+     [
+      -128,
+      192
+     ],
+     [
+      -224,
+      96
+     ],
+     [
+      -224,
+      -96
+     ],
+     [
+      -128,
+      -192
+     ]
+    ],
+    "height": 192,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "Kiosk",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 84,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     0,
+     960,
+     240.0
+    ],
+    "points": [
+     [
+      80,
+      -128
+     ],
+     [
+      128,
+      -80
+     ],
+     [
+      128,
+      80
+     ],
+     [
+      80,
+      128
+     ],
+     [
+      -80,
+      128
+     ],
+     [
+      -128,
+      80
+     ],
+     [
+      -128,
+      -80
+     ],
+     [
+      -80,
+      -128
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "Kiosk",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 85,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -704,
+     1280,
+     64.0
+    ],
+    "points": [
+     [
+      64,
+      -96
+     ],
+     [
+      96,
+      -64
+     ],
+     [
+      96,
+      64
+     ],
+     [
+      64,
+      96
+     ],
+     [
+      -64,
+      96
+     ],
+     [
+      -96,
+      64
+     ],
+     [
+      -96,
+      -64
+     ],
+     [
+      -64,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "Crates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 86,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -704,
+     1280,
+     176.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "Crates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 87,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     0,
+     -1024,
+     -120.0
+    ],
+    "points": [
+     [
+      112,
+      -128
+     ],
+     [
+      160,
+      -80
+     ],
+     [
+      160,
+      80
+     ],
+     [
+      112,
+      128
+     ],
+     [
+      -112,
+      128
+     ],
+     [
+      -160,
+      80
+     ],
+     [
+      -160,
+      -80
+     ],
+     [
+      -112,
+      -128
+     ]
+    ],
+    "height": 144,
+    "texture": "Slums.Concrete.Conc23",
+    "face_textures": {},
+    "group": "Barrier",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 88,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -640,
+     -1344,
+     -128.0
+    ],
+    "points": [
+     [
+      80,
+      -128
+     ],
+     [
+      128,
+      -80
+     ],
+     [
+      128,
+      80
+     ],
+     [
+      80,
+      128
+     ],
+     [
+      -80,
+      128
+     ],
+     [
+      -128,
+      80
+     ],
+     [
+      -128,
+      -80
+     ],
+     [
+      -80,
+      -128
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "CanalCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 89,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -640,
+     -1344,
+     -16.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "CanalCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 90,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "add",
+    "location": [
+     0,
+     64,
+     320.0
+    ],
+    "points": [
+     [
+      128,
+      -192
+     ],
+     [
+      192,
+      -128
+     ],
+     [
+      192,
+      128
+     ],
+     [
+      128,
+      192
+     ],
+     [
+      -128,
+      192
+     ],
+     [
+      -192,
+      128
+     ],
+     [
+      -192,
+      -128
+     ],
+     [
+      -128,
+      -192
+     ]
+    ],
+    "height": 256,
+    "texture": "Slums.brick.Brick05",
+    "face_textures": {},
+    "group": "Chimney",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 91,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -640,
+     -256,
+     256.0
+    ],
+    "points": [
+     [
+      64,
+      -96
+     ],
+     [
+      96,
+      -64
+     ],
+     [
+      96,
+      64
+     ],
+     [
+      64,
+      96
+     ],
+     [
+      -64,
+      96
+     ],
+     [
+      -96,
+      64
+     ],
+     [
+      -96,
+      -64
+     ],
+     [
+      -64,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "ACUnit",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 92,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -640,
+     -256,
+     344.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 48,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "ACUnit",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 93,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -2688,
+     -288,
+     256.0
+    ],
+    "radius": 64,
+    "height": 512,
+    "sides": 8,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 94,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -2688,
+     288,
+     256.0
+    ],
+    "radius": 64,
+    "height": 512,
+    "sides": 8,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 95,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -2560,
+     1152,
+     64.0
+    ],
+    "points": [
+     [
+      80,
+      -96
+     ],
+     [
+      128,
+      -48
+     ],
+     [
+      128,
+      48
+     ],
+     [
+      80,
+      96
+     ],
+     [
+      -80,
+      96
+     ],
+     [
+      -128,
+      48
+     ],
+     [
+      -128,
+      -48
+     ],
+     [
+      -80,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 96,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -2560,
+     1152,
+     176.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 97,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -2144,
+     928,
+     48.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 98,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     -1856,
+     128,
+     192.0
+    ],
+    "radius": 96,
+    "height": 384,
+    "sides": 8,
+    "texture": "Slums.brick.Brick06",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 99,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -2432,
+     -1280,
+     -128.0
+    ],
+    "points": [
+     [
+      80,
+      -128
+     ],
+     [
+      128,
+      -80
+     ],
+     [
+      128,
+      80
+     ],
+     [
+      80,
+      128
+     ],
+     [
+      -80,
+      128
+     ],
+     [
+      -128,
+      80
+     ],
+     [
+      -128,
+      -80
+     ],
+     [
+      -80,
+      -128
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "YardCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 100,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -2432,
+     -1280,
+     -16.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "YardCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 101,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -1504,
+     -1280,
+     -144.0
+    ],
+    "points": [
+     [
+      32,
+      -64
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "UnderpassCrate",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 102,
+   "kind": "kicker",
+   "params": {
+    "location": [
+     0,
+     -1408,
+     -152
+    ],
+    "target": [
+     0,
+     -704,
+     192
+    ],
+    "velocity": [
+     0.0,
+     526.07,
+     922.61
+    ],
+    "apex": 64
+   }
+  },
+  {
+   "id": 103,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     0.0,
+     -1408.0,
+     -184.0
+    ],
+    "size": [
+     96,
+     96,
+     16
+    ],
+    "texture": "",
+    "group": "KickerPads"
+   }
+  },
+  {
+   "id": 104,
+   "kind": "flag",
+   "params": {
+    "location": [
+     -2944,
+     0,
+     64
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 105,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Flag Room",
+    "location": [
+     -3136,
+     0,
+     256
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 106,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Red Base",
+    "location": [
+     -1856,
+     384,
+     192
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 107,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Mid",
+    "location": [
+     0,
+     -352,
+     416
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 108,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -2176,
+     1344,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 110,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1408,
+     1408,
+     40
+    ],
+    "yaw": 285,
+    "team": 0
+   }
+  },
+  {
+   "id": 113,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -2048,
+     -1536,
+     -152
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 114,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -832,
+     128,
+     232
+    ],
+    "yaw": 315,
+    "team": 0
+   }
+  },
+  {
+   "id": 116,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -1408,
+     -1024,
+     -152
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 230,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2816.0,
+     640.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 231,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2816.0,
+     640.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 232,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2368.0,
+     128.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 233,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2368.0,
+     128.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 234,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1600.0,
+     640.0,
+     128.0
+    ],
+    "size": [
+     320,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 235,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1856.0,
+     1216.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 236,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1216.0,
+     896.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 237,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1216.0,
+     896.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 238,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1728.0,
+     -1472.0,
+     -64.0
+    ],
+    "size": [
+     128,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 239,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1216.0,
+     -1088.0,
+     -64.0
+    ],
+    "size": [
+     128,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 240,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1216.0,
+     -1088.0,
+     -64.0
+    ],
+    "width": 320,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 241,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2048.0,
+     -384.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 242,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2816.0,
+     -712.0,
+     32.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 243,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -864.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 244,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -832.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 245,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -800.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 246,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -768.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 247,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -736.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 248,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -704.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 249,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -672.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 250,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -640.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 251,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -608.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 252,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -576.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 253,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -544.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 254,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -512.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 255,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -2816.0,
+     -720.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 256,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -2048.0,
+     -712.0,
+     32.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 257,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -864.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 258,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -832.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 259,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -800.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 260,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -768.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 261,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -736.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 262,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -704.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 263,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -672.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 264,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -640.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 265,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -608.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 266,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -576.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 267,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -544.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 268,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -512.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 269,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -2048.0,
+     -720.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 270,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -1224.0,
+     0.0,
+     224.0
+    ],
+    "size": [
+     432,
+     384,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 271,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1376.0,
+     0.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 272,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1344.0,
+     0.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 273,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1312.0,
+     0.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 274,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1280.0,
+     0.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 275,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1248.0,
+     0.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 276,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1216.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 277,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1184.0,
+     0.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 278,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1152.0,
+     0.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 279,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1120.0,
+     0.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 280,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1088.0,
+     0.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 281,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1056.0,
+     0.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 282,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -1024.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 283,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -1232.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 0,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 284,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -512.0,
+     456.0,
+     224.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 285,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     608.0,
+     8.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 286,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     576.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 287,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     544.0,
+     24.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 288,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     512.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 289,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     480.0,
+     40.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 290,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     448.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 291,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     416.0,
+     56.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 292,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     384.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 293,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     352.0,
+     72.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 294,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     320.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 295,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     288.0,
+     88.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 296,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     256.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 297,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     -512.0,
+     464.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 298,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -2816,
+     -528,
+     128
+    ],
+    "width": 448,
+    "height": 320,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 299,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -1040,
+     0,
+     320
+    ],
+    "width": 448,
+    "height": 320,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 300,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -992,
+     928,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 301,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -3680,
+     1216,
+     40
+    ],
+    "yaw": 0,
+    "team": 0
+   }
+  },
+  {
+   "id": 302,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -832,
+     -320,
+     232
+    ],
+    "yaw": 345,
+    "team": 0
+   }
+  },
+  {
+   "id": 303,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     -960,
+     -1344,
+     -152
+    ],
+    "yaw": 45,
+    "team": 0
+   }
+  },
+  {
+   "id": 304,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3328,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 305,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3328,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 306,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3328,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 307,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 308,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 309,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2944,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 310,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 311,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 312,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2560,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 313,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 314,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 315,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 316,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2736,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 317,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2736,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 318,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2736,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 319,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2384,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 320,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2384,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 321,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2384,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 322,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2048,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 323,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2048,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 324,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2048,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 325,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2176,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 326,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2176,
+     128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 327,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2176,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 328,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 329,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 330,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 331,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 332,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1536,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 333,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 334,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 335,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3072,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 336,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2784,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 337,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2784,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 338,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2784,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 339,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2496,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 340,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2496,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 341,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2496,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 342,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2208,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 343,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2208,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 344,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2208,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 345,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 346,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 347,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1920,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 348,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1664,
+     896,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 349,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1664,
+     1152,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 350,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1664,
+     1408,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 351,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1408,
+     896,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 352,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1408,
+     1152,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 353,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1408,
+     1408,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 354,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472,
+     -1600,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 355,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472,
+     -1312,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 356,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1472,
+     -1024,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 357,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 358,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 359,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 360,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 361,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 362,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 363,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 364,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 365,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 366,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 367,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 368,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 369,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 370,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 371,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1024,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 372,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 373,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 374,
+   "kind": "light",
+   "params": {
+    "location": [
+     -752,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 375,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 376,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 377,
+   "kind": "light",
+   "params": {
+    "location": [
+     -464,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 378,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 379,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 380,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 381,
+   "kind": "light",
+   "params": {
+    "location": [
+     -896,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 382,
+   "kind": "light",
+   "params": {
+    "location": [
+     -896,
+     -128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 383,
+   "kind": "light",
+   "params": {
+    "location": [
+     -896,
+     128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 384,
+   "kind": "light",
+   "params": {
+    "location": [
+     -544,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 385,
+   "kind": "light",
+   "params": {
+    "location": [
+     -544,
+     -128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 386,
+   "kind": "light",
+   "params": {
+    "location": [
+     -544,
+     128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 387,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 388,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2816,
+     640,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 389,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2368,
+     128,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 390,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1600,
+     640,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 391,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1856,
+     1216,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 392,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1216,
+     896,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 393,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1728,
+     -1472,
+     0
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 394,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1216,
+     -1088,
+     0
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 395,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2048,
+     -384,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 396,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2816,
+     -704,
+     128
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 397,
+   "kind": "light",
+   "params": {
+    "location": [
+     -2048,
+     -704,
+     128
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 398,
+   "kind": "light",
+   "params": {
+    "location": [
+     -1216,
+     0,
+     320
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 399,
+   "kind": "light",
+   "params": {
+    "location": [
+     -512,
+     448,
+     320
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 400,
+   "kind": "light",
+   "params": {
+    "location": [
+     -192,
+     -704,
+     512
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 415,
+   "kind": "actor",
+   "params": {
+    "class": "barrel3",
+    "props": {},
+    "location": [
+     -3104,
+     1472,
+     30
+    ],
+    "yaw": 0,
+    "package": "Botpack"
+   }
+  },
+  {
+   "id": 416,
+   "kind": "actor",
+   "params": {
+    "class": "barrel3",
+    "props": {},
+    "location": [
+     -1600,
+     -1680,
+     -162
+    ],
+    "yaw": 0,
+    "package": "Botpack"
+   }
+  },
+  {
+   "id": 417,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     2944.0,
+     0,
+     256.0
+    ],
+    "points": [
+     [
+      -320,
+      -512
+     ],
+     [
+      -512,
+      -320
+     ],
+     [
+      -512,
+      320
+     ],
+     [
+      -320,
+      512
+     ],
+     [
+      320,
+      512
+     ],
+     [
+      512,
+      320
+     ],
+     [
+      512,
+      -320
+     ],
+     [
+      320,
+      -512
+     ]
+    ],
+    "height": 512,
+    "texture": "",
+    "face_textures": {
+     "bottom": "Slums.Concrete.Conc22",
+     "top": "Slums.metal.Metal10",
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "BlueFlagRoom",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 418,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "subtract",
+    "location": [
+     2560.0,
+     1152,
+     224.0
+    ],
+    "points": [
+     [
+      -512,
+      -384
+     ],
+     [
+      -640,
+      -256
+     ],
+     [
+      -640,
+      256
+     ],
+     [
+      -512,
+      384
+     ],
+     [
+      512,
+      384
+     ],
+     [
+      640,
+      256
+     ],
+     [
+      640,
+      -256
+     ],
+     [
+      512,
+      -384
+     ]
+    ],
+    "height": 448,
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "BlueHall",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 419,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1856.0,
+     128.0,
+     192.0
+    ],
+    "size": [
+     896,
+     768,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "top": "Slums.metal.Metal10",
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "BlueLobby",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 420,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2496.0,
+     -1280.0,
+     64.0
+    ],
+    "size": [
+     1408,
+     768,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "BlueYard",
+    "tex_scale": 1.0,
+    "face_flags": {
+     "top": 128
+    }
+   }
+  },
+  {
+   "id": 421,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1536.0,
+     1152.0,
+     192.0
+    ],
+    "size": [
+     512,
+     768,
+     384
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "BlueAlley",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 422,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1472.0,
+     -1312.0,
+     64.0
+    ],
+    "size": [
+     384,
+     832,
+     512
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick06"
+    },
+    "group": "BlueUnderpass",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 423,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     704.0,
+     1280,
+     64.0
+    ],
+    "points": [
+     [
+      -64,
+      -96
+     ],
+     [
+      -96,
+      -64
+     ],
+     [
+      -96,
+      64
+     ],
+     [
+      -64,
+      96
+     ],
+     [
+      64,
+      96
+     ],
+     [
+      96,
+      64
+     ],
+     [
+      96,
+      -64
+     ],
+     [
+      64,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "Crates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 424,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     704.0,
+     1280,
+     176.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "Crates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 425,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     640.0,
+     -1344,
+     -128.0
+    ],
+    "points": [
+     [
+      -80,
+      -128
+     ],
+     [
+      -128,
+      -80
+     ],
+     [
+      -128,
+      80
+     ],
+     [
+      -80,
+      128
+     ],
+     [
+      80,
+      128
+     ],
+     [
+      128,
+      80
+     ],
+     [
+      128,
+      -80
+     ],
+     [
+      80,
+      -128
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "CanalCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 426,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     640.0,
+     -1344,
+     -16.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "CanalCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 427,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     640.0,
+     -256,
+     256.0
+    ],
+    "points": [
+     [
+      -64,
+      -96
+     ],
+     [
+      -96,
+      -64
+     ],
+     [
+      -96,
+      64
+     ],
+     [
+      -64,
+      96
+     ],
+     [
+      64,
+      96
+     ],
+     [
+      96,
+      64
+     ],
+     [
+      96,
+      -64
+     ],
+     [
+      64,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "ACUnit",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 428,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     640.0,
+     -256,
+     344.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 48,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "ACUnit",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 429,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     2688.0,
+     -288,
+     256.0
+    ],
+    "radius": 64,
+    "height": 512,
+    "sides": 8,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 430,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     2688.0,
+     288,
+     256.0
+    ],
+    "radius": 64,
+    "height": 512,
+    "sides": 8,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 431,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     2560.0,
+     1152,
+     64.0
+    ],
+    "points": [
+     [
+      -80,
+      -96
+     ],
+     [
+      -128,
+      -48
+     ],
+     [
+      -128,
+      48
+     ],
+     [
+      -80,
+      96
+     ],
+     [
+      80,
+      96
+     ],
+     [
+      128,
+      48
+     ],
+     [
+      128,
+      -48
+     ],
+     [
+      80,
+      -96
+     ]
+    ],
+    "height": 128,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 432,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     2560.0,
+     1152,
+     176.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 433,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     2144.0,
+     928,
+     48.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "HallCrates",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 434,
+   "kind": "brush",
+   "params": {
+    "shape": "cylinder",
+    "csg": "semisolid",
+    "location": [
+     1856.0,
+     128,
+     192.0
+    ],
+    "radius": 96,
+    "height": 384,
+    "sides": 8,
+    "texture": "Slums.brick.Brick06",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 435,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     2432.0,
+     -1280,
+     -128.0
+    ],
+    "points": [
+     [
+      -80,
+      -128
+     ],
+     [
+      -128,
+      -80
+     ],
+     [
+      -128,
+      80
+     ],
+     [
+      -80,
+      128
+     ],
+     [
+      80,
+      128
+     ],
+     [
+      128,
+      80
+     ],
+     [
+      128,
+      -80
+     ],
+     [
+      80,
+      -128
+     ]
+    ],
+    "height": 128,
+    "texture": "Slums.metal.Metalr06",
+    "face_textures": {},
+    "group": "YardCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 436,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     2432.0,
+     -1280,
+     -16.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "Slums.metal.Metal10",
+    "face_textures": {},
+    "group": "YardCover",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 437,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     1504.0,
+     -1280,
+     -144.0
+    ],
+    "points": [
+     [
+      -32,
+      -64
+     ],
+     [
+      -64,
+      -32
+     ],
+     [
+      -64,
+      32
+     ],
+     [
+      -32,
+      64
+     ],
+     [
+      32,
+      64
+     ],
+     [
+      64,
+      32
+     ],
+     [
+      64,
+      -32
+     ],
+     [
+      32,
+      -64
+     ]
+    ],
+    "height": 96,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "UnderpassCrate",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 438,
+   "kind": "flag",
+   "params": {
+    "location": [
+     2944.0,
+     0,
+     64
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 439,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Flag Room",
+    "location": [
+     3136.0,
+     0,
+     256
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 440,
+   "kind": "zone",
+   "params": {
+    "type": "normal",
+    "name": "Blue Base",
+    "location": [
+     1856.0,
+     384,
+     192
+    ],
+    "ambient_brightness": 14
+   }
+  },
+  {
+   "id": 441,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     2176.0,
+     1344,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 442,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1408.0,
+     1408,
+     40
+    ],
+    "yaw": 255,
+    "team": 1
+   }
+  },
+  {
+   "id": 443,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     2048.0,
+     -1536,
+     -152
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 444,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     832,
+     128,
+     232
+    ],
+    "yaw": 225,
+    "team": 1
+   }
+  },
+  {
+   "id": 445,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     1408.0,
+     -1024,
+     -152
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 446,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2816.0,
+     640.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 447,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2816.0,
+     640.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 448,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2368.0,
+     128.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 449,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2368.0,
+     128.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 450,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1600.0,
+     640.0,
+     128.0
+    ],
+    "size": [
+     320,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 451,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1856.0,
+     1216.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 452,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1216.0,
+     896.0,
+     128.0
+    ],
+    "size": [
+     128,
+     384,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 453,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1216.0,
+     896.0,
+     128.0
+    ],
+    "width": 384,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 454,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1728.0,
+     -1472.0,
+     -64.0
+    ],
+    "size": [
+     128,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 455,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1216.0,
+     -1088.0,
+     -64.0
+    ],
+    "size": [
+     128,
+     320,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 456,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1216.0,
+     -1088.0,
+     -64.0
+    ],
+    "width": 320,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 457,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2048.0,
+     -384.0,
+     128.0
+    ],
+    "size": [
+     384,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 458,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2816.0,
+     -712.0,
+     32.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 459,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -864.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 460,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -832.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 461,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -800.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 462,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -768.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 463,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -736.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 464,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -704.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 465,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -672.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 466,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -640.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 467,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -608.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 468,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -576.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 469,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -544.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 470,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -512.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 471,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     2816.0,
+     -720.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 472,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     2048.0,
+     -712.0,
+     32.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 473,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -864.0,
+     -184.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 474,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -832.0,
+     -176.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 475,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -800.0,
+     -168.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 476,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -768.0,
+     -160.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 477,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -736.0,
+     -152.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 478,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -704.0,
+     -144.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 479,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -672.0,
+     -136.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 480,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -640.0,
+     -128.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 481,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -608.0,
+     -120.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 482,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -576.0,
+     -112.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 483,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -544.0,
+     -104.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 484,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -512.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 485,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     2048.0,
+     -720.0,
+     -96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 90,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 486,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     1224.0,
+     0.0,
+     224.0
+    ],
+    "size": [
+     432,
+     384,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 487,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1376.0,
+     0.0,
+     8.0
+    ],
+    "size": [
+     32,
+     384,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 488,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1344.0,
+     0.0,
+     16.0
+    ],
+    "size": [
+     32,
+     384,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 489,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1312.0,
+     0.0,
+     24.0
+    ],
+    "size": [
+     32,
+     384,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 490,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1280.0,
+     0.0,
+     32.0
+    ],
+    "size": [
+     32,
+     384,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 491,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1248.0,
+     0.0,
+     40.0
+    ],
+    "size": [
+     32,
+     384,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 492,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1216.0,
+     0.0,
+     48.0
+    ],
+    "size": [
+     32,
+     384,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 493,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1184.0,
+     0.0,
+     56.0
+    ],
+    "size": [
+     32,
+     384,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 494,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1152.0,
+     0.0,
+     64.0
+    ],
+    "size": [
+     32,
+     384,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 495,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1120.0,
+     0.0,
+     72.0
+    ],
+    "size": [
+     32,
+     384,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 496,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1088.0,
+     0.0,
+     80.0
+    ],
+    "size": [
+     32,
+     384,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 497,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1056.0,
+     0.0,
+     88.0
+    ],
+    "size": [
+     32,
+     384,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 498,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     1024.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     32,
+     384,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 499,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     1232.0,
+     0.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 180,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 500,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     512.0,
+     456.0,
+     224.0
+    ],
+    "size": [
+     384,
+     432,
+     448
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "StairsTunnel"
+   }
+  },
+  {
+   "id": 501,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     608.0,
+     8.0
+    ],
+    "size": [
+     384,
+     32,
+     16
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 502,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     576.0,
+     16.0
+    ],
+    "size": [
+     384,
+     32,
+     32
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 503,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     544.0,
+     24.0
+    ],
+    "size": [
+     384,
+     32,
+     48
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 504,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     512.0,
+     32.0
+    ],
+    "size": [
+     384,
+     32,
+     64
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 505,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     480.0,
+     40.0
+    ],
+    "size": [
+     384,
+     32,
+     80
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 506,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     448.0,
+     48.0
+    ],
+    "size": [
+     384,
+     32,
+     96
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 507,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     416.0,
+     56.0
+    ],
+    "size": [
+     384,
+     32,
+     112
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 508,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     384.0,
+     64.0
+    ],
+    "size": [
+     384,
+     32,
+     128
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 509,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     352.0,
+     72.0
+    ],
+    "size": [
+     384,
+     32,
+     144
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 510,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     320.0,
+     80.0
+    ],
+    "size": [
+     384,
+     32,
+     160
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 511,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     288.0,
+     88.0
+    ],
+    "size": [
+     384,
+     32,
+     176
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 512,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     256.0,
+     96.0
+    ],
+    "size": [
+     384,
+     32,
+     192
+    ],
+    "texture": "Slums.metal.Metal10",
+    "group": "Stairs"
+   }
+  },
+  {
+   "id": 513,
+   "kind": "brush",
+   "params": {
+    "shape": "wedge",
+    "csg": "semisolid",
+    "location": [
+     512.0,
+     464.0,
+     96.0
+    ],
+    "size": [
+     384,
+     384,
+     192
+    ],
+    "yaw": 270,
+    "poly_flags": 1,
+    "route": "main",
+    "group": "StairsFakeRamp"
+   }
+  },
+  {
+   "id": 514,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     2816.0,
+     -528,
+     128
+    ],
+    "width": 448,
+    "height": 320,
+    "axis": "y",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 515,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     1040.0,
+     0,
+     320
+    ],
+    "width": 448,
+    "height": 320,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 516,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     992,
+     928,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 517,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     3680,
+     1216,
+     40
+    ],
+    "yaw": 180,
+    "team": 1
+   }
+  },
+  {
+   "id": 518,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     832.0,
+     -320,
+     232
+    ],
+    "yaw": 195,
+    "team": 1
+   }
+  },
+  {
+   "id": 519,
+   "kind": "playerstart",
+   "params": {
+    "location": [
+     960.0,
+     -1344,
+     -152
+    ],
+    "yaw": 135,
+    "team": 1
+   }
+  },
+  {
+   "id": 520,
+   "kind": "light",
+   "params": {
+    "location": [
+     3328.0,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 521,
+   "kind": "light",
+   "params": {
+    "location": [
+     3328.0,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 522,
+   "kind": "light",
+   "params": {
+    "location": [
+     3328.0,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 523,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944.0,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 524,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944.0,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 525,
+   "kind": "light",
+   "params": {
+    "location": [
+     2944.0,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 526,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     -384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 527,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     0,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 528,
+   "kind": "light",
+   "params": {
+    "location": [
+     2560.0,
+     384,
+     448
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 529,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 530,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 531,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 532,
+   "kind": "light",
+   "params": {
+    "location": [
+     2736.0,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 533,
+   "kind": "light",
+   "params": {
+    "location": [
+     2736.0,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 534,
+   "kind": "light",
+   "params": {
+    "location": [
+     2736.0,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 535,
+   "kind": "light",
+   "params": {
+    "location": [
+     2384.0,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 536,
+   "kind": "light",
+   "params": {
+    "location": [
+     2384.0,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 537,
+   "kind": "light",
+   "params": {
+    "location": [
+     2384.0,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 538,
+   "kind": "light",
+   "params": {
+    "location": [
+     2048.0,
+     896,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 539,
+   "kind": "light",
+   "params": {
+    "location": [
+     2048.0,
+     1152,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 540,
+   "kind": "light",
+   "params": {
+    "location": [
+     2048.0,
+     1408,
+     384
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 541,
+   "kind": "light",
+   "params": {
+    "location": [
+     2176.0,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 542,
+   "kind": "light",
+   "params": {
+    "location": [
+     2176.0,
+     128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 543,
+   "kind": "light",
+   "params": {
+    "location": [
+     2176.0,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 544,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 545,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 546,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     -128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 547,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     128,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 548,
+   "kind": "light",
+   "params": {
+    "location": [
+     1536.0,
+     384,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 549,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 550,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 551,
+   "kind": "light",
+   "params": {
+    "location": [
+     3072.0,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 552,
+   "kind": "light",
+   "params": {
+    "location": [
+     2784.0,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 553,
+   "kind": "light",
+   "params": {
+    "location": [
+     2784.0,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 554,
+   "kind": "light",
+   "params": {
+    "location": [
+     2784.0,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 555,
+   "kind": "light",
+   "params": {
+    "location": [
+     2496.0,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 556,
+   "kind": "light",
+   "params": {
+    "location": [
+     2496.0,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 557,
+   "kind": "light",
+   "params": {
+    "location": [
+     2496.0,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 558,
+   "kind": "light",
+   "params": {
+    "location": [
+     2208.0,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 559,
+   "kind": "light",
+   "params": {
+    "location": [
+     2208.0,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 560,
+   "kind": "light",
+   "params": {
+    "location": [
+     2208.0,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 561,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920.0,
+     -1536,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 562,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920.0,
+     -1280,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 563,
+   "kind": "light",
+   "params": {
+    "location": [
+     1920.0,
+     -1024,
+     224
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 564,
+   "kind": "light",
+   "params": {
+    "location": [
+     1664.0,
+     896,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 565,
+   "kind": "light",
+   "params": {
+    "location": [
+     1664.0,
+     1152,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 566,
+   "kind": "light",
+   "params": {
+    "location": [
+     1664.0,
+     1408,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 567,
+   "kind": "light",
+   "params": {
+    "location": [
+     1408.0,
+     896,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 568,
+   "kind": "light",
+   "params": {
+    "location": [
+     1408.0,
+     1152,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 569,
+   "kind": "light",
+   "params": {
+    "location": [
+     1408.0,
+     1408,
+     320
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 570,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472.0,
+     -1600,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 571,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472.0,
+     -1312,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 572,
+   "kind": "light",
+   "params": {
+    "location": [
+     1472.0,
+     -1024,
+     256
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 573,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 574,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 575,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 576,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 577,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 578,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 579,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 580,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 581,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 582,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     768,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 583,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     1088,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 584,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     1408,
+     352
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 585,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 586,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 587,
+   "kind": "light",
+   "params": {
+    "location": [
+     1024.0,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 588,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 589,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 590,
+   "kind": "light",
+   "params": {
+    "location": [
+     752.0,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 591,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 592,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 593,
+   "kind": "light",
+   "params": {
+    "location": [
+     464.0,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 594,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     -1536,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 595,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     -1280,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 596,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     -1024,
+     288
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 597,
+   "kind": "light",
+   "params": {
+    "location": [
+     896.0,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 598,
+   "kind": "light",
+   "params": {
+    "location": [
+     896.0,
+     -128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 599,
+   "kind": "light",
+   "params": {
+    "location": [
+     896.0,
+     128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 600,
+   "kind": "light",
+   "params": {
+    "location": [
+     544.0,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 601,
+   "kind": "light",
+   "params": {
+    "location": [
+     544.0,
+     -128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 602,
+   "kind": "light",
+   "params": {
+    "location": [
+     544.0,
+     128,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 603,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     -384,
+     512
+    ],
+    "brightness": 170,
+    "radius": 20,
+    "hue": 28,
+    "saturation": 170
+   }
+  },
+  {
+   "id": 604,
+   "kind": "light",
+   "params": {
+    "location": [
+     2816.0,
+     640,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 605,
+   "kind": "light",
+   "params": {
+    "location": [
+     2368.0,
+     128,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 606,
+   "kind": "light",
+   "params": {
+    "location": [
+     1600.0,
+     640,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 607,
+   "kind": "light",
+   "params": {
+    "location": [
+     1856.0,
+     1216,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 608,
+   "kind": "light",
+   "params": {
+    "location": [
+     1216.0,
+     896,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 609,
+   "kind": "light",
+   "params": {
+    "location": [
+     1728.0,
+     -1472,
+     0
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 610,
+   "kind": "light",
+   "params": {
+    "location": [
+     1216.0,
+     -1088,
+     0
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 611,
+   "kind": "light",
+   "params": {
+    "location": [
+     2048.0,
+     -384,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 612,
+   "kind": "light",
+   "params": {
+    "location": [
+     2816.0,
+     -704,
+     128
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 613,
+   "kind": "light",
+   "params": {
+    "location": [
+     2048.0,
+     -704,
+     128
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 614,
+   "kind": "light",
+   "params": {
+    "location": [
+     1216.0,
+     0,
+     320
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 615,
+   "kind": "light",
+   "params": {
+    "location": [
+     512.0,
+     448,
+     320
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 616,
+   "kind": "light",
+   "params": {
+    "location": [
+     192.0,
+     -704,
+     512
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 631,
+   "kind": "actor",
+   "params": {
+    "class": "barrel3",
+    "props": {},
+    "location": [
+     3104.0,
+     1472,
+     30
+    ],
+    "yaw": 180,
+    "package": "Botpack"
+   }
+  },
+  {
+   "id": 632,
+   "kind": "actor",
+   "params": {
+    "class": "barrel3",
+    "props": {},
+    "location": [
+     1600.0,
+     -1680,
+     -162
+    ],
+    "yaw": 180,
+    "package": "Botpack"
+   }
+  },
+  {
+   "id": 633,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3680.0,
+     480.0,
+     160.0
+    ],
+    "size": [
+     320,
+     1728,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "RedBackAlley",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 634,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3488.0,
+     -192.0,
+     128.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 635,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     -3488.0,
+     -192.0,
+     128.0
+    ],
+    "width": 256,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 636,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     -3360.0,
+     1216.0,
+     128.0
+    ],
+    "size": [
+     320,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 637,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     -3712,
+     544,
+     56.0
+    ],
+    "points": [
+     [
+      32,
+      -96
+     ],
+     [
+      64,
+      -64
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      32,
+      96
+     ],
+     [
+      -32,
+      96
+     ],
+     [
+      -64,
+      64
+     ],
+     [
+      -64,
+      -64
+     ],
+     [
+      -32,
+      -96
+     ]
+    ],
+    "height": 112,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "AlleyCrate",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 638,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3680,
+     -256,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 639,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3680,
+     192,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 640,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3680,
+     768,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 641,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3680,
+     1216,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 642,
+   "kind": "light",
+   "params": {
+    "location": [
+     -3360,
+     1216,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 643,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3680.0,
+     480.0,
+     160.0
+    ],
+    "size": [
+     320,
+     1728,
+     320
+    ],
+    "texture": "",
+    "face_textures": {
+     "sides": "Slums.brick.Brick05"
+    },
+    "group": "BlueBackAlley",
+    "tex_scale": 1.0,
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 644,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3488.0,
+     -192.0,
+     128.0
+    ],
+    "size": [
+     64,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 645,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "add",
+    "location": [
+     3488.0,
+     -192.0,
+     128.0
+    ],
+    "width": 256,
+    "height": 256,
+    "axis": "x",
+    "poly_flags": 67109129,
+    "group": "ZonePortals"
+   }
+  },
+  {
+   "id": 646,
+   "kind": "brush",
+   "params": {
+    "shape": "box",
+    "csg": "subtract",
+    "location": [
+     3360.0,
+     1216.0,
+     128.0
+    ],
+    "size": [
+     320,
+     256,
+     256
+    ],
+    "texture": "",
+    "face_textures": {},
+    "group": ""
+   }
+  },
+  {
+   "id": 647,
+   "kind": "brush",
+   "params": {
+    "shape": "prism",
+    "csg": "semisolid",
+    "location": [
+     3712.0,
+     544,
+     56.0
+    ],
+    "points": [
+     [
+      -32,
+      -96
+     ],
+     [
+      -64,
+      -64
+     ],
+     [
+      -64,
+      64
+     ],
+     [
+      -32,
+      96
+     ],
+     [
+      32,
+      96
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      64,
+      -64
+     ],
+     [
+      32,
+      -96
+     ]
+    ],
+    "height": 112,
+    "texture": "UT.Woodf3",
+    "face_textures": {},
+    "group": "AlleyCrate",
+    "face_flags": {}
+   }
+  },
+  {
+   "id": 648,
+   "kind": "light",
+   "params": {
+    "location": [
+     3680.0,
+     -256,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 649,
+   "kind": "light",
+   "params": {
+    "location": [
+     3680.0,
+     192,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 650,
+   "kind": "light",
+   "params": {
+    "location": [
+     3680.0,
+     768,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 651,
+   "kind": "light",
+   "params": {
+    "location": [
+     3680.0,
+     1216,
+     256
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 652,
+   "kind": "light",
+   "params": {
+    "location": [
+     3360.0,
+     1216,
+     192
+    ],
+    "brightness": 170,
+    "radius": 18,
+    "hue": 30,
+    "saturation": 230
+   }
+  },
+  {
+   "id": 653,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -768.0,
+     1535.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 654,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -288.0,
+     1535.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 655,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -2752.0,
+     -1663.0,
+     192.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 656,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -2176.0,
+     -1663.0,
+     160.0
+    ],
+    "width": 128.0,
+    "height": 256.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "city.Win-gray",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 657,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -640.0,
+     -1663.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 658,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -896,
+     255,
+     448
+    ],
+    "width": 128.0,
+    "height": 256.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "city.Win-gray",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 659,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     768.0,
+     1535.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 660,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     288.0,
+     1535.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 661,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     2752.0,
+     -1663.0,
+     192.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 662,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     2176.0,
+     -1663.0,
+     160.0
+    ],
+    "width": 128.0,
+    "height": 256.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "city.Win-gray",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 663,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     640.0,
+     -1663.0,
+     320.0
+    ],
+    "width": 128.0,
+    "height": 128.0,
+    "axis": "x",
+    "yaw": 90.0,
+    "texture": "Slums.brick.LitWinC2",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 664,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     896.0,
+     255,
+     448
+    ],
+    "width": 128.0,
+    "height": 256.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "city.Win-gray",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 1137,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -560.0,
+     1535.0,
+     224.0
+    ],
+    "width": 120.0,
+    "height": 248.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.Signs.Arturo~1",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 1138,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     560.0,
+     1535.0,
+     224.0
+    ],
+    "width": 120.0,
+    "height": 248.0,
+    "axis": "x",
+    "yaw": 270.0,
+    "texture": "Slums.Signs.Arturo~1",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 1139,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     -1151.0,
+     -1504.0,
+     160.0
+    ],
+    "width": 64.0,
+    "height": 496.0,
+    "axis": "x",
+    "yaw": 0.0,
+    "texture": "Scripted.CondemnedScroll",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  },
+  {
+   "id": 1140,
+   "kind": "brush",
+   "params": {
+    "shape": "sheet",
+    "csg": "nonsolid",
+    "location": [
+     1151.0,
+     -1504.0,
+     160.0
+    ],
+    "width": 64.0,
+    "height": 496.0,
+    "axis": "x",
+    "yaw": 180.0,
+    "texture": "Scripted.CondemnedScroll",
+    "poly_flags": 4194560,
+    "group": "Asset_surface"
+   }
+  }
+ ]
+}

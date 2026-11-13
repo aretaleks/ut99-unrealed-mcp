@@ -27,7 +27,7 @@ A good rule proposal names the problem, a map where it happens, a map that gets 
 1. Fork the repository and create a branch.
 2. Keep each PR to one change, and say why in the description.
 3. If you changed a tool, run it on at least one generated project and one pool map and paste the result (e.g. `build_map`, `map_metrics`, `review_map` output).
-4. If you changed a check or a rule, include its effect on the pool: which maps pass or fail before and after.
+4. If you changed a check, a rule or the generator, run `python research/regression.py` (from `UnrealEdMCP`) and include its effect on the pool: which maps pass or fail before and after. The reviewed maps in `UnrealEdMCP/examples/` must keep their recorded results unless the change is intended. Re-record with `--record` and explain why.
 5. Update the docs: `UnrealEdMCP/GUIDE.md` (the tool table, the relevant section, the history), and the skill if the rule changes.
 
 `main` is protected: changes land through reviewed pull requests.
