@@ -1,0 +1,243 @@
+{
+ "source": "21 community CTF maps from the play install's Cache (one version each), 197 kickers; research/kicker_pads.py",
+ "summary": {
+  "shapes": "no block-like pads: thin plates 4-8uu (pedestals <= 29), round / octagonal / square-framed, 96-160 wide",
+  "centre": "glowing (unlit), arrow, target or team-coloured centre texture; often a recessed centre (Duku, Entropic) or an inlay 2uu below the floor (w00t, ]STORM[)",
+  "extras": "coloured light within 200uu (Duku orange hue 30, Spirit, SpiritRedux); steam / smoke columns of crossed translucent sheets (PryXon, NIXLE, Rune smoke generators); kick sounds via Trigger + SpecialEvent",
+  "no_pad": "Elsinore, Rune, most Sprinta kickers and W00tamitsu's: no pad brush (marked by lights, smoke or the route itself)",
+  "centre_mapping": "marked centres are fitted: one tile across the centre, texture middle on the pad middle (Overflow Pad 128 on 96, Spirit LiteBotm/DCRL 128 on 128, SpiritRedux bst_Targ 128 on 144, TurboB1 FloorDeco1 256 on 192, Naos sqAb); rims world-aligned (Duku metals5 at random offsets); arrows tile 2x from the pad edge"
+ },
+ "maps": {
+  "CTF-]STORM[": {
+   "kickers": 2,
+   "pad_designs": {
+    "add 80x120x20 z-26..-6 top-verts 4 [mlbconcrete1,MCHARWL2]": 1,
+    "add 80x120x20 z-26..-6 top-verts 4 [mlbconcrete1,MCHARWL2] | add 80x120x20 z-26..-6 top-verts 4 [mlbconcrete1,MCHARWL2]": 1
+   },
+   "lights_within_200": {}
+  },
+  "CTF-Duku-PG1": {
+   "kickers": 6,
+   "pad_designs": {
+    "add 158x158x8 z-52..-44 top-verts 4 [metals5,Conc29] | subtract 91x91x8 z-52..-44 top-verts 3 [MysIrn13,Conc29]": 2,
+    "add 158x158x8 z-52..-44 top-verts 4 [metals5,MysIrn13] | subtract 91x91x8 z-52..-44 top-verts 3 [MysIrn13,dSewer1d]": 2,
+    "add 158x158x8 z-20..-12 top-verts 4 [metals5,archn1] | subtract 91x91x8 z-20..-12 top-verts 3 [MysIrn13,archn1]": 1
+   },
+   "lights_within_200": {
+    "hue 30 sat 160": 4
+   }
+  },
+  "CTF-Elsinore-RC2": {
+   "kickers": 6,
+   "pad_designs": {
+    "(no pad brush)": 6
+   },
+   "lights_within_200": {
+    "hue 255 sat 127": 4
+   }
+  },
+  "CTF-Entropic-RE5": {
+   "kickers": 6,
+   "pad_designs": {
+    "add 119x119x4 z30..34 top-verts 8 [base1red,?] | subtract 83x83x4 z30..34 top-verts 8 [base1red,?]": 1,
+    "add 119x119x4 z30..34 top-verts 8 [base1red,?] | add 144x144x96 z176..272 top-verts 4 [?,panels_small] | add 144x144x96 z56..152 top-verts 4 [?,wall_pattern] | subtract 288x288x528 z32..560 top-verts 4 [?,wall_pattern]": 1,
+    "add 119x119x4 z30..34 top-verts 8 [base1blue,?] | subtract 83x83x4 z30..34 top-verts 8 [base1blue,?]": 1
+   },
+   "lights_within_200": {
+    "hue 130 sat 0": 2,
+    "hue 130 sat 96": 2
+   }
+  },
+  "CTF-Inca-][": {
+   "kickers": 6,
+   "pad_designs": {
+    "add 104x104x6 z-13..-7 top-verts 16 [jumpad]": 3,
+    "add 104x104x6 z-8..-2 top-verts 16 [jumpad]": 2,
+    "add 104x104x6 z-2..4 top-verts 16 [jumpad]": 1
+   },
+   "lights_within_200": {}
+  },
+  "CTF-Insan1ty": {
+   "kickers": 4,
+   "pad_designs": {
+    "add 91x91x10 z-3..7 top-verts 3 [Xlight3x]": 2,
+    "add 99x92x10 z-5..5 top-verts 3 [Xlight3x,sDavW26b]": 1,
+    "add 99x92x10 z-5..5 top-verts 3 [Xlight3x]": 1
+   },
+   "lights_within_200": {
+    "hue 170 sat 127": 2,
+    "hue 255 sat 127": 2
+   }
+  },
+  "CTF-KWC-Brutal-W00t": {
+   "kickers": 8,
+   "pad_designs": {
+    "add 64x64x16 z-18..-2 top-verts 4 [arrow_a00] | add 96x96x32 z-34..-2 top-verts 4 [rug-rt] unlit | subtract 64x64x16 z-18..-2 top-verts 4 [arrow_a00] | subtract 96x96x32 z-34..-2 top-verts 4 [rug-rt]": 2,
+    "add 64x64x16 z-26..-10 top-verts 4 [arrow_a00] | add 96x96x32 z-42..-10 top-verts 4 [rug-rt,rug-bt] unlit | subtract 64x64x16 z-26..-10 top-verts 4 [arrow_a00] | subtract 96x96x32 z-42..-10 top-verts 4 [rug-rt]": 1,
+    "add 192x160x16 z-34..-18 top-verts 5 [FLOOR9C,HIPANELA]": 1
+   },
+   "lights_within_200": {
+    "hue 0 sat 255": 9
+   }
+  },
+  "CTF-Naos-SA-RE2": {
+   "kickers": 14,
+   "pad_designs": {
+    "add 128x128x256 z-1..255 top-verts 3 [levD11,HourIndus_floor1antislip] | add 128x128x640 z-1..639 top-verts 3 [levD11] | add 192x256x8 z-1..7 top-verts 6 [levD11,sFloorc4]": 4,
+    "add 112x112x8 z-5..3 top-verts 16 [sqAb] | add 128x128x8 z-5..3 top-verts 16 [suprst,sqAb]": 4,
+    "add 289x280x8 z-1..7 top-verts 6 [levD11,sFloorc4]": 3
+   },
+   "lights_within_200": {
+    "hue 0 sat 0": 5,
+    "hue 150 sat 0": 5,
+    "hue 0 sat 80": 2,
+    "hue 150 sat 80": 2
+   }
+  },
+  "CTF-NIXLE15-sa": {
+   "kickers": 2,
+   "pad_designs": {
+    "add 104x104x64 z-76..-12 top-verts 8 [Pipe2] | add 64x55x478 z-234..244 top-verts 0 [Steam1] nonsolid,translucent,twosided | subtract 256x256x640 z-12..628 top-verts 4 [rClfWl1a,cbutnubrik22b] | subtract 69x69x512 z-524..-12 top-verts 8 [Pipe2]": 2
+   },
+   "lights_within_200": {}
+  },
+  "CTF-Nuance99-PG1-SA": {
+   "kickers": 14,
+   "pad_designs": {
+    "add 160x32x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni] | add 160x32x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni] | add 32x160x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni] | add 32x160x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni]": 4,
+    "add 144x16x16 z6..22 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni] | add 192x16x16 z-18..-2 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni] | add 192x224x0 z174..174 top-verts 0 [3935] nonsolid,twosided | add 40x64x48 z-26..22 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4uni]": 4,
+    "add 160x32x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4B] | add 160x32x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4B] | add 32x160x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4B] | add 32x160x8 z-2..6 top-verts 4 [HourIndus_woodtex4,HourIndus_woodtex4B]": 1
+   },
+   "lights_within_200": {
+    "hue 30 sat 170": 2,
+    "hue 150 sat 224": 4
+   }
+  },
+  "CTF-Overflow-PG1": {
+   "kickers": 6,
+   "pad_designs": {
+    "add 96x96x4 z28..32 top-verts 4 [RING,Pad]": 4,
+    "add 272x16x32 z156..188 top-verts 4 [Pitoresbase4,lig_b064-02blue] | add 96x96x4 z28..32 top-verts 4 [RING,Pad]": 1,
+    "add 272x16x32 z156..188 top-verts 4 [Pitoresbase4,lig_b064-02red] | add 96x96x4 z28..32 top-verts 4 [RING,Pad]": 1
+   },
+   "lights_within_200": {
+    "hue 150 sat 0": 2,
+    "hue 0 sat 0": 3,
+    "hue 170 sat 0": 1
+   }
+  },
+  "CTF-PryXon-S6": {
+   "kickers": 2,
+   "pad_designs": {
+    "nonsolid 0x112x192 z-11..181 top-verts 0 [XLsmok01] masked,nonsolid,translucent,twosided | nonsolid 0x112x192 z-11..181 top-verts 0 [XLsmok01] masked,nonsolid,translucent,twosided | nonsolid 0x112x192 z13..205 top-verts 0 [XLsmok01] masked,nonsolid,translucent,twosided | nonsolid 0x112x192 z13..205 top-verts 0 [XLsmok01] masked,nonsolid,translucent,twosided": 2
+   },
+   "lights_within_200": {
+    "hue 150 sat 175": 1,
+    "hue 166 sat 139": 1,
+    "hue 0 sat 255": 2,
+    "hue 0 sat 175": 1,
+    "hue 254 sat 108": 1
+   }
+  },
+  "CTF-Rune-CL4": {
+   "kickers": 2,
+   "pad_designs": {
+    "(no pad brush)": 2
+   },
+   "lights_within_200": {}
+  },
+  "CTF-Spirit-S4": {
+   "kickers": 10,
+   "pad_designs": {
+    "add 128x128x8 z-30..-22 top-verts 4 [Light6,DCRL] unlit": 2,
+    "add 128x128x8 z-26..-18 top-verts 4 [Light6,DCRL] unlit": 2,
+    "add 128x128x8 z-26..-18 top-verts 4 [Light6,DCRL] unlit | subtract 256x112x240 z-22..218 top-verts 4 [WALL13,dmFlor2c]": 1
+   },
+   "lights_within_200": {
+    "hue 127 sat 86": 4,
+    "hue 0 sat 255": 4,
+    "hue 255 sat 127": 2,
+    "hue 170 sat 127": 2
+   }
+  },
+  "CTF-SpiritReduxB6": {
+   "kickers": 9,
+   "pad_designs": {
+    "add 130x130x29 z0..29 top-verts 8 [greywall_dark0,bst_Targ] unlit | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1] | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1] | add 36x36x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1]": 3,
+    "add 130x130x29 z0..29 top-verts 8 [greywall_dark0,bst_TargR] unlit | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1] | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1] | add 36x36x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1]": 3,
+    "add 130x130x29 z0..29 top-verts 8 [greywall_dark0,bst_TargG] unlit | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1] | add 14x72x14 z14..29 top-verts 4 [bst_trim_s14,bst_trim5] | add 36x36x14 z14..29 top-verts 4 [bst_trim_s14,AnimPadNuLL1]": 2
+   },
+   "lights_within_200": {
+    "hue 64 sat 32": 6,
+    "hue 25 sat 32": 14
+   }
+  },
+  "CTF-Sprinta-S6": {
+   "kickers": 19,
+   "pad_designs": {
+    "(no pad brush)": 10,
+    "semisolid 128x128x4 z-26..-22 top-verts 4 [jptrimA_00,MCMETL] semisolid,unlit": 2,
+    "semisolid 128x128x4 z3..7 top-verts 4 [jptrimA_00,MCMETL] semisolid,unlit": 2
+   },
+   "lights_within_200": {
+    "hue 32 sat 127": 1,
+    "hue 0 sat 0": 17,
+    "hue 27 sat 195": 4,
+    "hue 170 sat 42": 17
+   }
+  },
+  "CTF-SprintaLE15": {
+   "kickers": 11,
+   "pad_designs": {
+    "(no pad brush)": 10,
+    "subtract 256x192x256 z-6..250 top-verts 4 [Conc28,bmFloor2]": 1
+   },
+   "lights_within_200": {
+    "hue 32 sat 127": 1,
+    "hue 0 sat 0": 13,
+    "hue 170 sat 42": 13
+   }
+  },
+  "CTF-Talya-PG1": {
+   "kickers": 4,
+   "pad_designs": {
+    "add 112x125x95 z-38..57 top-verts 4 [base1] | subtract 104x96x42 z13..55 top-verts 4 [base2b,floor1]": 1,
+    "add 96x112x96 z-6..90 top-verts 4 [base1] | semisolid 2x32x16 z234..250 top-verts 4 [base2,DefaultTexture] semisolid | subtract 160x288x384 z-6..378 top-verts 4 [brick3,crate1] | subtract 74x104x74 z13..87 top-verts 4 [base2b,floor1]": 1,
+    "add 96x112x96 z-6..90 top-verts 4 [base1] | semisolid 2x32x16 z234..250 top-verts 4 [base2,DefaultTexture] semisolid | subtract 160x288x384 z-6..378 top-verts 4 [brick3,crate1] | subtract 74x104x74 z13..87 top-verts 4 [base2,floor1]": 1
+   },
+   "lights_within_200": {
+    "hue 150 sat 0": 1,
+    "hue 0 sat 0": 1
+   }
+  },
+  "CTF-TurboB1": {
+   "kickers": 2,
+   "pad_designs": {
+    "add 192x192x16 z8..24 top-verts 4 [trim1,FloorDeco1] upan,vpan": 2
+   },
+   "lights_within_200": {
+    "hue 150 sat 64": 1,
+    "hue 0 sat 64": 1
+   }
+  },
+  "CTF-w00t-NE-Fix": {
+   "kickers": 4,
+   "pad_designs": {
+    "add 128x128x32 z-58..-26 top-verts 4 [mlbTanBase,arrow_a01] unlit | subtract 128x128x32 z-58..-26 top-verts 4 [mlbTanBase,arrow_a01]": 4
+   },
+   "lights_within_200": {}
+  },
+  "CTF-W00tamitsu": {
+   "kickers": 64,
+   "pad_designs": {
+    "(no pad brush)": 26,
+    "add 128x128x32 z-34..-2 top-verts 4 [nuwood3,jDeckSmjpad] | add 96x96x32 z-34..-2 top-verts 4 [arrow_a00,karrow_a00] unlit": 11,
+    "add 128x128x32 z-34..-2 top-verts 4 [nuwood3,jDeckSmjpad] | add 96x96x32 z-34..-2 top-verts 4 [arrow_a00] unlit": 9
+   },
+   "lights_within_200": {
+    "hue 255 sat 64": 2,
+    "hue 141 sat 96": 1
+   }
+  }
+ }
+}

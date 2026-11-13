@@ -31,6 +31,8 @@ import patch as pmode  # noqa: E402
 import review as mreview  # noqa: E402
 import layout as mlayout  # noqa: E402
 import assets as massets  # noqa: E402
+import flair  # noqa: E402
+import mapgen  # noqa: E402
 from t3dimport import import_t3d  # noqa: E402
 from mapgen import PF_AUTOUPAN, PF_AUTOVPAN, PF_FAKEBACKDROP, PF_UNLIT, PF_INVISIBLE, PORTAL_FLAGS, PF_PORTAL, PF_TWOSIDED, PF_NOTSOLID, PF_TRANSLUCENT, MapDoc, ZONE_CLASSES  # noqa: E402
 from preview import render  # noqa: E402
@@ -420,6 +422,128 @@ def add_window(min: list[float], max: list[float], group: str = "") -> str:
     return _added(hole, blk)
 
 
+# Frame textures that stand out from the wall (the user: most community frames differ from the wall around them).
+# The first one that isn't the wall's own texture is used.
+FRAME_TEXTURES = {
+    "ancient": ["Ancient.Base.STONTSTC", "Ancient.Base.CRACKS1"],  # pale carved stone against coloured A_bs walls
+    "tech": ["Metalmys.MysMetl2", "UTtech1.Base.metals5"],  # dark plated metal / worn metal trim
+}
+
+
+def _wall_texture_at(d: MapDoc, pt: list[float]) -> str:
+    """Wall texture of the last carve (subtract box / mesh) whose bounding box holds pt."""
+    for e in reversed(d.elements):
+        if e.kind != "brush" or e.params.get("csg") != "subtract" or e.params.get("group") == "DoorFrames":
+            continue
+        loc, polys = d.brush_polys(e)
+        vs = [mapgen.add(loc, v) for poly in polys for v in poly.verts]
+        if all(min(v[i] for v in vs) <= pt[i] <= max(v[i] for v in vs) for i in range(3)):
+            ft = e.params.get("face_textures") or {}
+            return ft.get("sides") or ft.get("walls") or e.params.get("texture") or d.default_texture
+    return d.default_texture
+
+
+def _frame_texture(d: MapDoc, wall: str) -> str:
+    theme = "ancient" if (wall or d.default_texture or "").split(".")[0].lower() in ANCIENT_PACKAGES else "tech"
+    return next(t for t in FRAME_TEXTURES[theme] if t.lower() != (wall or "").lower())
+
+
+@mcp.tool()
+def add_door_frame(center: list[float], floor_z: float, width: float = 256, height: float = 288, facing: float = 0,
+                   wall_thickness: float = 64, style: str = "chamfer", corner: float | None = None,
+                   thickness: float = 32, face_width: float | None = None, depth: float = 16, protrude: str = "both",
+                   carve: bool = True, portal: bool = False, segments: int = 8, texture: str = "",
+                   lining_texture: str = "", group: str = "DoorFrames") -> str:
+    """Entrance frame (gate / door frame) around an opening through a wall, like Duku, Iztac and BrokenLimits.
+    center = [x,y] in the middle of the wall's thickness; facing = direction of travel through the opening (deg,
+    0 = +X, 90 = +Y; use 0/90/180/270 on grid walls); wall_thickness = the wall's depth along `facing`.
+    width x height = the hole through the wall. The frame lines the hole (`thickness` on the sides and top, so the
+    clear opening is width - 2*thickness by height - thickness) and stands out `depth` from each wall face with a
+    face `face_width` wide (default = thickness). style: 'chamfer' (cut top corners, `corner` = cut length),
+    'round' (arch; `corner` = corner radius, default a full semicircle), 'square' (posts and lintel).
+    carve=True carves the hole in the frame's shape (rooms on both sides must already be carved, the wall between
+    them solid). carve=False frames an existing rectangular width x height hole (corridor mouth, add_box door).
+    protrude: 'both', '+' (only the face on the `facing` side) or '-'. portal=True adds a zone portal in the hole.
+    Pieces are semisolid. texture (default: a texture that stands out from the wall it sits in - pale carved
+    stone on ancient maps, dark plated metal on others; pass the wall's own texture for a frame cut into the wall)
+    and lining_texture (inside of the passage, default = texture). Add frames after the rooms: a later carve would
+    cut the protruding faces."""
+    d = doc()
+    if protrude not in ("both", "+", "-"):
+        raise ValueError("protrude must be 'both', '+' or '-'")
+    width, height = 2 * round(width / 2), round(height)
+    cx, cy = d.snap(center[0]), d.snap(center[1])
+    if carve and wall_thickness <= 0:
+        raise ValueError("carve=True needs wall_thickness > 0")
+    pr = flair.frame_profile(width, height, thickness, face_width, style, corner, segments, shaped_hole=carve)
+    cw, ch = pr["clear_width"], pr["clear_height"]
+    if cw < 128 or ch < 128:
+        raise ValueError(f"Clear opening {cw:.0f} x {ch:.0f} is too small to pass (needs >= 128 x 128): widen the "
+                         "hole or use a thinner frame")
+    half = wall_thickness / 2
+    els = []
+    if not texture:
+        a = math.radians(facing)
+        off = half + depth + 16
+        wall = _wall_texture_at(d, [cx - math.cos(a) * off, cy - math.sin(a) * off, floor_z + 32])             if protrude != "+" else _wall_texture_at(d, [cx + math.cos(a) * off, cy + math.sin(a) * off, floor_z + 32])
+        texture = _frame_texture(d, wall)
+
+    def put(poly2d, s0, s1, csg, tex):
+        c, polys = flair.extrude_profile(poly2d, s0, s1, facing)
+        return d.add("brush", shape="mesh", csg=csg, location=[cx + c[0], cy + c[1], floor_z + c[2]],
+                     polys=[[list(v) for v in p.verts] for p in polys], texture=tex, group=group,
+                     wall_base=floor_z)
+    if carve:
+        els.append(put(pr["hole"], -half, half, "subtract", ""))
+    if wall_thickness > 0:
+        els += [put(p, -half, half, "semisolid", lining_texture or texture) for p in pr["lining"]]
+    spans = ([(-half - depth, -half)] if protrude in ("both", "-") else []) + \
+            ([(half, half + depth)] if protrude in ("both", "+") else [])
+    for s0, s1 in spans:
+        els += [put(p, s0, s1, "semisolid", texture) for p in pr["ring"]]
+    if portal:
+        els.append(_quad_portal([cx, cy, floor_z + height / 2], width, height, facing))
+    note = "" if cw >= 192 and ch >= 160 else \
+        f" NOTE: clear opening {cw:.0f} x {ch:.0f} is narrow for a main route (>= 192 wide, 160 high)."
+    return _added(*els) + f" | clear opening {cw:.0f} x {ch:.0f}, texture {texture}.{note}"
+
+
+@mcp.tool()
+def add_stack(center: list[float], floor_z: float, count: int = 3, size: list[float] | None = None,
+              sizes: list[list[float]] | None = None, max_offset: float = 0.15, max_rotation: float = 15,
+              yaw: float = 0, seed: int | None = None, texture: str = "", top_texture: str = "",
+              csg: str = "semisolid", group: str = "Stacks") -> str:
+    """Stack of crates / boxes / bricks (Klondike's crates, Rune's bricks, November's boxes): `count` boxes
+    (1-5) on top of each other, each resting fully on the one below, shifted by up to max_offset x its footprint
+    and turned by up to +-max_rotation deg against it, so the pile looks hand-placed, not generated.
+    size = [x,y,z] of every box (default 64 cube) or sizes = one per level from the bottom (e.g. a big crate
+    with a smaller one on top). Styles: neat / tech (max_offset 0.05, max_rotation 0-5), stored crates (0.15, 15),
+    messy / ruined (0.3, 35). count=1 with a rotation = a single turned crate or brick. Vary count, sizes and
+    seed between stacks; group several stacks and singles into a cluster. Same seed = same pile."""
+    d = doc()
+    if not 1 <= int(count) <= 5:
+        raise ValueError("count must be 1-5")
+    if not 0 <= max_offset <= 0.35:
+        raise ValueError("max_offset must be 0-0.35 (fraction of the box below; more falls off)")
+    if csg not in ("add", "semisolid"):
+        raise ValueError("csg must be 'semisolid' (default, doesn't cut the BSP) or 'add'")
+    lv = sizes or [size or [64, 64, 64]]
+    if any(len(s) != 3 or min(s) < 8 for s in lv):
+        raise ValueError("box sizes are [x,y,z], each >= 8")
+    cx, cy = d.snap(center[0]), d.snap(center[1])
+    if seed is None:
+        seed = int(abs(cx) * 7 + abs(cy) * 13 + abs(floor_z) * 3 + count)
+    lay = flair.stack_layout(int(count), [list(map(float, s)) for s in lv], max_offset, max_rotation, yaw, seed)
+    els = []
+    for k, b in enumerate(lay):
+        ft = {"top": top_texture} if top_texture else {}
+        els.append(d.add("brush", shape="box", csg=csg, location=[cx + b["offset"][0], cy + b["offset"][1],
+                                                                   floor_z + b["z"] + b["size"][2] / 2],
+                         size=b["size"], yaw=b["yaw"], texture=texture, face_textures=ft, group=group))
+    top = lay[-1]["z"] + lay[-1]["size"][2]
+    return _added(*els) + f" | {count} high, top at z={floor_z + top:.0f} (seed {seed})"
+
+
 @mcp.tool()
 def add_puddle(min_xy: list[float], max_xy: list[float], floor_z: float, depth: float = 16, texture: str = "",
                pan: str = "u") -> str:
@@ -780,24 +904,100 @@ def orient_spawns(ids: list[int] | None = None, only_bad: bool = False, step: in
 GRAVITY = 950.0
 
 
+# Kicker pad designs measured on 21 community CTF maps with 197 kickers (research/kicker_pads.json). None is a
+# block: pads are thin (4-8uu, pedestals <= 29), round or octagonal or framed, with a glowing (unlit) or marked
+# centre, usually a coloured light right above, sometimes a steam / smoke column.
+KICKER_PADS = {
+    # Duku (158 square plate, 91 recess), Entropic (119 / 83 octagon); centre: Spirit's round light
+    "ring": {"width": 160, "inner": 96, "height": 8, "recess": 4, "sides": 8,
+             "rim": "UTtech1.Base.metals5", "center": "SkyCity.Light.LiteBotm"},
+    # Inca (104 16-gon "jumpad"), Spirit (128), Sprinta (128); centre: a round target
+    "disc": {"width": 112, "height": 6, "sides": 16, "rim": "UTtech1.Base.metals5", "center": "Mine.Switch.Ring"},
+    # SpiritRedux (130 octagon, 29 high, target texture), Overflow (96 "Pad"): ArenaTex.RING is an octagonal pad
+    "pedestal": {"width": 128, "height": 24, "sides": 8, "rim": "UTtech1.Base.metals5", "center": "ArenaTex.RING"},
+    # w00t family / ]STORM[ (square 96-128 frame, unlit inlay 2uu below the floor); Naos' sqAb light
+    "inset": {"width": 128, "inner": 104, "height": 16, "sides": 4, "rim": "Mine.Base.MCMETL",
+              "center": "Atropos.Lights.sqAb"},
+}
+# Ancient / castle / Egyptian maps: carved discs instead of tech plates (Iztac, Inca)
+KICKER_CENTER_ANCIENT = {"disc": "Ancient.Deco.az-3a", "pedestal": "Ancient.Deco.DCRL"}
+ANCIENT_PACKAGES = {"ancient", "egypt", "egyptpan", "egyptian", "egyptsoc", "nalicast", "queen", "skycity"}
+
+
+def _tex_size(tex: str) -> list[int]:
+    """[USize, VSize] of a stock texture 'Package.Name' (128 x 128 if the package isn't found)."""
+    try:
+        sz = texpkg.TextureSizes(ucc.GAME_DIR, ucc.WORK, packages={tex.split(".")[0]}).size(tex)
+    except Exception:
+        sz = None
+    return list(sz) if sz else [128, 128]
+
+
 @mcp.tool()
-def add_kicker(x: float, y: float, floor_z: float, target: list[float], apex: float = 96, pad: bool = True,
-               pad_texture: str = "") -> str:
+def add_kicker(x: float, y: float, floor_z: float, target: list[float], apex: float = 96, pad: str | bool = "ring",
+               pad_texture: str = "", center_texture: str = "", light: bool = True, light_hue: int = 30,
+               light_saturation: int = 160, beam_texture: str = "") -> str:
     """Bouncer / jump pad (UT Kicker, as on Duku; Nuance uses jump pads): launches players from [x,y] at floor_z so
     they land on target [x,y,floor_z]. apex = extra height of the arc above the higher end (64-192). Use kickers
     (or add_teleporter) to reach elevated paths quickly instead of long ramps. The KickVelocity is solved for UT
-    gravity (950) with bKillVelocity=True, so the landing is predictable. pad=True adds a thin visible pad."""
+    gravity (950) with bKillVelocity=True, so the landing is predictable.
+    pad = a pad design from the community maps, so players recognise it as a bouncer (never a block):
+      'ring'     (default; Duku, Entropic) 160 octagon plate 8 high with a 96 recessed, glowing centre;
+      'disc'     (Inca, Spirit, Sprinta) 112 round glowing disc, 6 high;
+      'pedestal' (SpiritRedux, Overflow) 128 octagon, 24 high (a step), octagonal pad graphic on top;
+      'inset'    (w00t, ]STORM[) square glowing inlay in a framed recess;
+      False / 'none' = no pad. pad_texture = rim / body, center_texture = the glowing (unlit) centre - pick ones
+    that stand out from the floor (team colours, lights, arrows). The centre texture is fitted like on the
+    community pads: one tile across the centre, its middle on the pad's middle (a pad graphic, light or target
+    shows whole instead of a random slice); the rim stays world-aligned. Ancient / castle maps get carved discs
+    (Ancient.Deco.az-3a, DCRL) for disc and pedestal. light=True puts a coloured light just above it
+    (Duku: orange, hue 30). beam_texture (e.g. 'HubEffects.Steam1') adds a translucent column of crossed sheets
+    over the pad (PryXon smoke, NIXLE steam), visible from afar."""
     d = doc()
-    s0 = [x, y, floor_z + 40]
+    style = "ring" if pad is True else ("none" if pad in (False, None, "", "none") else pad)
+    if style not in KICKER_PADS and style != "none":
+        raise ValueError(f"pad must be one of {list(KICKER_PADS)} or 'none'")
+    P = KICKER_PADS.get(style, {})
+    stand = {"ring": P.get("recess", 0), "disc": P.get("height", 0), "pedestal": P.get("height", 0)}.get(style, 0)
+    s0 = [x, y, floor_z + stand + 40]
     t0 = [target[0], target[1], target[2] + 40]
     top = max(s0[2], t0[2]) + apex
     vz = math.sqrt(2 * GRAVITY * (top - s0[2]))
     T = vz / GRAVITY + math.sqrt(2 * (top - t0[2]) / GRAVITY)
     vel = [(t0[0] - s0[0]) / T, (t0[1] - s0[1]) / T, vz]
     els = [d.add("kicker", location=s0, target=list(target), velocity=[round(v, 2) for v in vel], apex=apex)]
-    if pad:
-        c, sz = _box_minmax([x - 48, y - 48, floor_z], [x + 48, y + 48, floor_z + 16])  # 16uu: walkable step
-        els.append(d.add("brush", shape="box", csg="semisolid", location=c, size=sz, texture=pad_texture, group="KickerPads"))
+    cx, cy = d.snap(x), d.snap(y)
+    ancient = (d.default_texture or "").split(".")[0].lower() in ANCIENT_PACKAGES
+    rim = pad_texture or P.get("rim", "")
+    ctr = center_texture or (KICKER_CENTER_ANCIENT.get(style) if ancient else None) or P.get("center", "")
+    csz = _tex_size(ctr) if ctr else [128, 128]
+
+    def cyl(width, z0, z1, csg, faces, flags=None, fit=None):
+        n = P["sides"]
+        r = width / 2 / math.cos(math.pi / n)  # width across flats
+        return d.add("brush", shape="cylinder", csg=csg, location=[cx, cy, (z0 + z1) / 2], radius=r, height=z1 - z0,
+                     sides=n, texture=rim, face_textures=faces, face_flags=flags or {}, group="KickerPads",
+                     face_fit={fit: [width] + csz} if fit else {})
+    if style == "ring":  # plate, then a shallow recess with a glowing floor (its bottom face) - Duku's construction
+        els.append(cyl(P["width"], floor_z, floor_z + P["height"], "add", {"top": rim, "sides": rim}))
+        els.append(cyl(P["inner"], floor_z + P["recess"], floor_z + P["height"] + 16, "subtract",
+                       {"bottom": ctr, "sides": rim}, {"bottom": PF_UNLIT}, fit="bottom"))
+    elif style in ("disc", "pedestal"):
+        els.append(cyl(P["width"], floor_z, floor_z + P["height"], "semisolid", {"top": ctr, "sides": rim},
+                       {"top": PF_UNLIT}, fit="top"))
+    elif style == "inset":  # framed recess in the floor, glowing inlay 2uu below the floor (no coplanar faces)
+        els.append(cyl(P["width"], floor_z - P["height"], floor_z + 16, "subtract", {"bottom": rim, "sides": rim}))
+        els.append(cyl(P["inner"], floor_z - P["height"], floor_z - 2, "add", {"top": ctr, "sides": rim},
+                       {"top": PF_UNLIT}, fit="top"))
+    pad_top = floor_z + max(stand, 0)
+    if beam_texture:
+        for ax in ("x", "y"):
+            els.append(d.add("brush", shape="sheet", csg="nonsolid", location=[cx, cy, pad_top + 112], width=96,
+                             height=208, axis=ax, texture=beam_texture, poly_flags=PF_TRANSLUCENT | PF_TWOSIDED,
+                             group="KickerPads"))
+    if light:
+        els.append(d.add("light", location=[cx, cy, pad_top + 56], brightness=200, radius=6, hue=int(light_hue),
+                         saturation=int(light_saturation)))
     h = math.hypot(*vel[:2])
     return _added(*els) + f" (flight {T:.2f}s, horizontal {h:.0f}uu/s, apex {top - 40:.0f})"
 
@@ -984,7 +1184,7 @@ def batch(operations: list[dict]) -> str:
     """Run many operations in one call. Each item: {"op": "<tool name>", ...that tool's arguments}.
     Allowed ops: add_box, add_corridor, add_cylinder, add_prism, add_ramp, add_stairs, add_zone_portal,
     add_hazard_pit, add_zone, add_light, add_player_start, add_flag, remove_elements, move_elements, update_element,
-    add_room, add_arc_corridor, add_window, add_puddle, add_kicker, add_teleporter.
+    add_room, add_arc_corridor, add_window, add_puddle, add_kicker, add_teleporter, add_door_frame, add_stack.
     Stops at the first error and reports which operation failed (earlier ones are kept)."""
     out = []
     for n, op in enumerate(operations):
@@ -1854,7 +2054,8 @@ BATCHABLE = {
     f.__name__: f
     for f in (add_box, add_corridor, add_cylinder, add_prism, add_ramp, add_stairs, add_zone_portal, add_hazard_pit,
               add_zone, add_light, add_player_start, add_flag, remove_elements, move_elements, update_element,
-              add_room, add_arc_corridor, add_window, add_puddle, add_kicker, add_teleporter)
+              add_room, add_arc_corridor, add_window, add_puddle, add_kicker, add_teleporter, add_door_frame,
+              add_stack)
 }
 
 if __name__ == "__main__":

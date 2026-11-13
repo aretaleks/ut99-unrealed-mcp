@@ -11,6 +11,7 @@ meant for InstaGib.
 - `mapgen.py`: geometry and T3D writer (format matched to a 469e export)
 - `ucc.py`: headless build and verification through `System/UCC.exe`
 - `preview.py`: Top/Front/Side wireframe PNGs
+- `flair.py`: detail geometry: entrance frames (`add_door_frame`) and stacked props (`add_stack`)
 - `assets.py`: reusable props of existing maps (`extract_assets`, `add_asset`)
 - `layout.py`: layout spec and floor images (`extract_layout`, `layout_image`)
 - `examples/`: the reviewed generated maps and their expected check results (`research/regression.py`)

@@ -130,6 +130,8 @@ class Poly:
     flags: int = 0
     # explicit texture mapping (brush-local origin, U, V, pan) - e.g. inherited from an existing map's faces
     mapping: tuple | None = None
+    # fitted texture (kicker pads): (width, usize, vsize) - one tile spans `width`uu, centred on the brush's axis
+    fit: tuple | None = None
 
 
 def orient_outward(polys: list[Poly], center: Vec) -> list[Poly]:
@@ -318,6 +320,13 @@ class MapDoc:
                 poly.texture = ft["bottom"]
             elif abs(n[2]) <= 0.7 and "sides" in ft:
                 poly.texture = ft["sides"]
+        # fitted faces: {"top": [width, usize, vsize]} - the texture centred on the brush, one tile across `width`
+        fit = p.get("face_fit") or {}
+        for poly in polys:
+            n = poly_normal(poly.verts)
+            key = "top" if n[2] > 0.7 else "bottom" if n[2] < -0.7 else "sides"
+            if key in fit and key != "sides":
+                poly.fit = tuple(float(x) for x in fit[key])
         # UE1 FPoly holds at most 16 vertices; bigger polygons (rounded rooms, many-sided cylinders) get truncated
         # and leave holes / black triangles in the BSP. Split them into convex fans of <= 12 vertices.
         split = []
@@ -329,7 +338,7 @@ class MapDoc:
             k = 1
             while k < len(v) - 1:
                 end = min(k + 11, len(v) - 1)  # piece = v0 + v[k..end]; consecutive pieces share edge v0-v[end]
-                split.append(Poly([v[0]] + list(v[k:end + 1]), poly.texture, poly.flags, poly.mapping))
+                split.append(Poly([v[0]] + list(v[k:end + 1]), poly.texture, poly.flags, poly.mapping, poly.fit))
                 k = end
         polys = split
         # per-face flags: {"top": int, "bottom": int, "sides": int} (e.g. FakeBackdrop for a sky ceiling)
@@ -406,6 +415,7 @@ class MapDoc:
                     polys,
                     p.get("group", ""),
                     p.get("tex_scale", 1.0),
+                    p.get("wall_base"),
                 )
             elif e.kind == "light":
                 name = nm("Light")
@@ -497,7 +507,7 @@ class MapDoc:
         return "\r\n".join(out)
 
     @staticmethod
-    def _brush_t3d(name, model, csg, flags, loc, polys, group, tex_scale=1.0) -> list[str]:
+    def _brush_t3d(name, model, csg, flags, loc, polys, group, tex_scale=1.0, wall_base=None) -> list[str]:
         lines = [f"Begin Actor Class=Brush Name={name}"]
         if csg:
             lines.append(f"     CsgOper={csg}")
@@ -517,6 +527,8 @@ class MapDoc:
         #   (trims, baseboards) starts at the floor instead of at an arbitrary world height
         origin = scale(loc, -1)
         zmin = min((v[2] for poly in polys for v in poly.verts), default=0.0)
+        if wall_base is not None:  # pieces of one object (door frame) share one anchor height -> no seams
+            zmin = wall_base - loc[2]
         wall_origin = (origin[0], origin[1], zmin)
         for poly in polys:
             n = poly_normal(poly.verts)
@@ -524,6 +536,13 @@ class MapDoc:
             u, v = tex_axes(nv, tex_scale or 1.0)
             o = wall_origin if abs(n[2]) <= 0.7 else origin
             pan = None
+            if poly.fit:  # one tile across fit width, texture centre on the brush axis (community pads, Spirit)
+                w, su, sv = poly.fit
+                k = su / w
+                uh, vh = norm(u), norm(v)
+                u, v = scale(uh, k), scale(vh, k)
+                c0 = (0.0, 0.0, sum(vt[2] for vt in poly.verts) / len(poly.verts))
+                o = sub(sub(c0, scale(uh, su / 2 / k)), scale(vh, sv / 2 / k))
             if poly.mapping:
                 o, u, v, pan = poly.mapping
             hdr = "          Begin Polygon"

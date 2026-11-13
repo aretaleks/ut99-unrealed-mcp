@@ -32,6 +32,8 @@ Arguments: `$ARGUMENTS`. The first word is the map name (prefix `CTF-` if missin
   - hazards: `add_hazard_pit`, punishers only;
   - vistas: `add_window`;
   - sky: `add_skybox`;
+  - entrance frames in the map's style: `add_door_frame` (chamfer / round arch for ancient themes, square trim for tech);
+  - crates, boxes, bricks: `add_stack` piles of 1–3, shifted and turned to look hand-placed;
   - boost spots: ledges and shortcuts reachable only with a teammate's boost. Ask the user for the boost height if it matters.
 
 ## 2. Build

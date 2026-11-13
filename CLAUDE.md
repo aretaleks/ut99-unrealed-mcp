@@ -20,6 +20,7 @@ Guidance for Claude Code sessions in this repository: an MCP server (`unrealed`)
   | `review.py` | Audit of existing maps |
   | `layout.py` | Layout spec and floor images |
   | `assets.py` | Reusable props of existing maps |
+  | `flair.py` | Detail geometry: entrance frames, stacked props |
   | `t3dimport.py` | T3D importer |
   | `ucc.py` | Headless UCC |
 - Skills: `ictf-map-design` holds the design rules; `new-map`, `review-map`, `fix-map`, `edit-map` and `remake-map` are the commands.

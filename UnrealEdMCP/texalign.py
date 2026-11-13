@@ -24,7 +24,7 @@ from collections import defaultdict
 import numpy as np
 
 import analysis
-from mapgen import PF_FAKEBACKDROP, PF_INVISIBLE, PF_PORTAL, MapDoc, poly_normal
+from mapgen import PF_FAKEBACKDROP, PF_INVISIBLE, PF_PORTAL, PF_UNLIT, MapDoc, poly_normal
 
 PAN_SIGN = 1.0  # see research/texalign_calibration (chosen as the sign that makes pool maps line up best)
 TEXEL_TOL = 1.0  # offsets below one texel are invisible
@@ -63,7 +63,7 @@ def faces_of(doc: MapDoc) -> list[dict]:
             O = np.array(t["origin"], float) + loc
             pan = t.get("pan", [0, 0])
             out.append({"brush": bi, "eid": e.id, "name": p.get("group", ""), "poly": k, "raw": t.get("index", k), "csg": csg,
-                        "verts": V, "n": nv, "d": float(nv @ V[0]), "texture": t.get("texture", ""),
+                        "verts": V, "n": nv, "d": float(nv @ V[0]), "texture": t.get("texture", ""), "flags": flags,
                         "U": Up, "V": Wp,
                         # u(P) = P . Up + cu  for P on the plane
                         "cu": float(-(O @ U) + PAN_SIGN * pan[0] + (V[0] @ (U - Up))),
@@ -237,7 +237,8 @@ def check(doc: MapDoc, sizes=None, max_items: int = 12) -> dict:
             distort.append(_item(f, f"stretched: scale U {su:.2f} vs V {sv:.2f}"))
         elif cosuv > 0.02:
             distort.append(_item(f, f"skewed: U/V at {np.degrees(np.arccos(min(1, cosuv))):.0f} deg"))
-        elif min(abs(su / q - 1) for q in POW2) > 0.02:
+        elif min(abs(su / q - 1) for q in POW2) > 0.02 and not f.get("flags", 0) & PF_UNLIT:
+            # unlit decals (kicker pad centres fitted to the pad, as on Spirit / Overflow) have no texels to match
             distort.append(_item(f, f"odd scale {su:.3f} (not a power of two: texels won't match neighbours)"))
         if wall and not abs(f["n"][2]) > 0.02:
             vz = abs(f["V"][2]) / lv
@@ -254,8 +255,23 @@ def check(doc: MapDoc, sizes=None, max_items: int = 12) -> dict:
                 elif _moddiff(vt, 0, vsz) <= TEXEL_TOL:
                     base["top"] += 1
                 else:
-                    base["off"] += 1
                     f["_base_off"] = (vb % vsz)
+    # a wall piece that continues a coplanar surface below it (upper pieces of a door frame, a wall built from
+    # stacked brushes) follows that surface's anchor; judge only the surface's lowest piece
+    offs = [f for f in visible if "_base_off" in f]
+    for f in offs:
+        zf = f["verts"][:, 2].min()
+        lo, hi = f["verts"].min(0) - 1, f["verts"].max(0) + 1
+        d_ = f["n"] @ f["verts"][0]
+        cont = any(g is not f and g["texture"].lower() == f["texture"].lower() and abs(g["n"] @ f["n"]) > 0.999
+                   and abs(g["n"] @ g["verts"][0] * np.sign(g["n"] @ f["n"]) - d_) < 0.5
+                   and g["verts"][:, 2].min() < zf - 1 and (g["verts"].min(0) <= hi).all() and (lo <= g["verts"].max(0)).all()
+                   for g in visible)
+        if cont:
+            del f["_base_off"]
+            base["aligned"] += 1
+        else:
+            base["off"] += 1
     # ---- coplanar seams and wall corners
     groups = defaultdict(list)
     for f in visible:

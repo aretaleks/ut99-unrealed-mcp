@@ -47,7 +47,7 @@ Rules are tagged by where they come from:
 - **[community]** (CTF-Lowtown) **No spawn clusters:** at most 2 same-team spawns in one view (within 1024uu). Three in one view means a flag carrier meets three defenders at once, and killing one gets you spawned on again. **[data]** Pool maps never have 4+, at most 3. Spread spawns over separate spots, around corners.
 - **[community]** (CTF-Lowtown) **No big empty rooms and no placeholder cubes.**
   - A huge room, or a tall one, with a lone plain box in the middle plays and looks empty. Split it into rooms, lower the ceiling, add levels, pillars and cover clusters.
-  - Shape cover: chamfer it, stack it, vary the heights, or use props (`add_asset`).
+  - Shape cover: chamfer it, stack it with `add_stack` (shifted and turned, not centred), vary the heights, or use props (`add_asset`).
   - **[data]** Plain lone boxes: 0 in 17 of 18 pool maps.
   - Sludgeline's mid (no extra verticality, enough in it) worked; Lowtown's 1536×1408×768 room with one cube didn't.
 - **[community]** (CTF-Derelict) **No missing polygons.** A visible face of a solid brush lying in the same plane as a carve's face (e.g. a stair riser flush with the stairwell's open end) can lose its polygon: a black strip. Probe verification can't see this, so `build_map` lists "Coplanar faces": offset one of the brushes by at least 16uu, or extend the carve past it. `add_stairs` avoids it by itself.
@@ -87,7 +87,14 @@ Rules are tagged by where they come from:
   - **Split the climb into smaller ramps:** flights of 128–192uu rise or less, with flat landings of 256uu or more between them, ideally turning direction at each landing and offering cover.
   - **[data]** A single ramp in the pool usually climbs about 128uu (90th percentile 192, max 256–384). `add_ramp(route="main")` and `add_stairs` reject one incline over 192uu.
 - **[community]** Elevation doesn't have to come from ramps. **Bouncers and portals** reach elevated paths quickly, as on Duku and Nuance99.
-  - `add_kicker(x, y, floor_z, target)` makes a jump pad: the launch velocity is solved for UT gravity, so players land on `target`, with a small visible pad.
+  - `add_kicker(x, y, floor_z, target)` makes a jump pad: the launch velocity is solved for UT gravity, so players land on `target`.
+  - **[community]** **A bouncer must look like a bouncer.** A square block reads as cover or a step, not a jump pad. **[data]** None of the 197 kickers on 21 community maps sits on a block. Pads are thin (4–8uu; pedestals up to 29), round, octagonal or framed, 96–160 wide, with a glowing (unlit), marked or team-coloured centre and usually a coloured light just above. `add_kicker(pad=...)` builds these designs:
+    - `"ring"` (default; Duku, Entropic): an octagon plate with a recessed glowing centre;
+    - `"disc"` (Inca, Spirit, Sprinta): a thin round glowing disc;
+    - `"pedestal"` (SpiritRedux, Overflow): a 24-high octagon with an octagonal pad graphic on top;
+    - `"inset"` (w00t, ]STORM[): a square glowing inlay just below the floor.
+  - **[community]** **Fit the centre texture to the pad.** World-aligned pad textures show a random, wrongly scaled slice and look off (user, on the first generated pads). **[data]** The community pads with a marked centre (Overflow, Spirit, SpiritRedux, TurboB1, Naos) all show one tile across the centre, with the texture's middle on the pad's middle; only the rims stay world-aligned. `add_kicker` fits the centre that way. Pick a centre texture that is one finished image (a pad graphic, round light, target or carved disc: `ArenaTex.RING`, `SkyCity.Light.LiteBotm`, `Mine.Switch.Ring`, `Atropos.Lights.sqAb`, `Ancient.Deco.az-3a`, `Ancient.Deco.DCRL`), not a tiling surface or a striped panel. Ancient and castle maps get the carved discs by default.
+  - Give the centre a texture that stands out from the floor (`center_texture`), keep the light (`light_hue`), and use the same design for every kicker on the map so players learn it. On tech or industrial maps, a steam or smoke column (`beam_texture="HubEffects.Steam1"`) makes it visible from afar (PryXon, NIXLE).
   - `add_teleporter(a, b, two_way=True)` makes a pair of portals.
   - Use them for upper walkways, flank shortcuts and getting back up after a drop. Keep 128uu or more free around arrival spots. The walk model counts both, so levels reached only by kickers or portals still connect.
 - **[community]** For a nicer look, use **"fake stairs"** (as on Duku's sides): visible steps with an invisible ramp over them, so movement is as smooth as a ramp. `add_stairs` does this by default (`fake_ramp=True`). It adds an invisible semisolid wedge through the step edges, `PolyFlags=33` (Invisible + Semisolid), exactly as Duku does, over **solid add steps** (also as on Duku). Duku's are 27°, which is steps 16 high by 32 deep.
@@ -128,6 +135,18 @@ Rules are tagged by where they come from:
   - `add_arc_corridor(...)` builds curved corridors and rounded corridor corners.
   - **[data]** Command's corners use about 15° segments, roughly 6 per quarter turn; that is the arc tool's default. Duku's rounded areas are octagons (45°); use `add_cylinder` with 8–16 sides.
   - Mix the shapes: square rooms, chamfered rooms, a rounded corner or arc passage per base, angled walls via `add_prism`. Don't round everything.
+- **[community]** **Entrance frames.** Frame the important entrances (flag-room doors, base gates, the main mid passages) to fit the map's style, as Duku, Iztac and BrokenLimits do. Not every opening: frames mark the routes that matter.
+  - `add_door_frame(center, floor_z, width, height, facing, wall_thickness, style)` carves the doorway through a wall and lines it with a frame that stands out from both wall faces. It builds semisolid mitred pieces with no texture seams.
+  - Pick the style by theme. Ancient, castle or Egyptian maps (Duku, Iztac, Rune): `"chamfer"` or `"round"` (an arch), thickness 32–48, stone or wood. Tech or industrial maps: `"square"`, thickness 16–24, metal trim.
+  - **[community]** **Give the frame its own texture.** Most community frames use a texture different from the wall around them, so the frame reads as a frame (user). `add_door_frame` does this by default: pale carved stone (`Ancient.Base.STONTSTC`) on ancient maps, dark plated metal (`Metalmys.MysMetl2`) on others, never the wall's own texture. Set `texture` to match the map's palette, or to the wall's texture for a frame cut into the wall.
+  - Frames narrow the opening by 2 × thickness. Keep main-route openings at least 192 wide and 160 high clear (the tool reports the clear size). Keep `depth` (how far it stands out) at 16 or less, so players strafing along the wall don't snag.
+  - Doorways between two rooms: leave a solid wall between the rooms and let the frame carve the hole (`carve=True`). A corridor mouth already carved: `carve=False` with the corridor's width and height, `protrude` toward the room.
+  - Add frames after the rooms: a later carve cuts the parts that stand out.
+- **[community]** **Hand-placed props, not generated ones.** Stacks don't always have two levels, and a top box doesn't sit exactly centred and square on the one below (Klondike's middle crates, Rune's bricks, CTF-November's boxes).
+  - `add_stack(center, floor_z, count, size | sizes, max_offset, max_rotation, seed)` piles 1–5 boxes. Each rests fully on the one below, shifted and turned a little.
+  - Vary the piles. Mix 1, 2 and 3 high, same-size boxes and big-under-small, and different seeds. A cluster is a few stacks and singles side by side.
+  - Style: neat or tech storage `max_offset=0.05, max_rotation=0–5`; stored crates `0.15, 15` (default); messy or ruined (bricks, rubble) `0.3, 35`. A single turned box or brick is `count=1`.
+  - Cover rules still apply: no hiding pockets near flags, and keep stacks from blocking routes.
 - **[community]** For flair, add a skybox with a moving sky texture.
   - `add_skybox(texture, pan="u")` builds a sealed, unlit, panning sky room above the map with a SkyZoneInfo. Textures: `GenFluid.sky.Ntskyt` (Duku), `SkyBox.Effects.NCld`, `SkyBox.lnd1`–`lnd4`, `SkyBox.Effects.nebula`, `GenFluid.cloud1`.
   - **[community]** (CTF-Slumgate) **Only the sky ceiling may show, never the sky room's shape.** A cube skybox shows its edges and corners overhead. **[data]** Duku's sky room is 3840 × 3072 × 384 with the camera 18uu above its floor. `add_skybox` builds a flat room (default 6144 × 6144 × 384, walls within ~6° of the horizon). Keep `tex_scale=1` for 128px sky textures (a tile spans ~20° overhead, like Duku); `clouds="GenFluid.Sky.Skytst7"` adds a translucent panning layer for depth (Slumgate: NCld + Skytst7, confirmed in-game). Duku also rings the camera with masked landscape cards (`SkyBox.2nd.Lnd2_x`) to hide the horizon.
@@ -212,7 +231,7 @@ feel narrow in InstaGib.
 | Spawns in the flag room or in sight of the flag | Move them forward, around corners, into side areas. |
 | Spawns facing a wall / looking back / no attacking path in view | `orient_spawns()` |
 | Spawn clusters (3+ in one view) | Move spawns apart or around corners; keep at most one team-mate spawn in view. |
-| Plain placeholder blocks | Chamfer or stack them, vary heights, build from several pieces, or use a prop. |
+| Plain placeholder blocks | Chamfer them, replace them with `add_stack` piles (offset, turned, 1–3 high), vary heights, build from several pieces, or use a prop. |
 | Big empty rooms | Split the room, lower the ceiling, add a level, pillars or 3+ cover pieces covering ≥ 8% of the floor. |
 | Knife edges between carves | Move the door onto the straight wall span, or widen the carve so it removes the whole wedge. |
 | Raised walkway climbable from one end | Add stairs, a ramp or a kicker at the other end (or mid-way along a long side). |
