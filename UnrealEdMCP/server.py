@@ -372,25 +372,39 @@ def add_arc_corridor(center: list[float], inner_radius: float, outer_radius: flo
 
 
 @mcp.tool()
-def add_skybox(texture: str, size: float = 2048, pan: str = "u", unlit: bool = True,
-               location: list[float] | None = None) -> str:
-    """Sealed skybox room far away from the map with a SkyZoneInfo; every surface flagged sky (add_box/add_room
-    sky=[...]) shows it. pan: 'u' | 'v' | 'none' - moving (panning) sky texture. Typical textures: SkyBox.lnd1-4,
-    SkyBox.Effects.NCld (clouds), SkyBox.Effects.nebula, GenFluid.cloud1/cloud2. One skybox per map."""
+def add_skybox(texture: str, width: float = 6144, height: float = 384, pan: str = "u", unlit: bool = True,
+               tex_scale: float = 1.0, clouds: str = "", location: list[float] | None = None) -> str:
+    """Sealed sky room far away from the map with a SkyZoneInfo; every surface flagged sky (add_box/add_room
+    sky=[...]) shows it. Built like Duku's: a FLAT, WIDE room (width x width x height) with the sky camera just
+    above its floor, so looking up you see one ceiling - its walls stay within ~6 deg of the horizon, below what
+    roof openings show (a cube showed its edges and corners overhead: CTF-Slumgate). pan: 'u' | 'v' | 'none' -
+    moving sky. tex_scale: 1 keeps a 128px texture at ~20 deg per tile overhead, as on Duku. clouds: optional
+    translucent, panning texture for a second layer under the ceiling (Duku: GenFluid.Sky.Skytst7), for depth.
+    UnrealEd's 3D view draws sky faces with their own texture, not the sky: check the sky in-game.
+    Typical textures: GenFluid.sky.Ntskyt (Duku), SkyBox.Effects.NCld (clouds), SkyBox.Effects.nebula,
+    GenFluid.cloud1/cloud2. One skybox per map."""
     d = doc()
     if any(e.kind == "zone" and e.params.get("type") == "sky" for e in d.elements):
         return "Map already has a skybox"
+    if height > width / 12:
+        raise ValueError("Keep the sky room flat (height <= width / 12): taller rooms show their walls and corners")
     if location is None:
         b = d.bounds()
         top = b[1][2] if b else 0
-        location = [0, 0, top + size / 2 + 4096]
-    half = size / 2
+        location = [0, 0, top + height / 2 + 512]  # close above the map: keeps the analysis grid small
     flags = (PF_UNLIT if unlit else 0) | {"u": PF_AUTOUPAN, "v": PF_AUTOVPAN, "none": 0}[pan]
     c = d.snapv(location)
-    box = d.add("brush", shape="box", csg="subtract", location=c, size=[size, size, size], texture=texture,
-                poly_flags=flags, group="SkyBox")
-    z = d.add("zone", type="sky", name="Sky", location=[c[0], c[1], c[2] - half / 2])
-    return _added(box, z)
+    box = d.add("brush", shape="box", csg="subtract", location=c, size=[width, width, height], texture=texture,
+                poly_flags=flags, tex_scale=tex_scale, group="SkyBox")
+    floor = c[2] - height / 2
+    els = [box]
+    if clouds:  # translucent two-sided non-solid sheet, a little below the ceiling (Duku: PolyFlags 780)
+        cf = PF_TRANSLUCENT | PF_TWOSIDED | (PF_UNLIT if unlit else 0) | {"u": PF_AUTOUPAN, "v": PF_AUTOVPAN, "none": PF_AUTOUPAN}[pan]
+        els.append(d.add("brush", shape="sheet", csg="nonsolid", location=[c[0], c[1], c[2] + height / 2 - 64],
+                         width=width - 64, height=width - 64, axis="z", poly_flags=cf, texture=clouds,
+                         tex_scale=tex_scale, group="SkyBox"))
+    els.append(d.add("zone", type="sky", name="Sky", location=[c[0], c[1], floor + 32]))
+    return _added(*els)
 
 
 @mcp.tool()
@@ -1117,6 +1131,10 @@ def build_map(filename: str = "", lighting: bool = True, paths: str = "define", 
     if out.exists() and not overwrite and str(out) not in _built_registry():
         return f"{out} exists and was not created by this tool. Pass overwrite=True to replace it."
     report: dict = {}
+    covered = _cover_sky_steps(d)
+    if covered:
+        save()
+        report["sky_steps_covered"] = covered
     best, vres, applied, history = autofix.autofix(d, max_fix_attempts if auto_fix else 0)
     vox = vres.get("vox")
     STATE["markers"] = {"paths": vox.leak_paths if vox else [], "points": vres.get("bad_points", [])}
@@ -1699,6 +1717,42 @@ def set_bsp_options(mode: str | None = None, balance: int | None = None, portal_
     return json.dumps(d.bsp)
 
 
+SKY_COVER_GROUP = "SkyStepCover"
+
+
+def _cover_sky_steps(d: MapDoc) -> list[str]:
+    """Hide wall strips between two sky ceilings of different heights (CTF-Slumgate: a brick 'beam' floating in
+    the sky, visible from one side only). Each strip gets a thin semisolid block in front of it with sky on every
+    face, so the step disappears into the sky. A block (not a carve) adds no open space, so zoning can't change.
+    Recomputed on every build; returns what changed."""
+    old = [e for e in d.elements if e.params.get("group") == SKY_COVER_GROUP]
+    for e in old:
+        d.remove(e.id)
+    want = []
+    for s in analysis.sky_steps(d):
+        nx, ny = s["normal"]
+        a, b = s["a"], s["b"]
+        pts = [a, b, [b[0] + 16 * nx, b[1] + 16 * ny], [a[0] + 16 * nx, a[1] + 16 * ny]]
+        pts = [[d.snap(p[0]), d.snap(p[1])] for p in pts]
+        if len({tuple(p) for p in pts}) < 3:
+            continue
+        cx = d.snap(sum(p[0] for p in pts) / 4)
+        cy = d.snap(sum(p[1] for p in pts) / 4)
+        z0, z1 = s["z"]
+        want.append(dict(shape="prism", csg="semisolid", location=[cx, cy, (z0 + z1) / 2],
+                         points=[[p[0] - cx, p[1] - cy] for p in pts], height=z1 - z0, texture="",
+                         face_flags={"top": PF_FAKEBACKDROP, "bottom": PF_FAKEBACKDROP, "sides": PF_FAKEBACKDROP},
+                         group=SKY_COVER_GROUP, covers=f"wall of #{s['wall_of']} above sky ceiling of #{s['above']}"))
+    same = len(want) == len(old) and all(w == {k: v for k, v in o.params.items()} for w, o in zip(want, old))
+    if same:  # unchanged: put the old elements back with their ids
+        d.elements += old
+        return []
+    for w in want:
+        d.add("brush", **w)
+    return [f"{w['covers']}: {w['height']:.0f}uu sky step at z={w['location'][2] - w['height'] / 2:.0f}" for w in want] or \
+        ([f"removed {len(old)} sky-step cover(s) no longer needed"] if old else [])
+
+
 def _lint(d: MapDoc) -> list[str]:
     """Checks the engine can't report: spawns hovering over hazard pits, missing spawns/zones/lights."""
     out = []
@@ -1752,6 +1806,19 @@ def _lint(d: MapDoc) -> list[str]:
             out.append(f"Fake-stairs ramp #{r.id} (invisible semisolid) overlaps semisolid brush(es) #{', #'.join(map(str, under[:6]))}"
                        f"{' ...' if len(under) > 6 else ''} - UE1 drops the ramp from the BSP, players walk the steps (view "
                        "jitter). Make the steps csg='add' (add_stairs does this now)")
+    # CTF-Slumgate: a cube skybox shows its edges and corners overhead; Duku's sky room is 3840 x 3072 x 384
+    for e in d.elements:
+        if e.kind == "brush" and e.params.get("group") == "SkyBox" and e.params.get("shape") == "box":
+            sx, sy, sz = e.params["size"]
+            if sz > min(sx, sy) / 8:
+                out.append(f"Sky room #{e.id} is {sx:.0f} x {sy:.0f} x {sz:.0f}: too tall for its width, so its walls "
+                           "and corners show through sky openings. Rebuild it with add_skybox (flat: e.g. 6144 x 6144 x 384)")
+    try:  # CTF-Slumgate: wall strip between two sky ceilings (build_map covers these; lint shows what's left)
+        for s in analysis.sky_steps(d)[:6]:
+            out.append(f"Sky step at {s['a']}-{s['b']} z={s['z']}: the wall of #{s['wall_of']} above the sky ceiling of "
+                       f"#{s['above']} shows as a floating zero-thickness wall - build_map covers it with a sky block")
+    except Exception:
+        pass
     try:  # CTF-Tenement lessons: knife edges between carves, flags sunk into the floor
         ke = mmetrics.knife_edges(d)
         for sp_ in ke["knife_edge_spots"][:6]:

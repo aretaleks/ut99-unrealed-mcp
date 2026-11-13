@@ -21,7 +21,9 @@
   "lint: coplanar faces (missing polygons)": "FOUND",
   "lint: knife edges": "none",
   "lint: flag height": "FOUND",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "FOUND"
  },
  "CTF-Coldrush": {
   "no spawns in the flag room": "PASS",
@@ -45,7 +47,9 @@
   "lint: coplanar faces (missing polygons)": "none",
   "lint: knife edges": "none",
   "lint: flag height": "FOUND",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "none"
  },
  "CTF-Derelict": {
   "no spawns in the flag room": "PASS",
@@ -69,7 +73,9 @@
   "lint: coplanar faces (missing polygons)": "FOUND",
   "lint: knife edges": "none",
   "lint: flag height": "none",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "FOUND"
  },
  "CTF-Lowtown": {
   "no spawns in the flag room": "PASS",
@@ -93,7 +99,9 @@
   "lint: coplanar faces (missing polygons)": "none",
   "lint: knife edges": "none",
   "lint: flag height": "none",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "FOUND"
  },
  "CTF-Motherlode": {
   "no spawns in the flag room": "PASS",
@@ -117,7 +125,9 @@
   "lint: coplanar faces (missing polygons)": "FOUND",
   "lint: knife edges": "none",
   "lint: flag height": "FOUND",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "none"
  },
  "CTF-Sludgeline": {
   "no spawns in the flag room": "PASS",
@@ -141,7 +151,9 @@
   "lint: coplanar faces (missing polygons)": "FOUND",
   "lint: knife edges": "FOUND",
   "lint: flag height": "FOUND",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "FOUND"
  },
  "CTF-Slumgate": {
   "no spawns in the flag room": "PASS",
@@ -165,7 +177,9 @@
   "lint: coplanar faces (missing polygons)": "none",
   "lint: knife edges": "none",
   "lint: flag height": "none",
-  "lint: fake ramp over semisolid steps": "FOUND"
+  "lint: fake ramp over semisolid steps": "FOUND",
+  "lint: sky steps": "FOUND",
+  "lint: cube skybox": "FOUND"
  },
  "CTF-Tenement": {
   "no spawns in the flag room": "PASS",
@@ -189,6 +203,8 @@
   "lint: coplanar faces (missing polygons)": "none",
   "lint: knife edges": "FOUND",
   "lint: flag height": "FOUND",
-  "lint: fake ramp over semisolid steps": "none"
+  "lint: fake ramp over semisolid steps": "none",
+  "lint: sky steps": "none",
+  "lint: cube skybox": "FOUND"
  }
 }

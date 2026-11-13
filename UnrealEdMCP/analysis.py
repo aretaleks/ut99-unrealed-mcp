@@ -14,7 +14,7 @@ from collections import Counter, deque
 
 import numpy as np
 
-from mapgen import MapDoc, PF_INVISIBLE, PF_PORTAL, add, poly_normal
+from mapgen import MapDoc, PF_FAKEBACKDROP, PF_INVISIBLE, PF_PORTAL, add, poly_normal
 
 DIRS = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
 SOLID, OPEN, SEMI = 0, 1, 2
@@ -574,3 +574,65 @@ def coplanar_faces(doc: MapDoc, max_items: int = 20) -> dict:
             seen.add(k)
             uniq.append(o)
     return {"coplanar_faces": len(uniq), "coplanar_list": uniq[:max_items]}
+
+
+# ------------------------------------------------------------------ sky steps (CTF-Slumgate)
+def _sky_top(e) -> bool:
+    ff = e.params.get("face_flags") or {}
+    return e.kind == "brush" and e.params.get("csg") == "subtract" and bool(int(ff.get("top", 0)) & PF_FAKEBACKDROP)
+
+
+def sky_steps(doc: MapDoc, step: float = 16.0) -> list[dict]:
+    """Wall strips between two sky ceilings of different heights. Where a sky-ceiling carve H meets a lower
+    sky-ceiling carve L, the part of H's wall above L's ceiling stays a textured face with sky on both sides of it
+    in view: it looks like a floating zero-thickness wall, seen from H only (CTF-Slumgate's brick 'beam').
+    Returns one item per wall face and lower carve: the strip's ends a, b (on the wall), its z range and the
+    wall's visible normal (pointing into H)."""
+    import texalign  # texalign imports this module
+    sky = [e for e in doc.elements if _sky_top(e)]
+    if len(sky) < 2:
+        return []
+    info = {b["id"]: b for b in brush_info(doc)}
+    space = texalign.Space(doc)
+    out = []
+    for h in sky:
+        bh = info[h.id]
+        h_top = float(bh["hi"][2])
+        for l_ in sky:
+            bl = info[l_.id]
+            l_top = float(bl["hi"][2])
+            if l_.id == h.id or not (bh["lo"][2] + 1 < l_top < h_top - 1):
+                continue
+            if (bl["lo"][:2] > bh["hi"][:2] + 32).any() or (bh["lo"][:2] > bl["hi"][:2] + 32).any():
+                continue
+            for poly, n_out in zip(bh["polys"], bh["N"]):
+                if abs(n_out[2]) > 0.1:
+                    continue  # side faces only
+                V = np.array(poly, float)
+                nv = -np.asarray(n_out, float)  # a carve's faces are seen from inside
+                horiz = V[:, :2]
+                # the face's horizontal extent: its two extreme vertices along the wall direction
+                d = np.array([-nv[1], nv[0]])
+                t = horiz @ d
+                a2, b2 = horiz[t.argmin()], horiz[t.argmax()]
+                length = float(np.linalg.norm(b2 - a2))
+                if length < step:
+                    continue
+                ts = np.arange(step / 2, length, step) / length
+                xy = a2[None, :] + ts[:, None] * (b2 - a2)[None, :]
+                zm = (l_top + h_top) / 2
+                P = np.column_stack([xy, np.full(len(xy), zm)])
+                below = P - 8 * nv
+                below[:, 2] = l_top - 16
+                st = space.state(np.vstack([P + 2 * nv, P - 2 * nv, below]))
+                k = len(P)
+                hit = (st[:k] == 1) & (st[k:2 * k] != 1) & (st[2 * k:] == 1) & inside_brush(bl, below)
+                if hit.sum() < 2:
+                    continue
+                idx = np.flatnonzero(hit)
+                t0, t1 = max(ts[idx[0]] - step / 2 / length, 0.0), min(ts[idx[-1]] + step / 2 / length, 1.0)
+                pa, pb = a2 + t0 * (b2 - a2), a2 + t1 * (b2 - a2)
+                out.append({"wall_of": h.id, "above": l_.id, "a": [round(float(v)) for v in pa],
+                            "b": [round(float(v)) for v in pb], "z": [round(l_top), round(h_top)],
+                            "normal": [round(float(v), 3) for v in nv[:2]], "length": round(float(np.linalg.norm(pb - pa)))})
+    return out

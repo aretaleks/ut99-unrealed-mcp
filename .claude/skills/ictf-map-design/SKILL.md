@@ -129,7 +129,9 @@ Rules are tagged by where they come from:
   - **[data]** Command's corners use about 15° segments, roughly 6 per quarter turn; that is the arc tool's default. Duku's rounded areas are octagons (45°); use `add_cylinder` with 8–16 sides.
   - Mix the shapes: square rooms, chamfered rooms, a rounded corner or arc passage per base, angled walls via `add_prism`. Don't round everything.
 - **[community]** For flair, add a skybox with a moving sky texture.
-  - `add_skybox(texture, pan="u")` builds a sealed, unlit, panning sky room far above the map with a SkyZoneInfo. Textures: `SkyBox.Effects.NCld`, `SkyBox.lnd1`–`lnd4`, `SkyBox.Effects.nebula`, `GenFluid.cloud1`.
+  - `add_skybox(texture, pan="u")` builds a sealed, unlit, panning sky room above the map with a SkyZoneInfo. Textures: `GenFluid.sky.Ntskyt` (Duku), `SkyBox.Effects.NCld`, `SkyBox.lnd1`–`lnd4`, `SkyBox.Effects.nebula`, `GenFluid.cloud1`.
+  - **[community]** (CTF-Slumgate) **Only the sky ceiling may show, never the sky room's shape.** A cube skybox shows its edges and corners overhead. **[data]** Duku's sky room is 3840 × 3072 × 384 with the camera 18uu above its floor. `add_skybox` builds a flat room (default 6144 × 6144 × 384, walls within ~6° of the horizon). Keep `tex_scale=1` for 128px sky textures (a tile spans ~20° overhead, like Duku); `clouds="GenFluid.Sky.Skytst7"` adds a translucent panning layer for depth (Slumgate: NCld + Skytst7, confirmed in-game). Duku also rings the camera with masked landscape cards (`SkyBox.2nd.Lnd2_x`) to hide the horizon.
+  - **[community]** (CTF-Slumgate) **No steps between sky ceilings.** Where two outdoor areas with sky ceilings at different heights meet, the taller one's wall above the lower sky looks like a floating zero-thickness wall. `build_map` covers each such strip with a thin sky-faced block and reports it ("sky_steps_covered"). Better still, give touching outdoor areas the same sky height.
   - Then open spaces to it with `sky=["ceiling"]` (or `"walls"`) on `add_box`/`add_room`. Those faces become `FakeBackdrop`, as in Duku, Rune and Anfractuous.
   - Sky ceilings suit courtyards and outdoor midfields. They still block players, so the room keeps its normal height rules.
 - **[community]** Lava, slime and water don't have to be reachable; they can just be **visible**: beyond the playable area, seen through cut-outs or windows (Anfractuous).
@@ -231,6 +233,7 @@ feel narrow in InstaGib.
 | Not enough light | Add lights until there are ≥ 12 per M uu² of floor, evenly, including corridors and ramps. |
 | Texture seams or corner steps (`check_textures`) | Usually a manual `tex_scale` that isn't a power of two, or mixed scales on touching faces. Use 0.5, 1, 2 or 4, the same value for neighbours. |
 | Fake-stairs ramp missing from the built BSP / stair step is a hole (build problems) | Make the steps under the ramp `csg="add"` (`update_element`, or rebuild the flight with `add_stairs`) and build again. |
+| Sky room too tall (lint) | Remove the old skybox brush and sky zone, then `add_skybox` again. |
 | Hiding pockets near the flags | Remove houses and enterable boxes; give side rooms two or more exits, or open them into the main route. |
 
 You can also study any existing map with `analyze_existing_map("<path or name>.unr")`, for example to compare a

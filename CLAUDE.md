@@ -63,4 +63,4 @@ The user (an experienced iCTF player) plays generated maps and reports what's wr
   - UE1 is left-handed (unmirrored when U × V points along the visible normal);
   - FlagBase stands at floor + 64;
   - a semisolid fake ramp over semisolid steps vanishes from the BSP: steps under it must be solid adds (Duku). To see what the engine really built, trace the BSP with `unrbsp.py`.
-- **Checking a fix visually:** UCC can't render, so ask the user to look in-game or in UnrealEd at specific coordinates when a fix is visual (textures, missing polygons).
+- **Checking a fix visually:** UCC can't render, so ask the user to look in-game or in UnrealEd at specific coordinates when a fix is visual (textures, missing polygons). The sky only renders in-game: UnrealEd's 3D view draws sky faces with their own texture, so ask which one a screenshot is from.

@@ -27,6 +27,6 @@ They are **the maps as reviewed, problems included**. They're not examples of go
 | CTF-Tenement | Long sightlines; walkway climbable from one end; stairs cut off; knife edges at chamfered corners; flags sunk into the floor. |
 | CTF-Derelict | Black strip at the bottom of carved stairs: a riser coplanar with its tunnel (coplanar-face lint); a map "like" another should reuse its props (`extract_assets`). |
 | CTF-Lowtown | Three spawns in one view; a huge, tall room with one plain cube in it. Props copied from DOM-Condemned were removed from this file (no game content in the repo), so the checks run on the generated geometry only. |
-| CTF-Slumgate | Fake stairs that still jittered, and a hole at the top of the middle stairs: semisolid steps under the invisible ramp, so the engine dropped the ramp (fake-ramp lint; `build_map` now traces the built BSP). Props copied from DOM-Condemned removed. |
+| CTF-Slumgate | Fake stairs that still jittered, and a hole at the top of the middle stairs: semisolid steps under the invisible ramp, so the engine dropped the ramp (fake-ramp lint; `build_map` now traces the built BSP). A cube skybox whose corners showed, and a brick strip floating between two sky ceilings (sky-room and sky-step lints). Props copied from DOM-Condemned removed. |
 
 Built with stock UT99 textures only. New reviewed maps belong here too: add the project, record the expectations, and add a row.

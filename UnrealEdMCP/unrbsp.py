@@ -33,19 +33,24 @@ class Model:
         if p.names[p._ci()] != "None":  # world models have no tagged properties
             raise ValueError("model with properties")
         p.pos += 25 + 16  # FBox (min, max, IsValid) + FSphere
-        for _ in range(2):  # Vectors, Points
-            n = p._ci()
-            p.pos += 12 * n
+        n = p._ci()  # Vectors (normals, texture axes)
+        p.pos += 12 * n
+        n = p._ci()
+        self.points = list(struct.iter_unpack("<3f", p.data[p.pos:p.pos + 12 * n]))
+        p.pos += 12 * n
         n = p._ci()
         self.nodes: list[tuple] = []  # (a, b, c, w, flags, iSurf, iBack, iFront)
+        self.node_polys: list[tuple[int, int]] = []  # (iVertPool, NumVertices)
         for _ in range(n):
             a, b, c, w = struct.unpack_from("<4f", p.data, p.pos)
             p.pos += 24  # plane + ZoneMask
             flags = p.data[p.pos]
             p.pos += 1
-            _vp, isurf, iback, ifront, _ipl, _cb, _rb = (p._ci() for _ in range(7))
+            vp, isurf, iback, ifront, _ipl, _cb, _rb = (p._ci() for _ in range(7))
+            nv = p.data[p.pos + 2]
             p.pos += 3 + 8  # iZone[2], NumVertices, iLeaf[2]
             self.nodes.append((a, b, c, w, flags, isurf, iback, ifront))
+            self.node_polys.append((vp, nv))
         n = p._ci()
         self.surf_flags: list[int] = []
         for _ in range(n):
@@ -56,6 +61,13 @@ class Model:
                 p._ci()
             p.pos += 4  # PanU, PanV
             p._ci()
+        n = p._ci()  # Verts: (pVertex, iSide)
+        self.verts = [(p._ci(), p._ci())[0] for _ in range(n)]
+
+    def poly(self, i: int) -> list[tuple[float, float, float]]:
+        """Vertices of node i's polygon (empty for nodes without one)."""
+        vp, nv = self.node_polys[i]
+        return [self.points[self.verts[vp + k]] for k in range(nv)] if nv else []
 
     def solid(self, x: float, y: float, z: float) -> bool:
         """True if the point is inside solid (UModel point classification, NotCsg nodes pass through)."""

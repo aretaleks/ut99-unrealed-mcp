@@ -32,7 +32,7 @@ CHECKS = ["no spawns in the flag room", "no spawns with line of sight to own fla
 
 
 LINT = {"coplanar faces (missing polygons)": "Coplanar faces", "knife edges": "Knife edge", "flag height": "uu above the floor",
-        "fake ramp over semisolid steps": "Fake-stairs ramp"}
+        "fake ramp over semisolid steps": "Fake-stairs ramp", "sky steps": "Sky step at", "cube skybox": "Sky room #"}
 
 
 def run() -> dict:
